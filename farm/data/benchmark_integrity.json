@@ -1,0 +1,138 @@
+{
+ "_comment": "Benchmark integrity audit. tasks/ is largely a writeup/разбор archive; most tasks lack clean challenge artifacts. Fair solve-rate benchmarking needs the ORIGINAL attachments / live CTFd, not this folder.",
+ "summary": {
+  "clean-offline": 6,
+  "uncertain": 0,
+  "needs-remote/web": 10,
+  "writeup-only/no-artifact": 5
+ },
+ "quarantined_count": 46,
+ "per_task": {
+  "osint/Аз есмь опричнина": {
+   "staged": 7,
+   "screenshotish": 0.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "osint/Кольцевой транзит": {
+   "staged": 1,
+   "screenshotish": 0.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "osint/Попутная волна": {
+   "staged": 6,
+   "screenshotish": 0.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "crypto/Всё по ГОСТу": {
+   "staged": 1,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "crypto/Перехват": {
+   "staged": 5,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "crypto/Счет_за_200_лет": {
+   "staged": 2,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "forensic/Sled": {
+   "staged": 1,
+   "screenshotish": 1.0,
+   "needs_net": false,
+   "label": "writeup-only/no-artifact"
+  },
+  "forensic/dispatch_listening": {
+   "staged": 1,
+   "screenshotish": 1.0,
+   "needs_net": false,
+   "label": "writeup-only/no-artifact"
+  },
+  "forensic/first_record": {
+   "staged": 0,
+   "screenshotish": 1.0,
+   "needs_net": false,
+   "label": "writeup-only/no-artifact"
+  },
+  "misc/QSL": {
+   "staged": 2,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "misc/classic": {
+   "staged": 8,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "misc/Состав": {
+   "staged": 2,
+   "screenshotish": 0.0,
+   "needs_net": false,
+   "label": "clean-offline"
+  },
+  "pentest/2loss": {
+   "staged": 35,
+   "screenshotish": 0.97,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "pwn/diameters": {
+   "staged": 22,
+   "screenshotish": 0.77,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "pwn/face_of_the_system": {
+   "staged": 40,
+   "screenshotish": 1.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "reverse/License": {
+   "staged": 0,
+   "screenshotish": 1.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "reverse/audit": {
+   "staged": 5,
+   "screenshotish": 1.0,
+   "needs_net": false,
+   "label": "writeup-only/no-artifact"
+  },
+  "reverse/СУСАНИН": {
+   "staged": 42,
+   "screenshotish": 0.98,
+   "needs_net": false,
+   "label": "writeup-only/no-artifact"
+  },
+  "web/CopyCore": {
+   "staged": 17,
+   "screenshotish": 1.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "web/Договорнячек": {
+   "staged": 16,
+   "screenshotish": 1.0,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  },
+  "web/Слушалка": {
+   "staged": 12,
+   "screenshotish": 0.83,
+   "needs_net": true,
+   "label": "needs-remote/web"
+  }
+ }
+}

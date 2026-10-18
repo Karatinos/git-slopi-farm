@@ -29,3 +29,6 @@ __pycache__/
 .history/
 .history*
 *~
+
+# local launcher (contains key)
+farm/START_RUN.command
