@@ -16,6 +16,7 @@ metrics on the corpus non-trivial even before a paid key is plugged in.
 from __future__ import annotations
 
 import json
+import os
 import re
 import uuid
 from typing import Any, Dict, List, Optional
@@ -34,6 +35,14 @@ class DeepSeekProvider:
         from openai import OpenAI  # lazy import; only needed with a real key
         self._client = OpenAI(api_key=api_key, base_url=base_url, timeout=timeout)
         self._model_ids = model_ids
+        self._base_url = base_url or ""
+        self._is_openrouter = "openrouter" in self._base_url.lower()
+        # off|low|medium|high — controls the OpenRouter `reasoning` param so the
+        # same Flash slug can run cheap (low) or hard (high) without a model swap.
+        self._reasoning_effort = os.environ.get("DEEPSEEK_REASONING_EFFORT", "low").lower()
+        # OpenRouter adds extra HTTP headers for attribution/routing.
+        self._extra_headers = ({"HTTP-Referer": "https://localhost/slopi-farm",
+                                "X-Title": "slopi-farm"} if self._is_openrouter else None)
 
     def complete(self, *, messages: List[Dict[str, Any]], tier: str,
                  tools: Optional[List[Dict[str, Any]]] = None,
@@ -46,6 +55,19 @@ class DeepSeekProvider:
         if tools:
             kwargs["tools"] = tools
             kwargs["tool_choice"] = "auto"
+        extra_body: Dict[str, Any] = {}
+        if self._is_openrouter:
+            # Ask OpenRouter to return the real billed cost in usage so the
+            # governor is EXACT (no local price-table drift / undercount hack).
+            extra_body["usage"] = {"include": True}
+            if self._reasoning_effort in ("low", "medium", "high"):
+                extra_body["reasoning"] = {"effort": self._reasoning_effort}
+            elif self._reasoning_effort in ("off", "none", "false"):
+                extra_body["reasoning"] = {"enabled": False}
+        if extra_body:
+            kwargs["extra_body"] = extra_body
+        if self._extra_headers:
+            kwargs["extra_headers"] = self._extra_headers
         resp = self._client.chat.completions.create(**kwargs)
         choice = resp.choices[0]
         msg = choice.message
@@ -67,19 +89,32 @@ class DeepSeekProvider:
                 tool_calls = leaked
 
         u = resp.usage
-        # DeepSeek returns cache hit/miss split; fall back gracefully.
-        hit = getattr(u, "prompt_cache_hit_tokens", None)
-        miss = getattr(u, "prompt_cache_miss_tokens", None)
-        prompt = u.prompt_tokens if u else 0
-        if hit is None or miss is None:
-            hit, miss = 0, prompt
+
+        def _extra(obj, key, default=None):
+            v = getattr(obj, key, None)
+            if v is None and hasattr(obj, "model_extra") and obj.model_extra:
+                v = obj.model_extra.get(key)
+            return default if v is None else v
+
+        prompt = (u.prompt_tokens if u else 0) or 0
+        # Cache-hit tokens: DeepSeek-native field OR OpenAI/OpenRouter
+        # prompt_tokens_details.cached_tokens.
+        hit = _extra(u, "prompt_cache_hit_tokens") if u else None
+        if hit is None and u is not None:
+            det = getattr(u, "prompt_tokens_details", None)
+            if det is not None:
+                hit = _extra(det, "cached_tokens")
+        hit = int(hit or 0)
+        miss = max(0, prompt - hit)
         usage = Usage(
             prompt_tokens=prompt,
-            completion_tokens=(u.completion_tokens if u else 0),
-            cache_hit_tokens=hit or 0,
-            cache_miss_tokens=miss if miss is not None else prompt,
+            completion_tokens=(u.completion_tokens if u else 0) or 0,
+            cache_hit_tokens=hit,
+            cache_miss_tokens=miss,
         )
-        return GatewayResponse(
+        # Exact billed cost from OpenRouter (usage.cost), when present.
+        reported_cost = _extra(u, "cost") if u else None
+        gr = GatewayResponse(
             text=text,
             tool_calls=tool_calls,
             model_tier=tier,
@@ -88,6 +123,13 @@ class DeepSeekProvider:
             finish_reason=choice.finish_reason or "stop",
             raw=resp,
         )
+        if reported_cost is not None:
+            try:
+                gr.cost_usd = float(reported_cost)
+                gr.cost_from_provider = True
+            except (TypeError, ValueError):
+                pass
+        return gr
 
 
 _DSML_BLOCK = re.compile(r"<[｜|]+DSML[｜|]+tool_calls>.*?(?:</[｜|]+DSML[｜|]+tool_calls>|$)", re.DOTALL)

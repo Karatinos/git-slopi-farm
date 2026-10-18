@@ -103,7 +103,8 @@ class ModelGateway:
                     messages=messages, tier=tier, tools=tools,
                     temperature=temperature, max_tokens=max_tokens,
                 )
-                resp.cost_usd = price_call(tier, resp.usage)
+                if not getattr(resp, "cost_from_provider", False):
+                    resp.cost_usd = price_call(tier, resp.usage)
                 self._book(resp, ledger)
                 return resp
             except Exception as e:  # noqa: BLE001 - provider-agnostic retry

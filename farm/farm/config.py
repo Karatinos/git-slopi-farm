@@ -60,11 +60,12 @@ class ModelPricing:
 
 PRICING: Dict[str, ModelPricing] = {
     # DeepSeek V4-Flash (~284B) — the swarm workhorse.
-    "flash": ModelPricing(input_miss=0.14, input_hit=0.0028, output=0.28),
-    # Same Flash model in thinking mode (reasoning tokens bill as output).
-    "think": ModelPricing(input_miss=0.14, input_hit=0.0028, output=0.28),
-    # DeepSeek V4-Pro (~1.6T) — rare escalation. Sources disagree; conservative.
-    "pro": ModelPricing(input_miss=0.435, input_hit=0.022, output=0.87),
+    # OpenRouter deepseek/deepseek-v4.1-flash (verified /models 2026-10-18).
+    "flash": ModelPricing(input_miss=0.04, input_hit=0.004, output=0.144),
+    # Same Flash model with reasoning on (reasoning tokens bill as output).
+    "think": ModelPricing(input_miss=0.04, input_hit=0.004, output=0.144),
+    # OpenRouter deepseek/deepseek-v4-pro — rare escalation.
+    "pro": ModelPricing(input_miss=0.209, input_hit=0.02, output=0.418),
 }
 
 # Logical tier -> concrete API model id. Overridable via env so the exact
@@ -76,11 +77,11 @@ PRICING: Dict[str, ModelPricing] = {
 # never reached V4-Pro. Pro must be addressed by its explicit id.
 MODEL_IDS = {
     "deepseek": {
-        "flash": os.environ.get("DEEPSEEK_FLASH_MODEL", "deepseek-chat"),
-        # Flash with thinking: the ALL-farm worker (non-thinking Flash wandered
-        # in multi-step reasoning tasks; thinking costs only output tokens).
-        "think": os.environ.get("DEEPSEEK_THINK_MODEL", "deepseek-flash"),
-        "pro": os.environ.get("DEEPSEEK_PRO_MODEL", "deepseek-v4-pro"),
+        "flash": os.environ.get("DEEPSEEK_FLASH_MODEL", "deepseek/deepseek-v4.1-flash"),
+        # Flash with reasoning: same OpenRouter slug; reasoning controlled via
+        # the `reasoning` request param, not a different model id.
+        "think": os.environ.get("DEEPSEEK_THINK_MODEL", "deepseek/deepseek-v4.1-flash"),
+        "pro": os.environ.get("DEEPSEEK_PRO_MODEL", "deepseek/deepseek-v4-pro"),
     },
     # Mock provider ignores ids but keeps the mapping shape.
     "mock": {"flash": "mock-flash", "think": "mock-think", "pro": "mock-pro"},
@@ -97,6 +98,10 @@ class Budgets:
     max_tokens: int = 220_000        # in+out tokens per trajectory
     max_seconds: float = 240.0       # wall-clock per trajectory
     max_usd: float = 0.0             # per-trajectory USD hard stop (0 = off)
+    # Per-CALL output cap. Must be generous: V4.1-Flash reasons by default and
+    # reasoning tokens eat this budget — too small (e.g. 1024) returns EMPTY
+    # content with no tool call. 6144 covers low-effort reasoning + a tool call.
+    max_tokens_per_call: int = 6144
     # Stall detection: no new fact / repeated action for this many steps -> stop.
     stall_steps: int = 5
     # Global daily ceiling for the whole farm (hard kill-switch), USD.
@@ -110,6 +115,7 @@ class Budgets:
 # --------------------------------------------------------------------------- #
 @dataclass
 class CascadePolicy:
+    enabled: bool = True                   # master switch for Flash->Pro cascade
     default_model: str = "flash"
     escalation_model: str = "pro"
     target_escalation_rate: float = 0.15   # ~15% of tasks touch Pro
@@ -152,8 +158,10 @@ class Settings:
     provider: str = os.environ.get("SLOPI_PROVIDER", "auto")  # auto|deepseek|mock
     deepseek_api_key: Optional[str] = os.environ.get("DEEPSEEK_API_KEY")
     deepseek_base_url: str = os.environ.get(
-        "DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1"
+        "DEEPSEEK_BASE_URL", "https://openrouter.ai/api/v1"
     )
+    # Reasoning effort for the OpenRouter `reasoning` param (off|low|medium|high).
+    reasoning_effort: str = os.environ.get("DEEPSEEK_REASONING_EFFORT", "low")
     request_timeout: float = 120.0
     max_retries: int = 3
     # ACI feature toggles (improvements enabled from run 2 onward).

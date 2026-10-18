@@ -32,6 +32,7 @@ class GatewayResponse:
     provider: str = "mock"
     usage: Usage = field(default_factory=Usage)
     cost_usd: float = 0.0
+    cost_from_provider: bool = False             # True => cost_usd came from the API, not the local price table
     finish_reason: str = "stop"
     raw: Optional[Any] = None
 

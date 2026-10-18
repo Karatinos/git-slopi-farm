@@ -105,7 +105,8 @@ class ReActAgent:
             sp = tracer.start("llm", tier)
             try:
                 resp = self.gw.chat(messages=messages, tier=tier, tools=schemas,
-                                    temperature=temperature, max_tokens=1024, ledger=ledger)
+                                    temperature=temperature,
+                                    max_tokens=self.budgets.max_tokens_per_call, ledger=ledger)
             except Exception as e:  # noqa: BLE001
                 tracer.finish(sp, result=f"gateway error: {e}")
                 outcome, reason = "error", f"gateway error: {e}"
@@ -147,7 +148,8 @@ class ReActAgent:
 
             stall = 0 if new_fact else stall + 1
             if stall >= self.budgets.stall_steps:
-                if tier == self.cascade.default_model and self._may_escalate(ledger):
+                if self.cascade.enabled and tier == self.cascade.default_model \
+                        and self._may_escalate(ledger):
                     tier = self.cascade.escalation_model
                     tiers_used.append(tier)
                     stall = 0

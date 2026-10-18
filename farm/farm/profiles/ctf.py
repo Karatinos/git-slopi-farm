@@ -149,6 +149,13 @@ class CTFProfile(BaseProfile):
 
     def verdict(self, task: Task, candidate: Candidate) -> Verdict:
         flag = candidate.value
+        gold_any = task.extra.get("gold_any") if task.extra else None
+        if gold_any:
+            cb = _body(flag)
+            for g in gold_any:
+                if _norm_flag(flag) == _norm_flag(g) or (cb and cb == _body(g)):
+                    return Verdict(Grade.CORRECT, "gold match (any-of)", flag)
+            return Verdict(Grade.INCORRECT, "no gold match (any-of)", flag)
         if not task.gold:
             return Verdict(Grade.UNGRADED, "no gold flag", flag)
         if _norm_flag(flag) == _norm_flag(task.gold):

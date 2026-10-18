@@ -69,7 +69,8 @@ class Ensemble:
 
         def one(idx: int, temp: float) -> AttemptResult:
             author = f"{task.id}#a{idx}"
-            hot = (task.category in self.agent.cascade.hard_categories
+            hot = (getattr(self.agent.cascade, "enabled", True)
+                   and task.category in self.agent.cascade.hard_categories
                    and idx == self.swarm.ensemble_size - 1)
             sb = self.sandboxes.create(author, seed_files=task.files)
             try:

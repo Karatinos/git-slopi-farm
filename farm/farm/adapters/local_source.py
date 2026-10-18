@@ -1,21 +1,30 @@
-"""Local-directory source adapter.
+"""Local-directory source adapter (nested-layout aware).
 
-Each immediate subdirectory of `root` is one task: its statement is the longest
-of description.txt / task.md / README.md / *.md (or the dir name if none), its
-files are every other file staged into the sandbox, and an optional `gold` /
-`flag.txt` sidecar provides a quarantined expected solution (never shown to the
-agent — it is read here and removed from the staged files). Category is taken
-from a `category` sidecar, else the parent directory name, else "misc".
+Supports two directory shapes under `root`:
+  * FLAT   — each immediate subdir of root is a task.
+  * NESTED — root/<category>/<task>/... : a subdir whose own children are ALL
+             directories is treated as a *category*, and its children as tasks.
+             (This is the Кубок-Федерации CTF layout: category/taskname/files.)
 
-Profile-neutral: the same raw records feed either the CTF or the generic profile.
+A task's statement is the longest of description.txt / task.md / *.md (or the
+dir name if none). Every other file is staged into the sandbox. A quarantined
+gold solution comes from an optional sidecar (gold / flag.txt / ...) OR from an
+injected answer-key (keyed by "<category>/<name>" or by name). The gold is read
+HERE and never staged to the agent.
+
+Task id is "<category>/<name>"; category is the parent dir (nested) else the
+hint / root name. Profile-neutral: the same records feed ctf or generic.
 """
 from __future__ import annotations
 
+import unicodedata
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional, Union
 
 _STATEMENT_NAMES = ("description.txt", "task.md", "readme.md", "statement.txt", "task.txt")
 _GOLD_NAMES = ("gold", "gold.txt", "flag.txt", "answer.txt", "expected.txt")
+
+GoldVal = Union[str, list, None]
 
 
 def _read(p: Path) -> str:
@@ -26,33 +35,70 @@ def _read(p: Path) -> str:
 
 
 class LocalSource:
-    def __init__(self, root: str | Path, category_hint: Optional[str] = None):
+    def __init__(self, root: str | Path, category_hint: Optional[str] = None,
+                 answer_key: Optional[Dict[str, GoldVal]] = None,
+                 only: Optional[List[str]] = None):
         self.root = Path(root)
         self.category_hint = category_hint
+        self.only = [unicodedata.normalize("NFC", o).casefold() for o in (only or [])]
+        # Normalize keys to NFC so lookups survive macOS NFD filenames.
+        self.answer_key = {unicodedata.normalize("NFC", k): v
+                           for k, v in (answer_key or {}).items()}
+
+    @staticmethod
+    def _is_category_dir(d: Path) -> bool:
+        kids = [p for p in d.iterdir() if not p.name.startswith(".")]
+        return bool(kids) and all(p.is_dir() for p in kids)
+
+    def _task_record(self, d: Path, category: str) -> dict:
+        files: list = []
+        statement = ""
+        gold: GoldVal = None
+        for f in sorted(d.rglob("*")):
+            if not f.is_file() or f.name == ".DS_Store":
+                continue
+            low = f.name.lower()
+            if low in _GOLD_NAMES and f.parent == d:      # quarantined sidecar
+                gold = _read(f).strip() or None
+                continue
+            if low in _STATEMENT_NAMES and len(_read(f)) > len(statement):
+                statement = _read(f)
+                continue
+            files.append((f, f.relative_to(d).as_posix()))
+
+        tid = f"{category.lower()}/{d.name}"
+        tid_n = unicodedata.normalize("NFC", tid)
+        name_n = unicodedata.normalize("NFC", d.name)
+        extra: Dict[str, object] = {}
+        ak = self.answer_key.get(tid_n, self.answer_key.get(name_n))
+        if isinstance(ak, list):
+            extra["gold_any"] = ak
+            if gold is None and ak:
+                gold = ak[0]
+        elif ak is not None and gold is None:
+            gold = ak
+
+        return {"id": tid, "name": d.name, "category": category.lower(),
+                "statement": statement or d.name, "files": files,
+                "endpoint": "", "points": 1, "gold": gold, "extra": extra}
 
     def read(self) -> List[dict]:
         out: List[dict] = []
         if not self.root.is_dir():
             return out
-        for d in sorted(p for p in self.root.iterdir() if p.is_dir()):
-            files, statement, gold, category = [], "", None, None
-            for f in sorted(d.rglob("*")):
-                if not f.is_file():
-                    continue
-                low = f.name.lower()
-                if low in _GOLD_NAMES:
-                    gold = _read(f).strip() or None
-                    continue
-                if low == "category":
-                    category = _read(f).strip() or None
-                    continue
-                if low in _STATEMENT_NAMES and len(_read(f)) > len(statement):
-                    statement = _read(f)
-                    continue
-                files.append((f, f.relative_to(d).as_posix()))
-            out.append({
-                "id": f"{self.root.name}/{d.name}", "name": d.name,
-                "category": category or self.category_hint or self.root.name or "misc",
-                "statement": statement or d.name, "files": files,
-                "endpoint": "", "points": 1, "gold": gold, "extra": {}})
+        children = sorted(p for p in self.root.iterdir()
+                          if p.is_dir() and not p.name.startswith("."))
+        for c in children:
+            if self._is_category_dir(c):                  # NESTED: c is a category
+                for t in sorted(p for p in c.iterdir()
+                                if p.is_dir() and not p.name.startswith(".")):
+                    out.append(self._task_record(t, c.name))
+            else:                                         # FLAT: c is a task
+                out.append(self._task_record(
+                    c, self.category_hint or self.root.name or "misc"))
+        if self.only:
+            def _keep(r):
+                hay = unicodedata.normalize("NFC", r["id"] + " " + r["name"]).casefold()
+                return any(o in hay for o in self.only)
+            out = [r for r in out if _keep(r)]
         return out
