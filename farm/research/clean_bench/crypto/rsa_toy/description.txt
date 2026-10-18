@@ -1,0 +1,1 @@
+Toy RSA with two CLOSE primes. params.txt has n, e, c (c = m^e mod n). Factor n (Fermat works) and recover m -> flag.

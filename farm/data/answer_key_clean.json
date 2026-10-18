@@ -1,0 +1,13 @@
+{
+ "_comment": "Gold for the CLEAN synthetic benchmark. Harness-only; never staged.",
+ "flags": {
+  "crypto/base_chain": "flag{l4y3rs_0f_3nc0d1ng_p33l3d}",
+  "crypto/xor_crib": "flag{kn0wn_pl41nt3xt_br34ks_x0r}",
+  "crypto/rsa_toy": "flag{sm4ll_m0dulus_f4ct0rs_f4st}",
+  "misc/matryoshka": "flag{d0wn_thr0ugh_3v3ry_l4y3r}",
+  "misc/morse_wav": "flag{d0ts_4nd_d4sh3s_sp34k}",
+  "forensic/png_append": "flag{d4t4_h1des_p4st_1end}",
+  "forensic/lsb_stego": "flag{l34st_s1gn1f1c4nt_truth}",
+  "reverse/pycheck": "flag{1nv3rt_th3_ch3ck_l0g1c}"
+ }
+}

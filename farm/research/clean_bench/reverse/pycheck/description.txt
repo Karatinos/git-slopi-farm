@@ -1,0 +1,1 @@
+check.py accepts exactly one password and prints it on success. Recover the accepted string (it is the flag).

@@ -1,0 +1,1 @@
+A captured signal, transcribed as Morse (letters sep by space, '/' between words). Decode to the flag text (expected format flag{...}).

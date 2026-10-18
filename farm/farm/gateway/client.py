@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, List, Optional
 
 from ..config import MODEL_IDS, PRICING, SETTINGS, Settings
-from .providers import DeepSeekProvider, MockProvider
+from .providers import DeepSeekProvider, MockProvider, ScriptedSolverProvider
 from .types import GatewayResponse, Usage
 
 
@@ -87,6 +87,8 @@ class ModelGateway:
                 model_ids=MODEL_IDS["deepseek"],
                 timeout=self.settings.request_timeout,
             )
+        if name == "scripted":
+            return ScriptedSolverProvider(MODEL_IDS["scripted"])
         return MockProvider(MODEL_IDS["mock"])
 
     def chat(self, *, messages: List[Dict[str, Any]], tier: str = "flash",

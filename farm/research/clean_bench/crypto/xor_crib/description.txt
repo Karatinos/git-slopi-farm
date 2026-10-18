@@ -1,0 +1,1 @@
+A short ASCII key XORs the plaintext (repeating). The flag format is flag{...}.

@@ -280,3 +280,56 @@ class MockProvider:
     @staticmethod
     def _call(name: str, args: Dict[str, Any]) -> ToolCall:
         return ToolCall(id="mock-" + uuid.uuid4().hex[:8], name=name, arguments=args)
+
+
+# --------------------------------------------------------------------------- #
+# ScriptedSolver - no-LLM tooling baseline (pipeline validator)               #
+# --------------------------------------------------------------------------- #
+class ScriptedSolverProvider:
+    """Drives the ReAct loop with a fixed, model-free policy: list files, run the
+    generic autosolver over them in the sandbox, then submit any flag it printed.
+
+    It performs REAL work through the real sandbox tools and the real verdict
+    path, so an end-to-end run proves tools+sandbox+scoring without spending a
+    cent - and measures the tooling-only solve baseline. Not for live use.
+    """
+    name = "scripted"
+
+    def __init__(self, model_ids: Dict[str, str]):
+        self._model_ids = model_ids
+        from ..config import FARM_ROOT
+        try:
+            self._autosolve = (FARM_ROOT / "research" / "autosolve.py").read_text(encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            self._autosolve = "print('NO_FLAG_FOUND')"
+
+    @staticmethod
+    def _est(text: str) -> int:
+        return max(1, len(text) // 4)
+
+    def complete(self, *, messages: List[Dict[str, Any]], tier: str,
+                 tools: Optional[List[Dict[str, Any]]] = None,
+                 temperature: float = 0.2, max_tokens: int = 2048) -> GatewayResponse:
+        names = {t["function"]["name"] for t in (tools or [])}
+        blob = json.dumps(messages, ensure_ascii=False)
+
+        def resp(text, calls):
+            u = Usage(prompt_tokens=self._est(blob),
+                      completion_tokens=self._est(text) + sum(self._est(json.dumps(c.arguments)) for c in calls),
+                      cache_hit_tokens=0, cache_miss_tokens=self._est(blob))
+            return GatewayResponse(text=text, tool_calls=calls, model_tier=tier,
+                                   provider=self.name, usage=u,
+                                   finish_reason=("tool_calls" if calls else "stop"))
+
+        def tc(name, args):
+            return ToolCall(id="scr-" + uuid.uuid4().hex[:8], name=name, arguments=args)
+
+        m = re.search(r"FLAG=([A-Za-z0-9_]{2,16}\{[A-Za-z0-9_]{1,80}\})", blob)
+        already = '"submit_flag"' in blob and "RECORDED" in blob
+        if "submit_flag" in names and m and not already:
+            return resp("", [tc("submit_flag", {"flag": m.group(1)})])
+        if "run_python" in names and "FLAG=" not in blob and "NO_FLAG_FOUND" not in blob:
+            return resp("", [tc("run_python", {"code": self._autosolve})])
+        if "list_files" in names and '"list_files"' not in blob:
+            return resp("", [tc("list_files", {"path": "."})])
+        return resp("No further progress: tooling baseline exhausted.", [])

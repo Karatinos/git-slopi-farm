@@ -85,6 +85,8 @@ MODEL_IDS = {
     },
     # Mock provider ignores ids but keeps the mapping shape.
     "mock": {"flash": "mock-flash", "think": "mock-think", "pro": "mock-pro"},
+    # ScriptedSolver (no-LLM tooling baseline) — ids unused.
+    "scripted": {"flash": "scripted", "think": "scripted", "pro": "scripted"},
 }
 
 

@@ -54,9 +54,10 @@ def _settings_from_args(args):
                                enable_recon=bool(args.recon))
 
 
-def _load_answer_key() -> dict:
+def _load_answer_key(path=None) -> dict:
+    p = Path(path) if path else ANSWER_KEY
     try:
-        return json.loads(ANSWER_KEY.read_text(encoding="utf-8")).get("flags", {})
+        return json.loads(p.read_text(encoding="utf-8")).get("flags", {})
     except Exception:  # noqa: BLE001
         return {}
 
@@ -95,7 +96,8 @@ def _source(args, profile):
         return src
     from .adapters import LocalSource
     return LocalSource(args.path, category_hint=args.category_hint,
-                       answer_key=_load_answer_key(), only=args.only)
+                       answer_key=_load_answer_key(getattr(args, "answer_key", None)),
+                       only=args.only)
 
 
 def _dump(outcomes: List[Outcome], label: str) -> Path:
@@ -190,6 +192,8 @@ def main() -> None:
     r.add_argument("--categories", nargs="*", default=None)
     r.add_argument("--only", nargs="*", default=None,
                    help="keep only tasks whose id/name contains any substring")
+    r.add_argument("--answer-key", default=None,
+                   help="path to an answer-key json (default data/answer_key.json)")
     r.add_argument("--offline-only", action="store_true", help="skip live-instance tasks")
     r.add_argument("--label", default=None)
     r.add_argument("--base-url", default="")

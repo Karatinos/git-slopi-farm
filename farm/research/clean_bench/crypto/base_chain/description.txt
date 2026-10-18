@@ -1,0 +1,1 @@
+A short message was encoded, then encoded again. Recover the flag.
