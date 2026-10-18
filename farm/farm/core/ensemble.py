@@ -102,7 +102,7 @@ class Ensemble:
                         res.accepted = True
                         early[res.author] = v
                         cancel.set()                    # verified: stop siblings
-                    elif first_to_candidate:
+                    elif first_to_candidate and getattr(self.swarm, "consensus", 1) <= 1:
                         cancel.set()                    # first-to-flag heuristic
 
         wall = time.time() - started
@@ -120,6 +120,7 @@ class Ensemble:
         chosen: Optional[Candidate] = None
         verdict: Optional[Verdict] = None
         author = None
+        consensus_note = ""
 
         # 1) a verified-correct attempt wins outright
         for r in results:
@@ -130,10 +131,18 @@ class Ensemble:
         # 2) otherwise select among produced candidates (majority by canonical
         #    value), then ask the profile for the authoritative verdict.
         if chosen is None and produced:
-            best = Counter(c.candidate.value for c in produced).most_common(1)[0][0]
+            counts = Counter(c.candidate.value for c in produced)
+            best, bestn = counts.most_common(1)[0]
             r = next(c for c in produced if c.candidate.value == best)
             chosen, author = r.candidate, r.author
-            verdict = profile.submit(task, chosen) or profile.verdict(task, chosen)
+            need = max(1, getattr(self.swarm, "consensus", 1))
+            if bestn >= need:
+                verdict = profile.submit(task, chosen) or profile.verdict(task, chosen)
+            else:
+                # below consensus: grade offline but do NOT spend a live
+                # submission on a lone, uncorroborated guess.
+                verdict = profile.verdict(task, chosen)
+                consensus_note = f"low-confidence {bestn}/{need}"
             r.accepted = verdict.grade == Grade.CORRECT
 
         grade = verdict.grade if verdict else Grade.NONE
@@ -145,8 +154,9 @@ class Ensemble:
             tokens=tokens, wall_seconds=wall,
             time_to_solve=wall if solved else None, escalated=escalated,
             n_attempts=len(results), tiers=tiers,
-            error=(verdict.detail if verdict else "") or
-                  next((r.reason for r in results if r.outcome == "error"), ""))
+            error=((verdict.detail if verdict else "") or
+                   next((r.reason for r in results if r.outcome == "error"), ""))
+                  + (f" [{consensus_note}]" if consensus_note else ""))
 
     def _recon_once(self, task: Task) -> str:
         if not self.enable_recon or not task.files:

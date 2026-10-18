@@ -12,6 +12,25 @@ Select with `--prototype`; explicit flags override the bundle.
 | **p2** | 4 | off | off | off | diversity: does a parallel Flash ensemble + first-to-flag beat p1? |
 | **p3** | 3 | **on** | **on** | off | cascade: Flash workers + rare Pro escalation + auto recon (the blueprint thesis) |
 | **p4** | 4 | on | on | **on** | p3 + adaptive effort: conclude fast on low-signal tasks to cut cost |
+| **p5** | 5 | off | on | off | self-consistency: accept a flag only when ≥2 members agree (precision) |
+| **p6** | 2 | on | on | on | lean cascade + recon + adaptive (thrifty depth) |
+| **p7** | 6 | off | off | on | broad cheap coverage: many Flash attempts, conclude fast |
+
+New knob `--consensus N`: accept an ungraded flag only if ≥N ensemble members
+independently produce it, and don't spend a live submission on a lone guess
+(keeps siblings running to gather votes). p5 uses it.
+
+### Clean benchmark (recommended for fair comparison)
+`tasks/` is a writeup archive (see data/benchmark_integrity.json), so for honest
+prototype comparison use the generated clean set:
+```bash
+python3 research/make_clean_bench.py --out research/clean_bench --answer-key data/answer_key_clean.json --selftest
+./run.sh p1 --path-override   # or:
+python3 -m farm.cli run --source local --path research/clean_bench \
+    --answer-key data/answer_key_clean.json --prototype p1 --limit 1.5 --label p1_clean
+```
+Tooling-only baseline (no LLM): `SLOPI_PROVIDER=scripted` solves 8/8 — proving the
+pipeline; the paid DeepSeek run then measures the model's added reasoning.
 
 ## Running (REAL terminal only — the OpenRouter egress is blocked inside Claude)
 

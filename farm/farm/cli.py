@@ -25,18 +25,22 @@ OUT = DATA_DIR / "runs"
 ANSWER_KEY = DATA_DIR / "answer_key.json"
 
 _PROTOTYPES = {
-    # ensemble, escalate(Flash->Pro), recon, adaptive_effort
-    "p1": dict(ensemble=1, escalate=False, recon=False, adaptive=False),
-    "p2": dict(ensemble=4, escalate=False, recon=False, adaptive=False),
-    "p3": dict(ensemble=3, escalate=True,  recon=True,  adaptive=False),
-    "p4": dict(ensemble=4, escalate=True,  recon=True,  adaptive=True),
+    # ensemble, escalate(Flash->Pro), recon, adaptive_effort, consensus
+    "p1": dict(ensemble=1, escalate=False, recon=False, adaptive=False, consensus=1),
+    "p2": dict(ensemble=4, escalate=False, recon=False, adaptive=False, consensus=1),
+    "p3": dict(ensemble=3, escalate=True,  recon=True,  adaptive=False, consensus=1),
+    "p4": dict(ensemble=4, escalate=True,  recon=True,  adaptive=True,  consensus=1),
+    # new strategies
+    "p5": dict(ensemble=5, escalate=False, recon=True,  adaptive=False, consensus=2),  # self-consistency precision
+    "p6": dict(ensemble=2, escalate=True,  recon=True,  adaptive=True,  consensus=1),  # lean cascade + recon
+    "p7": dict(ensemble=6, escalate=False, recon=False, adaptive=True,  consensus=1),  # broad cheap coverage
 }
-_DEFAULTS = dict(ensemble=4, escalate=True, recon=False, adaptive=False)
+_DEFAULTS = dict(ensemble=4, escalate=True, recon=False, adaptive=False, consensus=1)
 
 
 def _apply_prototype(args) -> None:
     bundle = _PROTOTYPES.get(args.prototype or "", {})
-    for k in ("ensemble", "escalate", "recon", "adaptive"):
+    for k in ("ensemble", "escalate", "recon", "adaptive", "consensus"):
         if getattr(args, k) is None:
             setattr(args, k, bundle.get(k, _DEFAULTS[k]))
 
@@ -48,6 +52,7 @@ def _settings_from_args(args):
     conc = max(1, min(args.ensemble, s.swarm.max_concurrent_sandboxes))
     swarm = dataclasses.replace(s.swarm, ensemble_size=max(1, args.ensemble),
                                 adaptive_effort=bool(args.adaptive),
+                                consensus=max(1, int(args.consensus)),
                                 max_concurrent_sandboxes=conc)
     casc = dataclasses.replace(s.cascade, enabled=bool(args.escalate))
     return dataclasses.replace(s, budgets=bud, swarm=swarm, cascade=casc,
@@ -185,6 +190,8 @@ def main() -> None:
                    help="auto file/exif/OCR recon before solving")
     r.add_argument("--adaptive", action=argparse.BooleanOptionalAction, default=None,
                    help="adaptive effort: conclude fast on low-signal tasks")
+    r.add_argument("--consensus", type=int, default=None,
+                   help="require N ensemble members to agree before accepting (1=off)")
     # budgets
     r.add_argument("--limit", type=float, default=2.0, help="max REAL spend, USD (hard cap)")
     r.add_argument("--per-task", type=float, default=0.25, help="per-task USD cap")

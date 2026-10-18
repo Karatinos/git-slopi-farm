@@ -139,6 +139,10 @@ class SwarmConfig:
     # of spending it uniformly — conclude fast on tasks with no exploitable lead.
     adaptive_effort: bool = False
     low_signal_steps: int = 5       # step cap when recon found no real signal
+    # Self-consistency: accept an UNGRADED candidate only if >= this many
+    # ensemble members independently produced the same flag (1 = off). Above 1
+    # also keeps siblings running (no first-to-flag early cancel) to gather votes.
+    consensus: int = 1
 
 
 # --------------------------------------------------------------------------- #
