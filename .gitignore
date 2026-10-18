@@ -1,0 +1,31 @@
+# secrets
+farm/.env
+farm/.secrets/
+*.key
+# broken/huge regenerable
+farm/.venv/
+farm/.work/
+# runtime artifacts (regenerable)
+farm/data/*.db
+farm/data/*.db-shm
+farm/data/*.db-wal
+farm/data/general_farm.db*
+farm/data/traces/
+farm/data/charts/
+farm/data/ingest/
+farm/data/runs/
+farm/data/general_runs/
+farm/data/ctf_bench/
+# python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+# os
+.DS_Store
+**/.DS_Store
+*.swp
+*.swo
+.history/
+.history*
+*~

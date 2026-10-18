@@ -1,0 +1,18 @@
+# Sandbox image variant with OCR + barcode/QR reading, for run 2+.
+# Adds tesseract (eng+rus) and zbar so the agent can read text and QR codes
+# rendered in GENUINE handout images (fair: a human player looks at them).
+# Build: docker build -f farm/sandbox/Dockerfile.ocr -t slopi-farm-sandbox:ocr farm/sandbox
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        binutils file xxd unzip binwalk foremost exiftool \
+        curl grep coreutils \
+        tesseract-ocr tesseract-ocr-rus tesseract-ocr-eng \
+        zbar-tools imagemagick \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir pycryptodome sympy pwntools requests \
+        pillow pyzbar numpy
+
+WORKDIR /work
+CMD ["sleep", "3600"]

@@ -1,0 +1,18 @@
+# CTF sandbox: general image + reverse-engineering and forensics tooling.
+# radare2 isn't in the base repos; reverse relies on objdump (binutils, present),
+# gdb, capstone, pyelftools and angr instead. Forensics gets tshark/tcpdump/
+# sleuthkit + scapy + volatility3.
+FROM slopi-farm-sandbox:general
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN echo "wireshark-common wireshark-common/install-setuid boolean false" | debconf-set-selections \
+    && apt-get update && apt-get install -y --no-install-recommends \
+        gdb tshark tcpdump sleuthkit netcat-openbsd socat \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir scapy capstone pyelftools ropgadget \
+    && (pip install --no-cache-dir angr || true) \
+    && (pip install --no-cache-dir volatility3 || true)
+
+WORKDIR /work
+CMD ["sleep", "3600"]

@@ -1,0 +1,198 @@
+# slopi-farm — ответы (work-on/otbot)
+# ALL-ферма v2: анализ условия (V4-Pro) -> ансамбль по трактовкам на общей
+# blackboard -> независимая верификация (V4-Pro) -> волна исправления ->
+# ранжирование. Ниже: основной ответ и альтернативы (для оставшихся попыток).
+
+==============================================================================
+ЗАДАЧА: Аккуратный подъём (10 баллов)
+[run e0fad7a0 · метод: verified · исправление: нет · Pro: да · попыток: 3 · стоимость: $0.1755 · время: 758s]
+ОТВЕТ:
+#include <bits/stdc++.h>
+using namespace std;
+
+// Directions: 0=N,1=E,2=S,3=W (forward of initial heading is N)
+static const int dx[4] = {0, 1, 0, -1};
+static const int dy[4] = {1, 0, -1, 0};
+
+int cur, fwd, bwd, lft, rgt;
+int hx, hy, hd; // rover position and heading
+
+map<pair<int,int>,int> mp;       // known heights
+set<pair<int,int>> vis;          // cells we actually stood on
+vector<pair<int,int>> path;      // DFS ancestors for equal-height plateau traversal
+
+static void readSensor() {
+    if (!(cin >> cur >> fwd >> bwd >> lft >> rgt)) exit(0);
+}
+static void sendCmd(const string& s) {
+    cout << s << "\n";
+    cout.flush();
+}
+
+// Move to the absolutely-oriented adjacent cell in direction d (0..3),
+// using the cheapest command sequence, reading a reply after EVERY command.
+static void moveTo(int d) {
+    if (d == hd) {
+        sendCmd("FW"); readSensor();
+        hx += dx[hd]; hy += dy[hd];
+    } else if (d == (hd + 2) % 4) {
+        sendCmd("BW"); readSensor();
+        hx += dx[d]; hy += dy[d];
+    } else if (d == (hd + 3) % 4) {   // target is to the left
+        sendCmd("RL"); readSensor();
+        hd = (hd + 3) % 4;
+        sendCmd("FW"); readSensor();
+        hx += dx[d]; hy += dy[d];
+    } else {                          // d == (hd+1)%4, target is to the right
+        sendCmd("RR"); readSensor();
+        hd = (hd + 1) % 4;
+        sendCmd("FW"); readSensor();
+        hx += dx[d]; hy += dy[d];
+    }
+    vis.insert({hx, hy});
+    mp[{hx, hy}] = cur;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    readSensor();
+    hx = 0; hy = 0; hd = 0;
+    vis.insert({0, 0});
+
+    while (true) {
+        mp[{hx, hy}] = cur;
+        // Absolute-direction heights
+        int A[4];
+        A[hd]           = fwd;
+        A[(hd + 2) % 4] = bwd;
+        A[(hd + 3) % 4] = lft;
+        A[(hd + 1) % 4] = rgt;
+        for (int d = 0; d < 4; ++d) mp[{hx + dx[d], hy + dy[d]}] = A[d];
+
+        // Preference: forward, backward (cost 1), left, right (cost 2)
+        int order[4] = {hd, (hd + 2) % 4, (hd + 3) % 4, (hd + 1) % 4};
+
+        // 1) Ascend if any neighbour is exactly one unit higher.
+        int chosen = -1;
+        for (int i = 0; i < 4; ++i) { int d = order[i]; if (A[d] == cur + 1) { chosen = d; break; } }
+        if (chosen != -1) {
+            path.clear();
+            moveTo(chosen);
+            continue;
+        }
+
+        // 2) No ascent: traverse equal-height plateau toward a possible exit.
+        int chosen2 = -1;
+        for (int i = 0; i < 4; ++i) {
+            int d = order[i];
+            pair<int,int> nc = {hx + dx[d], hy + dy[d]};
+            if (A[d] == cur && !vis.count(nc)) { chosen2 = d; break; }
+        }
+        if (chosen2 != -1) {
+            path.push_back({hx, hy});
+            moveTo(chosen2);
+            continue;
+        }
+
+        // 3) Backtrack within the plateau.
+        if (!path.empty()) {
+            pair<int,int> par = path.back(); path.pop_back();
+            int d = -1;
+            for (int k = 0; k < 4; ++k)
+                if (hx + dx[k] == par.first && hy + dy[k] == par.second) { d = k; break; }
+            if (d != -1) { moveTo(d); continue; }
+            path.clear();
+        }
+
+        // 4) Summit reached.
+        sendCmd("SNP");
+        return 0;
+    }
+}
+
+ПРОВЕРКА ОСНОВНОГО: pass — Compiles; passed local simulator tests (monotone diamond/straight, varied initial heading, plateau-with-+1-exit cases), always read sensors after commands and sent SNP at the peak.
+
+==============================================================================
+ЗАДАЧА: Белковый стабилизатор (14 баллов)
+[run 36c10678 · метод: verified · исправление: нет · Pro: нет · попыток: ? · стоимость: $0.0159 · время: 114s]
+ОТВЕТ:
+3 57
+5 14
+6 1
+7 22
+16 20
+18 49
+23 39
+25 32
+28 10
+29 13
+31 23
+34 6
+40 23
+51 40
+57 49
+60 38
+64 52
+66 36
+77 24
+78 41
+80 38
+93 46
+96 51
+103 40
+107 46
+119 0
+131 52
+148 15
+157 15
+160 24
+161 25
+163 10
+170 14
+171 20
+172 6
+180 9
+188 3
+195 40
+200 54
+204 23
+208 8
+217 0
+221 6
+223 14
+224 2
+231 27
+237 14
+241 54
+244 21
+247 19
+ПРОВЕРКА ОСНОВНОГО: pass — Independently recomputed all 250x60 exact-length Hamming distances with tie to smaller known index; candidate's 50 ordered pairs exactly match.
+
+==============================================================================
+ЗАДАЧА: Вынужденная направленность (20 баллов)
+[run 36c10678 · метод: verified · исправление: да · Pro: да · попыток: ? · стоимость: $0.1710 · время: 827s]
+ОТВЕТ:
+13,88
+АЛЬТЕРНАТИВЫ (по убыванию правдоподобия):
+  - 13,88   [проверка: pass; Same independently computed correct result 13,88 under the reflected/absorbed ray model.]
+  - 20,58   [проверка: fail; 20,58 matches direct blocking of both buildings but ignores the stated specular reflection, so it is the wrong model.]
+ПРОВЕРКА ОСНОВНОГО: pass — Correct geometry with blue house as mirror and red house as absorber yields 13,884...% -> 13,88.
+
+==============================================================================
+ЗАДАЧА: И ты, шифр? (26 баллов)
+[run 36c10678 · метод: verified · исправление: нет · Pro: да · попыток: ? · стоимость: $0.1076 · время: 850s]
+ОТВЕТ:
+BAR BAR ONE ONE FUR FUR SHE SHE TERRA TERRA
+73344965400
+АЛЬТЕРНАТИВЫ (по убыванию правдоподобия):
+  - ANT BALK BAR CHERYL ENVY FUR GEL GREEN NAG ONE / 3976   [проверка: fail; Its count 3976 matches the distinct-words-only interpretation, but the statement's multiset rule allows repeated words u]
+ПРОВЕРКА ОСНОВНОГО: pass — Its message is a valid 10-word encoded collision (BAR BAR ONE ONE FUR FUR SHE SHE TERRA TERRA, shift 13) and its count 73344965400 equals the independently computed number of unordered collision pairs under the multiset interpretation.
+
+==============================================================================
+ЗАДАЧА: Цифровая археология (30 баллов)
+[run 36c10678 · метод: verified · исправление: нет · Pro: да · попыток: ? · стоимость: $0.1451 · время: 365s]
+ОТВЕТ:
+64,00
+ПРОВЕРКА ОСНОВНОГО: pass — Independent parsing of all 50 journals confirms 32 fully correct under the storage-semantics interpretation, giving 64,00; candidate output matches.

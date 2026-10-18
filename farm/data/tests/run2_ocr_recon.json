@@ -1,0 +1,411 @@
+{
+  "label": "run2_ocr_recon",
+  "provider": "deepseek",
+  "metrics": {
+    "provider": "deepseek",
+    "mode": "solve",
+    "tasks_total": 21,
+    "tasks_gradable": 20,
+    "solved_correct": 0,
+    "solved_ungradable": 0,
+    "solve_rate": 0.0,
+    "cost_per_flag": null,
+    "total_cost_usd": 0.12536,
+    "total_tokens": 3651422,
+    "escalation_rate": 0.0952,
+    "stall_cancel_rate": 0.0159,
+    "median_ttf_s": 0.0,
+    "mean_ttf_s": 0.0,
+    "by_category": {
+      "crypto": {
+        "total": 3,
+        "solved": 0
+      },
+      "forensic": {
+        "total": 3,
+        "solved": 0
+      },
+      "misc": {
+        "total": 3,
+        "solved": 0
+      },
+      "osint": {
+        "total": 3,
+        "solved": 0
+      },
+      "pentest": {
+        "total": 1,
+        "solved": 0
+      },
+      "pwn": {
+        "total": 2,
+        "solved": 0
+      },
+      "reverse": {
+        "total": 3,
+        "solved": 0
+      },
+      "web": {
+        "total": 3,
+        "solved": 0
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "task_id": "web/copycore",
+      "category": "web",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00524,
+      "best_steps": 35,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 53,
+        "run_python": 3
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "web/договорнячек",
+      "category": "web",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00391,
+      "best_steps": 29,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "read_file": 3,
+        "list_files": 3,
+        "run_shell": 34,
+        "run_python": 2
+      },
+      "fail_reason": "I've thoroughly investigated the sandbox. The conclusion is clear:\n\n**There are no challenge artifacts available.** The "
+    },
+    {
+      "task_id": "web/слушалка",
+      "category": "web",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00327,
+      "best_steps": 32,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "read_file": 3,
+        "list_files": 3,
+        "run_shell": 38,
+        "run_python": 2
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "forensic/sled",
+      "category": "forensic",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00477,
+      "best_steps": 30,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 25,
+        "run_python": 18,
+        "read_file": 2,
+        "list_files": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "forensic/first_record",
+      "category": "forensic",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00359,
+      "best_steps": 33,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 30
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "misc/classic",
+      "category": "misc",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00588,
+      "best_steps": 28,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 30,
+        "submit_flag": 3,
+        "list_files": 2,
+        "read_file": 1,
+        "run_python": 3
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "misc/состав",
+      "category": "misc",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00544,
+      "best_steps": 28,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 32,
+        "run_python": 11
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "forensic/dispatch_listening",
+      "category": "forensic",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00462,
+      "best_steps": 27,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 27,
+        "publish_finding": 1,
+        "run_python": 1,
+        "submit_flag": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "misc/qsl",
+      "category": "misc",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00437,
+      "best_steps": 30,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 25,
+        "run_python": 19
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "reverse/license",
+      "category": "reverse",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00362,
+      "best_steps": 21,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 18
+      },
+      "fail_reason": "I've thoroughly investigated the sandbox. Here is my conclusion:\n\n**The attached file is missing.** The task describes a"
+    },
+    {
+      "task_id": "osint/аз_есмь_опричнина",
+      "category": "osint",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00738,
+      "best_steps": 31,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 1,
+        "run_shell": 43,
+        "read_file": 1,
+        "run_python": 4
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "osint/кольцевои_транзит",
+      "category": "osint",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00504,
+      "best_steps": 31,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 2,
+        "read_file": 1,
+        "run_shell": 42
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "osint/попутная_волна",
+      "category": "osint",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00634,
+      "best_steps": 32,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 1,
+        "read_file": 1,
+        "run_shell": 41,
+        "run_python": 5
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "crypto/все_по_госту",
+      "category": "crypto",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00701,
+      "best_steps": 35,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "read_file": 6,
+        "run_shell": 40,
+        "list_files": 2,
+        "run_python": 2
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "crypto/перехват",
+      "category": "crypto",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00567,
+      "best_steps": 29,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 21,
+        "list_files": 3,
+        "run_python": 18,
+        "read_file": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "crypto/счет_за_200_лет",
+      "category": "crypto",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.0042,
+      "best_steps": 29,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 44,
+        "list_files": 1,
+        "read_file": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "pentest/2loss",
+      "category": "pentest",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00418,
+      "best_steps": 31,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 33,
+        "run_python": 5
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "reverse/audit",
+      "category": "reverse",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00573,
+      "best_steps": 27,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "read_file": 6,
+        "run_shell": 31,
+        "list_files": 1,
+        "run_python": 1,
+        "publish_finding": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "reverse/сусанин",
+      "category": "reverse",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.00597,
+      "best_steps": 35,
+      "tier_path": "flash",
+      "escalated": false,
+      "tools_used": {
+        "run_shell": 47,
+        "list_files": 1,
+        "run_python": 5
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "pwn/diameters",
+      "category": "pwn",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.01428,
+      "best_steps": 35,
+      "tier_path": "pro",
+      "escalated": true,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 3,
+        "run_shell": 37,
+        "publish_finding": 1
+      },
+      "fail_reason": "exhausted steps"
+    },
+    {
+      "task_id": "pwn/face_of_the_system",
+      "category": "pwn",
+      "solved": false,
+      "graded": "none",
+      "cost_usd": 0.01485,
+      "best_steps": 34,
+      "tier_path": "pro",
+      "escalated": true,
+      "tools_used": {
+        "list_files": 3,
+        "read_file": 2,
+        "run_shell": 42,
+        "run_python": 1
+      },
+      "fail_reason": "exhausted steps"
+    }
+  ],
+  "spent_usd": 0.12536,
+  "stopped_reason": "completed",
+  "wall_seconds": 1041.6
+}

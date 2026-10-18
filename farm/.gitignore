@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.work/
+data/farm.db
+data/farm.db-*
+data/traces/
+data/ingest/

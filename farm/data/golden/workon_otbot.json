@@ -1,0 +1,53 @@
+{
+ "Белковый стабилизатор": {
+  "kind": "exact",
+  "expected": "3 57\n5 14\n6 1\n7 22\n16 20\n18 49\n23 39\n25 32\n28 10\n29 13\n31 23\n34 6\n40 23\n51 40\n57 49\n60 38\n64 52\n66 36\n77 24\n78 41\n80 38\n93 46\n96 51\n103 40\n107 46\n119 0\n131 52\n148 15\n157 15\n160 24\n161 25\n163 10\n170 14\n171 20\n172 6\n180 9\n188 3\n195 40\n200 54\n204 23\n208 8\n217 0\n221 6\n223 14\n224 2\n231 27\n237 14\n241 54\n244 21\n247 19",
+  "confidence": "confirmed by user (accepted)"
+ },
+ "И ты, шифр?": {
+  "kind": "cipher",
+  "count_hypotheses": {
+   "73344965400": "ordered 10-word sequences, unordered pair {M1,M2} once",
+   "106780": "multisets, ordered pairs",
+   "3976": "no repeats, multisets, unordered pairs",
+   "14529715200": "no repeats, sequences, unordered pairs"
+  },
+  "count_rejected": [
+   "53390"
+  ],
+  "confidence": "line 1 checkable; count interpretation-dependent (53390 rejected by the checker)"
+ },
+ "Вынужденная направленность": {
+  "kind": "number",
+  "primary": "13,88",
+  "alternatives": [
+   "15,69"
+  ],
+  "rejected": [
+   "13,37"
+  ],
+  "confidence": "ray-traced; alt if the non-facade wall of house A absorbs"
+ },
+ "Цифровая археология": {
+  "kind": "number",
+  "primary": "64,00",
+  "alternatives": [
+   "68,00"
+  ],
+  "rejected": [
+   "64.00"
+  ],
+  "confidence": "strict validator 32/50; '64.00' rejected (decimal comma?); alt if OWS echo is tolerated"
+ },
+ "Аккуратный подъём": {
+  "kind": "program",
+  "judge": "rover_judge.py",
+  "families": [
+   "cone",
+   "plateau",
+   "trench",
+   "bumps"
+  ],
+  "confidence": "reference solution passes 600/600 generated terrains"
+ }
+}

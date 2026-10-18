@@ -1,0 +1,17 @@
+# Sandbox image for the ALL-oriented (universal) farm.
+# Extends the OCR image with a C/C++ toolchain (programs as deliverables, incl.
+# interactive tasks tested against a local simulator) and general-purpose
+# scientific/geometry/graph/image libraries, so a task of any programming domain
+# can be solved and VERIFIED inside the sandbox.
+# Build: docker build -f farm/sandbox/Dockerfile.general -t slopi-farm-sandbox:general farm/sandbox
+FROM slopi-farm-sandbox:ocr
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        g++ make \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir pandas scipy shapely networkx scikit-learn \
+        opencv-python-headless
+
+WORKDIR /work
+CMD ["sleep", "3600"]
