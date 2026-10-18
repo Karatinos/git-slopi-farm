@@ -27,9 +27,28 @@ _GOLD_NAMES = ("gold", "gold.txt", "flag.txt", "answer.txt", "expected.txt")
 GoldVal = Union[str, list, None]
 
 
+_PDF_CAP = 4000  # chars of brief text to fold into the statement
+
+
 def _read(p: Path) -> str:
     try:
         return p.read_text(encoding="utf-8", errors="replace")
+    except Exception:  # noqa: BLE001
+        return ""
+
+
+def _pdf_text(p: Path, cap: int = _PDF_CAP) -> str:
+    """Best-effort text extraction from a brief PDF (pypdf). Never fatal."""
+    try:
+        from pypdf import PdfReader
+        r = PdfReader(str(p))
+        out = []
+        for page in r.pages:
+            out.append(page.extract_text() or "")
+            if sum(len(x) for x in out) > cap:
+                break
+        txt = "\n".join(out).strip()
+        return txt[:cap]
     except Exception:  # noqa: BLE001
         return ""
 
@@ -66,6 +85,16 @@ class LocalSource:
                 continue
             files.append((f, f.relative_to(d).as_posix()))
 
+        if len(statement) < 40:                       # no real statement file
+            pdfs = [hp for hp, _ in files if hp.suffix.lower() == ".pdf"]
+            briefs = []
+            for hp in pdfs:
+                t = _pdf_text(hp)
+                if t:
+                    briefs.append(f"[from {hp.name}]\n{t}")
+            if briefs:
+                statement = "\n\n".join(briefs)[:_PDF_CAP * 2]
+
         tid = f"{category.lower()}/{d.name}"
         tid_n = unicodedata.normalize("NFC", tid)
         name_n = unicodedata.normalize("NFC", d.name)
@@ -77,6 +106,15 @@ class LocalSource:
                 gold = ak[0]
         elif ak is not None and gold is None:
             gold = ak
+
+        # SAFETY: never leak a known flag to the agent via the statement.
+        golds = [g for g in ([gold] + (extra.get("gold_any") or [])) if g]
+        import re as _re
+        for g in set(golds):
+            statement = statement.replace(g, "flag{REDACTED}")
+            m = _re.match(r"^[A-Za-z0-9_]{1,32}\{(.+)\}$", g)
+            if m:
+                statement = statement.replace(m.group(1), "REDACTED")
 
         return {"id": tid, "name": d.name, "category": category.lower(),
                 "statement": statement or d.name, "files": files,
