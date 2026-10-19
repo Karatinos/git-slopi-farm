@@ -27,13 +27,13 @@ ANSWER_KEY = DATA_DIR / "answer_key.json"
 _PROTOTYPES = {
     # ensemble, escalate(Flash->Pro), recon, adaptive_effort, consensus
     "p1": dict(ensemble=1, escalate=False, recon=False, adaptive=False, consensus=1),
-    "p2": dict(ensemble=4, escalate=False, recon=False, adaptive=False, consensus=1),
+    "p2": dict(ensemble=4, escalate=False, recon=True,  adaptive=False, consensus=1),
     "p3": dict(ensemble=3, escalate=True,  recon=True,  adaptive=False, consensus=1),
     "p4": dict(ensemble=4, escalate=True,  recon=True,  adaptive=True,  consensus=1),
     # new strategies
     "p5": dict(ensemble=5, escalate=False, recon=True,  adaptive=False, consensus=2),  # self-consistency precision
     "p6": dict(ensemble=2, escalate=True,  recon=True,  adaptive=True,  consensus=1),  # lean cascade + recon
-    "p7": dict(ensemble=6, escalate=False, recon=False, adaptive=True,  consensus=1),  # broad cheap coverage
+    "p7": dict(ensemble=6, escalate=False, recon=True,  adaptive=True,  consensus=1),  # broad cheap coverage
 }
 _DEFAULTS = dict(ensemble=4, escalate=True, recon=False, adaptive=False, consensus=1)
 

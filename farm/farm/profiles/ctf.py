@@ -68,23 +68,36 @@ Operating rules:
 """
 
 _PLAYBOOKS = {
-    "web": "Web: inspect sources/endpoints for auth flaws, IDOR, SQLi, SSRF, "
-           "deserialization, JWT issues, info leaks; reconstruct the intended request.",
-    "crypto": "Crypto: identify the scheme (RSA/AES/GOST/custom); look for weak/"
-              "reused keys, small exponents, nonce reuse, padding/lattice structure; "
-              "verify with quick Python before committing.",
-    "pwn": "Pwn: analyse the binary statically; map the memory-safety bug and "
-           "mitigations (checksec); build the chain step by step, validate offsets.",
-    "reverse": "Reverse: recover logic (strings, disasm, decompiler); identify the "
-               "check that gates the flag and invert it in Python.",
-    "forensic": "Forensics: identify formats, carve embedded data, follow protocol "
-                "streams, inspect metadata/stego; reconstruct the flag from the layer.",
-    "forensics": "Forensics: identify formats, carve embedded data, follow protocol "
-                 "streams, inspect metadata/stego; reconstruct the flag from the layer.",
+    "web": "Web: the flag lives on the running service. curl the base and common "
+           "paths (/robots.txt, /api, /flag, /.git, /source); read any given source "
+           "for the intended bug — IDOR/auth-bypass/SQLi/SSRF/SSTI/path-traversal/"
+           "insecure-deserialization/JWT (alg=none, weak secret). Reconstruct the "
+           "exact request with python `requests` and pull the flag.",
+    "crypto": "Crypto: read the source, name the scheme, attack the weakness in "
+              "python (pycryptodome/sympy/numpy): small e / close primes (Fermat) / "
+              "shared modulus / nonce reuse (ECDSA,CTR) / weak PRNG or LCG / padding "
+              "or MAC oracle / lattice (Coppersmith). Verify on a tiny case first.",
+    "pwn": "Pwn: parse the ELF (pyelftools), checksec (NX/PIE/canary/RELRO); find the "
+           "bug (overflow/fmt-string/UAF/OOB). Exploit with pwntools: `from pwn import "
+           "*; io=remote(host,port)`; leak (libc/canary) then hijack control; the flag "
+           "is read by the exploited process. Validate offsets locally before remote.",
+    "reverse": "Reverse: strings + objdump + pyelftools/capstone; for Go binaries use "
+               "gopclntab/symbols (recon lists them). Locate the routine that validates "
+               "input / gates the flag and INVERT it in python; the binary runs here, "
+               "so probe its behaviour (feed inputs, watch output) to confirm.",
+    "forensic": "Forensics: the recon digest already reassembled the pcap flows — "
+                "follow the relevant one. VoIP/RTP -> decode audio (DTMF/SSTV); custom "
+                "exfil -> decompress (xz/gzip/zip) the carried bytes; TLS -> find keys "
+                "in a core/memory dump; disk image -> carve with python; grep strings "
+                "in dumps. scapy/pyshark are available for deeper pcap work.",
+    "forensics": "Forensics: the recon digest already reassembled the pcap flows — "
+                 "follow the relevant one. VoIP/RTP -> decode audio; custom exfil -> "
+                 "decompress carried bytes; TLS -> keys from a core/memory dump; disk "
+                 "image -> carve; grep strings in dumps. scapy/pyshark available.",
     "osint": "OSINT: extract concrete clues (names, coords, timestamps, call signs) "
              "and cross-reference; assemble the flag from verified real-world facts.",
-    "misc": "Misc: read carefully, identify the trick (encoding, esoteric format, "
-            "logic puzzle, sandbox escape) and apply the smallest tool that solves it.",
+    "misc": "Misc: read carefully, identify the trick (encoding chain, esoteric "
+            "format, logic puzzle, sandbox escape) and apply the smallest tool.",
 }
 
 _TEXT_EXT = {".txt", ".md", ".py", ".c", ".h", ".cpp", ".js", ".java", ".go",
