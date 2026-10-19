@@ -32,3 +32,4 @@ __pycache__/
 
 # local launcher (contains key)
 farm/START_RUN.command
+farm/START_CTFD_PULL.command
