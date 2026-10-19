@@ -22,9 +22,10 @@ _OUT = DATA_DIR / "ctf_bench" / "files"
 
 
 class CTFdSource:
-    def __init__(self, base_url: str, header: str, reg_code: str):
+    def __init__(self, base_url: str, header: str, reg_code: str,
+                 account_prefix: str = "slopi"):
         self.client = CTFdClient(base_url, header, _OUT)
-        self.client.register(reg_code)
+        self.account = self.client.register(reg_code, prefix=account_prefix)
 
     def read(self) -> List[dict]:
         out: List[dict] = []

@@ -51,13 +51,15 @@ class CTFdClient:
             raise RuntimeError(f"no CSRF nonce on {path}")
         return m.group(1)
 
-    def register(self, registration_code: str) -> str:
-        """Register a fresh throwaway account; returns the username. Idempotent
-        enough for a benchmark: a new random identity each call."""
-        uid = secrets.token_hex(4)
-        user = f"bench_{uid}"
-        data = {"name": user, "email": f"{user}@bench.local",
-                "password": secrets.token_urlsafe(16), "nonce": self._nonce("/register"),
+    def register(self, registration_code: str, prefix: str = "slopi") -> str:
+        """Register an identifiable account for this run and RECORD its creds so
+        the human can log in and see this prototype's solves on the scoreboard.
+        Username is <prefix>_<rand> (prefix carries the prototype/label)."""
+        uid = secrets.token_hex(3)
+        user = f"{prefix}_{uid}"[:48]
+        pw = secrets.token_urlsafe(16)
+        data = {"name": user, "email": f"{user}@bench.local", "password": pw,
+                "nonce": self._nonce("/register"),
                 "registration_code": registration_code, "_submit": "Submit"}
         r = self.c.post("/register", data=data)
         probe = self.c.get("/api/v1/challenges", headers={"Accept": "application/json"})
@@ -65,6 +67,12 @@ class CTFdClient:
             raise RuntimeError(f"registration did not authenticate (status {r.status_code}, "
                                f"probe -> {probe.url})")
         self.who = user
+        try:  # record creds for the human (never shown to agents)
+            acct = self.files_dir.parent / "accounts.log"
+            with acct.open("a") as fh:
+                fh.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{user}\t{pw}\n")
+        except Exception:  # noqa: BLE001
+            pass
         return user
 
     def _download(self, cid: int, url: str) -> Optional[Tuple[Path, str]]:

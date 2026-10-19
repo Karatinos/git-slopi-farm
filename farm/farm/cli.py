@@ -95,7 +95,10 @@ def _build_engine(settings, limit_usd: float) -> Engine:
 def _source(args, profile):
     if args.source == "ctfd":
         from .adapters import CTFdSource
-        src = CTFdSource(args.base_url, args.header, args.reg_code)
+        import re as _re
+        prefix = args.account_prefix or ("slopi_" + _re.sub(r"[^A-Za-z0-9_]", "", (args.label or "run"))[:24])
+        src = CTFdSource(args.base_url, args.header, args.reg_code, account_prefix=prefix)
+        print(f"ctfd account: {src.account}  (creds -> data/ctf_bench/accounts.log)", flush=True)
         if hasattr(profile, "submitter") or args.profile == "ctf":
             profile.submitter = src.submitter
         return src
@@ -206,6 +209,8 @@ def main() -> None:
     r.add_argument("--base-url", default="")
     r.add_argument("--header", default="")
     r.add_argument("--reg-code", default="")
+    r.add_argument("--account-prefix", default=None,
+                   help="CTFd account name prefix (default slopi_<label>)")
     r.set_defaults(func=cmd_run)
 
     p = sub.add_parser("profiles", help="list registered profiles")
