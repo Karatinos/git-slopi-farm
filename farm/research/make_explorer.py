@@ -60,6 +60,15 @@ def main():
     data += collect("farm/research/clean_bench", "farm/data/answer_key_clean.json", "clean")
     data += collect("tasks/Кубок Федерации. Отборочный CTF TB",
                     "farm/data/answer_key.json", "kubok", integ)
+    # cached CTFd (the real live benchmark, pulled earlier)
+    cc = ROOT / "farm/data/ctf_bench/catalog_cached.json"
+    if cc.exists():
+        for r in json.loads(cc.read_text(encoding="utf-8")).get("challenges", []):
+            data.append({"bench": "ctfd", "id": f"ctfd/{r['id']}", "name": r["name"],
+                         "category": r["category"], "label": "live-ctfd",
+                         "statement": (r.get("description") or "")[:2500],
+                         "staged": [{"name": f, "path": f"farm/data/ctf_bench/files/{f}"} for f in r.get("files", [])],
+                         "quarantined": [], "gold": []})
     payload = json.dumps(data, ensure_ascii=False)
     tpl = TEMPLATE.replace("/*DATA*/", payload)
     outp = ROOT / "benchmark_explorer.html"
