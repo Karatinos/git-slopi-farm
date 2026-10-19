@@ -172,13 +172,34 @@ class Ensemble:
                   + (f" [{consensus_note}]" if consensus_note else ""))
 
     def _recon_once(self, task: Task) -> str:
-        if not self.enable_recon or not task.files:
+        if not self.enable_recon:
             return ""
-        sb = self.sandboxes.create(f"{task.id}#recon", seed_files=task.files)
-        try:
-            from ..agent.recon import run_recon
-            return run_recon(sb)
-        except Exception:  # noqa: BLE001
-            return ""
-        finally:
-            sb.destroy()
+        parts = []
+        if task.files:
+            sb = self.sandboxes.create(f"{task.id}#recon", seed_files=task.files)
+            try:
+                from ..agent.recon import run_recon
+                d = run_recon(sb)
+                if d:
+                    parts.append(d)
+            except Exception:  # noqa: BLE001
+                pass
+            finally:
+                sb.destroy()
+        # instance recon: first-contact signal for a LIVE service (web/pwn),
+        # the network analogue of file recon. Bounded; only for attempted tasks.
+        ep = (getattr(task, "endpoint", "") or "").strip()
+        if ep:
+            try:
+                from .net import probe_instance, reachable
+                if reachable(ep, timeout=3.0):
+                    pr = probe_instance(ep, timeout=3.0)
+                    if pr:
+                        parts.append("## Instance recon (live first-contact)\n" + pr)
+                else:
+                    parts.append(
+                        f"## Instance recon\n  note: {ep} did not accept a TCP "
+                        "connection just now — retry on connect, it may be slow to start.")
+            except Exception:  # noqa: BLE001
+                pass
+        return "\n\n".join(parts)

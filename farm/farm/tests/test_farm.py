@@ -15,7 +15,7 @@ import farm.profiles  # noqa: F401  (register profiles)
 from farm.config import SETTINGS
 from farm.core.contracts import AttemptResult, Candidate, Grade, Outcome, Task, Verdict
 from farm.core.ensemble import Ensemble
-from farm.core.net import parse_endpoint, reachable
+from farm.core.net import parse_endpoint, probe_instance, reachable
 from farm.core.profile import BaseProfile, available, build
 from farm.core.report import kpis, render_markdown
 from farm.core.scheduler import Scheduler
@@ -227,6 +227,41 @@ class TestNet(unittest.TestCase):
         srv.close()
         self.assertFalse(reachable("127.0.0.1:1", timeout=1))   # nothing listening
         self.assertTrue(reachable("", timeout=1))               # unparseable -> not blocked
+    def test_probe_http(self):
+        import threading
+        from http.server import BaseHTTPRequestHandler, HTTPServer
+        html = (b"<html><head><title>Vault</title></head>"
+                b"<!-- debug ?admin=1 --><form method=POST action=/login>"
+                b"<input name=user><input name=pass></form></html>")
+        class H(BaseHTTPRequestHandler):
+            def log_message(self, *a): pass
+            def do_GET(self):
+                self.send_response(200); self.send_header("Server", "nginx")
+                self.end_headers(); self.wfile.write(html)
+        httpd = HTTPServer(("127.0.0.1", 0), H); port = httpd.server_address[1]
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        try:
+            out = probe_instance(f"http://127.0.0.1:{port}/", timeout=2.0)
+        finally:
+            httpd.shutdown()
+        self.assertIn("http: 200", out)
+        self.assertIn("title: Vault", out)
+        self.assertIn("action=/login", out)
+        self.assertIn("user", out)            # input name surfaced
+    def test_probe_tcp_banner(self):
+        import socket, threading, time
+        srv = socket.socket(); srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        srv.bind(("127.0.0.1", 0)); port = srv.getsockname()[1]; srv.listen(1)
+        def serve():
+            c, _ = srv.accept(); c.sendall(b"welcome to pwnme v2\n"); time.sleep(0.05); c.close()
+        threading.Thread(target=serve, daemon=True).start()
+        try:
+            out = probe_instance(f"nc 127.0.0.1 {port}", timeout=2.0)
+        finally:
+            srv.close()
+        self.assertIn("welcome to pwnme", out)
+    def test_probe_unreachable_is_empty(self):
+        self.assertEqual(probe_instance("nc 127.0.0.1 1", timeout=1.0), "")
 
 
 # --------------------------------------------------------------------------- #
