@@ -123,13 +123,20 @@ class CTFdClient:
         """Submit a flag; return CTFd's status: correct | incorrect | already_solved
         | ratelimited | <other>."""
         data = {"challenge_id": challenge_id, "submission": flag}
-        r = self.c.post("/api/v1/challenges/attempt",
-                        json=data, headers={"Accept": "application/json",
-                                            "CSRF-Token": self._nonce("/challenges")})
-        try:
-            return r.json().get("data", {}).get("status", f"http{r.status_code}")
-        except Exception:  # noqa: BLE001
-            return f"http{r.status_code}"
+        for attempt in range(3):
+            try:
+                r = self.c.post("/api/v1/challenges/attempt", json=data,
+                                headers={"Accept": "application/json",
+                                         "CSRF-Token": self._nonce("/challenges")})
+                try:
+                    return r.json().get("data", {}).get("status", f"http{r.status_code}")
+                except Exception:  # noqa: BLE001
+                    return f"http{r.status_code}"
+            except Exception as e:  # noqa: BLE001  (network flap must not kill the run)
+                if attempt < 2:
+                    time.sleep(2 * (attempt + 1)); continue
+                return f"error:{type(e).__name__}"
+        return "error"
 
     def close(self) -> None:
         self.c.close()

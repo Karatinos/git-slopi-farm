@@ -17,7 +17,7 @@ from __future__ import annotations
 import threading
 import time
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError as _FTimeout
 from typing import List, Optional
 
 from ..config import SETTINGS, SwarmConfig
@@ -84,9 +84,13 @@ class Ensemble:
                 sb.destroy()
 
         workers = min(self.swarm.max_concurrent_sandboxes, len(temps))
-        with ThreadPoolExecutor(max_workers=workers) as ex:
-            futures = [ex.submit(one, i, t) for i, t in enumerate(temps)]
-            for fut in as_completed(futures):
+        # HARD wall-clock ceiling per task: a hung attempt (slow instance, model
+        # stall) can never exceed this, regardless of per-step budgets.
+        hard_deadline = max(300.0, getattr(getattr(self.agent, 'budgets', None), 'max_seconds', 180.0) * 2 + 60)
+        ex = ThreadPoolExecutor(max_workers=workers)
+        futures = [ex.submit(one, i, t) for i, t in enumerate(temps)]
+        try:
+            for fut in as_completed(futures, timeout=hard_deadline):
                 try:
                     res = fut.result()
                 except Exception as e:  # noqa: BLE001
@@ -104,6 +108,15 @@ class Ensemble:
                         cancel.set()                    # verified: stop siblings
                     elif first_to_candidate and getattr(self.swarm, "consensus", 1) <= 1:
                         cancel.set()                    # first-to-flag heuristic
+        except _FTimeout:
+            cancel.set()
+            for i, fut in enumerate(futures):
+                if not fut.done():
+                    results.append(AttemptResult(
+                        task_id=task.id, author=f"{task.id}#to{i}", outcome="killed",
+                        reason=f"task wall-clock deadline {hard_deadline:.0f}s exceeded"))
+        finally:
+            ex.shutdown(wait=False)
 
         wall = time.time() - started
         return self._finish(task, profile, results, early, wall)

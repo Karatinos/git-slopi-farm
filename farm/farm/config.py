@@ -98,7 +98,7 @@ class Budgets:
     # Per-trajectory triple budget (blueprint §7 "тройной бюджет").
     max_steps: int = 24              # ReAct steps before stop/escalate
     max_tokens: int = 220_000        # in+out tokens per trajectory
-    max_seconds: float = 240.0       # wall-clock per trajectory
+    max_seconds: float = 180.0       # wall-clock per trajectory
     max_usd: float = 0.0             # per-trajectory USD hard stop (0 = off)
     # Per-CALL output cap. Must be generous: V4.1-Flash reasons by default and
     # reasoning tokens eat this budget — too small (e.g. 1024) returns EMPTY
@@ -155,7 +155,7 @@ class SandboxConfig:
     cpu_limit: str = "2"                   # docker --cpus
     mem_limit: str = "2g"                  # docker --memory
     pids_limit: int = 256
-    tool_timeout: float = 60.0             # per-tool wall clock
+    tool_timeout: float = 50.0             # per-tool wall clock
     network: str = "none"                  # egress deny by default (allowlist per task)
 
 
@@ -168,8 +168,8 @@ class Settings:
     )
     # Reasoning effort for the OpenRouter `reasoning` param (off|low|medium|high).
     reasoning_effort: str = os.environ.get("DEEPSEEK_REASONING_EFFORT", "low")
-    request_timeout: float = 120.0
-    max_retries: int = 3
+    request_timeout: float = 45.0
+    max_retries: int = 1
     # ACI feature toggles (improvements enabled from run 2 onward).
     enable_recon: bool = False      # auto file/exif/OCR/QR digest before solving
     budgets: Budgets = field(default_factory=Budgets)

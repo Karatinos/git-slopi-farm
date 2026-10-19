@@ -103,7 +103,7 @@ class CTFProfile(BaseProfile):
     # with the full toolkit (radare2/gdb/tshark/volatility3) and bridge egress
     # so the agent can reach a challenge instance.
     sandbox_spec = {"image": "slopi-farm-sandbox:ctf", "network": "bridge",
-                    "tool_timeout": 180}
+                    "tool_timeout": 60}
 
     def __init__(self, flag_format: str = "swarm{...}", submitter: Optional[Submitter] = None):
         self.flag_format = flag_format
