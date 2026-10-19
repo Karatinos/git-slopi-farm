@@ -7,7 +7,6 @@ It is deliberately general (no task-specific knowledge), so what it solves is a
 fair lower bound: "what the sandbox tooling cracks with zero reasoning". Used
 both standalone and as the brain of the ScriptedSolver provider.
 """
-from __future__ import annotations
 import base64, binascii, io, math, os, re, sys, tarfile, zipfile, gzip
 
 FLAG = re.compile(r"[A-Za-z0-9_]{2,16}\{[A-Za-z0-9_]{1,80}\}")
@@ -201,9 +200,48 @@ def solve_dir(root="."):
     uniq.sort(key=lambda x: (not x.lower().startswith("flag{"), len(x)))
     return uniq
 
+
+def solve_endpoint(ep):
+    """Probe a live service (http(s) or host:port) for a flag."""
+    import socket, re as _re, urllib.request
+    found = []
+    ep = (ep or "").strip()
+    murl = _re.search(r"https?://[^\s]+", ep)
+    if murl or "://" in ep:
+        base = (murl.group(0) if murl else ep).rstrip("/")
+        for path in ("", "/", "/flag", "/flag.txt", "/robots.txt", "/index.html",
+                     "/.env", "/admin", "/secret", "/api/flag", "/static/flag.txt"):
+            try:
+                req = urllib.request.Request(base + path, headers={"User-Agent": "curl/8"})
+                data = urllib.request.urlopen(req, timeout=6).read()
+                found += hits(data)
+            except Exception:
+                pass
+        return found
+    mhp = _re.search(r"(\d{1,3}(?:\.\d{1,3}){3}|[\w.-]+)[:\s]+(\d{2,5})", ep)
+    if mhp:
+        host, port = mhp.group(1), int(mhp.group(2))
+        try:
+            s = socket.create_connection((host, port), timeout=6); s.settimeout(4)
+            buf = b""
+            for probe in (b"", b"\n", b"help\n", b"1\n"):
+                try:
+                    if probe:
+                        s.sendall(probe)
+                    buf += s.recv(8192)
+                except Exception:
+                    break
+            s.close(); found += hits(buf)
+        except Exception:
+            pass
+    return found
+
 if __name__ == "__main__":
     root = sys.argv[1] if len(sys.argv) > 1 else "."
     res = solve_dir(root)
+    ep = os.environ.get("SLOPI_ENDPOINT", "")
+    if not res and ep:
+        res = solve_endpoint(ep)
     if res:
         print("FLAG=" + res[0])
     else:

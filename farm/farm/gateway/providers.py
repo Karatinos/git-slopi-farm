@@ -329,7 +329,12 @@ class ScriptedSolverProvider:
         if "submit_flag" in names and m and not already:
             return resp("", [tc("submit_flag", {"flag": m.group(1)})])
         if "run_python" in names and "FLAG=" not in blob and "NO_FLAG_FOUND" not in blob:
-            return resp("", [tc("run_python", {"code": self._autosolve})])
+            ep = ""
+            em = re.search(r'(?:nc\s+[^\s"\\]+\s+\d+|https?://[^\s"\\]+|\b\d{1,3}(?:\.\d{1,3}){3}:\d+)', blob)
+            if em:
+                ep = em.group(0)
+            code = (f"import os\nos.environ['SLOPI_ENDPOINT']={ep!r}\n" + self._autosolve) if ep else self._autosolve
+            return resp("", [tc("run_python", {"code": code})])
         if "list_files" in names and '"list_files"' not in blob:
             return resp("", [tc("list_files", {"path": "."})])
         return resp("No further progress: tooling baseline exhausted.", [])
