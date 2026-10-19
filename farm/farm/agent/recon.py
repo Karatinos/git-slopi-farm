@@ -112,6 +112,31 @@ for p in files:
         secs=sh("objdump","-h",p,t=20)
         uncommon=[l.split()[1] for l in secs.splitlines() if re.match(r"\s+\d+\s+\.\w",l) and l.split()[1] not in (".text",".data",".bss",".rodata",".comment")][:12]
         if uncommon: print("  elf sections:",", ".join(uncommon))
+        # imported libc calls hint the technique (ptrace=anti-debug, memcmp=cmp, etc.)
+        imp=sh("objdump","-T",p,t=20)
+        INT={"ptrace","fork","alarm","signal","getenv","memcmp","strcmp","strncmp",
+             "strcpy","system","execve","mmap","mprotect","gets","scanf","read","open",
+             "socket","connect","srand","rand","time","crypt","MD5","SHA","AES"}
+        funcs=[]
+        for l in imp.splitlines():
+            m=re.search(r"\s(\w+)(@|$)",l)
+            if m and ("DF" in l or "UND" in l):
+                f=m.group(1)
+                if any(k.lower() in f.lower() for k in INT) and f not in funcs: funcs.append(f)
+        if funcs: print("  elf imports:",", ".join(funcs[:16]))
+        # .rodata literals (prompts/keys/format strings) that generic strings buries
+        rod=sh("objdump","-s","-j",".rodata",p,t=20)
+        lits=[]
+        for l in rod.splitlines():
+            m=re.match(r"\s*[0-9a-f]+ (([0-9a-f]{2,8} ){1,4}) (.*)$",l)
+            if m:
+                tail=m.group(3).strip()
+                if len(tail)>=6 and re.search(r"[A-Za-z]{4}",tail): lits.append(tail)
+        if lits:
+            joined=" ".join(lits)
+            chunks=re.findall(r"[ -~]{6,}",joined)
+            seen=[c for c in chunks if re.search(r"[A-Za-z]{4}",c)][:8]
+            if seen: print("  elf rodata:"," | ".join(x[:50] for x in seen))
     if low.endswith((".png",".jpg",".jpeg",".bmp",".gif",".webp",".tif",".tiff")):
         try:
             from PIL import Image, ExifTags
@@ -133,8 +158,11 @@ for p in files:
     st=sh("strings","-n","4",p)
     fl=sorted(set(re.findall(r"[A-Za-z0-9_]{2,16}\{[^}\n]{1,120}\}",st)))[:3]
     if fl: print("  FLAG?:",fl)
-    hot=[l for l in st.splitlines() if re.search(r"(?i)secret|password|passwd|api[_-]?key|BEGIN |ssh-|http://|https://",l)][:4]
-    for h in hot: print("  str:",h[:120])
+    hot=[l for l in st.splitlines() if re.search(
+        r"(?i)secret|password|passwd|api[_-]?key|BEGIN |ssh-|https?://|token|"
+        r"[A-Za-z0-9+/]{32,}={0,2}|[0-9a-fA-F]{32,}|"
+        r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", l)][:6]
+    for h in hot: print("  str:",h.strip()[:130])
 '''
 
 
@@ -143,7 +171,7 @@ def signal_level(digest: str) -> str:
         return "low"
     d = digest.lower()
     if "flag?:" in d or " qr" in d or "exif gps" in d or " embedded:" in d or "pcap flag" in d \
-            or "elf symbols" in d or "->" in d:
+            or "elf symbols" in d or "elf imports" in d or "elf rodata" in d or "->" in d:
         return "high"
     lines = [ln for ln in digest.splitlines()
              if ln.strip().startswith(("ocr:", "exif", "str:", "text:", "pcap:"))]
