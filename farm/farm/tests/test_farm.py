@@ -484,6 +484,20 @@ class TestAdaptiveEffort(unittest.TestCase):
         self.assertIsNone(_adaptive_step_override(self._swarm(True, 7), "", med))
 
 
+class TestCtfdEndpointExtraction(unittest.TestCase):
+    def test_validated_extraction(self):
+        from farm.adapters.ctfd_source import _endpoint_from_text
+        self.assertEqual(_endpoint_from_text("Connect: nc chals.io 31337 to play"),
+                         "nc chals.io 31337")
+        self.assertEqual(_endpoint_from_text("service at http://x.test:8080/a."),
+                         "http://x.test:8080/a")
+        self.assertEqual(_endpoint_from_text("target 192.168.1.5:9001 now"),
+                         "192.168.1.5:9001")
+        # prose that is not a real endpoint yields nothing
+        self.assertEqual(_endpoint_from_text("meeting at 12:34 today"), "")
+        self.assertEqual(_endpoint_from_text(""), "")
+
+
 class TestMCPClient(unittest.TestCase):
     # A tiny stdlib-only MCP stdio server: initialize, one 'echo' tool.
     STUB = (

@@ -16,9 +16,30 @@ from pathlib import Path
 from typing import List
 
 from ..config import DATA_DIR
+from ..core.net import parse_endpoint
 from ..orchestration.ctfd_client import CTFdClient
 
 _OUT = DATA_DIR / "ctf_bench" / "files"
+
+# Endpoint shapes a description might mention, widest-signal first. Each
+# candidate is validated with net.parse_endpoint, so prose like "at 12:34"
+# never becomes a bogus endpoint.
+_EP_PATTERNS = (
+    r"https?://\S+",
+    r"\bnc\s+\S+\s+\d{1,5}\b",
+    r"\b(?:\d{1,3}\.){3}\d{1,3}:\d{1,5}\b",
+    r"\b[A-Za-z0-9\-]+(?:\.[A-Za-z0-9\-]+)+:\d{1,5}\b",
+)
+
+
+def _endpoint_from_text(text: str) -> str:
+    """Best-effort extract a *validated* endpoint string from a description."""
+    for pat in _EP_PATTERNS:
+        for m in re.finditer(pat, text or ""):
+            cand = m.group(0).strip().rstrip(".,);]")
+            if parse_endpoint(cand) is not None:
+                return cand
+    return ""
 
 
 class CTFdSource:
@@ -32,8 +53,7 @@ class CTFdSource:
         for ch in self.client.fetch():
             endpoint = (ch.connection_info or "").strip()
             if not endpoint:
-                m = re.search(r'https?://\S+|\d{1,3}(?:\.\d{1,3}){3}[:\s]\d+', ch.description)
-                endpoint = m.group(0).strip() if m else ""
+                endpoint = _endpoint_from_text(ch.description)
             out.append({
                 "id": f"ctfd/{ch.id}", "name": ch.name, "category": ch.category,
                 "statement": ch.description, "files": ch.files, "endpoint": endpoint,
