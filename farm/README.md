@@ -85,7 +85,7 @@ the biggest lever: **ACI / recon** (see §7). Keep edits small and reversible.
 **2 — Pretest (free, offline — must pass before any paid run):**
 ```bash
 # a) unit suite green (mock provider, $0)
-python3 -m pytest -q                                   # 36 passed
+python3 -m pytest -q                                   # 39 passed
 
 # b) recon signal coverage on the REAL cached files (want high on all offline tasks)
 #    (ad-hoc: seed files into a sandbox and inspect run_recon output)
@@ -126,7 +126,7 @@ cd farm
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 python3 -m farm.cli profiles            # -> ctf, generic  (what it can solve)
-python3 -m pytest -q                    # 36 tests, mock provider, $0
+python3 -m pytest -q                    # 39 tests, mock provider, $0
 
 # CTF against a local corpus (offline, gold-graded if an answer key exists)
 python3 -m farm.cli run --profile ctf --source local --path ../tasks
@@ -204,6 +204,12 @@ Template: `farm/env.openrouter.sh` (reads the key from the env; no key in the re
   submit discovered form fields, read the service banner before scripting).
 - Gated by the prototype's `recon` flag; runs per-task (budget-aware), with short
   timeouts and instant fail on an unreachable endpoint.
+- **MCP tool augmentation** (`orchestration/mcp_client.py`): the toolbelt can be
+  extended with tools exposed by any external **MCP** server (stdio, JSON-RPC),
+  so specialised solvers/toolboxes are borrowed, not reimplemented.
+  `build_mcp_tools(cmd)` wraps each server tool as a farm `Tool` (name
+  `mcp_<tool>`); reads are deadline-bounded (a wedged server can't freeze a run)
+  and a tool error returns a recoverable string. Opt-in per profile; off by default.
 
 ---
 

@@ -484,5 +484,69 @@ class TestAdaptiveEffort(unittest.TestCase):
         self.assertIsNone(_adaptive_step_override(self._swarm(True, 7), "", med))
 
 
+class TestMCPClient(unittest.TestCase):
+    # A tiny stdlib-only MCP stdio server: initialize, one 'echo' tool.
+    STUB = (
+        "import sys, json\n"
+        "def send(m): sys.stdout.write(json.dumps(m)+chr(10)); sys.stdout.flush()\n"
+        "for line in sys.stdin:\n"
+        "    line=line.strip()\n"
+        "    if not line: continue\n"
+        "    msg=json.loads(line); mid=msg.get('id'); method=msg.get('method')\n"
+        "    if method=='initialize':\n"
+        "        send({'jsonrpc':'2.0','id':mid,'result':{'protocolVersion':'2024-11-05','capabilities':{'tools':{}},'serverInfo':{'name':'stub','version':'1'}}})\n"
+        "    elif method=='notifications/initialized':\n"
+        "        pass\n"
+        "    elif method=='tools/list':\n"
+        "        send({'jsonrpc':'2.0','id':mid,'result':{'tools':[{'name':'echo','description':'echo back msg','inputSchema':{'type':'object','properties':{'msg':{'type':'string'}}}}]}})\n"
+        "    elif method=='tools/call':\n"
+        "        p=msg.get('params',{}); args=p.get('arguments',{})\n"
+        "        if p.get('name')=='echo':\n"
+        "            send({'jsonrpc':'2.0','id':mid,'result':{'content':[{'type':'text','text':'echo: '+str(args.get('msg',''))}],'isError':False}})\n"
+        "        else:\n"
+        "            send({'jsonrpc':'2.0','id':mid,'result':{'content':[{'type':'text','text':'unknown tool'}],'isError':True}})\n"
+        "    elif mid is not None:\n"
+        "        send({'jsonrpc':'2.0','id':mid,'error':{'code':-32601,'message':'method not found'}})\n"
+    )
+
+    def _server_cmd(self):
+        import sys
+        root = Path(tempfile.mkdtemp(prefix="slopi_mcp_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        p = root / "stub_server.py"
+        p.write_text(self.STUB)
+        return [sys.executable, str(p)]
+
+    def test_list_and_call(self):
+        from farm.orchestration.mcp_client import MCPStdioClient
+        with MCPStdioClient(self._server_cmd()) as c:
+            self.assertEqual([t["name"] for t in c.list_tools()], ["echo"])
+            self.assertIn("echo: hi", c.call_tool("echo", {"msg": "hi"}))
+            # a tool error becomes a recoverable string, never an exception
+            self.assertTrue(c.call_tool("nope", {}).startswith("error:"))
+
+    def test_build_mcp_tools_wraps_as_farm_tools(self):
+        from farm.orchestration.mcp_client import build_mcp_tools
+        tools, client = build_mcp_tools(self._server_cmd())
+        try:
+            self.assertEqual(tools[0].name, "mcp_echo")
+            self.assertIn("echo: x", tools[0].fn({"msg": "x"}, None))
+        finally:
+            client.close()
+
+    def test_timeout_on_silent_server(self):
+        # a server that never answers must fail fast, not hang (hanging-conn lesson)
+        import sys
+        from farm.orchestration.mcp_client import MCPStdioClient, MCPError
+        root = Path(tempfile.mkdtemp(prefix="slopi_mcp_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        p = root / "silent.py"
+        p.write_text("import sys, time\nfor _ in sys.stdin: time.sleep(5)\n")
+        c = MCPStdioClient([sys.executable, str(p)], init_timeout=1.0)
+        self.addCleanup(c.close)
+        with self.assertRaises(MCPError):
+            c.start()
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
