@@ -68,19 +68,25 @@ Operating rules:
 """
 
 _PLAYBOOKS = {
-    "web": "Web: the flag lives on the running service. curl the base and common "
-           "paths (/robots.txt, /api, /flag, /.git, /source); read any given source "
-           "for the intended bug — IDOR/auth-bypass/SQLi/SSRF/SSTI/path-traversal/"
-           "insecure-deserialization/JWT (alg=none, weak secret). Reconstruct the "
-           "exact request with python `requests` and pull the flag.",
+    "web": "Web: the flag lives on the running service. START from the 'Instance "
+           "recon' block above — it already pulled status/headers, <title>, forms "
+           "(method+action+input names), HTML comments and robots.txt; chase those "
+           "FIRST (hit each robots Disallow path, submit the discovered form fields, "
+           "act on comment hints like ?admin=1, note Server/Set-Cookie/WWW-Authenticate). "
+           "Then curl other common paths (/api, /flag, /.git, /source) and read any "
+           "given source for the intended bug — IDOR/auth-bypass/SQLi/SSRF/SSTI/"
+           "path-traversal/insecure-deserialization/JWT (alg=none, weak secret). "
+           "Reconstruct the exact request with python `requests` and pull the flag.",
     "crypto": "Crypto: read the source, name the scheme, attack the weakness in "
               "python (pycryptodome/sympy/numpy): small e / close primes (Fermat) / "
               "shared modulus / nonce reuse (ECDSA,CTR) / weak PRNG or LCG / padding "
               "or MAC oracle / lattice (Coppersmith). Verify on a tiny case first.",
-    "pwn": "Pwn: parse the ELF (pyelftools), checksec (NX/PIE/canary/RELRO); find the "
-           "bug (overflow/fmt-string/UAF/OOB). Exploit with pwntools: `from pwn import "
-           "*; io=remote(host,port)`; leak (libc/canary) then hijack control; the flag "
-           "is read by the exploited process. Validate offsets locally before remote.",
+    "pwn": "Pwn: the 'Instance recon' block above already grabbed the service banner "
+           "— read it for the menu/prompt and expected input format before scripting. "
+           "Parse the ELF (pyelftools), checksec (NX/PIE/canary/RELRO); find the bug "
+           "(overflow/fmt-string/UAF/OOB). Exploit with pwntools: `from pwn import *; "
+           "io=remote(host,port)`; leak (libc/canary) then hijack control; the flag is "
+           "read by the exploited process. Validate offsets locally before remote.",
     "reverse": "Reverse: strings + objdump + pyelftools/capstone; for Go binaries use "
                "gopclntab/symbols (recon lists them). Locate the routine that validates "
                "input / gates the flag and INVERT it in python; the binary runs here, "
