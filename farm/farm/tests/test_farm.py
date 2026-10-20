@@ -7,6 +7,9 @@ report. Run: `python -m unittest farm.tests.test_farm -v`.
 """
 from __future__ import annotations
 
+import os
+import shutil
+import tempfile
 import unittest
 from pathlib import Path
 from typing import List, Optional
@@ -314,6 +317,40 @@ class TestReportAndRegistry(unittest.TestCase):
         self.assertIn("generic", available())
         with self.assertRaises(KeyError):
             build("nope")
+
+
+class TestLocalSandbox(unittest.TestCase):
+    def _sandbox(self):
+        from farm.config import SandboxConfig
+        from farm.sandbox.local import LocalSandbox
+        root = Path(tempfile.mkdtemp(prefix="slopi_test_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        return LocalSandbox(root, SandboxConfig())
+
+    def test_run_python_pythonpath_exposes_host_packages(self):
+        # Regression: run() scrubs HOME, which used to hide the host user
+        # site-packages and make PIL/pycryptodome/numpy unimportable in
+        # run_python -- so only pure-stdlib tasks solved (lsb_stego failed the
+        # clean-bench gate). run() must re-expose the host interpreter's site
+        # dirs via PYTHONPATH.
+        from farm.sandbox.local import _host_site_pythonpath
+        expected = _host_site_pythonpath()
+        self.assertTrue(expected, "host interpreter should expose a site dir")
+        sb = self._sandbox()
+        sb.write_file("_snippet.py",
+                      "import os; print(os.environ.get('PYTHONPATH', ''))")
+        res = sb.run("python3 _snippet.py")
+        self.assertEqual(res.exit_code, 0, res.stderr)
+        self.assertIn(expected.split(os.pathsep)[0], res.stdout)
+
+    def test_run_keeps_home_scrubbed(self):
+        # exposing packages must not leak the real HOME back into the sandbox.
+        sb = self._sandbox()
+        sb.write_file("_snippet.py",
+                      "import os; print(os.environ.get('HOME', ''))")
+        res = sb.run("python3 _snippet.py")
+        self.assertEqual(res.exit_code, 0, res.stderr)
+        self.assertEqual(res.stdout.strip(), sb.workdir)
 
 
 if __name__ == "__main__":

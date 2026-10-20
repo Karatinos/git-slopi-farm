@@ -9,13 +9,54 @@ from __future__ import annotations
 
 import os
 import shutil
+import site
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import List, Optional, Tuple
 
 from ..config import SandboxConfig
 from .base import ExecResult, Sandbox, SandboxProvider
+
+_HOST_SITE_DIRS: Optional[str] = None
+
+
+def _host_site_pythonpath() -> str:
+    """site-packages dirs of the interpreter running the farm, as a PYTHONPATH.
+
+    LocalSandbox scrubs HOME (below), which otherwise makes Python resolve the
+    *user* site-packages to a path inside the empty temp root -- so PIL,
+    pycryptodome, numpy, scapy etc. (commonly pip-installed into user site)
+    become unimportable and run_python silently loses every non-stdlib tool.
+    We expose only real package dirs (not the project root or cwd) so the
+    offline-fallback sandbox can import them with HOME still scrubbed. Cached;
+    this is the trusted offline backend, not a security boundary.
+    """
+    global _HOST_SITE_DIRS
+    if _HOST_SITE_DIRS is not None:
+        return _HOST_SITE_DIRS
+    candidates: List[str] = []
+    try:
+        candidates += list(site.getsitepackages())
+    except Exception:  # noqa: BLE001 - not available in every environment
+        pass
+    try:
+        user = site.getusersitepackages()
+        if user:
+            candidates.append(user)
+    except Exception:  # noqa: BLE001
+        pass
+    # covers virtualenvs, whose site dirs live on sys.path
+    candidates += [p for p in sys.path
+                   if p and ("site-packages" in p or "dist-packages" in p)]
+    seen, kept = set(), []
+    for d in candidates:
+        if d and d not in seen and os.path.isdir(d):
+            seen.add(d)
+            kept.append(d)
+    _HOST_SITE_DIRS = os.pathsep.join(kept)
+    return _HOST_SITE_DIRS
 
 
 class LocalSandbox(Sandbox):
@@ -51,6 +92,14 @@ class LocalSandbox(Sandbox):
             "LANG": "C.UTF-8",
             "PYTHONDONTWRITEBYTECODE": "1",
         }
+        # expose the host interpreter's installed packages (HOME is scrubbed
+        # above, which would otherwise hide user site-packages); preserve any
+        # PYTHONPATH already set.
+        site_path = _host_site_pythonpath()
+        existing = os.environ.get("PYTHONPATH", "")
+        combined = os.pathsep.join(p for p in (existing, site_path) if p)
+        if combined:
+            env["PYTHONPATH"] = combined
         try:
             proc = subprocess.run(
                 ["/bin/sh", "-c", command], cwd=self._root, env=env,
