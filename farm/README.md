@@ -93,7 +93,7 @@ python3 -m pytest -q                                   # 39 passed
 # c) full-engine DRY RUN through the exact code path, no LLM, gold-graded ($0)
 SLOPI_PROVIDER=scripted python3 -m farm.cli run --source local \
   --path research/clean_bench --answer-key data/answer_key_clean.json \
-  --prototype p3 --limit 1.0 --label dryrun            # expect 8/8 correct
+  --prototype p3 --limit 1.0 --label dryrun            # expect 13/13 correct
 
 # d) validate launchers / argparse / compare offline
 python3 -m farm.compare --glob 'clean_p*' --out /tmp/cmp_test

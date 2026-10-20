@@ -1,0 +1,1 @@
+A one-byte XOR hides the flag.

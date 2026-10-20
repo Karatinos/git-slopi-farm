@@ -7,7 +7,7 @@ It is deliberately general (no task-specific knowledge), so what it solves is a
 fair lower bound: "what the sandbox tooling cracks with zero reasoning". Used
 both standalone and as the brain of the ScriptedSolver provider.
 """
-import base64, binascii, io, math, os, re, sys, tarfile, zipfile, gzip
+import base64, binascii, bz2, io, math, os, re, sys, tarfile, zipfile, gzip, zlib
 
 FLAG = re.compile(r"[A-Za-z0-9_]{2,16}\{[A-Za-z0-9_]{1,80}\}")
 
@@ -28,7 +28,11 @@ def try_decodes(data, depth=3):
     cand = []
     for fn in (lambda x: base64.b64decode(x, validate=False),
                lambda x: base64.b32decode(x + b"=" * (-len(x) % 8)),
-               lambda x: binascii.unhexlify(re.sub(rb"\s", b"", x))):
+               lambda x: binascii.unhexlify(re.sub(rb"\s", b"", x)),
+               lambda x: base64.a85decode(x, adobe=x.startswith(b"<~")),  # ascii85
+               lambda x: base64.b85decode(x),                            # base85
+               lambda x: zlib.decompress(x),                             # raw zlib
+               lambda x: bz2.decompress(x)):                             # bzip2
         try:
             d = fn(s)
             if d and d != s:
@@ -173,6 +177,73 @@ def pysource(text):
             pass
     return []
 
+def rot_brute(data):
+    """Try all 25 Caesar shifts over printable text (covers ROT13/ROT-N flags).
+    Only letters rotate, so `synt{...}` -> `flag{...}`; `{`/digits are untouched."""
+    if not data or len(data) > 8192:
+        return []
+    try:
+        t = data.decode("latin-1")
+    except Exception:
+        return []
+    if not t or sum(1 for c in t if 32 <= ord(c) < 127 or c in "\t\n\r") / len(t) < 0.9:
+        return []
+    if not re.search(r"[A-Za-z]", t):
+        return []
+    found = []
+    for s in range(1, 26):
+        def shift(c, s=s):
+            if "a" <= c <= "z":
+                return chr((ord(c) - 97 + s) % 26 + 97)
+            if "A" <= c <= "Z":
+                return chr((ord(c) - 65 + s) % 26 + 65)
+            return c
+        found += hits("".join(shift(c) for c in t))
+    return found
+
+
+def xor_single(data):
+    """Single-byte XOR brute over a SMALL blob; keep only near-fully-printable
+    decodings (guards against the flag regex matching XOR noise)."""
+    if not data or len(data) > 4096:
+        return []
+    found = []
+    for k in range(1, 256):
+        dec = bytes(b ^ k for b in data)
+        if sum(32 <= x < 127 or x in (9, 10, 13) for x in dec) / len(dec) < 0.9:
+            continue
+        found += hits(dec)
+    return found
+
+
+def png_text(path):
+    """Read a PNG's tEXt/iTXt/zTXt metadata chunks (a classic hiding spot)."""
+    try:
+        data = open(path, "rb").read()
+    except Exception:
+        return []
+    if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return []
+    found, i = [], 8
+    while i + 12 <= len(data):
+        ln = int.from_bytes(data[i:i + 4], "big")
+        typ = data[i + 4:i + 8]
+        chunk = data[i + 8:i + 8 + ln]
+        if typ in (b"tEXt", b"iTXt"):
+            found += hits(chunk)
+        elif typ == b"zTXt":
+            nul = chunk.find(b"\0")
+            if nul != -1:
+                try:
+                    found += hits(zlib.decompress(chunk[nul + 2:]))
+                except Exception:
+                    pass
+        if typ == b"IEND":
+            break
+        i += 12 + ln
+    return found
+
+
 def solve_dir(root="."):
     found = []
     for dp, _, fn in os.walk(root):
@@ -189,8 +260,12 @@ def solve_dir(root="."):
             found += carve_and_extract(data)
             found += morse(data)
             found += rsa_fermat(data.decode("latin-1", "ignore"))
+            found += rot_brute(data)
+            found += xor_single(data)
             if f.lower().endswith((".png", ".bmp", ".gif")):
                 found += lsb(p)
+            if f.lower().endswith(".png"):
+                found += png_text(p)
             if f.lower().endswith(".bin"):
                 found += xor_crib(data)
             if f.lower().endswith(".py"):
