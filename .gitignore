@@ -37,3 +37,6 @@ farm/START_LIVE_RUN.command
 
 # nap-mode runtime flag
 .claude/.nap_active
+
+# generated preflight artifact (may contain a masked key label)
+farm/data/preflight_result.json
