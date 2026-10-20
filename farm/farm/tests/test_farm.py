@@ -222,6 +222,16 @@ class TestNet(unittest.TestCase):
         self.assertEqual(parse_endpoint("http://h.test:8080/x"), ("h.test", 8080))
         self.assertEqual(parse_endpoint("1.2.3.4:9999"), ("1.2.3.4", 9999))
         self.assertIsNone(parse_endpoint(""))
+        # scheme default port
+        self.assertEqual(parse_endpoint("https://ctf.example.com/x"),
+                         ("ctf.example.com", 443))
+        # single-label host with an explicit colon-port still parses
+        self.assertEqual(parse_endpoint("chal:1337"), ("chal", 1337))
+        # robustness: prose with no real port, a time, and an out-of-range port
+        # must not produce a bogus (host, port) from the fallback path
+        self.assertIsNone(parse_endpoint("connect at 192.168.1.108 to start"))
+        self.assertIsNone(parse_endpoint("meeting at 12:34 today"))
+        self.assertIsNone(parse_endpoint("1.2.3.4:99999"))
     def test_reachable_live_and_dead(self):
         import socket
         srv = socket.socket(); srv.bind(("127.0.0.1", 0)); srv.listen(1)

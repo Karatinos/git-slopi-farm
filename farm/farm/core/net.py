@@ -14,21 +14,39 @@ from typing import Optional, Tuple
 from urllib.parse import urlparse
 
 
+def _valid_port(p: int) -> bool:
+    return 0 < p <= 65535
+
+
 def parse_endpoint(endpoint: str) -> Optional[Tuple[str, int]]:
-    """Extract (host, port) from an endpoint string, or None if unparseable."""
+    """Extract (host, port) from an endpoint string, or None if unparseable.
+
+    Best-effort over the shapes a scoreboard emits (`host:port`, `nc host port`,
+    a URL), and robust against prose in the description-fallback path: the host
+    must look like an IP, a dotted hostname, or a letter-led label, so strings
+    like "connect at 192.168.1.108 ..." (no port) or a bare "12:34" no longer
+    yield a bogus ("at", 192) / ("12", 34). Ports are range-validated."""
     e = (endpoint or "").strip()
     if not e:
         return None
     if e.startswith(("http://", "https://")):
         u = urlparse(e)
-        if u.hostname:
+        if u.hostname and (u.port is None or _valid_port(u.port)):
             return (u.hostname, u.port or (443 if u.scheme == "https" else 80))
         return None
-    m = re.search(r"\bnc\s+(\S+)\s+(\d{1,5})", e)              # nc host port
-    if m:
+    m = re.search(r"\bnc\s+(\S+)\s+(\d{1,5})", e)                      # nc host port
+    if m and _valid_port(int(m.group(2))):
         return (m.group(1), int(m.group(2)))
-    m = re.search(r"([A-Za-z0-9_.\-]+)[:\s](\d{1,5})\b", e)    # host:port / host port
-    if m:
+    # host:port — colon is a strong signal; allow a single-label host but it must
+    # start with a letter (or be a dotted IP) so a time like "12:34" is rejected.
+    m = re.search(r"\b((?:\d{1,3}\.){3}\d{1,3}|[A-Za-z][A-Za-z0-9.\-]*):(\d{1,5})\b", e)
+    if m and _valid_port(int(m.group(2))):
+        return (m.group(1), int(m.group(2)))
+    # "host port" (whitespace) — require an IP, a dotted hostname, or localhost
+    # directly before the number, so prose words can't be read as a host.
+    m = re.search(r"\b((?:\d{1,3}\.){3}\d{1,3}|localhost|[A-Za-z0-9\-]+(?:\.[A-Za-z0-9\-]+)+)"
+                  r"\s+(\d{1,5})\b", e)
+    if m and _valid_port(int(m.group(2))):
         return (m.group(1), int(m.group(2)))
     return None
 
