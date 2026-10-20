@@ -34,3 +34,6 @@ __pycache__/
 farm/START_RUN.command
 farm/START_CTFD_PULL.command
 farm/START_LIVE_RUN.command
+
+# nap-mode runtime flag
+.claude/.nap_active
