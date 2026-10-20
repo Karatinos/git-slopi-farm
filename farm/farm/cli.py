@@ -34,6 +34,14 @@ _PROTOTYPES = {
     "p5": dict(ensemble=5, escalate=False, recon=True,  adaptive=False, consensus=2),  # self-consistency precision
     "p6": dict(ensemble=2, escalate=True,  recon=True,  adaptive=True,  consensus=1),  # lean cascade + recon
     "p7": dict(ensemble=6, escalate=False, recon=True,  adaptive=True,  consensus=1),  # broad cheap coverage
+    # p8 deep-single: one agent WITH recon + Flash->Pro escalation. A clean A/B
+    # against p1 (also ensemble=1 but no recon/escalation) that isolates the
+    # value of the ACI/cascade lever from ensemble diversity, at near-baseline cost.
+    "p8": dict(ensemble=1, escalate=True,  recon=True,  adaptive=False, consensus=1),
+    # p9 precision-cascade: self-consistency (consensus=2) PLUS escalation —
+    # p5 has the consensus vote but never escalates; p9 tests whether adding the
+    # Flash->Pro cascade cracks the hard tail without giving up precision.
+    "p9": dict(ensemble=4, escalate=True,  recon=True,  adaptive=False, consensus=2),
 }
 _DEFAULTS = dict(ensemble=4, escalate=True, recon=False, adaptive=False, consensus=1)
 
