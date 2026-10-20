@@ -374,5 +374,65 @@ class TestLocalSandbox(unittest.TestCase):
         self.assertEqual(res.stdout.strip(), sb.workdir)
 
 
+class TestAgentToolResilience(unittest.TestCase):
+    def test_tool_exception_becomes_recoverable_observation(self):
+        # Regression: a tool that raises (e.g. the sandbox "path escapes" guard
+        # on an absolute path) must NOT abort the whole attempt. The agent loop
+        # turns it into an error observation and keeps going -- here it reaches
+        # the terminal tool on the next step and still records a candidate.
+        from farm.core.agent import ReActAgent
+        from farm.core.contracts import Candidate, Task
+        from farm.core.toolset import Tool, ToolSet
+        from farm.gateway.types import ToolCall
+
+        class _Usage:
+            prompt_tokens = 1
+            completion_tokens = 1
+
+        class _Resp:
+            def __init__(self, text="", tool_calls=None):
+                self.text = text
+                self.tool_calls = tool_calls or []
+                self.has_tool_calls = bool(tool_calls)
+                self.cost_usd = 0.0
+                self.usage = _Usage()
+
+        class _Gateway:
+            def __init__(self, scripted):
+                self._s = list(scripted)
+            def chat(self, **kw):
+                return self._s.pop(0) if self._s else _Resp("no further progress")
+
+        class _BB:
+            def render_for_prompt(self, *a, **k):
+                return ""
+            def mark_dead_end(self, *a, **k):
+                pass
+
+        def _boom(args, ctx):
+            raise ValueError("path escapes sandbox: /tmp/x")
+
+        def _win(args, ctx):
+            ctx.candidate = Candidate("flag{ok}", "flag")
+            return "recorded"
+
+        tools = ToolSet([
+            Tool("boom", "raises", {"type": "object", "properties": {}}, _boom),
+            Tool("win", "submit", {"type": "object", "properties": {}}, _win,
+                 terminal=True),
+        ])
+        gw = _Gateway([
+            _Resp("try boom", [ToolCall(id="1", name="boom", arguments={})]),
+            _Resp("now win", [ToolCall(id="2", name="win", arguments={})]),
+        ])
+        agent = ReActAgent(gateway=gw, blackboard=_BB())
+        task = Task(id="t1", name="T", category="misc", statement="s")
+        res = agent.run(task=task, toolset=tools, system_prompt="sys",
+                        author="t1#a0", sandbox=_SB())
+        self.assertEqual(res.outcome, "solved")
+        self.assertIsNotNone(res.candidate)
+        self.assertEqual(res.candidate.value, "flag{ok}")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

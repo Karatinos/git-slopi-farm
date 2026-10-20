@@ -85,7 +85,7 @@ the biggest lever: **ACI / recon** (see §7). Keep edits small and reversible.
 **2 — Pretest (free, offline — must pass before any paid run):**
 ```bash
 # a) unit suite green (mock provider, $0)
-python3 -m pytest -q                                   # 31 passed
+python3 -m pytest -q                                   # 32 passed
 
 # b) recon signal coverage on the REAL cached files (want high on all offline tasks)
 #    (ad-hoc: seed files into a sandbox and inspect run_recon output)
@@ -126,7 +126,7 @@ cd farm
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 python3 -m farm.cli profiles            # -> ctf, generic  (what it can solve)
-python3 -m pytest -q                    # 31 tests, mock provider, $0
+python3 -m pytest -q                    # 32 tests, mock provider, $0
 
 # CTF against a local corpus (offline, gold-graded if an answer key exists)
 python3 -m farm.cli run --profile ctf --source local --path ../tasks

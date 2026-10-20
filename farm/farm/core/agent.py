@@ -131,7 +131,14 @@ class ReActAgent:
                     obs = f"error: unknown tool '{tc.name}'"
                 else:
                     tsp = tracer.start("tool", tc.name, payload=tc.arguments)
-                    obs = tool.fn(tc.arguments, ctx)
+                    try:
+                        obs = tool.fn(tc.arguments, ctx)
+                    except Exception as e:  # noqa: BLE001 - a tool fault must degrade to a
+                        # recoverable observation, never abort the whole attempt (one bad
+                        # arg, e.g. an out-of-sandbox path, used to kill the trajectory).
+                        obs = (f"error: tool '{tc.name}' raised {type(e).__name__}: {e}. "
+                               "Fix the arguments (e.g. use a path relative to the working "
+                               "directory, not an absolute one) and try another approach.")
                     tracer.finish(tsp, result=obs)
                 messages.append({"role": "tool", "tool_call_id": tc.id, "content": obs})
                 oh = hashlib.md5(obs.encode()).hexdigest()
