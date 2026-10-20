@@ -28,6 +28,25 @@ from .net import reachable as _reachable
 from .profile import Profile
 
 
+def _adaptive_step_override(swarm: SwarmConfig, recon: str, task: Task) -> Optional[int]:
+    """Step-budget cap for adaptive effort, or None for the full budget.
+
+    Cap only when there is genuinely no lead to pursue. Driven by the ACTUAL
+    recon signal (the documented intent) rather than a static material-volume
+    label -- so a low-volume task whose recon surfaced a real lead (a base64/
+    hex blob, ELF symbols, a pcap flag, an HTTP form) keeps the full budget,
+    while an opaque task concludes fast. Falls back to the triage difficulty
+    label only when recon is disabled and produced nothing."""
+    if not getattr(swarm, "adaptive_effort", False):
+        return None
+    if recon:
+        from ..agent.recon import signal_level
+        low_signal = signal_level(recon) == "low"
+    else:
+        low_signal = task.extra.get("difficulty") == "low"
+    return swarm.low_signal_steps if low_signal else None
+
+
 class Ensemble:
     def __init__(self, *, agent: ReActAgent, sandbox_provider: SandboxProvider,
                  swarm: SwarmConfig = None, enable_recon: bool = False,
@@ -56,11 +75,7 @@ class Ensemble:
             temps.append(0.5)
 
         recon = self._recon_once(task)
-        # adaptive effort: on a low-signal task, cap the step budget so an
-        # opaque task with no lead concludes fast instead of burning tokens.
-        step_override = (self.swarm.low_signal_steps
-                         if self.swarm.adaptive_effort
-                         and task.extra.get("difficulty") == "low" else None)
+        step_override = _adaptive_step_override(self.swarm, recon, task)
         cancel = threading.Event()
         started = time.time()
         results: List[AttemptResult] = []

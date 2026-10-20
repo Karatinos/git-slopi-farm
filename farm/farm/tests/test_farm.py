@@ -444,5 +444,45 @@ class TestAgentToolResilience(unittest.TestCase):
         self.assertEqual(res.candidate.value, "flag{ok}")
 
 
+class TestAdaptiveEffort(unittest.TestCase):
+    def _swarm(self, adaptive, low_steps=5):
+        import dataclasses
+        return dataclasses.replace(SETTINGS.swarm, adaptive_effort=adaptive,
+                                   low_signal_steps=low_steps)
+
+    def test_disabled_returns_none(self):
+        from farm.core.contracts import Task
+        from farm.core.ensemble import _adaptive_step_override
+        t = Task(id="t", name="n", category="misc", statement="s",
+                 extra={"difficulty": "low"})
+        self.assertIsNone(_adaptive_step_override(self._swarm(False), "sig", t))
+
+    def test_high_signal_recon_keeps_full_budget(self):
+        # even with a 'low' volume label, a real recon lead keeps the full budget
+        from farm.core.contracts import Task
+        from farm.core.ensemble import _adaptive_step_override
+        t = Task(id="t", name="n", category="misc", statement="s",
+                 extra={"difficulty": "low"})
+        recon = "  elf imports: system, execve\n  elf symbols: main"
+        self.assertIsNone(_adaptive_step_override(self._swarm(True), recon, t))
+
+    def test_low_signal_recon_caps_budget(self):
+        from farm.core.contracts import Task
+        from farm.core.ensemble import _adaptive_step_override
+        t = Task(id="t", name="n", category="misc", statement="s")
+        self.assertEqual(
+            _adaptive_step_override(self._swarm(True, 5), "  nothing useful here", t), 5)
+
+    def test_no_recon_falls_back_to_difficulty(self):
+        from farm.core.contracts import Task
+        from farm.core.ensemble import _adaptive_step_override
+        low = Task(id="t", name="n", category="misc", statement="s",
+                   extra={"difficulty": "low"})
+        med = Task(id="t", name="n", category="misc", statement="s",
+                   extra={"difficulty": "medium"})
+        self.assertEqual(_adaptive_step_override(self._swarm(True, 7), "", low), 7)
+        self.assertIsNone(_adaptive_step_override(self._swarm(True, 7), "", med))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
