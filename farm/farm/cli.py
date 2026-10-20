@@ -42,6 +42,16 @@ _PROTOTYPES = {
     # p5 has the consensus vote but never escalates; p9 tests whether adding the
     # Flash->Pro cascade cracks the hard tail without giving up precision.
     "p9": dict(ensemble=4, escalate=True,  recon=True,  adaptive=False, consensus=2),
+    # apex: the "best-of union" working farm — every lever the blueprint and the
+    # other prototypes argue for, tuned for a LIVE-graded benchmark where the
+    # scoreboard grades for free:
+    #   recon ON        -> the ~60-70% ACI lever (always)
+    #   ensemble 5      -> broad diverse coverage (from p7)
+    #   escalate ON     -> Flash->Pro cascade for the hard tail (from p3)
+    #   adaptive ON     -> signal-driven budget: full on leads, fast on opaque (from p4)
+    #   consensus 1     -> first-to-flag early-cancel = cost-efficient on a live
+    #                      oracle (a verified flag stops siblings; no vote needed)
+    "apex": dict(ensemble=5, escalate=True, recon=True, adaptive=True, consensus=1),
 }
 _DEFAULTS = dict(ensemble=4, escalate=True, recon=False, adaptive=False, consensus=1)
 
