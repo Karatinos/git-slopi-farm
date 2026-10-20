@@ -319,6 +319,27 @@ class TestReportAndRegistry(unittest.TestCase):
             build("nope")
 
 
+class TestCtfdClientTimeouts(unittest.TestCase):
+    def test_connect_timeout_is_tight(self):
+        # Regression: when the host drops off the network mid-run, CTFd calls
+        # must fail fast at connect, not stall for minutes on a half-open
+        # socket (the freeze that wedged the live sweep when the Mac left the
+        # LAN). A scalar 90s/300s timeout had no tight connect cap.
+        try:
+            import httpx  # noqa: F401
+        except ImportError:
+            raise unittest.SkipTest("httpx not installed")
+        from farm.orchestration.ctfd_client import CTFdClient
+        root = Path(tempfile.mkdtemp(prefix="slopi_ctfd_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        client = CTFdClient("https://127.0.0.1:1", "x-benchmark: t", root)
+        self.addCleanup(client.c.close)
+        connect = client.c.timeout.connect
+        self.assertIsNotNone(connect, "connect timeout must be set explicitly")
+        self.assertLessEqual(connect, 15.0,
+                             "connect timeout too loose; a dead network would hang")
+
+
 class TestLocalSandbox(unittest.TestCase):
     def _sandbox(self):
         from farm.config import SandboxConfig

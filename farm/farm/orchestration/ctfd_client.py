@@ -38,8 +38,16 @@ class CTFdClient:
         self.h = {name.strip(): value.strip()}
         self.files_dir = files_dir
         self.files_dir.mkdir(parents=True, exist_ok=True)
-        self.c = httpx.Client(base_url=base_url, timeout=90, follow_redirects=True,
-                              headers=self.h)
+        # Explicit per-phase timeouts with a tight CONNECT cap: when the host
+        # drops off the network mid-run (e.g. the Mac leaves the LAN / switches
+        # to a hotspot), a half-open socket must fail fast at connect and be
+        # caught, not stall for the full read window. A scalar timeout here let
+        # a stalled connection hang for minutes -- the "hanging connection"
+        # freeze the migration guide warns about.
+        self.c = httpx.Client(base_url=base_url, follow_redirects=True,
+                              headers=self.h,
+                              timeout=httpx.Timeout(connect=10.0, read=60.0,
+                                                    write=60.0, pool=10.0))
         self.who = None
 
     def _nonce(self, path: str) -> str:
@@ -86,7 +94,9 @@ class CTFdClient:
             return (dest, fn)
         for attempt in range(3):
             try:
-                with self.c.stream("GET", url, timeout=300) as r:
+                with self.c.stream("GET", url,
+                                   timeout=httpx.Timeout(connect=10.0, read=120.0,
+                                                         write=60.0, pool=10.0)) as r:
                     if r.status_code != 200:
                         return None
                     tmp = dest.with_suffix(dest.suffix + ".part")
