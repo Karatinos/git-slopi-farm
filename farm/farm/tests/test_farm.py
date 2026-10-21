@@ -484,6 +484,28 @@ class TestAdaptiveEffort(unittest.TestCase):
         self.assertIsNone(_adaptive_step_override(self._swarm(True, 7), "", med))
 
 
+class TestReconPngText(unittest.TestCase):
+    def test_compressed_png_text_surfaces(self):
+        # A zTXt (zlib-compressed) PNG comment is invisible to `strings`; recon
+        # must still surface it (via PIL .text) as a flag hint. Also exercises
+        # the host-package exposure fix end-to-end (PIL inside the sandbox).
+        try:
+            from PIL import Image
+            from PIL.PngImagePlugin import PngInfo
+        except ImportError:
+            raise unittest.SkipTest("PIL not installed")
+        from farm.agent.recon import run_recon
+        from farm.config import SandboxConfig
+        from farm.sandbox.local import LocalSandbox
+        root = Path(tempfile.mkdtemp(prefix="slopi_recon_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        info = PngInfo()
+        info.add_text("comment", "flag{z1pped_png_t3xt}", zip=True)  # compressed
+        Image.new("RGB", (8, 8), (1, 2, 3)).save(root / "hidden.png", pnginfo=info)
+        out = run_recon(LocalSandbox(root, SandboxConfig()))
+        self.assertIn("flag{z1pped_png_t3xt}", out)
+
+
 class TestCtfdEndpointExtraction(unittest.TestCase):
     def test_validated_extraction(self):
         from farm.adapters.ctfd_source import _endpoint_from_text

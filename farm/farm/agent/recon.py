@@ -146,6 +146,11 @@ for p in files:
                 named={ExifTags.TAGS.get(k,k):v for k,v in ex.items()}
                 for key in ("GPSInfo","DateTimeOriginal","Make","Model","Software","ImageDescription","UserComment","Artist"):
                     if key in named: print("  exif %s: %r"%(key,str(named[key])[:160]))
+            tx=getattr(im,"text",{}) or {}
+            for tk,tv in list(tx.items())[:6]:
+                print("  png text %s: %r"%(tk,str(tv)[:200]))
+            _tf=re.findall(r"[A-Za-z0-9_]{2,16}\{[^}\n]{1,120}\}"," ".join(str(v) for v in tx.values()))
+            if _tf: print("  FLAG?:",sorted(set(_tf))[:3])
         except Exception: print("  (PIL unavailable)")
         ocr=" ".join(sh("tesseract",p,"stdout","-l","rus+eng",t=60).split())[:500]
         if ocr.strip(): print("  ocr:",ocr)
