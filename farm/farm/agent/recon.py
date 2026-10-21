@@ -100,6 +100,18 @@ for p in files:
     print(" size:",len(data),"entropy:",entropy(data[:200000]))
     cv=carve(data[:2000000])
     if cv: print(" embedded:",", ".join(cv[:6]))
+    try:
+        import zipfile as _zf
+        if _zf.is_zipfile(p):
+            nm=_zf.ZipFile(p).namelist()[:20]
+            if nm: print("  zip members:",", ".join(nm))
+    except Exception: pass
+    try:
+        import tarfile as _tf
+        if _tf.is_tarfile(p):
+            nm=_tf.open(p).getnames()[:20]
+            if nm: print("  tar members:",", ".join(nm))
+    except Exception: pass
     low=p.lower()
     if low.endswith((".pcap",".pcapng",".cap")):
         print(pcap_summary(p))

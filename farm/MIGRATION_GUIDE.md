@@ -46,7 +46,7 @@ Claude Code работает с локальными папками напрям
     пусто — `START_CTFD_PULL.command`.
 5.  `cd farm && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
 6.  Прогнать тесты (бесплатно): `python3 -m pytest -q` → должно быть
-    **41 passed**.
+    **42 passed**.
 7.  Понять egress-ограничение (§2) — платное только из реального
     терминала.
 
@@ -120,7 +120,7 @@ Claude Code работает с локальными папками напрям
     python3 -m farm.cli profiles            # -> ctf, generic
 
     # тесты (stdlib unittest/pytest, mock-провайдер, $0)
-    python3 -m pytest -q                     # 41 passed
+    python3 -m pytest -q                     # 42 passed
 
     # офлайн-прогон без денег (детерминированный автосолвер)
     SLOPI_PROVIDER=scripted python3 -m farm.cli run --source local \
@@ -220,7 +220,7 @@ Claude Code работает с локальными папками напрям
 
 ## 10. Текущее состояние и следующее действие
 
-- 41/41 тестов зелёные, рабочее дерево чистое,
+- 42/42 тестов зелёные, рабочее дерево чистое,
   оба режима с recon, 4 лаунчера. 51 python-модуль.
 - **Следующий шаг (за пользователем):** двойной клик
   `START_COMPARE.command` → реальные KPI по p1/p3/p5/p7 (solve-rate,

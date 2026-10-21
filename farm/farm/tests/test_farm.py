@@ -506,6 +506,22 @@ class TestReconPngText(unittest.TestCase):
         self.assertIn("flag{z1pped_png_t3xt}", out)
 
 
+class TestReconArchiveMembers(unittest.TestCase):
+    def test_zip_members_listed(self):
+        import zipfile
+        from farm.agent.recon import run_recon
+        from farm.config import SandboxConfig
+        from farm.sandbox.local import LocalSandbox
+        root = Path(tempfile.mkdtemp(prefix="slopi_zip_"))
+        self.addCleanup(shutil.rmtree, root, True)
+        with zipfile.ZipFile(root / "bundle.zip", "w") as z:
+            z.writestr("secret_flag.txt", "flag{inside_the_zip}")
+            z.writestr("readme.md", "nothing here")
+        out = run_recon(LocalSandbox(root, SandboxConfig()))
+        self.assertIn("zip members:", out)
+        self.assertIn("secret_flag.txt", out)
+
+
 class TestCtfdEndpointExtraction(unittest.TestCase):
     def test_validated_extraction(self):
         from farm.adapters.ctfd_source import _endpoint_from_text
