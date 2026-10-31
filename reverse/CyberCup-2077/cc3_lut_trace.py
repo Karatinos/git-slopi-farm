@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+prefix=os.environ.get('CC3_TRACE_PREFIX','cc3_trace')
 s=Path('cc2_concrete.py').read_text()
 s=s.replace("t=time.time();", """tables=json.loads(Path('lut_catalog.json').read_text());ops=[];stage=0
 original_hook=hook
@@ -18,6 +20,6 @@ u.hook_add(unicorn.UC_HOOK_CODE,newhook)
 u.hook_add(unicorn.UC_HOOK_MEM_READ,read)
 t=time.time();""")
 s=s.replace("u.hook_add(unicorn.UC_HOOK_CODE,hook)", "# Hook added below")
-s=s.replace("'cc2_native_workspace.bin'", "'cc3_trace_workspace.bin'").replace("'cc2_native_state.bin'", "'cc3_trace_state.bin'")
-s += "\nPath('cc3_lut_trace.json').write_text(json.dumps(ops))\n"
+s=s.replace("'cc2_native_workspace.bin'", repr(prefix+'_workspace.bin')).replace("'cc2_native_state.bin'", repr(prefix+'_state.bin'))
+s += "\nPath("+repr(prefix+'_lut.json')+").write_text(json.dumps(ops))\n"
 exec(compile(s,'cc2_concrete.py','exec'))
