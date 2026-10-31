@@ -184,3 +184,9171 @@ No new task-progress text file was identified in this commit.
 
 
 No new task-progress text file was identified in this commit.
+
+## 2026-10-31T11:21:49+00:00 — origin/ctf/cybercup-2077-progress
+
+
+### 7b03b20 2026-09-27T06:26:56+03:00 Your Name first commit
+
+
+No new task-progress text file was identified in this commit.
+
+
+### aa7a57e 2026-10-23T21:40:01+03:00 Your Name first commit
+
+
+No new task-progress text file was identified in this commit.
+
+
+### 3076b7e 2026-10-23T21:40:39+03:00 Your Name first commit
+
+
+No new task-progress text file was identified in this commit.
+
+
+### bd8f4b1 2026-10-31T14:20:16+03:00 Your Name Save paused CyberCup-2077 reverse engineering handoff and checkpoints
+
+
+File: `reverse/CyberCup-2077/CyberCup-2077.txt`
+
+````````````text
+CyberCup 2077
+1000 points / 1 solvers
+reverse, windows
+Wake up, Samurai. We've got a ctf to slop.
+Flag format: ctfcup{[a-zA-Z0-9_]+}
+
+cybercup.zip
+14.6 MiB
+ctfcup{...}
+submit
+
+````````````
+
+
+File: `reverse/CyberCup-2077/artifact-inventory.json`
+
+````````````text
+{
+  "recorded_utc": "2026-10-31T11:19:27.806449+00:00",
+  "files": [
+    {
+      "name": "CyberCup-2077.txt",
+      "bytes": 175,
+      "sha256": "6833ad9395df430fa1963b355c7069b67c6244eca2330848c34a750d73fde14a"
+    },
+    {
+      "name": "check_all_states.log",
+      "bytes": 4188,
+      "sha256": "cbe02ece3f0df6dda10b040424153d34fdb5691899131235f466b200fb33de18"
+    },
+    {
+      "name": "check_cfg.py",
+      "bytes": 902,
+      "sha256": "348dd7601b9d4cb1fd8321ee3ccef2cf5a315b0bbdbdc50cce3fc04e54c9dd48"
+    },
+    {
+      "name": "check_clean.bin",
+      "bytes": 39829504,
+      "sha256": "7e8256ea766a9dc2ea2b6bbd699744af1d266a6f79d4132cbe1c906d744fd03b"
+    },
+    {
+      "name": "check_clean.bin.json",
+      "bytes": 713509,
+      "sha256": "1aa90f4a9114278b80d429b7f682569cba1c965781fd16efb00cb487ca1b6294"
+    },
+    {
+      "name": "check_clean5.log",
+      "bytes": 496,
+      "sha256": "175da6fb8b9fa5dfdd8e98a2cf1625cd125ab62e737ebe0d6b6c2c9989826f0e"
+    },
+    {
+      "name": "check_clean5fast.log",
+      "bytes": 493,
+      "sha256": "bb905ffac75c69721827d79633820caeeba73b296910fdc024a74065321bedd9"
+    },
+    {
+      "name": "check_compare0.asm",
+      "bytes": 67065,
+      "sha256": "8e12d8cd03eb127bbda27da7c85ff150c22e2bbc0372af875d2f034039cabbf9"
+    },
+    {
+      "name": "check_core.asm",
+      "bytes": 28148,
+      "sha256": "379bc5122a71408ce7642ec056ffa576c587e860d15b015eee0287f986774c4e"
+    },
+    {
+      "name": "check_current.bin",
+      "bytes": 39829504,
+      "sha256": "eaf50302d95dcafe8679b34d7df783c74ddaeadd1d59902a587b4ac852defac5"
+    },
+    {
+      "name": "check_current.bin.json",
+      "bytes": 33384,
+      "sha256": "ca21643b5c5602fbb8ae02d7cb6647ae2308263c3a7676411cccc622932538a6"
+    },
+    {
+      "name": "check_current_emu.log",
+      "bytes": 1145,
+      "sha256": "76a57a0636a5b3640e498d767f3faf67b55bec37863453c38c0eb9bd4c9761d3"
+    },
+    {
+      "name": "check_deobf_app.asm",
+      "bytes": 2294905,
+      "sha256": "546b45f1f6bd57a713d78d2f21850a90c4c98f13de07a67867173b57853af297"
+    },
+    {
+      "name": "check_deobf_new.asm",
+      "bytes": 2492548,
+      "sha256": "2c5aa05b5d3f7b3cdd61bdcf48ada0e1fd5235ab5b59fec70b1e2c826cd79d7e"
+    },
+    {
+      "name": "check_deobf_new.bin",
+      "bytes": 39829504,
+      "sha256": "a7021be456a3e450469b26246d01d6e8023353fab778adc65c963d6e9374b73e"
+    },
+    {
+      "name": "check_deobf_new.bin.json",
+      "bytes": 32557,
+      "sha256": "51f7f102eb622e7c4a29644fe570ce2226a289092ea9c99087b19329b12f5e1e"
+    },
+    {
+      "name": "check_disasm_2f9584.asm",
+      "bytes": 787574,
+      "sha256": "c0567a8d2ba404863830097fc085091d016344b32be03423cb233ebc796951c4"
+    },
+    {
+      "name": "check_disasm_323d25.asm",
+      "bytes": 787574,
+      "sha256": "c0567a8d2ba404863830097fc085091d016344b32be03423cb233ebc796951c4"
+    },
+    {
+      "name": "check_disasm_5cfdf.asm",
+      "bytes": 787574,
+      "sha256": "c0567a8d2ba404863830097fc085091d016344b32be03423cb233ebc796951c4"
+    },
+    {
+      "name": "check_disasm_67174e.asm",
+      "bytes": 787574,
+      "sha256": "c0567a8d2ba404863830097fc085091d016344b32be03423cb233ebc796951c4"
+    },
+    {
+      "name": "check_final_cfg.asm",
+      "bytes": 30748,
+      "sha256": "4606bc3fd534b5487056e4cbe96281d52ffcce8d1304988553326a8064b94aa4"
+    },
+    {
+      "name": "check_first_cfg.asm",
+      "bytes": 241729,
+      "sha256": "130593d057fdafc2a19037e4bb24f60bf6e074f469e0ff13106a1984c98e6e03"
+    },
+    {
+      "name": "check_hypercall.py",
+      "bytes": 5111,
+      "sha256": "3f94fc34f174544ecb725f90bcb68b930e212c10ed52fb0d5c690a250a0ee44e"
+    },
+    {
+      "name": "check_last.asm",
+      "bytes": 101680,
+      "sha256": "c6a6504ae4b53c9b097f867345cbcf46ebd07045df6e01d78f5a7c9b4f418757"
+    },
+    {
+      "name": "check_linear_161345b.asm",
+      "bytes": 1408,
+      "sha256": "ee63ee4b4c96e4676a44a4d6a87fa305543e36215f010ba4ee8992e24ae981cd"
+    },
+    {
+      "name": "check_linear_16157fb.asm",
+      "bytes": 10408,
+      "sha256": "69001146527a86b41e39ce57fe41360d549254d3b5ed408485c4928b82a91369"
+    },
+    {
+      "name": "check_linear_1617753.asm",
+      "bytes": 2703,
+      "sha256": "08c502a510e788ad9adbc2fa1ea286336617412b07bf9a3ad42dbd6da966caa3"
+    },
+    {
+      "name": "check_luts.py",
+      "bytes": 1641,
+      "sha256": "0d579183bba7c7fdefa9c8802d3c97d06fa86321c5306b1ef0c1fbb27e7b4637"
+    },
+    {
+      "name": "check_main_loop.asm",
+      "bytes": 12031,
+      "sha256": "3cd50a5542ff8b2c72d8e4e8d992983f8abf75136cc76fdcc3584c56a9507e2b"
+    },
+    {
+      "name": "check_near_16155ff.asm",
+      "bytes": 1625,
+      "sha256": "a4547d9636a6d32fd2df2a5663c7fe9d243df5792f5d2f681429bdac12018cc9"
+    },
+    {
+      "name": "check_near_5c000.asm",
+      "bytes": 25705,
+      "sha256": "ac7137341b93df8c9ada269358c5f18041e5f1b87cb977dddea86d204419bba7"
+    },
+    {
+      "name": "check_real_601e80.asm",
+      "bytes": 88,
+      "sha256": "f14af9bb08a4be18734c3dcaa5c992c0a4697cf14b3e06a359cee6058be928bf"
+    },
+    {
+      "name": "check_real_6987c0.asm",
+      "bytes": 263,
+      "sha256": "4f097ddfa3cdf441670cd5704ea62eb6d9211ce907e2cec75162d950b47cd9a9"
+    },
+    {
+      "name": "check_real_698930.asm",
+      "bytes": 603,
+      "sha256": "fbe8e0de0b169bcc246f3b4d459589f8c1de466a194b0c11ea1303cb077b119d"
+    },
+    {
+      "name": "check_real_6989ca.asm",
+      "bytes": 10811,
+      "sha256": "c4306627589b7bed09f2aaae584eb032e55bf13abb8098f20550d9fe15f2616b"
+    },
+    {
+      "name": "check_real_698e00.asm",
+      "bytes": 3252,
+      "sha256": "f16fa46c07e993832cc9c1211f7199d0c95bb460d95bbdf865e12a29f4681687"
+    },
+    {
+      "name": "check_scan_tables.py",
+      "bytes": 2096,
+      "sha256": "bb84f4406d571299acba552b0753d4e24cf7917b91f00b3172beba27bcb9eb2a"
+    },
+    {
+      "name": "check_solve_block.py",
+      "bytes": 740,
+      "sha256": "70bbf0d9232706231b8c4da1166965a8af55ff36af8450d0ee89521be92a20ec"
+    },
+    {
+      "name": "check_solve_clean.log",
+      "bytes": 32,
+      "sha256": "ef051b00f2aa83132e7f623779f5124b4c601ba27e79935c35d898b26ebf6a07"
+    },
+    {
+      "name": "check_solve_prefix.log",
+      "bytes": 40,
+      "sha256": "b928ba555d19b2f0d1712e5889c877bdc833c8295928cb96a097f8899308e2f6"
+    },
+    {
+      "name": "check_solve_test.log",
+      "bytes": 32,
+      "sha256": "7526eaf3d62026db79020d01eb1f24d7ce49093298c270b6d3caf03141c62574"
+    },
+    {
+      "name": "check_split_states.py",
+      "bytes": 1000,
+      "sha256": "a1a92218f5349e14a0f0887554db0dad493b7c00393fe10f498d2400f77442bd"
+    },
+    {
+      "name": "check_stage_601e80.asm",
+      "bytes": 10173,
+      "sha256": "adb5cf3ca8e21e4382e4f4664b71985cc375953ac53abb19967b5e4dbe6125d4"
+    },
+    {
+      "name": "check_stage_697d50.asm",
+      "bytes": 27762,
+      "sha256": "1de3f235e265d01b5dad20cc500cee827c5470ef4c29e44da32d48dce1ae048a"
+    },
+    {
+      "name": "check_stage_map.json",
+      "bytes": 8221,
+      "sha256": "d1b27c5f626437efa71423e46c7c7eafb3400b631233080b6579b79371578650"
+    },
+    {
+      "name": "check_stage_map.log",
+      "bytes": 5615,
+      "sha256": "f5ba7c9d88bf158557cdfc56ec0a4f287a9b75716dede8316c21af2a326eed23"
+    },
+    {
+      "name": "check_stage_map.py",
+      "bytes": 1024,
+      "sha256": "ab34bc873cbe3839139e5e3ca70fe3d138090522c8291291696ff59a3db49712"
+    },
+    {
+      "name": "check_state.smt2",
+      "bytes": 194994,
+      "sha256": "174b6c3c342dbcea3acc27f681bae8775acd39592d15b0c883fe7e7c61123d13"
+    },
+    {
+      "name": "check_stripped_161345b.asm",
+      "bytes": 4846,
+      "sha256": "7a63d7f96e49fe4fbd0547a5d6c487e2a6b420ff3638a35d991cd5c9b5c9ddec"
+    },
+    {
+      "name": "check_stripped_1614b34.asm",
+      "bytes": 4133,
+      "sha256": "c602444d53c3fd195609f46f7664669ad2e2e37f83bc1974bf4d3c4c478b6324"
+    },
+    {
+      "name": "check_symbolic.log",
+      "bytes": 278,
+      "sha256": "d347d9c6802b6c18d4a7388ef82391c8f7a6edb89116dfcbd2599dcc43a98ccf"
+    },
+    {
+      "name": "check_symbolic.py",
+      "bytes": 12781,
+      "sha256": "b16a36b55efeecea06e3ebdbc76a021730cc18a55401e3f7cc38ba6bca76dd84"
+    },
+    {
+      "name": "check_symbolic5.log",
+      "bytes": 495,
+      "sha256": "f12af3a180a174eb3f2e4f0dc786517cd7a4fcf82d8ac25e28958862b92d4389"
+    },
+    {
+      "name": "check_symbolic5final.log",
+      "bytes": 494,
+      "sha256": "a34542cd7f826ea5a9d362bdc1c8b3fe97af1d888206826a80a8157e1cc19669"
+    },
+    {
+      "name": "check_tables.json",
+      "bytes": 1870,
+      "sha256": "99f7bc78b72ede31fc04eebf8264b8ae2c130d4da9ba35c703810c60e8303872"
+    },
+    {
+      "name": "check_target_masked.log",
+      "bytes": 32,
+      "sha256": "41fca72610ac7359c6b1fcab57133ba32a81d998f0fad32609ed228826c9d9b9"
+    },
+    {
+      "name": "check_target_xor.log",
+      "bytes": 31,
+      "sha256": "18bfa814571255c2beb1850e1681423a830c8f656d504a02a7f20e4d59fac7c9"
+    },
+    {
+      "name": "check_unmutate.py",
+      "bytes": 2770,
+      "sha256": "17fd03f4dc1f2c658e97a1640ddf17a4b4f166e543e4166f9558fb5e26beba6f"
+    },
+    {
+      "name": "check_validate.py",
+      "bytes": 1373,
+      "sha256": "ffdfafa9237e159b91ca2a0c95cfc775c57d9979e5e298760cd902650b541f28"
+    },
+    {
+      "name": "check_workspace.smt2",
+      "bytes": 4768554,
+      "sha256": "02b5b42c92dc268c4e55c218a2d9d053079c73caaa8825229c1ba57870af5677"
+    },
+    {
+      "name": "checker_ctor.log",
+      "bytes": 1168,
+      "sha256": "a878b4ff262d96a010725960f91b4e57a4a2c954e885e3d739ac0e3d815eeac9"
+    },
+    {
+      "name": "checker_deobf.bin",
+      "bytes": 39829504,
+      "sha256": "bec95566c24d60104998b226c6904a86280a2da674d55c2661fadd1fd27ddc9b"
+    },
+    {
+      "name": "checker_deobf.bin.json",
+      "bytes": 32557,
+      "sha256": "51f7f102eb622e7c4a29644fe570ce2226a289092ea9c99087b19329b12f5e1e"
+    },
+    {
+      "name": "checker_emu.log",
+      "bytes": 938,
+      "sha256": "815d5d89c598ca77b007cec5f94b4edeae2c3cada08015d82c46fc064fe64d40"
+    },
+    {
+      "name": "checker_emu.py",
+      "bytes": 4854,
+      "sha256": "8227ba58596f2c4ffb7f5ef40c5e3d665924c41025ea4ed269f686eabbeadcff"
+    },
+    {
+      "name": "checker_events.json",
+      "bytes": 174,
+      "sha256": "57de42e43328c36b2683ae23e4eeeaed41a3b0d941739e60f26c4d85ca256d76"
+    },
+    {
+      "name": "checker_final.bin",
+      "bytes": 39829504,
+      "sha256": "7e7048719fc3b7e327872adae4308328b3cb4f03104a5a7f4c2fc8d65ea9790a"
+    },
+    {
+      "name": "checker_final.bin.json",
+      "bytes": 34869,
+      "sha256": "d1bb208b35a816732f1d96e600c735a3c44785715c20cd7cfe0b23f04f1fd6cf"
+    },
+    {
+      "name": "checker_final.log",
+      "bytes": 608,
+      "sha256": "c6af520e61bb86107a318fa49dfa2e7a97ac62f27f6658830360cbf36c9a697e"
+    },
+    {
+      "name": "checker_full.log",
+      "bytes": 846,
+      "sha256": "a855eaf4c37041be68919dbcf459b78951215bae1d142e8cdc99688a467d7150"
+    },
+    {
+      "name": "checker_init.log",
+      "bytes": 608,
+      "sha256": "c1b1d743118157c010630dacceb6913ffd903ae198ace3b21a1f80f2bc9fc966"
+    },
+    {
+      "name": "checker_native.asm",
+      "bytes": 900,
+      "sha256": "60baebac6b813b156ea3bbaf733fb516988cc571afb696cccb12b03a974f4658"
+    },
+    {
+      "name": "checker_ready.bin",
+      "bytes": 39829504,
+      "sha256": "8368809cd18b3358f5209ba07fb1c143564209ee96c12a5599f320b8ce9e5fed"
+    },
+    {
+      "name": "checker_ready.bin.json",
+      "bytes": 34869,
+      "sha256": "d1bb208b35a816732f1d96e600c735a3c44785715c20cd7cfe0b23f04f1fd6cf"
+    },
+    {
+      "name": "checker_ready.log",
+      "bytes": 521,
+      "sha256": "25783acbce131fc552d8e358e0050ea96e9eb8c4c776415a65cc80231acaa4bd"
+    },
+    {
+      "name": "checker_ready2.log",
+      "bytes": 520,
+      "sha256": "1ab9a9e431554ae9294a57a9804f3680487c75516450c7d59372bc04cf3faace"
+    },
+    {
+      "name": "checker_ready3.log",
+      "bytes": 616,
+      "sha256": "28ea56ba27c7d316e917a64a1c34a5d9f36ce6fb388dabd1af70c03eaa468b64"
+    },
+    {
+      "name": "checker_traps.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "cybercup.exe",
+      "bytes": 16291840,
+      "sha256": "7482217acb62ed2329b3386e404b7e798a3d4c1c0d69d7c1e84e7e72b8088f84"
+    },
+    {
+      "name": "cybercup.sys",
+      "bytes": 27024,
+      "sha256": "9e73a1beb71ec4171450caeb059be48c452c6633da7990566dd8eb8f6d5405ac"
+    },
+    {
+      "name": "cybercup.zip",
+      "bytes": 15319725,
+      "sha256": "056d94d8e7e5b119caf800219a056a20d19691b15e78cb0e8de4d1b8407a1213"
+    },
+    {
+      "name": "driver_analysis.asm",
+      "bytes": 348736,
+      "sha256": "a824fafc994a1d6e469ac328c50a9da34c6784b03b542ca56ec98b38c6fad1db"
+    },
+    {
+      "name": "driver_analysis_arm.py",
+      "bytes": 2397,
+      "sha256": "05b4c8cb176c53adb21b9b6848da8cadbc43f2584b208e9e3877bff185553530"
+    },
+    {
+      "name": "driver_analysis_constructor.log",
+      "bytes": 859,
+      "sha256": "1398b018b8605cb9db80ed667e1a53f45e161684497b4f6a2ff620d04aa7f43a"
+    },
+    {
+      "name": "driver_analysis_constructor.py",
+      "bytes": 5435,
+      "sha256": "77cf24ac02699efa592fe79d78a29128972b7fb81160f57011bcb93899aefbc2"
+    },
+    {
+      "name": "driver_analysis_cpuid_validate.py",
+      "bytes": 1150,
+      "sha256": "c84ac0ce7fda5eaf37faecf9317c7754ea842e2c5469b5c7559ecdcc2a650c11"
+    },
+    {
+      "name": "driver_analysis_crt.log",
+      "bytes": 1890,
+      "sha256": "857e7fa2420acc8c16e5f4539957c074ed47cbf56c4c66fe1fb066fb9fb7c5d9"
+    },
+    {
+      "name": "driver_analysis_crt.py",
+      "bytes": 6699,
+      "sha256": "f9b1a863b85b059f9ce5631b47e16e01e90481e753b84cecccafbb8d50c2e691"
+    },
+    {
+      "name": "driver_analysis_deobf.bin",
+      "bytes": 39829504,
+      "sha256": "233ed4d8e4b35b139f84ef550420ab4b1cc277ce3d1d3513c0a05bdc5540688c"
+    },
+    {
+      "name": "driver_analysis_deobf.bin.json",
+      "bytes": 32557,
+      "sha256": "51f7f102eb622e7c4a29644fe570ce2226a289092ea9c99087b19329b12f5e1e"
+    },
+    {
+      "name": "driver_analysis_deobf.py",
+      "bytes": 3902,
+      "sha256": "c807fb69d4fdb105601072f31ba0f3dbe73088dcf0003c9d6537c6cbe3633dfa"
+    },
+    {
+      "name": "driver_analysis_final_deobf.bin",
+      "bytes": 39829504,
+      "sha256": "7e7048719fc3b7e327872adae4308328b3cb4f03104a5a7f4c2fc8d65ea9790a"
+    },
+    {
+      "name": "driver_analysis_final_deobf.bin.json",
+      "bytes": 34869,
+      "sha256": "d1bb208b35a816732f1d96e600c735a3c44785715c20cd7cfe0b23f04f1fd6cf"
+    },
+    {
+      "name": "driver_analysis_final_thunks.bin",
+      "bytes": 39829504,
+      "sha256": "26736169780d6e8776ce204aa858dd80f06ba69a29e5efff253c94912107f7cb"
+    },
+    {
+      "name": "driver_analysis_final_thunks.bin.json",
+      "bytes": 4894,
+      "sha256": "dd219bd3ffe2ae3e022851596e898ea6b331131928b97031947eb4e68b20395c"
+    },
+    {
+      "name": "driver_analysis_final_thunks.log",
+      "bytes": 4239,
+      "sha256": "3f4cbdd5d0ed4c1356b1a3ed7570244553cebfb6cdf77a35b2ece1e3994a957e"
+    },
+    {
+      "name": "driver_analysis_headers.txt",
+      "bytes": 3961,
+      "sha256": "8f7e0abbdd4cf0ad011a0900a32e0370cb8391621afe30fba206e8060734c21a"
+    },
+    {
+      "name": "driver_analysis_hv.py",
+      "bytes": 7928,
+      "sha256": "b1a52b47f290639d20cd8a38cad5f91d53cd8438611a934fa767e2cd8366257f"
+    },
+    {
+      "name": "driver_analysis_hv_validate.py",
+      "bytes": 1448,
+      "sha256": "65fce350341590925de824c09a38df5ac47ce1c817e2c199101efa015f1cdb69"
+    },
+    {
+      "name": "driver_analysis_init.log",
+      "bytes": 1051,
+      "sha256": "1ca910ee4464e80aa2755b8402ea22995f03be6c7d37f72a0c29ed7c90e04cdc"
+    },
+    {
+      "name": "driver_analysis_init.py",
+      "bytes": 3882,
+      "sha256": "6a3dc78ba15f8659577d6984b2bed438a4155287373d7ac064a2b9b302b989ab"
+    },
+    {
+      "name": "driver_analysis_initialized_deobf.bin",
+      "bytes": 39829504,
+      "sha256": "8368809cd18b3358f5209ba07fb1c143564209ee96c12a5599f320b8ce9e5fed"
+    },
+    {
+      "name": "driver_analysis_initialized_deobf.bin.json",
+      "bytes": 34869,
+      "sha256": "d1bb208b35a816732f1d96e600c735a3c44785715c20cd7cfe0b23f04f1fd6cf"
+    },
+    {
+      "name": "driver_analysis_initialized_pid0.bin",
+      "bytes": 39829504,
+      "sha256": "4eb93b21e4b53d29e8f2393e69aa7cbf8486a307a583bdd7510c93947b97bc67"
+    },
+    {
+      "name": "driver_analysis_initialized_pid0.bin.json",
+      "bytes": 4901,
+      "sha256": "eb1abb84f8ca950f07829b0ba861dcd2e0e8684e7be949a40d77ff862f81f5e1"
+    },
+    {
+      "name": "driver_analysis_initialized_thunks.bin",
+      "bytes": 39829504,
+      "sha256": "554d2b254979fd9d26a807c2be9a817d4c7076ae9ac35bee18aa6b6303deb837"
+    },
+    {
+      "name": "driver_analysis_initialized_thunks.bin.json",
+      "bytes": 4894,
+      "sha256": "dd219bd3ffe2ae3e022851596e898ea6b331131928b97031947eb4e68b20395c"
+    },
+    {
+      "name": "driver_analysis_initialized_thunks.log",
+      "bytes": 4245,
+      "sha256": "3bdb3de5005c2ff93aa690f9eb58f5a5f156ccc556168c1e2044cc4ed083f2d0"
+    },
+    {
+      "name": "driver_analysis_latest_deobf.bin",
+      "bytes": 39829504,
+      "sha256": "e9ea4aff0895c5b6d801ca2fd2c6514622a519e988700a1e4ddd0e81901dff35"
+    },
+    {
+      "name": "driver_analysis_latest_deobf.bin.json",
+      "bytes": 33257,
+      "sha256": "612c1d43a5822eb52d592adb54a8f976843fd4e5dcf4cdd3a604a75cb4045bae"
+    },
+    {
+      "name": "driver_analysis_pid0.log",
+      "bytes": 4253,
+      "sha256": "063f9590498fa89478f78d493725b57bf6cae688ff7710e5fce8ebd0dfb68d22"
+    },
+    {
+      "name": "driver_analysis_ready.log",
+      "bytes": 693,
+      "sha256": "a0b5bc53420825d4afebeeab048440668413367888fb0f9be271a453451ed3ab"
+    },
+    {
+      "name": "driver_analysis_ready.py",
+      "bytes": 5697,
+      "sha256": "36beff3a649cf8eabe65b6469467fc4d8d9cd7783fe51f90800c5acab58daabd"
+    },
+    {
+      "name": "driver_analysis_slice.log",
+      "bytes": 5053488,
+      "sha256": "c2c91a331ca4815a9084a6af06b70142e4d4aa0fd83d34dd3fb6c7ac675569ba"
+    },
+    {
+      "name": "driver_analysis_slice.py",
+      "bytes": 1783,
+      "sha256": "8b956dc9fa262fb8ca5ecf1c1e9b588498d61c4c0f447be9f0801db7d2d7db68"
+    },
+    {
+      "name": "driver_analysis_symbolic.log",
+      "bytes": 26,
+      "sha256": "6d6e30e4db46b36021fa16ccb8d73880794bd9380eb184163455670e678f4731"
+    },
+    {
+      "name": "driver_analysis_symbolic.py",
+      "bytes": 7444,
+      "sha256": "7632f055f00645cb240bae33bc68c1a0aef141a9f3fc4ddf0ffd0965ca3588c1"
+    },
+    {
+      "name": "driver_analysis_thunks.bin",
+      "bytes": 39829504,
+      "sha256": "0a40c2707d5e640d945b60859cd4387c16fe72834c8a51a5f4358c54c88acaa9"
+    },
+    {
+      "name": "driver_analysis_thunks.bin.json",
+      "bytes": 5234,
+      "sha256": "0e7d6881d6984541b20a0ad5a04f6047ea48a1e6d4411ee460f00d0d2fd31421"
+    },
+    {
+      "name": "driver_analysis_thunks.log",
+      "bytes": 4648,
+      "sha256": "2852e313d9b0812d7cf0cf4f86c95716ca0d6288730ebb5338ffd4f53823c18d"
+    },
+    {
+      "name": "driver_analysis_thunks.py",
+      "bytes": 3804,
+      "sha256": "ea9c1ee19210e0bdc5377cc9135fc959443c7940797a29b7d213709314530b1b"
+    },
+    {
+      "name": "driver_analysis_trace.log",
+      "bytes": 916,
+      "sha256": "e241c5a7394a0a62acd69c7095830c40d1beaa632a6e75452c6f19f03b9c701c"
+    },
+    {
+      "name": "driver_analysis_trace.pkl",
+      "bytes": 11591251,
+      "sha256": "321e4bde19404f1c681f757ec4bc476fb853958fd7ce55f8cf1bc70998743915"
+    },
+    {
+      "name": "driver_analysis_trace.py",
+      "bytes": 1280,
+      "sha256": "6a8f5a8f4785b52c56ede8b42c9890aec768f3e456e4e5687730671f3f128dbe"
+    },
+    {
+      "name": "driver_analysis_traps.pkl",
+      "bytes": 5,
+      "sha256": "bfce13fc2f13ad950016bb48ccbbbd04ce13be07c748476dde1f940fcdfa0d52"
+    },
+    {
+      "name": "driver_analysis_update.log",
+      "bytes": 55,
+      "sha256": "283067d9a77e0402e56634d247a314efacf38ed1b38dc22433b7f841e500beb6"
+    },
+    {
+      "name": "driver_analysis_update.py",
+      "bytes": 7447,
+      "sha256": "004fa9a832b1a9814fb4c8b2e3e22fc548ebac0da38239a022bb4f96a75cc7e8"
+    },
+    {
+      "name": "driver_analysis_validate.py",
+      "bytes": 1537,
+      "sha256": "3e3a888b2823ea02634ff1fa1f50e187fe8f004ab19c61ec322d791ae26c3f49"
+    },
+    {
+      "name": "imports.txt",
+      "bytes": 3774,
+      "sha256": "f0ab44b024956f2a0c484a31db56fee3545b3f882ec71edaab278f96b7b1aa32"
+    },
+    {
+      "name": "infer_cipher.py",
+      "bytes": 1102,
+      "sha256": "91ddea2880bfeba4dab23f6cf4b9c63e42bcb6fdcc1c2be9db33e01878a75c35"
+    },
+    {
+      "name": "lut_all_rows.json",
+      "bytes": 60574,
+      "sha256": "5f82cde1ea6d9c0e1d2b7f1811bc3900eef8bb4308c966a04f099cae5499fffd"
+    },
+    {
+      "name": "lut_catalog.json",
+      "bytes": 1441,
+      "sha256": "3533934a38c65b828eb20aa8dbb8ac2a1ffeeb5af71d62174e76d6eebeebc23d"
+    },
+    {
+      "name": "lut_catalog.py",
+      "bytes": 1281,
+      "sha256": "08ac2130d81daa383eefe3b5bc1a2c08fe4347eb3b8cb885746ddb1f37076f59"
+    },
+    {
+      "name": "lzma-first.bin",
+      "bytes": 7220736,
+      "sha256": "024b4e2c161f1e24ca8fee6cb96c694e066eea275422fc62657636775dfcf84e"
+    },
+    {
+      "name": "lzma.asm",
+      "bytes": 36274,
+      "sha256": "cea48c477414722fddb3a296fe2262d63e295215b707bb79a14a726dfac72590"
+    },
+    {
+      "name": "native.asm",
+      "bytes": 137,
+      "sha256": "1fc850bc5ae07d831e3fda2e56606047d885b7861fc6461bdd85f40884948949"
+    },
+    {
+      "name": "packer-api-names.json",
+      "bytes": 4273,
+      "sha256": "a807ba670f64555f4545e2bddcb82710c6378d6f6d485a87c29cf2ce6d3e3da5"
+    },
+    {
+      "name": "probe_first_block.json",
+      "bytes": 1701,
+      "sha256": "4fdf7727c7353f1cabdc39fdc68319742ee82dc20127a5ae9772fefd1d4e06dc"
+    },
+    {
+      "name": "probe_first_block.log",
+      "bytes": 1346,
+      "sha256": "93ccccc815b8f8549914dc5925459e6975f466f402065a462b90fbde4184255f"
+    },
+    {
+      "name": "probe_first_block.py",
+      "bytes": 1038,
+      "sha256": "c03ed46813bccb696f76b04159bcf28aaf6c361caeaee91db142ca9376d38ed5"
+    },
+    {
+      "name": "progress-summary.md",
+      "bytes": 26324,
+      "sha256": "1006094ff2ce6b4475b0e8a5e7cf11142a2d7da82f5bbcf8fd07fe054fba5e1a"
+    },
+    {
+      "name": "strings.txt",
+      "bytes": 178,
+      "sha256": "daa23f9619f813ce48a76233187160b64092490385c8f343e26ee845a4640652"
+    },
+    {
+      "name": "unpack_block_query.log",
+      "bytes": 314,
+      "sha256": "6b742bdcab2408eff18e2d0b844bf10fb95efa841f6cbe148a39c5b2f2249340"
+    },
+    {
+      "name": "unpack_block_query.py",
+      "bytes": 1667,
+      "sha256": "8582863745cd4973ae4b88a3acca557e99bab694436ecc1452d0ed017fa2d26b"
+    },
+    {
+      "name": "unpack_decomp_state.pkl.gz",
+      "bytes": 15512129,
+      "sha256": "d476182abb97b8eaee222dc28d81f5afb6e78d3fcf47215a64d94b70388ce65e"
+    },
+    {
+      "name": "unpack_decompressed.bin",
+      "bytes": 39829504,
+      "sha256": "9cd40703f2553150307fd8ea3d70f63d11083b1a3542fb920721326b78759ae6"
+    },
+    {
+      "name": "unpack_emu.log",
+      "bytes": 2495,
+      "sha256": "80eaa04f30330f2840c832aa0cb3db3791fddfdd7b0972daf39ac012e4bdbd96"
+    },
+    {
+      "name": "unpack_emu.py",
+      "bytes": 8779,
+      "sha256": "e883a81ce54442a3f63c5d4bc9c8a95e36ddcb7fada411279e4760c5741221c4"
+    },
+    {
+      "name": "unpack_entry.log",
+      "bytes": 21924,
+      "sha256": "64d5da9b308bd91903aea067a9eb75acdd599fef85557d46e4626b862a5f8541"
+    },
+    {
+      "name": "unpack_entry.py",
+      "bytes": 9293,
+      "sha256": "b29a1d6ca2827d3b4695ec9ab3f86af208537ee744435b3d04120da0cc02639c"
+    },
+    {
+      "name": "unpack_final.bin",
+      "bytes": 39829504,
+      "sha256": "16b69810baf22d1f7ee04aea2a58552d6d0b76593cf3a5f18aa51bef57cdbd35"
+    },
+    {
+      "name": "unpack_finish.log",
+      "bytes": 530,
+      "sha256": "424be23c51ae34d7a5f23b5ca9bcc2295a0ddfc811c6bf4d06bcd05bc051299d"
+    },
+    {
+      "name": "unpack_finish.py",
+      "bytes": 8976,
+      "sha256": "0cd9d00c3a25af7474c055cd21247df8b69dc94da30cb9330544d1e64e5d6bda"
+    },
+    {
+      "name": "unpack_finish2.log",
+      "bytes": 849,
+      "sha256": "ea902b265399abab42f9e40ef908a19f6e29a8c870d087bbd5c8f32ca7cbe68a"
+    },
+    {
+      "name": "unpack_fixups.py",
+      "bytes": 1240,
+      "sha256": "300c453a39a1c8c302d03fc540851bbc7d8bc8c5b5fbdf78a1b69a4a82f7e176"
+    },
+    {
+      "name": "unpack_frame_samples.jsonl",
+      "bytes": 14402,
+      "sha256": "529f96346fc1a066682dee8e2786c675e1a9a7a4503b71d9d0ca2b6ba1c0184c"
+    },
+    {
+      "name": "unpack_graph.py",
+      "bytes": 761,
+      "sha256": "422e1a9a2dabf74f3d3c2a8bbf78b90aba9612f70625deab1fe3e2504ae1d548"
+    },
+    {
+      "name": "unpack_graph.txt",
+      "bytes": 428609,
+      "sha256": "a0a3a5e5dea031b54cd45770287ab4308f13daccc1d59969d7b0d66003c4476f"
+    },
+    {
+      "name": "unpack_guess.py",
+      "bytes": 1672,
+      "sha256": "bf46fc6eda96e1d91114834d5374529d9af599f7e5a96bb0ec7b881af19b287f"
+    },
+    {
+      "name": "unpack_import_map.json",
+      "bytes": 2128,
+      "sha256": "f2df5c20e88bfeb2ad524d609e1670a6d3569dda2818316c83c8e115c02a7018"
+    },
+    {
+      "name": "unpack_initialized.bin",
+      "bytes": 39829504,
+      "sha256": "46fc5efc6f905a164aa9c1af6d67937913c7484da30901f74b4f602a851f6809"
+    },
+    {
+      "name": "unpack_initialized.exe",
+      "bytes": 39829504,
+      "sha256": "01718e2ab3a63454956ddfdcb6829b77d0568af03dece689fbb92107d0065566"
+    },
+    {
+      "name": "unpack_initialized_state.pkl.gz",
+      "bytes": 30209509,
+      "sha256": "797871bf045c4e07cfe4fb9de8d2e9bac228f4e37d929fedb33d3e24cb159289"
+    },
+    {
+      "name": "unpack_keyprobe.bin",
+      "bytes": 39829504,
+      "sha256": "ff2d42ab5c10eaf694d4a59e6a077d00dc43b9b8ee6df2fdc5ea883c3dee5288"
+    },
+    {
+      "name": "unpack_keyprobe.log",
+      "bytes": 4320,
+      "sha256": "3b9ab85a693b3b54ecf79e285d14f8842cb1400d5df5148a835a91e27983f127"
+    },
+    {
+      "name": "unpack_keyprobe.py",
+      "bytes": 9398,
+      "sha256": "224e615b991e9f2b156dc72dea540bcab3969f0c9e4e00c6ebb129be99a9ced8"
+    },
+    {
+      "name": "unpack_keyprobe_state.pkl.gz",
+      "bytes": 30269101,
+      "sha256": "04fb5977a615bc693552eba89e2d8c960bb1ac83ee97b2a3b182e9e84c2fb6e9"
+    },
+    {
+      "name": "unpack_last_state.pkl.gz",
+      "bytes": 30246986,
+      "sha256": "ca81e6fd05614565ffa16978c1cb6d1cbccdf8cffeaecf9c02acf8137514ae26"
+    },
+    {
+      "name": "unpack_memory.bin",
+      "bytes": 39829504,
+      "sha256": "bcb56a3cc6c0623c20978fc3c57808a50b94bc51d4fd7200cd508e4535842505"
+    },
+    {
+      "name": "unpack_probe.log",
+      "bytes": 2024,
+      "sha256": "5b14422658e1de6e2cd898a0809ae2756cd9f09019e95c30711793ebb6d71752"
+    },
+    {
+      "name": "unpack_probe.py",
+      "bytes": 8423,
+      "sha256": "35be6cbfc709117c7faffbc594c87fbab6a1e8a4f4955f22c6b32b4f78b413d6"
+    },
+    {
+      "name": "unpack_probe2.log",
+      "bytes": 5149,
+      "sha256": "fa4b6200b5c0744c1b375d804ce49bea1699d5f6fd45e54a3e1cc8db56da4162"
+    },
+    {
+      "name": "unpack_probe2.py",
+      "bytes": 8516,
+      "sha256": "20102588219f3793e9ab607b0bb5f036a8bc20b743098baeb7c10f7bc3a17835"
+    },
+    {
+      "name": "unpack_probe2_memory.bin",
+      "bytes": 39829504,
+      "sha256": "51d2ba60fd3de5163add2211078d3379f1d85c60adfc997f7d672ef9a350a89b"
+    },
+    {
+      "name": "unpack_probe2_state.pkl.gz",
+      "bytes": 30322338,
+      "sha256": "99f21c5780beb3595870ac5ef7820640f77ed54d36b79445c828aa750a26ef70"
+    },
+    {
+      "name": "unpack_probe_memory.bin",
+      "bytes": 39829504,
+      "sha256": "51d2ba60fd3de5163add2211078d3379f1d85c60adfc997f7d672ef9a350a89b"
+    },
+    {
+      "name": "unpack_probe_state.pkl.gz",
+      "bytes": 30322315,
+      "sha256": "466d9aaa9805932a1ae2df145da5ab56307f4456f7dcfed2eb51f38a5ed33762"
+    },
+    {
+      "name": "unpack_rebuilt.exe",
+      "bytes": 39829504,
+      "sha256": "bf89e701e2ff1a93db3e44734fc843536973c0626929888e68286ab7ed171ca3"
+    },
+    {
+      "name": "unpack_reduce.log",
+      "bytes": 5264,
+      "sha256": "a02cd0a0fd11297e6dd7c6040a9ffee227e526f0f64d1f29db8b0a82bca16928"
+    },
+    {
+      "name": "unpack_reduce.py",
+      "bytes": 2556,
+      "sha256": "5a09eb57bd5b3f31f8ee185446a3615edb33b55af5d487503b93e0a947d0567d"
+    },
+    {
+      "name": "unpack_reduce_report.json",
+      "bytes": 6526,
+      "sha256": "34aa3cfcd6c9d16ebc18c17d3aa273f19f1e2fb1a5847f8cb5014d9a5ed4b1a4"
+    },
+    {
+      "name": "unpack_reduced.smt2",
+      "bytes": 106669,
+      "sha256": "5350898975686359967bdb1fde1abb0dd35f03f38a3d361541215233b955b2bf"
+    },
+    {
+      "name": "unpack_resolved.bin",
+      "bytes": 39829504,
+      "sha256": "51d2ba60fd3de5163add2211078d3379f1d85c60adfc997f7d672ef9a350a89b"
+    },
+    {
+      "name": "unpack_resume.log",
+      "bytes": 919,
+      "sha256": "1fbab7ac23f4afa4c66710cd6fcb346813c2fb436a6cf0d1d54d2ca2814537ad"
+    },
+    {
+      "name": "unpack_resume10.log",
+      "bytes": 270,
+      "sha256": "c9f2d9561aee9523764c031d3257a2e00b4bf95601efc9c4e6f22e0e6e8434b1"
+    },
+    {
+      "name": "unpack_resume11.log",
+      "bytes": 196962,
+      "sha256": "0a9d68e0385dc0252c8b7b932fad688835dd54bdb4f9fefe846458710d7d5f54"
+    },
+    {
+      "name": "unpack_resume12.log",
+      "bytes": 383945,
+      "sha256": "54d00c79c123bf7121ea288c20eae5a074cb9ee971d2e2864e4c8f9c2f25ab79"
+    },
+    {
+      "name": "unpack_resume13.log",
+      "bytes": 3835,
+      "sha256": "abbc329f3f63c74a07dcde8f2b9712a617ff088ec9a18e18bf81066e7591e16c"
+    },
+    {
+      "name": "unpack_resume14.log",
+      "bytes": 3825,
+      "sha256": "7417e59e059605e33d7bf17e063151b99241550f534b1bb5604a3273b986e61b"
+    },
+    {
+      "name": "unpack_resume15.log",
+      "bytes": 3823,
+      "sha256": "6351dac2c4faf1374deefa64d99847bd258d8001daa9cfd224a76029c8f99e12"
+    },
+    {
+      "name": "unpack_resume16.log",
+      "bytes": 3848,
+      "sha256": "e3d15db82ba6717a7f5c233deea2d498f0e821647e101ee297ec64c987c57da5"
+    },
+    {
+      "name": "unpack_resume17.log",
+      "bytes": 3828,
+      "sha256": "8b43a4856d8965671aab4d27de125038f1c6b5b5c743de7b3364782ec8562c55"
+    },
+    {
+      "name": "unpack_resume18.log",
+      "bytes": 3838,
+      "sha256": "b860dca3f71264a1608bdf523b0a03abb547067b8e8c25e4ba76b632d0b3d31e"
+    },
+    {
+      "name": "unpack_resume19.log",
+      "bytes": 3846,
+      "sha256": "f7faf16100e8333f99ff7646790054fd1661e7078e5be0edc7aff4a74b804a31"
+    },
+    {
+      "name": "unpack_resume2.log",
+      "bytes": 16730,
+      "sha256": "63a29e28c4fe4a0e2d64ea32f90bf798251aa0c6f2f2cf5f6910fc21d9d34017"
+    },
+    {
+      "name": "unpack_resume20.log",
+      "bytes": 3832,
+      "sha256": "50b74ace79ac0c9566a0da22526a97f3ee5d22e0f7f981852a59f1997465fc78"
+    },
+    {
+      "name": "unpack_resume21.log",
+      "bytes": 3822,
+      "sha256": "6cf074b5065f3536aec760900114aee19c0be7d51b98152df7985a7227400ed0"
+    },
+    {
+      "name": "unpack_resume22.log",
+      "bytes": 3798,
+      "sha256": "609e7c6495b0ad5eedfd13c5b9d54a657f4cf02f2a404e9d8a20f12c7d63971d"
+    },
+    {
+      "name": "unpack_resume23.log",
+      "bytes": 3848,
+      "sha256": "c27cde2333edf4b51e0bdfdacbe85bdbdbcf52757bddc0f0d40bd7681fe57379"
+    },
+    {
+      "name": "unpack_resume24.log",
+      "bytes": 361,
+      "sha256": "86afa76fbf43e9cbbf35ae4619aa1c202a62cb2d0bb0d2d8d98f9fb9ccb207dc"
+    },
+    {
+      "name": "unpack_resume25.log",
+      "bytes": 360,
+      "sha256": "995172f81a819c9a0fb631c466cd0e7814c98a86938ac9a24dce33f1cd49167e"
+    },
+    {
+      "name": "unpack_resume26.log",
+      "bytes": 361,
+      "sha256": "f60c3726e870362698e5e99e302f3ca33360b1ffb28a0dc1b7dbeb7f010d6694"
+    },
+    {
+      "name": "unpack_resume27.log",
+      "bytes": 361,
+      "sha256": "82e9b798cb9fee3a4ed00ef5c31aed6b869b366134230037fa11320c6c2c55f7"
+    },
+    {
+      "name": "unpack_resume28.log",
+      "bytes": 361,
+      "sha256": "8bc2d2891194f667dc7d7ebf6ecec374feec468230ff6f38c7cc12a569d2baba"
+    },
+    {
+      "name": "unpack_resume3.log",
+      "bytes": 17045,
+      "sha256": "168ca2bc7a217995cfeef75a1c57935699235a6d70cc0683cce680d3c5df2a4f"
+    },
+    {
+      "name": "unpack_resume4.log",
+      "bytes": 17093,
+      "sha256": "2cc84a3eb27f70f1262be51871c6394a39867f792437094f1716cfb373cb5aa9"
+    },
+    {
+      "name": "unpack_resume5.log",
+      "bytes": 16850,
+      "sha256": "c4a043f20955cc58be21ebf18c867c9e262cd2f39c6a54e5d826637991e09b39"
+    },
+    {
+      "name": "unpack_resume6.log",
+      "bytes": 571,
+      "sha256": "b6ed15d4a0bb6e3e36a3ed65a72eba5b4d8843d05f2ca3278db31a505b8be9ac"
+    },
+    {
+      "name": "unpack_resume7.log",
+      "bytes": 547,
+      "sha256": "726baf1b63d79ae3a3c2b05951b4047a07a47b04e0e6dbf4983d5539b5939758"
+    },
+    {
+      "name": "unpack_resume8.log",
+      "bytes": 264,
+      "sha256": "83516e7e2416253247a6b02980dd7575de1b575d932200c2d333fff8ade15d40"
+    },
+    {
+      "name": "unpack_resume9.log",
+      "bytes": 255,
+      "sha256": "32aaf370de7bceda572b6a2a62501003983b20568d5eb6795ed274f392cb963e"
+    },
+    {
+      "name": "unpack_sample.log",
+      "bytes": 2387,
+      "sha256": "afef79b61bf197af1149887826f09e59258142888a87305bd24c9e3d8aa054cf"
+    },
+    {
+      "name": "unpack_sample.py",
+      "bytes": 9157,
+      "sha256": "10ffdb8d4d1b50acd5fdeb6d77c00ddb386df4ff5a6db8a45dbe2275be042fe6"
+    },
+    {
+      "name": "unpack_sample_memory.bin",
+      "bytes": 39829504,
+      "sha256": "e3fb4ef943484cc12a364388358b85894c1a2e9b796fd5791b6248e9794362da"
+    },
+    {
+      "name": "unpack_sample_state.pkl.gz",
+      "bytes": 30278717,
+      "sha256": "cffd35b47cc9a6b73e71bf4e94a64af1140f8e9611f47dab838ab196bc6be652"
+    },
+    {
+      "name": "unpack_skip.log",
+      "bytes": 276,
+      "sha256": "f756a00cd67110e1187726ae0fb2f1d1ea6c1e4b224c30e217e8a863190d06e5"
+    },
+    {
+      "name": "unpack_skip.py",
+      "bytes": 8706,
+      "sha256": "3d2ab1f51157a77dbb79029151f453ce7c02bdad4f75d2dda67896217a6889db"
+    },
+    {
+      "name": "unpack_skip_memory.bin",
+      "bytes": 39829504,
+      "sha256": "51d2ba60fd3de5163add2211078d3379f1d85c60adfc997f7d672ef9a350a89b"
+    },
+    {
+      "name": "unpack_skip_probe.log",
+      "bytes": 2058,
+      "sha256": "02dc39d5e662cc7249d41342a7d81b3f22de5cd0effff720ec3e9cf116e13bce"
+    },
+    {
+      "name": "unpack_skip_state.pkl.gz",
+      "bytes": 30322318,
+      "sha256": "c358c56592ded21ebee9e1663d8f4289e6ec18195f75027fe75b49742602465b"
+    },
+    {
+      "name": "unpack_target32.bin",
+      "bytes": 39829504,
+      "sha256": "781dbb1aa16ff638df3815598b0255e1130a8e96117cc3649bc74fc1670add56"
+    },
+    {
+      "name": "unpack_target32.log",
+      "bytes": 4034,
+      "sha256": "9d00cd103e9dce065c206cdd2c675aa073c8f03305f12b062123bb4ebf4baa6a"
+    },
+    {
+      "name": "unpack_target32.py",
+      "bytes": 9287,
+      "sha256": "8eadcc583f654503302c3c32f39e8ea843159a6c3add9582680f3f2751838d85"
+    },
+    {
+      "name": "unpack_target32_state.pkl.gz",
+      "bytes": 30283980,
+      "sha256": "326beaaa4180e2cce034dfa70500993570a25c2afd0ec036b974322b76d791aa"
+    },
+    {
+      "name": "unpack_targeted.bin",
+      "bytes": 39829504,
+      "sha256": "c9334e0bff0e2de17b1a848cee6b69c80575cd4ac63435c63f5454c6758c3e80"
+    },
+    {
+      "name": "unpack_targeted.log",
+      "bytes": 4033,
+      "sha256": "358cb19067de27c1b874563dd759ebefcefe15c8951d9663296a679085697279"
+    },
+    {
+      "name": "unpack_targeted.py",
+      "bytes": 9287,
+      "sha256": "5e32849f4cf9ae950891e582897d665e3f026e1505d047901e75b1f7d0931060"
+    },
+    {
+      "name": "unpack_targeted_state.pkl.gz",
+      "bytes": 30298961,
+      "sha256": "4197aba91a3e9da3078d773328763facf31984dd8de8c98b5c88d879f65e5197"
+    }
+  ]
+}
+````````````
+
+
+File: `reverse/CyberCup-2077/check_cfg.py`
+
+````````````text
+from pathlib import Path
+from capstone import *
+from capstone.x86 import *
+import sys
+base=0x140000000
+b=Path(sys.argv[1]).read_bytes()
+md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
+start=int(sys.argv[2],16);todo=[start];seen=set();n=0
+while todo:
+ pc=todo.pop(0)
+ print(f'\nBLOCK {pc:x}')
+ while pc not in seen and n<15000:
+  if not 0<=pc-base<len(b):print('OUT OF RANGE');break
+  ins=next(md.disasm(b[pc-base:pc-base+15],pc,count=1),None)
+  if ins is None:print('BAD');break
+  seen.add(pc);n+=1
+  if ins.mnemonic!='nop':print(f'{pc:x}: {ins.mnemonic} {ins.op_str}')
+  pc+=ins.size
+  if ins.mnemonic=='ret':break
+  if ins.group(CS_GRP_JUMP):
+   if len(ins.operands)>0 and ins.operands[0].type==X86_OP_IMM:
+    target=ins.operands[0].imm
+    if ins.mnemonic=='jmp':pc=target
+    elif target not in seen and target not in todo:todo.append(target)
+   else:break
+print('INSTRUCTIONS',n,'BLOCKS',len(seen))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_clean.bin.json`
+
+````````````text
+[
+  {
+    "start": "0x14124b08b",
+    "end": "0x14124b0e2",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124b124",
+    "end": "0x14124b17b",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124b5a7",
+    "end": "0x14124b600",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124b638",
+    "end": "0x14124b679",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124b75b",
+    "end": "0x14124b7b4",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1cbc]"
+    ]
+  },
+  {
+    "start": "0x14124b9e3",
+    "end": "0x14124ba3a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x888]"
+    ]
+  },
+  {
+    "start": "0x14124ba48",
+    "end": "0x14124ba9d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x890]"
+    ]
+  },
+  {
+    "start": "0x14124babe",
+    "end": "0x14124baff",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124bc48",
+    "end": "0x14124bc93",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124bce9",
+    "end": "0x14124bd2a",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124bdc0",
+    "end": "0x14124be14",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14124beef",
+    "end": "0x14124bf37",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x34]"
+    ]
+  },
+  {
+    "start": "0x14124c169",
+    "end": "0x14124c1c2",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124c1f5",
+    "end": "0x14124c24c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124c284",
+    "end": "0x14124c2dd",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1078]"
+    ]
+  },
+  {
+    "start": "0x14124c48e",
+    "end": "0x14124c4d9",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124c621",
+    "end": "0x14124c66c",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124c709",
+    "end": "0x14124c754",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124cb39",
+    "end": "0x14124cb8e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124d136",
+    "end": "0x14124d177",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124d205",
+    "end": "0x14124d25c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1b58]"
+    ]
+  },
+  {
+    "start": "0x14124d297",
+    "end": "0x14124d2ee",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124d5ac",
+    "end": "0x14124d603",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124d767",
+    "end": "0x14124d7be",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124d803",
+    "end": "0x14124d859",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14124d9c5",
+    "end": "0x14124da06",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124db0c",
+    "end": "0x14124db57",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124dd51",
+    "end": "0x14124dda8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124de26",
+    "end": "0x14124de7a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14124df97",
+    "end": "0x14124dfee",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124e102",
+    "end": "0x14124e159",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124e1e6",
+    "end": "0x14124e23f",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0xb44]"
+    ]
+  },
+  {
+    "start": "0x14124e24c",
+    "end": "0x14124e2a3",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124e696",
+    "end": "0x14124e6ed",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124e8d2",
+    "end": "0x14124e92b",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124e9a5",
+    "end": "0x14124e9f0",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124ea20",
+    "end": "0x14124ea77",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124eb88",
+    "end": "0x14124ebe1",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x4dc]"
+    ]
+  },
+  {
+    "start": "0x14124ec1b",
+    "end": "0x14124ec5c",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124ed21",
+    "end": "0x14124ed78",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x13a4]"
+    ]
+  },
+  {
+    "start": "0x14124ee13",
+    "end": "0x14124ee5e",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124f072",
+    "end": "0x14124f0c9",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124f0f4",
+    "end": "0x14124f14d",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124f3f6",
+    "end": "0x14124f437",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0xce4]"
+    ]
+  },
+  {
+    "start": "0x14124f6ab",
+    "end": "0x14124f702",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124f946",
+    "end": "0x14124f99d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124fa02",
+    "end": "0x14124fa58",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14124fb6f",
+    "end": "0x14124fbc8",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124fc54",
+    "end": "0x14124fc9f",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124fce8",
+    "end": "0x14124fd26",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14124fd77",
+    "end": "0x14124fdc2",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x2cc]"
+    ]
+  },
+  {
+    "start": "0x14124fdf7",
+    "end": "0x14124fe50",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14124ff83",
+    "end": "0x14124ffda",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141250313",
+    "end": "0x14125036a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412509f7",
+    "end": "0x141250a4e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141250b6e",
+    "end": "0x141250baf",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141250d3e",
+    "end": "0x141250d89",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1880]"
+    ]
+  },
+  {
+    "start": "0x141250d90",
+    "end": "0x141250ddb",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1868]"
+    ]
+  },
+  {
+    "start": "0x141250eb5",
+    "end": "0x141250f0c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141250fc3",
+    "end": "0x14125101c",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412510a4",
+    "end": "0x1412510ef",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141251245",
+    "end": "0x14125129e",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141251599",
+    "end": "0x1412515f0",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125191a",
+    "end": "0x141251973",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412522cc",
+    "end": "0x141252323",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252355",
+    "end": "0x141252393",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x1412523b7",
+    "end": "0x141252410",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1d7c]"
+    ]
+  },
+  {
+    "start": "0x14125241b",
+    "end": "0x141252466",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1d70]"
+    ]
+  },
+  {
+    "start": "0x1412524b5",
+    "end": "0x141252500",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412525fc",
+    "end": "0x141252655",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252750",
+    "end": "0x1412527a7",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252825",
+    "end": "0x141252879",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x1412528ec",
+    "end": "0x141252943",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125298e",
+    "end": "0x1412529e5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252ac0",
+    "end": "0x141252b19",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252b3a",
+    "end": "0x141252b82",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141252c27",
+    "end": "0x141252c7e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252e05",
+    "end": "0x141252e46",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x101c]"
+    ]
+  },
+  {
+    "start": "0x141252ec6",
+    "end": "0x141252f1f",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141252fb4",
+    "end": "0x14125300b",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125305e",
+    "end": "0x14125309f",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125334a",
+    "end": "0x1412533a1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125344e",
+    "end": "0x1412534a5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253505",
+    "end": "0x141253546",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0xe54]"
+    ]
+  },
+  {
+    "start": "0x141253592",
+    "end": "0x1412535e9",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253724",
+    "end": "0x14125377b",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253892",
+    "end": "0x1412538dd",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253a12",
+    "end": "0x141253a69",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x274]"
+    ]
+  },
+  {
+    "start": "0x141253bd8",
+    "end": "0x141253c23",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253cb8",
+    "end": "0x141253cf9",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253dc2",
+    "end": "0x141253e1b",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141253f45",
+    "end": "0x141253f9c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125401e",
+    "end": "0x141254072",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125407d",
+    "end": "0x1412540be",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x1274]"
+    ]
+  },
+  {
+    "start": "0x1412542dd",
+    "end": "0x141254334",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x185c]"
+    ]
+  },
+  {
+    "start": "0x141254387",
+    "end": "0x1412543de",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125445a",
+    "end": "0x1412544b1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1058]"
+    ]
+  },
+  {
+    "start": "0x14125455a",
+    "end": "0x14125459b",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x1404]"
+    ]
+  },
+  {
+    "start": "0x1412545ad",
+    "end": "0x1412545f5",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x6c]"
+    ]
+  },
+  {
+    "start": "0x1412545ff",
+    "end": "0x141254656",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141254800",
+    "end": "0x14125484b",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125497d",
+    "end": "0x1412549be",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141254a1a",
+    "end": "0x141254a71",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141254b8d",
+    "end": "0x141254be4",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141254c5b",
+    "end": "0x141254c99",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141254fce",
+    "end": "0x141255022",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x1412552fc",
+    "end": "0x14125533d",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125537a",
+    "end": "0x1412553bb",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412553e8",
+    "end": "0x14125543f",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125552f",
+    "end": "0x141255586",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412557b3",
+    "end": "0x14125580a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141255896",
+    "end": "0x1412558e1",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141255984",
+    "end": "0x1412559cc",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141255e8f",
+    "end": "0x141255ed0",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125609d",
+    "end": "0x1412560f4",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125645e",
+    "end": "0x1412564b5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412565d2",
+    "end": "0x14125661d",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412566a0",
+    "end": "0x1412566f7",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141256791",
+    "end": "0x1412567e8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141256c8b",
+    "end": "0x141256ccc",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x1fb0]"
+    ]
+  },
+  {
+    "start": "0x141256f36",
+    "end": "0x141256f81",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257083",
+    "end": "0x1412570da",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125742c",
+    "end": "0x141257483",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257699",
+    "end": "0x1412576da",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257871",
+    "end": "0x1412578c8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412579dd",
+    "end": "0x141257a34",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257b98",
+    "end": "0x141257be3",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257c87",
+    "end": "0x141257cdb",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141257d0f",
+    "end": "0x141257d50",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257dbf",
+    "end": "0x141257e0a",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141257f99",
+    "end": "0x141257ff0",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125823f",
+    "end": "0x141258296",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412582c6",
+    "end": "0x14125831d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125866e",
+    "end": "0x1412586c5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x127c]"
+    ]
+  },
+  {
+    "start": "0x141258703",
+    "end": "0x141258744",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412588ad",
+    "end": "0x141258904",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141258af8",
+    "end": "0x141258b4f",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141258b96",
+    "end": "0x141258bed",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141258c4b",
+    "end": "0x141258c96",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141258e06",
+    "end": "0x141258e5d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141258f07",
+    "end": "0x141258f5e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141259056",
+    "end": "0x141259094",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x2c]"
+    ]
+  },
+  {
+    "start": "0x141259250",
+    "end": "0x14125928e",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125954b",
+    "end": "0x1412595a4",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x4f8]"
+    ]
+  },
+  {
+    "start": "0x14125988c",
+    "end": "0x1412598cd",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141259bcd",
+    "end": "0x141259c24",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141259ff9",
+    "end": "0x14125a04d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125a146",
+    "end": "0x14125a19d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125a23b",
+    "end": "0x14125a294",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x14f8]"
+    ]
+  },
+  {
+    "start": "0x14125a2b1",
+    "end": "0x14125a2fc",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x14fc]"
+    ]
+  },
+  {
+    "start": "0x14125a347",
+    "end": "0x14125a39e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125a651",
+    "end": "0x14125a6a8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125a9d6",
+    "end": "0x14125aa2d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x4b8]"
+    ]
+  },
+  {
+    "start": "0x14125ab9d",
+    "end": "0x14125abe5",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125ad49",
+    "end": "0x14125ada2",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125addb",
+    "end": "0x14125ae1c",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125aee2",
+    "end": "0x14125af39",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b05d",
+    "end": "0x14125b09e",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b120",
+    "end": "0x14125b177",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1324]"
+    ]
+  },
+  {
+    "start": "0x14125b20d",
+    "end": "0x14125b264",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b335",
+    "end": "0x14125b38c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b426",
+    "end": "0x14125b47f",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b50c",
+    "end": "0x14125b563",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b877",
+    "end": "0x14125b8d0",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125b9b2",
+    "end": "0x14125b9fa",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125ba69",
+    "end": "0x14125bab4",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125baf8",
+    "end": "0x14125bb4f",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125bbe3",
+    "end": "0x14125bc2b",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x6c]"
+    ]
+  },
+  {
+    "start": "0x14125bcba",
+    "end": "0x14125bd11",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125bd3f",
+    "end": "0x14125bd98",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125bed3",
+    "end": "0x14125bf11",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125c098",
+    "end": "0x14125c0f1",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125c3b4",
+    "end": "0x14125c408",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125c4a5",
+    "end": "0x14125c4fc",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125c52d",
+    "end": "0x14125c578",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125c5ad",
+    "end": "0x14125c604",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125c8d5",
+    "end": "0x14125c92e",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125c95e",
+    "end": "0x14125c9a9",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125ca79",
+    "end": "0x14125cad0",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125cd42",
+    "end": "0x14125cd8d",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125cfb8",
+    "end": "0x14125cff6",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125d008",
+    "end": "0x14125d05f",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1998]"
+    ]
+  },
+  {
+    "start": "0x14125d0c1",
+    "end": "0x14125d10c",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125d157",
+    "end": "0x14125d1a2",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125d6d9",
+    "end": "0x14125d730",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125d790",
+    "end": "0x14125d7db",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125d83a",
+    "end": "0x14125d87b",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125d909",
+    "end": "0x14125d947",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x14125d985",
+    "end": "0x14125d9dc",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1d28]"
+    ]
+  },
+  {
+    "start": "0x14125da51",
+    "end": "0x14125daa5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x40]"
+    ]
+  },
+  {
+    "start": "0x14125dad3",
+    "end": "0x14125db2c",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125db6d",
+    "end": "0x14125dbc4",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0xe28]"
+    ]
+  },
+  {
+    "start": "0x14125dc62",
+    "end": "0x14125dcb9",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125df44",
+    "end": "0x14125df8f",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125dfe8",
+    "end": "0x14125e03d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125e2ce",
+    "end": "0x14125e325",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125e6f9",
+    "end": "0x14125e73a",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125e78f",
+    "end": "0x14125e7e6",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125e8a7",
+    "end": "0x14125e900",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125e9c1",
+    "end": "0x14125ea15",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x40]"
+    ]
+  },
+  {
+    "start": "0x14125ebb2",
+    "end": "0x14125ec09",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125ef10",
+    "end": "0x14125ef5b",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125ef8d",
+    "end": "0x14125efd8",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125eff9",
+    "end": "0x14125f050",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f1b1",
+    "end": "0x14125f208",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x50c]"
+    ]
+  },
+  {
+    "start": "0x14125f2b7",
+    "end": "0x14125f30e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f45a",
+    "end": "0x14125f4b1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f5c0",
+    "end": "0x14125f619",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f77f",
+    "end": "0x14125f7c0",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f806",
+    "end": "0x14125f85d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125f996",
+    "end": "0x14125f9ed",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125fac5",
+    "end": "0x14125fb06",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125fb51",
+    "end": "0x14125fb99",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x6c]"
+    ]
+  },
+  {
+    "start": "0x14125fca1",
+    "end": "0x14125fcf8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125fd30",
+    "end": "0x14125fd87",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x11c]"
+    ]
+  },
+  {
+    "start": "0x14125fdfc",
+    "end": "0x14125fe47",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125fe7e",
+    "end": "0x14125fed7",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14125ff70",
+    "end": "0x14125ffbb",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260038",
+    "end": "0x14126008d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412601c5",
+    "end": "0x141260210",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412602d2",
+    "end": "0x141260329",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260369",
+    "end": "0x1412603c0",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126043e",
+    "end": "0x14126047d",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260503",
+    "end": "0x14126055a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260a1d",
+    "end": "0x141260a68",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260d35",
+    "end": "0x141260d8c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141260e0b",
+    "end": "0x141260e56",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1a10]"
+    ]
+  },
+  {
+    "start": "0x141260e65",
+    "end": "0x141260ebc",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1a24]"
+    ]
+  },
+  {
+    "start": "0x141261369",
+    "end": "0x1412613b4",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412614e6",
+    "end": "0x14126153d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412618aa",
+    "end": "0x1412618f5",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412619c6",
+    "end": "0x141261a07",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141261bae",
+    "end": "0x141261c05",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141261dab",
+    "end": "0x141261e04",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x270]"
+    ]
+  },
+  {
+    "start": "0x141261e32",
+    "end": "0x141261e89",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141261faf",
+    "end": "0x141261ff7",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141262011",
+    "end": "0x141262068",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0xd5c]"
+    ]
+  },
+  {
+    "start": "0x14126217e",
+    "end": "0x1412621d5",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126220e",
+    "end": "0x141262265",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412623b4",
+    "end": "0x14126240b",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126258c",
+    "end": "0x1412625e1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412628b3",
+    "end": "0x1412628f4",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141262a26",
+    "end": "0x141262a7d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141262b77",
+    "end": "0x141262bd0",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141262c3e",
+    "end": "0x141262c94",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141262ddb",
+    "end": "0x141262e1c",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141262f2c",
+    "end": "0x141262f83",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141262fc2",
+    "end": "0x141263019",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141263421",
+    "end": "0x141263462",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412634b6",
+    "end": "0x14126350d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126354f",
+    "end": "0x141263590",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412635a5",
+    "end": "0x1412635fc",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412636c2",
+    "end": "0x141263719",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141263742",
+    "end": "0x141263799",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412637d9",
+    "end": "0x141263830",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x648]"
+    ]
+  },
+  {
+    "start": "0x141263956",
+    "end": "0x1412639ad",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141263afc",
+    "end": "0x141263b51",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141263bd9",
+    "end": "0x141263c17",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141263d1a",
+    "end": "0x141263d71",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141263e0b",
+    "end": "0x141263e62",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x580]"
+    ]
+  },
+  {
+    "start": "0x141263e8f",
+    "end": "0x141263ed0",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0x58c]"
+    ]
+  },
+  {
+    "start": "0x141263fbc",
+    "end": "0x141264007",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412640a8",
+    "end": "0x1412640e9",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141264117",
+    "end": "0x141264162",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412641d1",
+    "end": "0x141264228",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412642df",
+    "end": "0x141264333",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141264a68",
+    "end": "0x141264abf",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141264cb2",
+    "end": "0x141264d06",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x6c]"
+    ]
+  },
+  {
+    "start": "0x141264df3",
+    "end": "0x141264e4a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x2d8]"
+    ]
+  },
+  {
+    "start": "0x141264f14",
+    "end": "0x141264f5c",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x50]"
+    ]
+  },
+  {
+    "start": "0x141264fc7",
+    "end": "0x141265008",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141265217",
+    "end": "0x14126526e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412652e0",
+    "end": "0x141265335",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412653c7",
+    "end": "0x14126541e",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126546f",
+    "end": "0x1412654b0",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141265829",
+    "end": "0x141265882",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126590d",
+    "end": "0x141265964",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141265c26",
+    "end": "0x141265c7d",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x2e0]"
+    ]
+  },
+  {
+    "start": "0x141265ccc",
+    "end": "0x141265d25",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141265e8a",
+    "end": "0x141265ee3",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141265f33",
+    "end": "0x141265f8a",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412660f6",
+    "end": "0x141266141",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x17b8]"
+    ]
+  },
+  {
+    "start": "0x141266171",
+    "end": "0x1412661c8",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126630b",
+    "end": "0x14126635f",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x141266457",
+    "end": "0x1412664ae",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141266552",
+    "end": "0x14126659d",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412666f9",
+    "end": "0x141266750",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126677a",
+    "end": "0x1412667d1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412667f4",
+    "end": "0x141266835",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126695d",
+    "end": "0x1412669a8",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141266c05",
+    "end": "0x141266c46",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141266cee",
+    "end": "0x141266d39",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141266e0e",
+    "end": "0x141266e67",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0xab0]"
+    ]
+  },
+  {
+    "start": "0x141266e91",
+    "end": "0x141266edc",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141266f3f",
+    "end": "0x141266f98",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267014",
+    "end": "0x14126705f",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1bc4]"
+    ]
+  },
+  {
+    "start": "0x141267087",
+    "end": "0x1412670de",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267122",
+    "end": "0x141267163",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267324",
+    "end": "0x14126737b",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x14126767e",
+    "end": "0x1412676c9",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0xeec]"
+    ]
+  },
+  {
+    "start": "0x1412676f5",
+    "end": "0x14126774c",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267890",
+    "end": "0x1412678e7",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267b75",
+    "end": "0x141267bb6",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267c84",
+    "end": "0x141267cdb",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141267f8d",
+    "end": "0x141267fce",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412680ec",
+    "end": "0x141268140",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x1412684e1",
+    "end": "0x14126852c",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 0x1c9c]"
+    ]
+  },
+  {
+    "start": "0x14126859a",
+    "end": "0x1412685f1",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412686ab",
+    "end": "0x141268702",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141268a70",
+    "end": "0x141268ac9",
+    "removed": 13,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x141268b1d",
+    "end": "0x141268b5e",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, dword ptr [r8 + 0xfec]"
+    ]
+  },
+  {
+    "start": "0x141268fea",
+    "end": "0x141269032",
+    "removed": 11,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, dword ptr [r8 + 8]"
+    ]
+  },
+  {
+    "start": "0x1412690fb",
+    "end": "0x141269152",
+    "removed": 15,
+    "remaining": [
+      "xor rax, rax",
+      "or rax, qword ptr [r8 + 0x206c]"
+    ]
+  },
+  {
+    "start": "0x1412693e0",
+    "end": "0x141269421",
+    "removed": 9,
+    "remaining": [
+      "and r9d, 0",
+      "xor r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412696ed",
+    "end": "0x141269744",
+    "removed": 15,
+    "remaining": [
+      "xor r9d, r9d",
+      "or r9d, 0"
+    ]
+  },
+  {
+    "start": "0x1412697cf",
+    "end": "0x141269826",
+    "removed": 15,
+    "remaining"
+[Recorded excerpt: file exceeds 48,000 characters.]
+````````````
+
+
+File: `reverse/CyberCup-2077/check_current.bin.json`
+
+````````````text
+[
+  {
+    "start": "0x14124cd65",
+    "end": "0x141289b0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412505c2",
+    "end": "0x141415841",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251615",
+    "end": "0x14140cfa8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251aa9",
+    "end": "0x1413ece5a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254d11",
+    "end": "0x1412b8007",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255080",
+    "end": "0x141433f17",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255bb1",
+    "end": "0x14149771d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412561fa",
+    "end": "0x14127a79d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141256937",
+    "end": "0x1413f3380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141259309",
+    "end": "0x141368760",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125e433",
+    "end": "0x141392382",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125ec77",
+    "end": "0x141290212",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141260744",
+    "end": "0x1412f3f43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141263031",
+    "end": "0x14138a04b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126448d",
+    "end": "0x141305ca0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412646ed",
+    "end": "0x14128f6ad",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412691b9",
+    "end": "0x141342ccf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141269838",
+    "end": "0x1412822de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126bc42",
+    "end": "0x141402329",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126c2ae",
+    "end": "0x1412f4f25",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126eca8",
+    "end": "0x1412c943c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126f44d",
+    "end": "0x1413683d9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127623b",
+    "end": "0x141357d8c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141276fd2",
+    "end": "0x141439319",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141277f8a",
+    "end": "0x14146e6ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127eda0",
+    "end": "0x141285fe0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141282327",
+    "end": "0x14129a560",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141283e72",
+    "end": "0x141251a79",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412842e9",
+    "end": "0x14135e749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128a328",
+    "end": "0x14137beb3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128ab3d",
+    "end": "0x141250510",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128bae6",
+    "end": "0x14143c506",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128f6ee",
+    "end": "0x1412b550c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412916b0",
+    "end": "0x1414a4585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141295d06",
+    "end": "0x14145b7c2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141296c7f",
+    "end": "0x14128f0ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412981b4",
+    "end": "0x141358df3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8345",
+    "end": "0x1413897d8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a87e3",
+    "end": "0x141283e3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8bdf",
+    "end": "0x141275b43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8ec9",
+    "end": "0x141280cf2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ab4e7",
+    "end": "0x1413cea41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412acd6e",
+    "end": "0x1412f9cf0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ad04c",
+    "end": "0x1413ca664",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b476f",
+    "end": "0x1412e45d0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b4d6f",
+    "end": "0x141371aa9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b5593",
+    "end": "0x141309dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b70a2",
+    "end": "0x1412fc07e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b8efc",
+    "end": "0x14142c346",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412be8be",
+    "end": "0x1412da3d1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c42c6",
+    "end": "0x1414431b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c950a",
+    "end": "0x1414a9c3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ca3fe",
+    "end": "0x1413c8deb",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412cc8b7",
+    "end": "0x141296c34",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ce9f6",
+    "end": "0x1413bd18c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d17f6",
+    "end": "0x14137fd7a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d2373",
+    "end": "0x1413fac68",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d25d3",
+    "end": "0x14146cf13",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d5aac",
+    "end": "0x141470520",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412dc3b3",
+    "end": "0x141294402",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0a84",
+    "end": "0x1413411b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0f84",
+    "end": "0x14148025b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e1caa",
+    "end": "0x14129fe3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e2831",
+    "end": "0x1412d17c4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e37c5",
+    "end": "0x141307e26",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e3a07",
+    "end": "0x1413022f6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ea099",
+    "end": "0x1413c632d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ee64b",
+    "end": "0x1412c4f21",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412efd24",
+    "end": "0x14140d2b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f208a",
+    "end": "0x1412b59b8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f4fbc",
+    "end": "0x14134becd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f6474",
+    "end": "0x1414765cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f9dec",
+    "end": "0x141399175",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fcc09",
+    "end": "0x141406f80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fce16",
+    "end": "0x14146a98d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141300201",
+    "end": "0x1413bc680",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130062d",
+    "end": "0x1412561a2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413007dd",
+    "end": "0x1412fd5cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413014bb",
+    "end": "0x1413d31bf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141301781",
+    "end": "0x14146f462",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141304651",
+    "end": "0x14133675a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141305d00",
+    "end": "0x1412fa1a3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141307eca",
+    "end": "0x1412b7015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130c2c7",
+    "end": "0x1413eb093",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130ec54",
+    "end": "0x141276f7f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131be11",
+    "end": "0x141301758",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131c459",
+    "end": "0x14126cad7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141321bd1",
+    "end": "0x1412cc871",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141323a86",
+    "end": "0x1413089e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141324c65",
+    "end": "0x1414888e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14132c2cf",
+    "end": "0x1412521a7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141330473",
+    "end": "0x1412e8e37",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141331245",
+    "end": "0x1412e80df",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413367e8",
+    "end": "0x14128198d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141350259",
+    "end": "0x1412842b3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135203a",
+    "end": "0x141452bc3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141358e74",
+    "end": "0x141455f88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135e784",
+    "end": "0x1413fd6d7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413615a5",
+    "end": "0x14132e60e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141362ba1",
+    "end": "0x14131e427",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141365ba8",
+    "end": "0x1412de97a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413667d2",
+    "end": "0x1413cda28",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368402",
+    "end": "0x14140b985",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368783",
+    "end": "0x1414a0ef9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136b81d",
+    "end": "0x141477d46",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136cfdd",
+    "end": "0x141304570",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136fd70",
+    "end": "0x141457949",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413762af",
+    "end": "0x14128c69c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141376f77",
+    "end": "0x14131ad80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413772fa",
+    "end": "0x14144a950",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137afe9",
+    "end": "0x1412ebf82",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137e9e7",
+    "end": "0x141303f58",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141382231",
+    "end": "0x141467527",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141389815",
+    "end": "0x14146cab2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138abcb",
+    "end": "0x1412d207c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138cee5",
+    "end": "0x141378769",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141399201",
+    "end": "0x141467857",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a1fb9",
+    "end": "0x1414a2e8a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a22bc",
+    "end": "0x1414449fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a5f9a",
+    "end": "0x1413034d6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a729d",
+    "end": "0x141299443",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413b563f",
+    "end": "0x14136fbc1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bbe9f",
+    "end": "0x141294dde",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bc713",
+    "end": "0x14133044a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bd217",
+    "end": "0x1412e0179",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c0499",
+    "end": "0x14145002b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c29f9",
+    "end": "0x141412dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c309e",
+    "end": "0x1413a9021",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c8e1c",
+    "end": "0x1413ff44e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ca7c7",
+    "end": "0x1412606ce",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413cd3bb",
+    "end": "0x1413cd713",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d3226",
+    "end": "0x14143b4a0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d4def",
+    "end": "0x141315c67",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413dac88",
+    "end": "0x141376f41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ec58f",
+    "end": "0x141307400",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f2120",
+    "end": "0x1412a8734",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f33f7",
+    "end": "0x14132d6cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413fc40c",
+    "end": "0x14126d6d3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ffcd8",
+    "end": "0x1413f0ce9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414023a4",
+    "end": "0x141297d0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414085ce",
+    "end": "0x141432097",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140b9a9",
+    "end": "0x1413b19a6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140d2f7",
+    "end": "0x141295ad1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141410fe9",
+    "end": "0x14136b7ed",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141412e01",
+    "end": "0x14138a14d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141413d91",
+    "end": "0x141293d32",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141521f",
+    "end": "0x141414dbd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141a499",
+    "end": "0x14144203f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414223b7",
+    "end": "0x1413680b9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141425cc7",
+    "end": "0x1413a2a83",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141427899",
+    "end": "0x141255b88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141428a4c",
+    "end": "0x14142e7b4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14142c3cf",
+    "end": "0x1412740cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14143b4f2",
+    "end": "0x1414a0db6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414405c3",
+    "end": "0x1414a3f1f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141444a21",
+    "end": "0x141433a8d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14144c144",
+    "end": "0x14125a485",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145152f",
+    "end": "0x141324b9d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141455fbd",
+    "end": "0x1412ec35d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141456489",
+    "end": "0x141304baa",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145aee9",
+    "end": "0x14127f06d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141462d1a",
+    "end": "0x14127ec87",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141464cca",
+    "end": "0x1413e731e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414675ad",
+    "end": "0x1413a1040",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146787c",
+    "end": "0x14149e0c7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146a9c9",
+    "end": "0x1412663fc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141470168",
+    "end": "0x1412efcee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147559d",
+    "end": "0x14142785a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141476600",
+    "end": "0x1412f537b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414783c8",
+    "end": "0x1412d0cd6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147c09b",
+    "end": "0x14137d905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141487ba6",
+    "end": "0x141425c23",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148ad01",
+    "end": "0x14131b7e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148c717",
+    "end": "0x141323a65",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499597",
+    "end": "0x14128ebfd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499c3f",
+    "end": "0x1412643f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149a6b5",
+    "end": "0x1412ce359",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149eeb8",
+    "end": "0x141469599",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414a9c6c",
+    "end": "0x14141f3de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414abb70",
+    "end": "0x14132f467",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14160fa0a",
+    "end": "0x14160fc00",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141610e1f",
+    "end": "0x141611015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416121fc",
+    "end": "0x1416123f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141612b79",
+    "end": "0x141612d6f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141613475",
+    "end": "0x14161366b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416136a1",
+    "end": "0x1416138fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161394a",
+    "end": "0x141613ba7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161418a",
+    "end": "0x141614380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614447",
+    "end": "0x14161463d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416146a7",
+    "end": "0x14161489d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614920",
+    "end": "0x141614b16",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614b4b",
+    "end": "0x141614d41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614e30",
+    "end": "0x14161508d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615180",
+    "end": "0x1416153dc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615612",
+    "end": "0x141615808",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615843",
+    "end": "0x141615aa0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615ae0",
+    "end": "0x141615d3c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615e7c",
+    "end": "0x141616072",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416160a7",
+    "end": "0x141616304",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616340",
+    "end": "0x14161659c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616640",
+    "end": "0x141616836",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616872",
+    "end": "0x141616acf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616b14",
+    "end": "0x141616d70",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616dc4",
+    "end": "0x141616fba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617006",
+    "end": "0x141617263",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416172ae",
+    "end": "0x1416174a4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416174ec",
+    "end": "0x141617749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617792",
+    "end": "0x1416179ee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618079",
+    "end": "0x14161826f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618386",
+    "end": "0x14161857c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d3c4",
+    "end": "0x14161d5ba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d65a",
+    "end": "0x14161d8b7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d9aa",
+    "end": "0x14161dc06",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625b38",
+    "end": "0x141625d2e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625def",
+    "end": "0x141625fe5",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416260a5",
+    "end": "0x14162629b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141626357",
+    "end": "0x14162654d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141640ba2",
+    "end": "0x141640d98",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416436e4",
+    "end": "0x1416438da",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141657563",
+    "end": "0x141657759",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14165838f",
+    "end": "0x141658585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416613f3",
+    "end": "0x1416615e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141668ea3",
+    "end": "0x141669099",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166970f",
+    "end": "0x141669905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166fe94",
+    "end": "0x14167008a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254cbc",
+    "end": "0x141254d07",
+    "description": "logical immediate 2 dwordGPR11, 0xcfce63f7"
+  },
+  {
+    "start": "0x14129165c",
+    "end": "0x1412916a7",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1412acd17",
+    "end": "0x1412acd62",
+    "description": "logical0xca000000 dwordGPR9, dwordGPR9"
+  },
+  {
+    "start": "0x14130c278",
+    "end": "0x14130c2c3",
+    "description": "mov dwordGPR9, 0x0"
+  },
+  {
+    "start": "0x141349160",
+    "end": "0x1413491ab",
+    "description": "mov dwordGPR9, 0x0"
+  },
+  {
+    "start": "0x1413501fc",
+    "end": "0x141350247",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x141470520",
+    "end": "0x14147056b",
+    "description": "logical0xca000000 dwordGPR9, dwordGPR9"
+  },
+  {
+    "start": "0x141614135",
+    "end": "0x141614180",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141614384",
+    "end": "0x1416143cf",
+    "description": "logical0x8a000000 dwordGPR3, dwordGPR7"
+  },
+  {
+    "start": "0x1416143f3",
+    "end": "0x14161443e",
+    "description": "logical0xca000000 dwordGPR3, dwordGPR5"
+  },
+  {
+    "start": "0x141614657",
+    "end": "0x1416146a2",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x1416148c6",
+    "end": "0x141614911",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141625ae7",
+    "end": "0x141625b32",
+    "description": "mov dwordGPR0, 0x9a516e27"
+  },
+  {
+    "start": "0x141625d34",
+    "end": "0x141625d7f",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141625d94",
+    "end": "0x141625ddf",
+    "description": "mov dwordGPR0, 0x52dab981"
+  },
+  {
+    "start": "0x141625fe7",
+    "end": "0x141626032",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x14162604c",
+    "end": "0x141626097",
+    "description": "mov dwordGPR0, 0xc47139ab"
+  },
+  {
+    "start": "0x1416262a0",
+    "end": "0x1416262eb",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141626304",
+    "end": "0x14162634f",
+    "description": "mov dwordGPR0, 0x713ec0d5"
+  },
+  {
+    "start": "0x141626552",
+    "end": "0x14162659d",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  }
+]
+````````````
+
+
+File: `reverse/CyberCup-2077/check_deobf_new.bin.json`
+
+````````````text
+[
+  {
+    "start": "0x14124cd65",
+    "end": "0x141289b0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412505c2",
+    "end": "0x141415841",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251615",
+    "end": "0x14140cfa8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251aa9",
+    "end": "0x1413ece5a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254d11",
+    "end": "0x1412b8007",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255080",
+    "end": "0x141433f17",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255bb1",
+    "end": "0x14149771d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412561fa",
+    "end": "0x14127a79d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141256937",
+    "end": "0x1413f3380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141259309",
+    "end": "0x141368760",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125e433",
+    "end": "0x141392382",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125ec77",
+    "end": "0x141290212",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141260744",
+    "end": "0x1412f3f43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141263031",
+    "end": "0x14138a04b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126448d",
+    "end": "0x141305ca0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412646ed",
+    "end": "0x14128f6ad",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412691b9",
+    "end": "0x141342ccf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141269838",
+    "end": "0x1412822de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126bc42",
+    "end": "0x141402329",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126c2ae",
+    "end": "0x1412f4f25",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126eca8",
+    "end": "0x1412c943c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126f44d",
+    "end": "0x1413683d9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127623b",
+    "end": "0x141357d8c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141276fd2",
+    "end": "0x141439319",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141277f8a",
+    "end": "0x14146e6ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127eda0",
+    "end": "0x141285fe0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141282327",
+    "end": "0x14129a560",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141283e72",
+    "end": "0x141251a79",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412842e9",
+    "end": "0x14135e749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128a328",
+    "end": "0x14137beb3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128ab3d",
+    "end": "0x141250510",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128bae6",
+    "end": "0x14143c506",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128f6ee",
+    "end": "0x1412b550c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412916b0",
+    "end": "0x1414a4585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141295d06",
+    "end": "0x14145b7c2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141296c7f",
+    "end": "0x14128f0ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412981b4",
+    "end": "0x141358df3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8345",
+    "end": "0x1413897d8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a87e3",
+    "end": "0x141283e3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8bdf",
+    "end": "0x141275b43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8ec9",
+    "end": "0x141280cf2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ab4e7",
+    "end": "0x1413cea41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412acd6e",
+    "end": "0x1412f9cf0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ad04c",
+    "end": "0x1413ca664",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b476f",
+    "end": "0x1412e45d0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b4d6f",
+    "end": "0x141371aa9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b5593",
+    "end": "0x141309dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b70a2",
+    "end": "0x1412fc07e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b8efc",
+    "end": "0x14142c346",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412be8be",
+    "end": "0x1412da3d1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c42c6",
+    "end": "0x1414431b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c950a",
+    "end": "0x1414a9c3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ca3fe",
+    "end": "0x1413c8deb",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412cc8b7",
+    "end": "0x141296c34",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ce9f6",
+    "end": "0x1413bd18c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d17f6",
+    "end": "0x14137fd7a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d2373",
+    "end": "0x1413fac68",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d25d3",
+    "end": "0x14146cf13",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d5aac",
+    "end": "0x141470520",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412dc3b3",
+    "end": "0x141294402",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0a84",
+    "end": "0x1413411b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0f84",
+    "end": "0x14148025b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e1caa",
+    "end": "0x14129fe3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e2831",
+    "end": "0x1412d17c4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e37c5",
+    "end": "0x141307e26",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e3a07",
+    "end": "0x1413022f6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ea099",
+    "end": "0x1413c632d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ee64b",
+    "end": "0x1412c4f21",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412efd24",
+    "end": "0x14140d2b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f208a",
+    "end": "0x1412b59b8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f4fbc",
+    "end": "0x14134becd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f6474",
+    "end": "0x1414765cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f9dec",
+    "end": "0x141399175",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fcc09",
+    "end": "0x141406f80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fce16",
+    "end": "0x14146a98d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141300201",
+    "end": "0x1413bc680",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130062d",
+    "end": "0x1412561a2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413007dd",
+    "end": "0x1412fd5cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413014bb",
+    "end": "0x1413d31bf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141301781",
+    "end": "0x14146f462",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141304651",
+    "end": "0x14133675a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141305d00",
+    "end": "0x1412fa1a3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141307eca",
+    "end": "0x1412b7015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130c2c7",
+    "end": "0x1413eb093",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130ec54",
+    "end": "0x141276f7f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131be11",
+    "end": "0x141301758",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131c459",
+    "end": "0x14126cad7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141321bd1",
+    "end": "0x1412cc871",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141323a86",
+    "end": "0x1413089e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141324c65",
+    "end": "0x1414888e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14132c2cf",
+    "end": "0x1412521a7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141330473",
+    "end": "0x1412e8e37",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141331245",
+    "end": "0x1412e80df",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413367e8",
+    "end": "0x14128198d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141350259",
+    "end": "0x1412842b3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135203a",
+    "end": "0x141452bc3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141358e74",
+    "end": "0x141455f88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135e784",
+    "end": "0x1413fd6d7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413615a5",
+    "end": "0x14132e60e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141362ba1",
+    "end": "0x14131e427",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141365ba8",
+    "end": "0x1412de97a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413667d2",
+    "end": "0x1413cda28",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368402",
+    "end": "0x14140b985",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368783",
+    "end": "0x1414a0ef9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136b81d",
+    "end": "0x141477d46",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136cfdd",
+    "end": "0x141304570",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136fd70",
+    "end": "0x141457949",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413762af",
+    "end": "0x14128c69c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141376f77",
+    "end": "0x14131ad80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413772fa",
+    "end": "0x14144a950",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137afe9",
+    "end": "0x1412ebf82",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137e9e7",
+    "end": "0x141303f58",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141382231",
+    "end": "0x141467527",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141389815",
+    "end": "0x14146cab2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138abcb",
+    "end": "0x1412d207c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138cee5",
+    "end": "0x141378769",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141399201",
+    "end": "0x141467857",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a1fb9",
+    "end": "0x1414a2e8a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a22bc",
+    "end": "0x1414449fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a5f9a",
+    "end": "0x1413034d6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a729d",
+    "end": "0x141299443",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413b563f",
+    "end": "0x14136fbc1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bbe9f",
+    "end": "0x141294dde",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bc713",
+    "end": "0x14133044a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bd217",
+    "end": "0x1412e0179",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c0499",
+    "end": "0x14145002b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c29f9",
+    "end": "0x141412dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c309e",
+    "end": "0x1413a9021",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c8e1c",
+    "end": "0x1413ff44e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ca7c7",
+    "end": "0x1412606ce",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413cd3bb",
+    "end": "0x1413cd713",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d3226",
+    "end": "0x14143b4a0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d4def",
+    "end": "0x141315c67",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413dac88",
+    "end": "0x141376f41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ec58f",
+    "end": "0x141307400",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f2120",
+    "end": "0x1412a8734",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f33f7",
+    "end": "0x14132d6cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413fc40c",
+    "end": "0x14126d6d3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ffcd8",
+    "end": "0x1413f0ce9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414023a4",
+    "end": "0x141297d0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414085ce",
+    "end": "0x141432097",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140b9a9",
+    "end": "0x1413b19a6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140d2f7",
+    "end": "0x141295ad1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141410fe9",
+    "end": "0x14136b7ed",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141412e01",
+    "end": "0x14138a14d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141413d91",
+    "end": "0x141293d32",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141521f",
+    "end": "0x141414dbd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141a499",
+    "end": "0x14144203f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414223b7",
+    "end": "0x1413680b9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141425cc7",
+    "end": "0x1413a2a83",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141427899",
+    "end": "0x141255b88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141428a4c",
+    "end": "0x14142e7b4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14142c3cf",
+    "end": "0x1412740cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14143b4f2",
+    "end": "0x1414a0db6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414405c3",
+    "end": "0x1414a3f1f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141444a21",
+    "end": "0x141433a8d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14144c144",
+    "end": "0x14125a485",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145152f",
+    "end": "0x141324b9d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141455fbd",
+    "end": "0x1412ec35d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141456489",
+    "end": "0x141304baa",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145aee9",
+    "end": "0x14127f06d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141462d1a",
+    "end": "0x14127ec87",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141464cca",
+    "end": "0x1413e731e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414675ad",
+    "end": "0x1413a1040",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146787c",
+    "end": "0x14149e0c7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146a9c9",
+    "end": "0x1412663fc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141470168",
+    "end": "0x1412efcee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147559d",
+    "end": "0x14142785a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141476600",
+    "end": "0x1412f537b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414783c8",
+    "end": "0x1412d0cd6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147c09b",
+    "end": "0x14137d905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141487ba6",
+    "end": "0x141425c23",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148ad01",
+    "end": "0x14131b7e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148c717",
+    "end": "0x141323a65",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499597",
+    "end": "0x14128ebfd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499c3f",
+    "end": "0x1412643f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149a6b5",
+    "end": "0x1412ce359",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149eeb8",
+    "end": "0x141469599",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414a9c6c",
+    "end": "0x14141f3de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414abb70",
+    "end": "0x14132f467",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14160fa0a",
+    "end": "0x14160fc00",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141610e1f",
+    "end": "0x141611015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416121fc",
+    "end": "0x1416123f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141612b79",
+    "end": "0x141612d6f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141613475",
+    "end": "0x14161366b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416136a1",
+    "end": "0x1416138fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161394a",
+    "end": "0x141613ba7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161418a",
+    "end": "0x141614380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614447",
+    "end": "0x14161463d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416146a7",
+    "end": "0x14161489d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614920",
+    "end": "0x141614b16",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614b4b",
+    "end": "0x141614d41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614e30",
+    "end": "0x14161508d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615180",
+    "end": "0x1416153dc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615612",
+    "end": "0x141615808",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615843",
+    "end": "0x141615aa0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615ae0",
+    "end": "0x141615d3c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615e7c",
+    "end": "0x141616072",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416160a7",
+    "end": "0x141616304",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616340",
+    "end": "0x14161659c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616640",
+    "end": "0x141616836",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616872",
+    "end": "0x141616acf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616b14",
+    "end": "0x141616d70",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616dc4",
+    "end": "0x141616fba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617006",
+    "end": "0x141617263",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416172ae",
+    "end": "0x1416174a4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416174ec",
+    "end": "0x141617749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617792",
+    "end": "0x1416179ee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618079",
+    "end": "0x14161826f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618386",
+    "end": "0x14161857c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d3c4",
+    "end": "0x14161d5ba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d65a",
+    "end": "0x14161d8b7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d9aa",
+    "end": "0x14161dc06",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625b38",
+    "end": "0x141625d2e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625def",
+    "end": "0x141625fe5",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416260a5",
+    "end": "0x14162629b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141626357",
+    "end": "0x14162654d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141640ba2",
+    "end": "0x141640d98",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416436e4",
+    "end": "0x1416438da",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141657563",
+    "end": "0x141657759",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14165838f",
+    "end": "0x141658585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416613f3",
+    "end": "0x1416615e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141668ea3",
+    "end": "0x141669099",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166970f",
+    "end": "0x141669905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166fe94",
+    "end": "0x14167008a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614135",
+    "end": "0x141614180",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141614384",
+    "end": "0x1416143cf",
+    "description": "logical0x8a000000 dwordGPR3, dwordGPR7"
+  },
+  {
+    "start": "0x1416143f3",
+    "end": "0x14161443e",
+    "description": "logical0xca000000 dwordGPR3, dwordGPR5"
+  },
+  {
+    "start": "0x141614657",
+    "end": "0x1416146a2",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x1416148c6",
+    "end": "0x141614911",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141625ae7",
+    "end": "0x141625b32",
+    "description": "mov dwordGPR0, 0x9a516e27"
+  },
+  {
+    "start": "0x141625d34",
+    "end": "0x141625d7f",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141625d94",
+    "end": "0x141625ddf",
+    "description": "mov dwordGPR0, 0x52dab981"
+  },
+  {
+    "start": "0x141625fe7",
+    "end": "0x141626032",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x14162604c",
+    "end": "0x141626097",
+    "description": "mov dwordGPR0, 0xc47139ab"
+  },
+  {
+    "start": "0x1416262a0",
+    "end": "0x1416262eb",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141626304",
+    "end": "0x14162634f",
+    "description": "mov dwordGPR0, 0x713ec0d5"
+  },
+  {
+    "start": "0x141626552",
+    "end": "0x14162659d",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  }
+]
+````````````
+
+
+File: `reverse/CyberCup-2077/check_hypercall.py`
+
+````````````text
+"""Pure model of cybercup.sys capability API (RVA 0x315c) and ticket math.
+This models state transitions for user-mode emulation; timeouts/locking omitted.
+"""
+MASK = (1 << 64) - 1
+
+def rol(x, n, bits=64):
+    mask=(1 << bits)-1
+    return ((x << n) | (x >> (bits-n))) & mask
+
+def siphash24(key0, key1, word0, word1, word2):
+    v=[key0 ^ 0x736f6d6570736575, key1 ^ 0x646f72616e646f6d,
+       key0 ^ 0x6c7967656e657261, key1 ^ 0x7465646279746573]
+    def rnd():
+        v[0]=(v[0]+v[1]) & MASK; v[1]=rol(v[1],13)^v[0]; v[0]=rol(v[0],32)
+        v[2]=(v[2]+v[3]) & MASK; v[3]=rol(v[3],16)^v[2]
+        v[0]=(v[0]+v[3]) & MASK; v[3]=rol(v[3],21)^v[0]
+        v[2]=(v[2]+v[1]) & MASK; v[1]=rol(v[1],17)^v[2]; v[2]=rol(v[2],32)
+    for m in [word0,word1,word2,0x1800000000000000]:
+        v[3]^=m
+        rnd();rnd()
+        v[0]^=m
+    v[2]^=0xff
+    for _ in range(4): rnd()
+    return v[0]^v[1]^v[2]^v[3]
+
+def ticket_transform(operation, value):
+    assert operation in (0x2077,0x2078)
+    return (rol((value & 0xffffffff)^0xa3c59ac3,9,32) + operation*0x045d9f3b) & 0xffffffff
+
+class Capabilities:
+    def __init__(self,key0=0,key1=0):
+        self.key=(key0,key1);self.counter=0;self.sessions={}
+    def hash(self,*words): return siphash24(*self.key,*words)
+    def token(self,x): return (x & 0x7ffffffffffffffd)|2
+    def call(self,pid,op,arg=0,token=0,extra=0):
+        if op==0x30ff and not arg and not token:return 0x10000
+        if op==0x30fe and not arg and not token:return 0xf
+        if op==0x3000 and arg and not token:
+            self.counter+=1
+            token=self.token(self.hash(self.counter,pid,arg^0x4846564c4f50454e))
+            self.sessions[pid,token]={'nonce':arg,'state':self.hash(token,pid,arg),'step':1,'code':0,'code2':0,'pred':0}
+            return token
+        allowed=(0x3001,0x3002,0x3003,0x3010,0x3011,0x3021,0x3030,0x3040,0x3041)
+        s=self.sessions.get((pid,token))
+        if op not in allowed or not s:return MASK
+        if op in (0x3010,0x3040):
+            which='code' if op==0x3010 else 'code2'
+            if extra or arg < 0x10000 or arg > 0x7fffffffffff or s[which]:return MASK
+            s[which]=arg;return 0
+        if op==0x3030:
+            if extra or s['step']==1 or s['pred']:return MASK
+            s['pred']=1
+            return self.hash(s['state'],arg^0x4856505245443031,token)&3
+        if op in (0x3002,0x3003):
+            if op==0x3002 and s['step']<=1:return MASK
+            del self.sessions[pid,token];return 0
+        if op==0x3011 and (not extra or s['code']!=extra):return MASK
+        if op==0x3041 and (not extra or s['code2']!=extra):return MASK
+        if op==0x3021 and extra!=MASK:return MASK
+        if arg>>32!=s['step'] or s['step']>4:return MASK
+        s['state']=self.hash(s['state'],arg,token^s['nonce'])
+        new=self.token(self.hash(s['state'],token,0x4846564c53544550))
+        if new==token:new^=4
+        s['step']+=1;s['code']=s['code2']=s['pred']=0
+        del self.sessions[pid,token];self.sessions[pid,new]=s
+        return new
+
+class CheckSessions(Capabilities):
+    """Nine-step choice API at driver RVA 0x2e64; opaque token remains fixed."""
+    def call(self,pid,op,arg=0,token=0,process=None):
+        owner=pid if process is None else (pid,process)
+        if op==0x305f and not arg and not token:return 0x10000
+        if op==0x3050 and arg and not token:
+            self.counter+=1
+            token=self.token(self.hash(self.counter,pid,arg^0x434845434b4f504e))
+            self.sessions[owner,token]={'nonce':arg,'state':self.hash(token,pid,arg),'step':0,'lastarg':0,'lastresult':0}
+            return token
+        s=self.sessions.get((owner,token))
+        if not 0x3051<=op<=0x305b or not s:return MASK
+        if op in (0x305a,0x305b):
+            result=0 if op==0x305b or (not arg and s['step']==9) else MASK
+            del self.sessions[owner,token]
+            return result
+        step=op-0x3051
+        if step+1==s['step'] and arg==s['lastarg']:return s['lastresult']
+        if step!=s['step'] or step>=9:return MASK
+        s['state']=self.hash(s['state'],arg,(0x434845434b535445+step)^s['nonce'])
+        result=(s['state']^(s['state']>>32))&3
+        s['step']+=1;s['lastarg']=arg;s['lastresult']=result
+        return result
+
+class Tickets:
+    """Ticket/version services from RVA 0x36c4; expiration omitted."""
+    def __init__(self):self.counter=0;self.sessions={}
+    def call(self,pid,op,arg=0,token=0):
+        if op==0:return 0x20000
+        if op==1 and arg==0x2077 and not token:
+            self.counter=(self.counter+1)&MASK
+            if self.counter in (0,MASK):self.counter=(self.counter+1)&MASK
+            self.sessions[pid,self.counter]=2
+            return self.counter
+        state=self.sessions.get((pid,token))
+        if not state:return MASK
+        if op==2:del self.sessions[pid,token];return 0
+        if op==0x2077 and state==2:
+            self.sessions[pid,token]=4
+            return ticket_transform(op,arg)
+        if op==0x2078 and state==4:
+            del self.sessions[pid,token]
+            return ticket_transform(op,arg)
+        return MASK
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_luts.py`
+
+````````````text
+from pathlib import Path
+from capstone import *
+from capstone.x86 import *
+import struct,json,collections
+B=0x140000000;b=Path('unpack_memory.bin').read_bytes();md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
+seen=set(); todo=[0x14126f3ea,0x1413f20a8];globals=collections.Counter()
+while todo:
+ pc=todo.pop()
+ while pc not in seen:
+  seen.add(pc);ins=next(md.disasm(b[pc-B:pc-B+15],pc,count=1),None)
+  if not ins:break
+  pc+=ins.size
+  for o in ins.operands:
+   if o.type==X86_OP_MEM and o.mem.base==X86_REG_RIP:globals[pc+o.mem.disp]+=1
+  if ins.mnemonic=='ret':break
+  if ins.mnemonic=='jmp':
+   if ins.operands[0].type==X86_OP_IMM:pc=ins.operands[0].imm
+   else:break
+  elif ins.group(CS_GRP_JUMP):
+   if ins.operands[0].type==X86_OP_IMM:todo.append(ins.operands[0].imm)
+
+def q(a):return struct.unpack_from('<Q',b,a-B)[0]
+for a,n in globals.most_common():
+ p=q(a)
+ if not 0<=p-B<len(b):print(hex(a),n,'BAD',hex(p));continue
+ ps=[q(p+x*8) for x in range(256)]
+ if all(0<=v-B<len(b)-255 for v in ps):
+  ts=[b[v-B:v-B+256] for v in ps]
+  ops={'xor':lambda x,y:x^y,'or':lambda x,y:x|y,'and':lambda x,y:x&y,'add':lambda x,y:(x+y)&255,'sub':lambda x,y:(x-y)&255,'carryadd':lambda x,y:int(x+y>255),'borrowsub':lambda x,y:int(x<y),'mul':lambda x,y:x*y&255,'eq':lambda x,y:int(x==y),'neq':lambda x,y:int(x!=y),'shl':lambda x,y:(x<<y)&255,'shr':lambda x,y:x>>y}
+  match=[name for name,f in ops.items() if all(ts[x][y]==f(x,y) for x in range(256) for y in range(256))]
+  print(hex(a),n,hex(p),'binary',match,'rowsample',[(x,list(ts[x][:8])) for x in range(3)])
+ else:
+  t=b[p-B:p-B+256];print(hex(a),n,hex(p),'unary',list(t[:32]),'unique',len(set(t)))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_scan_tables.py`
+
+````````````text
+from pathlib import Path
+from capstone import *
+from capstone.x86 import *
+import struct,json,collections
+B=0x140000000;b=Path('checker_deobf.bin').read_bytes();md=Cs(CS_ARCH_X86,CS_MODE_64);md.detail=True
+stages=[i.operands[0].imm for i in md.disasm(b[0x698a19:0x698edb],B+0x698a19) if i.mnemonic=='call']
+todo=list(stages);seen=set();gs=collections.Counter()
+while todo:
+ pc=todo.pop()
+ while pc not in seen:
+  seen.add(pc);i=next(md.disasm(b[pc-B:pc-B+15],pc,count=1),None)
+  if i is None:break
+  pc+=i.size
+  for o in i.operands:
+   if o.type==X86_OP_MEM and o.mem.base==X86_REG_RIP:gs[pc+o.mem.disp]+=1
+  if i.mnemonic=='ret':break
+  if i.mnemonic=='jmp':
+   if i.operands[0].type!=X86_OP_IMM:break
+   pc=i.operands[0].imm
+  elif i.group(CS_GRP_JUMP):
+   if i.operands[0].type==X86_OP_IMM:todo.append(i.operands[0].imm)
+ops={}
+for name,f in [('xor',lambda x,y:x^y),('or',lambda x,y:x|y),('and',lambda x,y:x&y)]:ops[name]=f
+for k in range(1,8):ops['shl'+str(k)]=lambda x,y,k=k:((x<<k)|(y>>(8-k)))&255
+for k in range(1,8):ops['shr'+str(k)]=lambda x,y,k=k:((x>>k)|(y<<(8-k)))&255
+result={}
+for a,n in gs.most_common():
+ p=struct.unpack_from('<Q',b,a-B)[0]
+ if not 0<=p-B<len(b)-2048:continue
+ ps=struct.unpack_from('<256Q',b,p-B)
+ if not all(0<=v-B<len(b)-255 for v in ps):
+  t=b[p-B:p-B+256]
+  kind='eq0' if t==b'\1'+b'\0'*255 else 'not' if t==bytes([x^255 for x in range(256)]) else 'unary'+t.hex()
+  result[a]={'pointer':p,'kind':kind,'n':n};print(hex(a),n,'unary',kind[:80]);continue
+ stride=ps[1]-ps[0];regular=all(ps[x]==ps[0]+x*stride for x in range(256))
+ ts=[b[v-B:v-B+256] for v in ps]
+ match=[name for name,f in ops.items() if all(ts[x][y]==f(x,y) for x in range(256) for y in range(256))]
+ if stride==4 and regular:
+  words=struct.unpack_from('<511I',b,ps[0]-B)
+  if words==tuple(range(511)):match=['add32']
+ print(hex(a),n,hex(p),'stride',stride,'regular',regular,'kind',match)
+ result[a]={'pointer':p,'matrix':ps[0],'stride':stride,'regular':regular,'kind':match,'n':n}
+Path('check_tables.json').write_text(json.dumps(result,indent=2))
+print('STAGES',len(stages),'INS',len(seen))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_solve_block.py`
+
+````````````text
+from pathlib import Path
+import z3 as z,time,argparse
+p=argparse.ArgumentParser();p.add_argument('file');p.add_argument('target',type=lambda x:int(x,16));p.add_argument('--timeout',type=int,default=60000);p.add_argument('--prefix',default='');a=p.parse_args()
+s=z.Solver();s.add(z.parse_smt2_file(a.file));s.set(timeout=a.timeout)
+s.add(z.BitVec('state_00',32)==(a.target&0xffffffff),z.BitVec('state_04',32)==(a.target>>32))
+w=[z.BitVec('input_word_%02d'%i,32) for i in range(2)]
+for j,v in enumerate(a.prefix.encode()):s.add(z.Extract(j%4*8+7,j%4*8,w[j//4])==v)
+t=time.time();r=s.check();print(r,'TIME',time.time()-t,flush=True)
+if r==z.sat:
+ m=s.model();b=b''.join(m.eval(x).as_long().to_bytes(4,'little') for x in w);print(b,flush=True)
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_split_states.py`
+
+````````````text
+from pathlib import Path
+import z3 as z,json,sys
+path=sys.argv[1] if len(sys.argv)>1 else 'check_all_states.smt2'
+cs=z.parse_smt2_file(path);defs={}
+for c in cs:
+ if z.is_eq(c) and z.is_const(c.arg(0)) and c.arg(0).decl().kind()==z.Z3_OP_UNINTERPRETED:defs[str(c.arg(0))]=c
+
+def variables(x):
+ todo=[x];seen=set();result={}
+ while todo:
+  n=todo.pop();h=n.get_id()
+  if h in seen:continue
+  seen.add(h)
+  if z.is_const(n) and n.decl().kind()==z.Z3_OP_UNINTERPRETED:result[str(n)]=n
+  else:todo.extend(n.children())
+ return result
+for block in range(9):
+ need=[f'state_{block*8:02d}',f'state_{block*8+4:02d}'];seen=set();out=[];inputs=set()
+ while need:
+  name=need.pop()
+  if name in seen:continue
+  seen.add(name)
+  if name.startswith('input_'):inputs.add(name)
+  c=defs.get(name)
+  if c is not None:
+   out.append(c);need.extend(variables(c.arg(1)))
+ s=z.Solver();s.add(out);Path(f'check_block{block}.smt2').write_text(s.to_smt2())
+ print(block,'nodes',len(out),'inputs',sorted(inputs),flush=True)
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_stage_map.json`
+
+````````````text
+[
+  {
+    "stage": "0x140601e80",
+    "ins": 9285,
+    "input": [
+      0,
+      1,
+      2
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406052b0",
+    "ins": 9259,
+    "input": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140608660",
+    "ins": 9299,
+    "input": [
+      7
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14060bb60",
+    "ins": 9151,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14060f150",
+    "ins": 2203,
+    "input": [],
+    "state": [
+      0,
+      4
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x14060fd90",
+    "ins": 5,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14060fdb0",
+    "ins": 2942,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140610ee0",
+    "ins": 9307,
+    "input": [
+      8,
+      9,
+      10
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140614450",
+    "ins": 9227,
+    "input": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140617930",
+    "ins": 9417,
+    "input": [
+      15
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14061aef0",
+    "ins": 7876,
+    "input": [],
+    "state": [
+      8,
+      12
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x14061dca0",
+    "ins": 5,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14061dcc0",
+    "ins": 2841,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14061ed40",
+    "ins": 9117,
+    "input": [
+      16,
+      17,
+      18
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140622210",
+    "ins": 9236,
+    "input": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140625790",
+    "ins": 9095,
+    "input": [
+      23
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140628e00",
+    "ins": 3885,
+    "input": [],
+    "state": [
+      16,
+      20
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x14062a560",
+    "ins": 4,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14062a580",
+    "ins": 2941,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14062b710",
+    "ins": 9418,
+    "input": [
+      24,
+      25,
+      26
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14062ecd0",
+    "ins": 9360,
+    "input": [
+      27,
+      28,
+      29,
+      30
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140632320",
+    "ins": 9377,
+    "input": [
+      31
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406357d0",
+    "ins": 6263,
+    "input": [],
+    "state": [
+      24,
+      28
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x140637c80",
+    "ins": 7,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140637ca0",
+    "ins": 2978,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140638da0",
+    "ins": 9408,
+    "input": [
+      32,
+      33,
+      34
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14063c2a0",
+    "ins": 9298,
+    "input": [
+      35,
+      36,
+      37,
+      38
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14063f790",
+    "ins": 9233,
+    "input": [
+      39
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140642bd0",
+    "ins": 9298,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406461f0",
+    "ins": 2058,
+    "input": [],
+    "state": [
+      32,
+      36
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x140646e40",
+    "ins": 5,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140646e60",
+    "ins": 3083,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140647fd0",
+    "ins": 9063,
+    "input": [
+      40,
+      41,
+      42
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14064b4d0",
+    "ins": 9337,
+    "input": [
+      43,
+      44,
+      45,
+      46
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14064e980",
+    "ins": 9629,
+    "input": [
+      47
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140651f30",
+    "ins": 7805,
+    "input": [],
+    "state": [
+      40,
+      44
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x140654d10",
+    "ins": 8,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140654d40",
+    "ins": 3124,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140655ee0",
+    "ins": 9693,
+    "input": [
+      48,
+      49,
+      50
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140659520",
+    "ins": 9495,
+    "input": [
+      51,
+      52,
+      53,
+      54
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14065cab0",
+    "ins": 9407,
+    "input": [
+      55
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406600e0",
+    "ins": 3933,
+    "input": [],
+    "state": [
+      48,
+      52
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x140661850",
+    "ins": 8,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140661880",
+    "ins": 2907,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140662a30",
+    "ins": 9425,
+    "input": [
+      56,
+      57,
+      58
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140665fb0",
+    "ins": 9334,
+    "input": [
+      59,
+      60,
+      61,
+      62
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140669500",
+    "ins": 9338,
+    "input": [
+      63
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14066caa0",
+    "ins": 6260,
+    "input": [],
+    "state": [
+      56,
+      60
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x14066ef00",
+    "ins": 8,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14066ef30",
+    "ins": 3000,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140670070",
+    "ins": 9487,
+    "input": [
+      64,
+      65,
+      66
+    ],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140673540",
+    "ins": 9319,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140676a70",
+    "ins": 9470,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14067a070",
+    "ins": 9380,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14067d670",
+    "ins": 720,
+    "input": [],
+    "state": [
+      64,
+      68
+    ],
+    "calls": []
+  },
+  {
+    "stage": "0x14067dab0",
+    "ins": 8,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14067dae0",
+    "ins": 3082,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14067ec00",
+    "ins": 7325,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406817e0",
+    "ins": 6933,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140684370",
+    "ins": 7070,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140686e30",
+    "ins": 7211,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x1406899b0",
+    "ins": 7294,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14068c5b0",
+    "ins": 7227,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x14068f1c0",
+    "ins": 7392,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140691ea0",
+    "ins": 7075,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140694990",
+    "ins": 6955,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140697460",
+    "ins": 8,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140697490",
+    "ins": 1523,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140697d30",
+    "ins": 5,
+    "input": [],
+    "state": [],
+    "calls": []
+  },
+  {
+    "stage": "0x140697d50",
+    "ins": 1183,
+    "input": [],
+    "state": [],
+    "calls": []
+  }
+]
+````````````
+
+
+File: `reverse/CyberCup-2077/check_stage_map.py`
+
+````````````text
+from pathlib import Path
+from capstone import *
+from capstone.x86 import *
+import json
+b=Path('checker_deobf.bin').read_bytes();B=0x140000000;m=Cs(CS_ARCH_X86,CS_MODE_64);m.detail=True
+stages=[i.operands[0].imm for i in m.disasm(b[0x698a19:0x698edb],B+0x698a19) if i.mnemonic=='call'];out=[]
+for st in stages:
+ seen=set();pc=st;reads=set();states=set();calls=[]
+ while pc not in seen:
+  seen.add(pc);i=next(m.disasm(b[pc-B:pc-B+15],pc,count=1),None)
+  if i is None:break
+  pc+=i.size
+  for o in i.operands:
+   if o.type==X86_OP_MEM and o.mem.base==X86_REG_RCX:reads.add(o.mem.disp)
+   if o.type==X86_OP_MEM and o.mem.base==X86_REG_RDX:states.add(o.mem.disp)
+  if i.mnemonic=='ret':break
+  if i.mnemonic=='call':calls.append(i.op_str)
+  if i.mnemonic=='jmp':
+   if i.operands[0].type!=X86_OP_IMM:break
+   pc=i.operands[0].imm
+ out.append({'stage':hex(st),'ins':len(seen),'input':sorted(reads),'state':sorted(states),'calls':calls})
+ print(out[-1],flush=True)
+Path('check_stage_map.json').write_text(json.dumps(out,indent=2))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_symbolic.py`
+
+````````````text
+"""Symbolic shadow of native checker; table arithmetic is replaced by Z3 operations."""
+from pathlib import Path
+import argparse,struct,time,json,sys
+import unicorn,unicorn.x86_const as ux
+from capstone import *
+from capstone.x86 import *
+import z3 as z
+from driver_analysis_hv import Hypervisor
+B=0x140000000
+mask=lambda n:(1<<n)-1
+
+def norm(v,n):
+ if isinstance(v,int):return v&mask(n)
+ if v.size()>n:v=z.Extract(n-1,0,v)
+ elif v.size()<n:v=z.ZeroExt(n-v.size(),v)
+ v=z.simplify(v,mul2concat=True,bv_extract_prop=True,bv_sort_ac=True,sort_sums=True,local_ctx=True)
+ return v.as_long() if z.is_bv_value(v) else v
+
+def bv(v,n):return z.BitVecVal(v&mask(n),n) if isinstance(v,int) else norm(v,n)
+def join(vals):
+ if len(vals)==1:return vals[0]
+ if all(isinstance(x,int) for x in vals):return sum(x<<(8*i) for i,x in enumerate(vals))
+ return norm(z.Concat(*[bv(x,8) for x in vals[::-1]]),len(vals)*8)
+
+class Shadow:
+ def __init__(self,u):
+  self.u=u;self.reg={};self.mem={};self.cache={};self.flags=False;self.flagstack={};self.n=0;self.unknown=0;self.tables=[];self.defs=[];self.bindings=[]
+  self.md=Cs(CS_ARCH_X86,CS_MODE_64);self.md.detail=True
+  for d in json.loads(Path('lut_catalog.json').read_text()):self.tables.append((int(d['rows'],16),int(d['data'],16),d['operation'][0]))
+ def desc(self,r):
+  s=self.md.reg_name(r)
+  if s in ('rip','eip'):return 'rip',64 if s=='rip' else 32,0
+  if s.startswith('r') and s[1:].rstrip('dwb').isdigit():
+   e=s[-1];return s.rstrip('dwb'),{'d':32,'w':16,'b':8}.get(e,64),0
+  names={'rax':['rax','eax','ax','al','ah'],'rbx':['rbx','ebx','bx','bl','bh'],'rcx':['rcx','ecx','cx','cl','ch'],'rdx':['rdx','edx','dx','dl','dh'],'rsp':['rsp','esp','sp','spl'],'rbp':['rbp','ebp','bp','bpl'],'rsi':['rsi','esi','si','sil'],'rdi':['rdi','edi','di','dil']}
+  for q,xs in names.items():
+   if s in xs:
+    i=xs.index(s);return q,[64,32,16,8,8][i],8 if i==4 else 0
+  return s,64,0
+ def concrete_reg(self,r):return self.u.reg_read(getattr(ux,'UC_X86_REG_'+self.md.reg_name(r).upper()))
+ def getreg(self,r):
+  k,n,off=self.desc(r);v=self.reg.get(k)
+  if v is None:return self.concrete_reg(r)
+  return norm(z.LShR(v,off) if off else v,n)
+ def setreg(self,r,v):
+  k,n,off=self.desc(r);v=norm(v,n)
+  if n>=32:new=norm(v,64)
+  else:
+   old=self.reg.get(k)
+   if old is None:old=self.u.reg_read(getattr(ux,'UC_X86_REG_'+k.upper()))
+   if isinstance(old,int) and isinstance(v,int):new=(old&~(mask(n)<<off))|(v<<off)
+   else:new=norm((bv(old,64)&bv(~(mask(n)<<off),64))|(bv(v,64)<<off),64)
+  if isinstance(new,int):self.reg.pop(k,None)
+  else:self.reg[k]=new
+ def addr(self,o,i):
+  m=o.mem;c=m.disp;v=m.disp
+  for reg,scale in [(m.base,1),(m.index,m.scale)]:
+   if reg:
+    cv=i.address+i.size if reg==X86_REG_RIP else self.concrete_reg(reg)
+    sv=cv if reg==X86_REG_RIP else self.getreg(reg)
+    c+=cv*scale;v=v+sv*scale
+  return c&mask(64),norm(v,64)
+ def fresh(self,v,n,c,size):
+  v=norm(v,n)
+  if isinstance(v,int):return v
+  x=z.BitVec("lut_%05d"%len(self.defs),n);self.defs.append(x==v);self.bindings.append((x,z.BitVecVal(int.from_bytes(self.u.mem_read(c,size),"little"),n)));return x
+ def readmem(self,c,a,size):
+  if not isinstance(a,int):
+   for rows,data,op in self.tables:
+    if rows<=c<rows+2048:
+     assert size==8
+     return norm(bv(data,64)+(z.LShR(bv(a,64)-rows,3)<<8),64)
+    if data<=c<data+65536:
+     assert size==1
+     off=bv(a,64)-data;x=z.Extract(15,8,off);y=z.Extract(7,0,off)
+     if op=='xor':v=x^y
+     elif op=='and':v=x&y
+     elif op=='or':v=x|y
+     elif op.startswith('funnel_left_'):
+      n=int(op.rsplit('_',1)[1]);v=(x<<n)|z.LShR(y,8-n)
+     return self.fresh(v,8,c,size)
+   rows=0x140fd8600;data=0x1410d8600
+   if rows<=c<data:
+    assert size==8
+    return norm(bv(data,64)+(z.LShR(bv(a,64)-rows,3)<<2),64)
+   if data<=c<0x141158600:
+    assert size==4
+    return self.fresh(z.LShR(bv(a,64)-data,2),32,c,size)
+   if 0x141158610<=c<0x141158710:
+    return self.fresh(z.If(bv(a,64)==0x141158610,z.BitVecVal(1,8),z.BitVecVal(0,8)),8,c,size)
+   raise ValueError(('SYMBOLIC ADDRESS',hex(c),a,size))
+  data=bytes(self.u.mem_read(c,size));vals=[self.mem.get(c+j,data[j]) for j in range(size)]
+  return join(vals)
+ def get(self,o,i):
+  if o.type==X86_OP_IMM:return o.imm&mask(o.size*8)
+  if o.type==X86_OP_REG:return self.getreg(o.reg)
+  if o.type==X86_OP_MEM:
+   c,a=self.addr(o,i);return self.readmem(c,a,o.size)
+  raise ValueError(o.type)
+ def put(self,o,v,i):
+  if o.type==X86_OP_REG:self.setreg(o.reg,v);return
+  c,a=self.addr(o,i)
+  if not isinstance(a,int):raise ValueError(('SYMBOLIC WRITE',hex(c),a))
+  v=norm(v,o.size*8)
+  for j in range(o.size):
+   if isinstance(v,int):self.mem.pop(c+j,None)
+   else:
+    x=norm(z.Extract(j*8+7,j*8,v),8)
+    if isinstance(x,int):self.mem.pop(c+j,None)
+    else:self.mem[c+j]=x
+ def unk(self,n):
+  self.unknown+=1;return z.BitVec(f'UNKNOWN_{self.unknown}',n)
+ def step(self,pc,size):
+  i=self.cache.get(pc)
+  if i is None:
+   i=next(self.md.disasm(bytes(self.u.mem_read(pc,size)),pc));self.cache[pc]=i
+  m=i.mnemonic;o=i.operands;self.n+=1
+  if m in ('nop','jmp','ret','call','int3','vmmcall','cpuid'):return
+  if m=='pushfq':self.flagstack[self.u.reg_read(ux.UC_X86_REG_RSP)-8]=self.flags;return
+  if m=='popfq':self.flags=self.flagstack.get(self.u.reg_read(ux.UC_X86_REG_RSP),False);return
+  if m=='push':
+   v=self.get(o[0],i);addr=self.u.reg_read(ux.UC_X86_REG_RSP)-8
+   for j in range(8):
+    if isinstance(v,int):self.mem.pop(addr+j,None)
+    else:self.mem[addr+j]=norm(z.Extract(j*8+7,j*8,bv(v,64)),8)
+   return
+  if m=='pop':
+   addr=self.u.reg_read(ux.UC_X86_REG_RSP);self.put(o[0],self.readmem(addr,addr,8),i);return
+  if m in ('clc','stc','cmc'):self.flags=False;return
+  if m in ('mov','movabs','movzx','movsx','movsxd'):
+   v=self.get(o[1],i)
+   if m in ('movsx','movsxd'):
+    n=o[1].size*8;t=o[0].size*8
+    if isinstance(v,int):v=v-(1<<n) if v>>(n-1) else v
+    else:v=z.SignExt(t-n,v)
+   self.put(o[0],v,i);return
+  if m=='lea':self.put(o[0],self.addr(o[1],i)[1],i);return
+  if m=='xchg':
+   a=self.get(o[0],i);b=self.get(o[1],i);self.put(o[0],b,i);self.put(o[1],a,i);return
+  if m in ('xor','and','or','add','sub','neg','not','inc','dec','shl','sal','shr','sar','rol','ror','cmp','test'):
+   a=self.get(o[0],i);n=o[0].size*8;b=self.get(o[1],i) if len(o)>1 else None
+   sym=not isinstance(a,int) or (b is not None and not isinstance(b,int))
+   if m in ('cmp','test'):self.flags=sym;return
+   if sym:
+    a=bv(a,n)
+    if b is not None:b=bv(b,n)
+   if m=='xor':v=a^b
+   elif m=='and':v=a&b
+   elif m=='or':v=a|b
+   elif m=='add':v=a+b
+   elif m=='sub':v=a-b
+   elif m=='neg':v=-a
+   elif m=='not':v=-a-1 if sym else ~a
+   elif m=='inc':v=a+1
+   elif m=='dec':v=a-1
+   else:
+    b=b&(63 if n==64 else 31)
+    if m in ('shl','sal'):v=a<<b
+    elif m=='shr':v=z.LShR(a,b) if sym else a>>b
+    elif m=='sar':v=a>>b if sym else (a-(1<<n) if a>>(n-1) else a)>>b
+    elif m in ('rol','ror'):
+     if sym:v=z.RotateLeft(a,b) if m=='rol' else z.RotateRight(a,b)
+     else:
+      b%=n;v=(a<<b)|(a>>(n-b)) if m=='rol' else (a>>b)|(a<<(n-b))
+   self.put(o[0],v,i)
+   if m!='not':self.flags=sym
+   return
+  if m=='bswap':
+   a=self.get(o[0],i);n=o[0].size
+   if isinstance(a,int):v=int.from_bytes(a.to_bytes(n,'little'),'big')
+   else:v=z.Concat(*[z.Extract(x*8+7,x*8,a) for x in range(n)])
+   self.put(o[0],v,i);return
+  reads,writes=i.regs_access();tainted=self.flags or any(not isinstance(self.getreg(r),int) for r in reads if self.md.reg_name(r) not in ('rflags','eflags'))
+  for r in writes:
+   s=self.md.reg_name(r)
+   if s in ('rflags','eflags'):self.flags=tainted
+   elif s.startswith(('xmm','ymm','zmm')):pass
+   else:
+    if tainted:self.setreg(r,self.unk(self.desc(r)[1]))
+    else:self.reg.pop(self.desc(r)[0],None)
+
+def main():
+ p=argparse.ArgumentParser();p.add_argument('image');p.add_argument('--stop-stage',type=int,default=1000);p.add_argument('--validate',action='store_true');p.add_argument('--solve',action='store_true');p.add_argument('--word-input',action='store_true');p.add_argument('--no-workspace',action='store_true');p.add_argument('--traps');p.add_argument('--transforms-only',action='store_true');p.add_argument('--output',default='check_state.smt2');a=p.parse_args()
+ data=Path(a.image).read_bytes();u=unicorn.Uc(unicorn.UC_ARCH_X86,unicorn.UC_MODE_64);u.mem_map(B,(len(data)+4095)&~4095);u.mem_write(B,data)
+ u.mem_map(0x10000000,0x1000000);u.mem_map(0x20000000,0x1000000);u.mem_map(0x30000000,0x20000);u.mem_map(0x7ff00000,0x100000)
+ def put(p,x):u.mem_write(p,struct.pack('<Q',x))
+ u.reg_write(ux.UC_X86_REG_GS_BASE,0x7ff00000);put(0x7ff00060,0x7ff01000);put(0x7ff00040,1234);put(0x7ff01010,B);put(0x7ff01018,0x7ff02000);put(0x7ff01030,0x30000000)
+ sp=0x10fe0000;u.reg_write(ux.UC_X86_REG_RSP,sp);u.reg_write(ux.UC_X86_REG_RBP,sp+0x100);u.reg_write(ux.UC_X86_REG_RDI,0x20000000)
+ concrete=b'ctfcup{'+b'A'*59+b'}';u.mem_write(0x20000000,concrete);u.reg_write(ux.UC_X86_REG_RBX,0);u.reg_write(ux.UC_X86_REG_RSI,0)
+ hv=Hypervisor(pid=1234);s=Shadow(u);words=[z.BitVec('input_word_%02d'%x,32) for x in range(17)];chars=[z.Extract((x%4)*8+7,(x%4)*8,words[x//4]) for x in range(67)] if a.word_input else [z.BitVec('flag_%02d'%x,8) for x in range(67)]
+ for j,x in enumerate(chars):s.mem[0x20000000+j]=x
+ if a.traps:
+  ts=json.loads(Path(a.traps).read_text())
+  hv.traps={int(k,0) if isinstance(k,str) else k:tuple(int(x,0) if isinstance(x,str) else x for x in v) for k,v in ts.items()}
+ stages=0;done=False;prevpc=0;t=time.time();last=[]
+ def hook(u,pc,size,d):
+  nonlocal stages,done,prevpc
+  if len(last)>20:last.pop(0)
+  last.append(pc)
+  if size==1 and bytes(u.mem_read(pc,1))==b'\x90':
+   chunk=bytes(u.mem_read(pc,256));n=0
+   while n<len(chunk) and chunk[n]==0x90:n+=1
+   u.reg_write(ux.UC_X86_REG_RIP,pc+n);return
+  if pc in hv.traps and hv.traps[pc][0]==3 and u.reg_read(ux.UC_X86_REG_R10)==hv.traps[pc][2]:
+   u.reg_write(ux.UC_X86_REG_R10,hv.traps[pc][1]);s.reg.pop('r10',None)
+  if hv.handle(u,pc,size):return
+  if pc==0x140698edb:
+   print('RESULT',u.reg_read(ux.UC_X86_REG_EAX),'symbolic',s.getreg(X86_REG_EAX),flush=True);done=True;u.emu_stop();return
+  if pc==0x140699420:
+   rsp=u.reg_read(ux.UC_X86_REG_RSP);ra=struct.unpack('<Q',u.mem_read(rsp,8))[0];u.reg_write(ux.UC_X86_REG_RSP,rsp+8);u.reg_write(ux.UC_X86_REG_RIP,ra);return
+  if 0x140698a19<=pc<0x140698edb and bytes(u.mem_read(pc,1))==b'\xe8':
+   stages+=1;print('STAGE',stages,'PC',hex(pc),'TIME',time.time()-t,'SYMBYTES',len(s.mem),'UNKNOWN',s.unknown,flush=True)
+   if stages>a.stop_stage:u.emu_stop();return
+   transform_stages=set(range(1,6))|set(range(8,12))|set(range(14,18))|set(range(20,24))|set(range(26,31))|set(range(33,37))|set(range(39,43))|set(range(45,49))|set(range(51,56))
+   if a.transforms_only and stages not in transform_stages:
+    if stages>55:u.emu_stop();return
+    u.reg_write(ux.UC_X86_REG_RIP,pc+size);return
+  s.step(pc,size)
+ u.hook_add(unicorn.UC_HOOK_CODE,hook)
+ def intr(u,n,d):
+  if not hv.handle_exception(u,n):raise RuntimeError(('intr',n,hex(u.reg_read(ux.UC_X86_REG_RIP))))
+ u.hook_add(unicorn.UC_HOOK_INTR,intr)
+ try:u.emu_start(0x140698a19,0,count=10000000)
+ except Exception as e:print('ERROR',repr(e),'LAST',list(map(hex,last)),flush=True);raise
+ print('FINISHED',time.time()-t,'INSTRUCTIONS',s.n,flush=True)
+ if a.validate:
+  subs=[(x,z.BitVecVal(int.from_bytes((concrete+b'\0')[j*4:j*4+4],'little'),32)) for j,x in enumerate(words)] if a.word_input else [(x,z.BitVecVal(concrete[j],8)) for j,x in enumerate(chars)];subs+=s.bindings;bad=[]
+  for addr,v in s.mem.items():
+   ev=z.simplify(z.substitute(bv(v,8),*subs));actual=u.mem_read(addr,1)[0]
+   if not z.is_bv_value(ev) or ev.as_long()!=actual:bad.append((hex(addr),str(ev),actual))
+  print('VALIDATION_BAD',len(bad),bad[:20],flush=True)
+ out={}
+ for off in range(0x2080):
+  v=s.mem.get(sp+0xa0+off)
+  if v is not None:out[off]=v
+ solver=z.Solver();solver.add(s.defs)
+ for x in chars:solver.add(z.UGE(x,32),z.ULE(x,126))
+ for j,v in enumerate(b'ctfcup{'):solver.add(chars[j]==v)
+ solver.add(chars[-1]==ord('}'))
+ if done:
+  result=s.getreg(X86_REG_EAX);solver.add(bv(result,32)==1)
+  Path('check_constraints.smt2').write_text(solver.to_smt2())
+  if a.solve:
+   print('SOLVING',flush=True);r=solver.check();print(r,flush=True)
+   if r==z.sat:print('FLAG',bytes(solver.model().eval(x).as_long() for x in chars).decode(),flush=True)
+ if not a.no_workspace:
+  summary=z.Solver();summary.add(s.defs)
+  for off,v in out.items():summary.add(z.BitVec('workspace_%04x'%off,8)==v)
+  Path('check_workspace.smt2').write_text(summary.to_smt2())
+ state_solver=z.Solver();state_solver.add(s.defs)
+ for off in range(0,72,4):state_solver.add(z.BitVec('state_%02d'%off,32)==s.readmem(sp+0x50+off,sp+0x50+off,4))
+ Path(a.output).write_text(state_solver.to_smt2())
+if __name__=='__main__':main()
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_tables.json`
+
+````````````text
+{
+  "5384648024": {
+    "pointer": 5384648032,
+    "matrix": 5384650080,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "xor"
+    ],
+    "n": 2480
+  },
+  "5385324024": {
+    "pointer": 5385324032,
+    "matrix": 5386372608,
+    "stride": 4,
+    "regular": true,
+    "kind": [
+      "add32"
+    ],
+    "n": 1840
+  },
+  "5384715624": {
+    "pointer": 5384715632,
+    "matrix": 5384717680,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "and"
+    ],
+    "n": 1152
+  },
+  "5385121224": {
+    "pointer": 5385121232,
+    "matrix": 5385123280,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl5"
+    ],
+    "n": 196
+  },
+  "5384850824": {
+    "pointer": 5384850832,
+    "matrix": 5384852880,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl1"
+    ],
+    "n": 144
+  },
+  "5385256424": {
+    "pointer": 5385256432,
+    "matrix": 5385258480,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl7"
+    ],
+    "n": 116
+  },
+  "5384986024": {
+    "pointer": 5384986032,
+    "matrix": 5384988080,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl3"
+    ],
+    "n": 116
+  },
+  "5385053624": {
+    "pointer": 5385053632,
+    "matrix": 5385055680,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl4"
+    ],
+    "n": 100
+  },
+  "5384783224": {
+    "pointer": 5384783232,
+    "matrix": 5384785280,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "or"
+    ],
+    "n": 87
+  },
+  "5385188824": {
+    "pointer": 5385188832,
+    "matrix": 5385190880,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl6"
+    ],
+    "n": 84
+  },
+  "5384918424": {
+    "pointer": 5384918432,
+    "matrix": 5384920480,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl2"
+    ],
+    "n": 56
+  },
+  "5386896904": {
+    "pointer": 5386896912,
+    "kind": "eq0",
+    "n": 1
+  }
+}
+````````````
+
+
+File: `reverse/CyberCup-2077/check_unmutate.py`
+
+````````````text
+"""Cancel syntactically inverse register mutation inside pushfq/popfq regions."""
+from pathlib import Path
+from capstone import *
+from capstone.x86 import *
+import argparse,json
+p=argparse.ArgumentParser();p.add_argument('image');p.add_argument('--output',default='check_clean.bin');a=p.parse_args()
+b=bytearray(Path(a.image).read_bytes());m=Cs(CS_ARCH_X86,CS_MODE_64);m.detail=True;B=0x140000000;patches=[];offset=0;allowed=set()
+starts=[i.operands[0].imm for i in m.disasm(bytes(b[0x698a19:0x698edb]),B+0x698a19) if i.mnemonic=="call"]
+for start in starts:
+ pc=start
+ while pc not in allowed:
+  allowed.add(pc);ins=next(m.disasm(bytes(b[pc-B:pc-B+15]),pc,count=1),None)
+  if ins is None or ins.mnemonic=="ret":break
+  pc+=ins.size
+  if ins.mnemonic=="jmp":
+   if ins.operands[0].type!=X86_OP_IMM:break
+   pc=ins.operands[0].imm
+candidates=iter(sorted(pc-B for pc in allowed if b[pc-B]==0x9c))
+while True:
+ offset=next(candidates,-1)
+ if offset<0:break
+ start=offset;offset+=1
+ ins=list(m.disasm(bytes(b[start:start+220]),B+start));end=next((i for i,x in enumerate(ins[1:],1) if x.mnemonic=='popfq'),None)
+ if not end:continue
+ ins=ins[:end+1]
+ if any(x.mnemonic in ('push','call','jmp','pushfq','vmmcall','ret') for x in ins[1:-1]):continue
+ seq=[];valid=True
+ for j,x in enumerate(ins[1:-1],1):
+  o=x.operands
+  if len(o)>0 and o[0].type==X86_OP_REG:
+   if len(o)==2 and o[1].type==X86_OP_IMM and x.mnemonic in ('xor','add','sub','rol','ror'):
+    seq.append((x.mnemonic,o[0].reg,o[1].imm,j))
+   elif len(o)==1 and x.mnemonic in ('neg','not'):
+    seq.append((x.mnemonic,o[0].reg,None,j))
+   else:seq.append(('barrier',None,None,j))
+  else:seq.append(('barrier',None,None,j))
+ stack=[];cancel=[]
+ for x in seq:
+  stack.append(x);changed=True
+  while changed:
+   changed=False
+   if len(stack)>=3:
+    aa,bb,cc=stack[-3:]
+    if aa[1]==bb[1]==cc[1] and (aa[0],bb[0],cc[0],cc[2]) in [('neg','not','add',1),('not','neg','sub',1)]:
+     cancel.extend(y[3] for y in stack[-3:]);del stack[-3:];changed=True;continue
+   if len(stack)>=2:
+    aa,bb=stack[-2:]
+    inverse=(aa[0]==bb[0] and aa[0] in ('xor','neg','not') and aa[2]==bb[2]) or ((aa[0],bb[0]) in [('add','sub'),('sub','add'),('rol','ror'),('ror','rol')] and aa[2]==bb[2])
+    if aa[1]==bb[1] and inverse:
+     cancel.extend(y[3] for y in stack[-2:]);del stack[-2:];changed=True
+ if cancel:
+  for j in cancel:
+   x=ins[j];b[x.address-B:x.address-B+x.size]=b'\x90'*x.size
+  patches.append({'start':hex(B+start),'end':hex(ins[-1].address+ins[-1].size),'removed':len(cancel),'remaining':[f'{ins[x[3]].mnemonic} {ins[x[3]].op_str}' for x in stack]})
+Path(a.output).write_bytes(b);Path(a.output+'.json').write_text(json.dumps(patches,indent=2));print('groups',len(patches),'removed',sum(x['removed'] for x in patches))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/check_validate.py`
+
+````````````text
+import pefile,unicorn,struct
+from unicorn.x86_const import *
+from check_hypercall import *
+p=pefile.PE('cybercup.sys');base=p.OPTIONAL_HEADER.ImageBase
+u=unicorn.Uc(unicorn.UC_ARCH_X86,unicorn.UC_MODE_64);u.mem_map(base,0x70000);u.mem_write(base,p.get_memory_mapped_image());u.mem_map(0x100000,0x10000);u.mem_map(0xff78000000000,0x1000)
+u.mem_write(base+0x80c8,struct.pack('<I',1));u.mem_write(base+0x92d0,struct.pack('<Q',0x101000));u.mem_write(0x101000,struct.pack('<QQ',0x123456,0x765432))
+m=Capabilities(0x123456,0x765432)
+def call(op,arg=0,token=0,extra=0):
+ a=[123,op,arg,token,extra];sp=0x108000
+ for r,v in zip([UC_X86_REG_RCX,UC_X86_REG_RDX,UC_X86_REG_R8,UC_X86_REG_R9],a):u.reg_write(r,v)
+ u.reg_write(UC_X86_REG_RSP,sp);u.mem_write(sp,struct.pack('<Q',base+0x6000));u.mem_write(sp+40,struct.pack('<Q',a[4]))
+ u.emu_start(base+0x315c,base+0x6000,count=1000000)
+ actual=u.reg_read(UC_X86_REG_RAX);expected=m.call(*a)
+ print(hex(op),hex(actual),hex(expected));assert actual==expected
+ return actual
+call(0x30ff);call(0x30fe);t=call(0x3000,0x99887)
+t=call(0x3001,0x100000023,t);call(0x3030,0x1234,t)
+call(0x3010,0x100000,t);t=call(0x3011,0x200000023,t,0x100000)
+t=call(0x3021,0x300000023,t,MASK)
+call(0x3040,0x101000,t);t=call(0x3041,0x400000023,t,0x101000)
+call(0x3002,0,t)
+print('Capabilities API matches driver open, query, predictor, four step channels, close')
+
+````````````
+
+
+File: `reverse/CyberCup-2077/checker_deobf.bin.json`
+
+````````````text
+[
+  {
+    "start": "0x14124cd65",
+    "end": "0x141289b0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412505c2",
+    "end": "0x141415841",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251615",
+    "end": "0x14140cfa8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251aa9",
+    "end": "0x1413ece5a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254d11",
+    "end": "0x1412b8007",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255080",
+    "end": "0x141433f17",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255bb1",
+    "end": "0x14149771d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412561fa",
+    "end": "0x14127a79d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141256937",
+    "end": "0x1413f3380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141259309",
+    "end": "0x141368760",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125e433",
+    "end": "0x141392382",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125ec77",
+    "end": "0x141290212",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141260744",
+    "end": "0x1412f3f43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141263031",
+    "end": "0x14138a04b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126448d",
+    "end": "0x141305ca0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412646ed",
+    "end": "0x14128f6ad",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412691b9",
+    "end": "0x141342ccf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141269838",
+    "end": "0x1412822de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126bc42",
+    "end": "0x141402329",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126c2ae",
+    "end": "0x1412f4f25",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126eca8",
+    "end": "0x1412c943c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126f44d",
+    "end": "0x1413683d9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127623b",
+    "end": "0x141357d8c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141276fd2",
+    "end": "0x141439319",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141277f8a",
+    "end": "0x14146e6ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127eda0",
+    "end": "0x141285fe0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141282327",
+    "end": "0x14129a560",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141283e72",
+    "end": "0x141251a79",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412842e9",
+    "end": "0x14135e749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128a328",
+    "end": "0x14137beb3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128ab3d",
+    "end": "0x141250510",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128bae6",
+    "end": "0x14143c506",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128f6ee",
+    "end": "0x1412b550c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412916b0",
+    "end": "0x1414a4585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141295d06",
+    "end": "0x14145b7c2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141296c7f",
+    "end": "0x14128f0ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412981b4",
+    "end": "0x141358df3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8345",
+    "end": "0x1413897d8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a87e3",
+    "end": "0x141283e3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8bdf",
+    "end": "0x141275b43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8ec9",
+    "end": "0x141280cf2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ab4e7",
+    "end": "0x1413cea41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412acd6e",
+    "end": "0x1412f9cf0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ad04c",
+    "end": "0x1413ca664",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b476f",
+    "end": "0x1412e45d0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b4d6f",
+    "end": "0x141371aa9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b5593",
+    "end": "0x141309dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b70a2",
+    "end": "0x1412fc07e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b8efc",
+    "end": "0x14142c346",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412be8be",
+    "end": "0x1412da3d1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c42c6",
+    "end": "0x1414431b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c950a",
+    "end": "0x1414a9c3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ca3fe",
+    "end": "0x1413c8deb",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412cc8b7",
+    "end": "0x141296c34",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ce9f6",
+    "end": "0x1413bd18c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d17f6",
+    "end": "0x14137fd7a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d2373",
+    "end": "0x1413fac68",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d25d3",
+    "end": "0x14146cf13",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d5aac",
+    "end": "0x141470520",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412dc3b3",
+    "end": "0x141294402",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0a84",
+    "end": "0x1413411b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0f84",
+    "end": "0x14148025b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e1caa",
+    "end": "0x14129fe3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e2831",
+    "end": "0x1412d17c4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e37c5",
+    "end": "0x141307e26",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e3a07",
+    "end": "0x1413022f6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ea099",
+    "end": "0x1413c632d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ee64b",
+    "end": "0x1412c4f21",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412efd24",
+    "end": "0x14140d2b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f208a",
+    "end": "0x1412b59b8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f4fbc",
+    "end": "0x14134becd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f6474",
+    "end": "0x1414765cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f9dec",
+    "end": "0x141399175",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fcc09",
+    "end": "0x141406f80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fce16",
+    "end": "0x14146a98d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141300201",
+    "end": "0x1413bc680",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130062d",
+    "end": "0x1412561a2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413007dd",
+    "end": "0x1412fd5cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413014bb",
+    "end": "0x1413d31bf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141301781",
+    "end": "0x14146f462",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141304651",
+    "end": "0x14133675a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141305d00",
+    "end": "0x1412fa1a3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141307eca",
+    "end": "0x1412b7015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130c2c7",
+    "end": "0x1413eb093",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130ec54",
+    "end": "0x141276f7f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131be11",
+    "end": "0x141301758",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131c459",
+    "end": "0x14126cad7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141321bd1",
+    "end": "0x1412cc871",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141323a86",
+    "end": "0x1413089e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141324c65",
+    "end": "0x1414888e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14132c2cf",
+    "end": "0x1412521a7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141330473",
+    "end": "0x1412e8e37",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141331245",
+    "end": "0x1412e80df",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413367e8",
+    "end": "0x14128198d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141350259",
+    "end": "0x1412842b3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135203a",
+    "end": "0x141452bc3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141358e74",
+    "end": "0x141455f88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135e784",
+    "end": "0x1413fd6d7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413615a5",
+    "end": "0x14132e60e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141362ba1",
+    "end": "0x14131e427",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141365ba8",
+    "end": "0x1412de97a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413667d2",
+    "end": "0x1413cda28",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368402",
+    "end": "0x14140b985",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368783",
+    "end": "0x1414a0ef9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136b81d",
+    "end": "0x141477d46",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136cfdd",
+    "end": "0x141304570",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136fd70",
+    "end": "0x141457949",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413762af",
+    "end": "0x14128c69c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141376f77",
+    "end": "0x14131ad80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413772fa",
+    "end": "0x14144a950",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137afe9",
+    "end": "0x1412ebf82",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137e9e7",
+    "end": "0x141303f58",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141382231",
+    "end": "0x141467527",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141389815",
+    "end": "0x14146cab2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138abcb",
+    "end": "0x1412d207c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138cee5",
+    "end": "0x141378769",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141399201",
+    "end": "0x141467857",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a1fb9",
+    "end": "0x1414a2e8a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a22bc",
+    "end": "0x1414449fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a5f9a",
+    "end": "0x1413034d6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a729d",
+    "end": "0x141299443",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413b563f",
+    "end": "0x14136fbc1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bbe9f",
+    "end": "0x141294dde",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bc713",
+    "end": "0x14133044a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bd217",
+    "end": "0x1412e0179",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c0499",
+    "end": "0x14145002b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c29f9",
+    "end": "0x141412dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c309e",
+    "end": "0x1413a9021",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c8e1c",
+    "end": "0x1413ff44e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ca7c7",
+    "end": "0x1412606ce",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413cd3bb",
+    "end": "0x1413cd713",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d3226",
+    "end": "0x14143b4a0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d4def",
+    "end": "0x141315c67",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413dac88",
+    "end": "0x141376f41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ec58f",
+    "end": "0x141307400",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f2120",
+    "end": "0x1412a8734",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f33f7",
+    "end": "0x14132d6cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413fc40c",
+    "end": "0x14126d6d3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ffcd8",
+    "end": "0x1413f0ce9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414023a4",
+    "end": "0x141297d0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414085ce",
+    "end": "0x141432097",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140b9a9",
+    "end": "0x1413b19a6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140d2f7",
+    "end": "0x141295ad1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141410fe9",
+    "end": "0x14136b7ed",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141412e01",
+    "end": "0x14138a14d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141413d91",
+    "end": "0x141293d32",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141521f",
+    "end": "0x141414dbd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141a499",
+    "end": "0x14144203f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414223b7",
+    "end": "0x1413680b9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141425cc7",
+    "end": "0x1413a2a83",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141427899",
+    "end": "0x141255b88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141428a4c",
+    "end": "0x14142e7b4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14142c3cf",
+    "end": "0x1412740cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14143b4f2",
+    "end": "0x1414a0db6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414405c3",
+    "end": "0x1414a3f1f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141444a21",
+    "end": "0x141433a8d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14144c144",
+    "end": "0x14125a485",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145152f",
+    "end": "0x141324b9d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141455fbd",
+    "end": "0x1412ec35d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141456489",
+    "end": "0x141304baa",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145aee9",
+    "end": "0x14127f06d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141462d1a",
+    "end": "0x14127ec87",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141464cca",
+    "end": "0x1413e731e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414675ad",
+    "end": "0x1413a1040",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146787c",
+    "end": "0x14149e0c7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146a9c9",
+    "end": "0x1412663fc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141470168",
+    "end": "0x1412efcee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147559d",
+    "end": "0x14142785a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141476600",
+    "end": "0x1412f537b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414783c8",
+    "end": "0x1412d0cd6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147c09b",
+    "end": "0x14137d905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141487ba6",
+    "end": "0x141425c23",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148ad01",
+    "end": "0x14131b7e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148c717",
+    "end": "0x141323a65",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499597",
+    "end": "0x14128ebfd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499c3f",
+    "end": "0x1412643f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149a6b5",
+    "end": "0x1412ce359",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149eeb8",
+    "end": "0x141469599",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414a9c6c",
+    "end": "0x14141f3de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414abb70",
+    "end": "0x14132f467",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14160fa0a",
+    "end": "0x14160fc00",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141610e1f",
+    "end": "0x141611015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416121fc",
+    "end": "0x1416123f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141612b79",
+    "end": "0x141612d6f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141613475",
+    "end": "0x14161366b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416136a1",
+    "end": "0x1416138fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161394a",
+    "end": "0x141613ba7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161418a",
+    "end": "0x141614380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614447",
+    "end": "0x14161463d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416146a7",
+    "end": "0x14161489d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614920",
+    "end": "0x141614b16",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614b4b",
+    "end": "0x141614d41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614e30",
+    "end": "0x14161508d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615180",
+    "end": "0x1416153dc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615612",
+    "end": "0x141615808",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615843",
+    "end": "0x141615aa0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615ae0",
+    "end": "0x141615d3c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615e7c",
+    "end": "0x141616072",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416160a7",
+    "end": "0x141616304",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616340",
+    "end": "0x14161659c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616640",
+    "end": "0x141616836",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616872",
+    "end": "0x141616acf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616b14",
+    "end": "0x141616d70",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616dc4",
+    "end": "0x141616fba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617006",
+    "end": "0x141617263",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416172ae",
+    "end": "0x1416174a4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416174ec",
+    "end": "0x141617749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617792",
+    "end": "0x1416179ee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618079",
+    "end": "0x14161826f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618386",
+    "end": "0x14161857c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d3c4",
+    "end": "0x14161d5ba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d65a",
+    "end": "0x14161d8b7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d9aa",
+    "end": "0x14161dc06",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625b38",
+    "end": "0x141625d2e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625def",
+    "end": "0x141625fe5",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416260a5",
+    "end": "0x14162629b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141626357",
+    "end": "0x14162654d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141640ba2",
+    "end": "0x141640d98",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416436e4",
+    "end": "0x1416438da",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141657563",
+    "end": "0x141657759",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14165838f",
+    "end": "0x141658585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416613f3",
+    "end": "0x1416615e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141668ea3",
+    "end": "0x141669099",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166970f",
+    "end": "0x141669905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166fe94",
+    "end": "0x14167008a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614135",
+    "end": "0x141614180",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141614384",
+    "end": "0x1416143cf",
+    "description": "logical0x8a000000 dwordGPR3, dwordGPR7"
+  },
+  {
+    "start": "0x1416143f3",
+    "end": "0x14161443e",
+    "description": "logical0xca000000 dwordGPR3, dwordGPR5"
+  },
+  {
+    "start": "0x141614657",
+    "end": "0x1416146a2",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x1416148c6",
+    "end": "0x141614911",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141625ae7",
+    "end": "0x141625b32",
+    "description": "mov dwordGPR0, 0x9a516e27"
+  },
+  {
+    "start": "0x141625d34",
+    "end": "0x141625d7f",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141625d94",
+    "end": "0x141625ddf",
+    "description": "mov dwordGPR0, 0x52dab981"
+  },
+  {
+    "start": "0x141625fe7",
+    "end": "0x141626032",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x14162604c",
+    "end": "0x141626097",
+    "description": "mov dwordGPR0, 0xc47139ab"
+  },
+  {
+    "start": "0x1416262a0",
+    "end": "0x1416262eb",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141626304",
+    "end": "0x14162634f",
+    "description": "mov dwordGPR0, 0x713ec0d5"
+  },
+  {
+    "start": "0x141626552",
+    "end": "0x14162659d",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  }
+]
+````````````
+
+
+File: `reverse/CyberCup-2077/checker_emu.py`
+
+````````````text
+"""Run the isolated input transformation, omitting UI and timing checks."""
+from pathlib import Path
+import argparse,struct,time,pickle,gzip
+import unicorn
+from unicorn.x86_const import *
+from driver_analysis_hv import Hypervisor
+P=argparse.ArgumentParser();P.add_argument('image');P.add_argument('flag',nargs='?',default='ctfcup{'+'A'*59+'}');P.add_argument('--trace',action='store_true');P.add_argument('--init',action='store_true');P.add_argument('--full',action='store_true');a=P.parse_args()
+b=Path(a.image).read_bytes();u=unicorn.Uc(unicorn.UC_ARCH_X86,unicorn.UC_MODE_64);base=0x140000000
+u.mem_map(base,(len(b)+4095)&~4095);u.mem_write(base,b)
+u.mem_map(0x10000000,0x1000000);u.mem_map(0x20000000,0x1000000);u.mem_map(0x30000000,0x20000);u.mem_map(0x7ff00000,0x100000)
+def put(p,x):u.mem_write(p,struct.pack('<Q',x))
+u.reg_write(UC_X86_REG_GS_BASE,0x7ff00000);put(0x7ff00060,0x7ff01000);put(0x7ff00040,1234);put(0x7ff01010,base);put(0x7ff01018,0x7ff02000);put(0x7ff01030,0x30000000)
+sp=0x10fe0000;u.reg_write(UC_X86_REG_RSP,sp);u.reg_write(UC_X86_REG_RBP,sp+0x100);u.reg_write(UC_X86_REG_RDI,0x20000000);u.mem_write(0x20000000,a.flag.encode());u.reg_write(UC_X86_REG_RBX,0);u.reg_write(UC_X86_REG_RSI,0)
+saved=pickle.load(gzip.open('unpack_initialized_state.pkl.gz')) if a.init else None
+apis=saved['apis'] if saved else {}
+if saved:
+ for ma,mb in saved['mem']:
+  if ma==0x30000000: u.mem_write(ma,mb)
+u.mem_map(0x70000000,0x100000);u.mem_write(0x70000000,b'\xc3'*0x100000)
+hv=Hypervisor(pid=1234);last=[]
+def hook(u,pc,size,data):
+ if pc==0x140698930:
+  rsp=u.reg_read(UC_X86_REG_RSP);u.reg_write(UC_X86_REG_RIP,struct.unpack('<Q',u.mem_read(rsp,8))[0]);u.reg_write(UC_X86_REG_RSP,rsp+8);u.reg_write(UC_X86_REG_RAX,1);return
+ if pc==0x141541b37:print('VMRETURN',hex(u.reg_read(UC_X86_REG_RAX)),hex(u.reg_read(UC_X86_REG_RSP)),u.mem_read(u.reg_read(UC_X86_REG_RSP),32).hex())
+ if pc in hv.traps and hv.traps[pc][0]==3:
+  _,target,source=hv.traps[pc];u.reg_write(UC_X86_REG_R10,struct.unpack('<Q',u.mem_read(target,8))[0]);u.reg_write(UC_X86_REG_RIP,pc+3);return
+ if pc in apis:
+  name=apis[pc];print('API',name)
+  if name=='GetCurrentProcess':v=0xffffffffffffffff
+  elif name in ['GetCurrentProcessId','GetCurrentThreadId']:v=1234
+  elif name=='IsDebuggerPresent':v=0
+  elif name=='CheckRemoteDebuggerPresent':u.mem_write(u.reg_read(UC_X86_REG_RDX),b'\0'*4);v=1
+  elif name=='NtQueryInformationProcess':
+   cl=u.reg_read(UC_X86_REG_EDX);buf=u.reg_read(UC_X86_REG_R8);sz=u.reg_read(UC_X86_REG_R9);print('QUERY',cl,hex(buf),sz);u.mem_write(buf,(1 if cl==31 else 0).to_bytes(sz,'little'));v=0
+  elif name=='VirtualProtect':
+   put(u.reg_read(UC_X86_REG_R9),0x40);v=1
+  else:raise RuntimeError(('API',name))
+  rsp=u.reg_read(UC_X86_REG_RSP);ret=struct.unpack('<Q',u.mem_read(rsp,8))[0];u.reg_write(UC_X86_REG_RAX,v);u.reg_write(UC_X86_REG_RSP,rsp+8);u.reg_write(UC_X86_REG_RIP,ret);return
+ if hv.handle(u,pc,size):return
+ if pc==0x140698edb:
+  print('RESULT',hex(u.reg_read(UC_X86_REG_EAX)));u.emu_stop();return
+ if pc==0x140699420: # MSVC security-cookie verification outside the transform.
+  rsp=u.reg_read(UC_X86_REG_RSP);ra=struct.unpack('<Q',u.mem_read(rsp,8))[0];u.reg_write(UC_X86_REG_RSP,rsp+8);u.reg_write(UC_X86_REG_RIP,ra);return
+ if len(last)>20:last.pop(0)
+ last.append(pc)
+ if a.trace and 0x140698a19<=pc<0x140698edb:print('MAIN',hex(pc))
+def cpuid_normal(u,data):
+ leaf=u.reg_read(UC_X86_REG_EAX);vals=[0,0,0,0]
+ if leaf==0:vals=[13,0x756e6547,0x6c65746e,0x49656e69]
+ elif leaf==1:vals=[0x306a9,0x00010800,0x7ffafbff,0xbfebfbff]
+ elif leaf==0x80000000:vals=[0x80000008,0,0,0]
+ elif leaf==0x80000001:vals=[0,0,0x121,0x2c100800]
+ elif leaf==0x80000008:vals=[0x3028,0,0,0]
+ for r,v in zip([UC_X86_REG_EAX,UC_X86_REG_EBX,UC_X86_REG_ECX,UC_X86_REG_EDX],vals):u.reg_write(r,v)
+ return True
+u.hook_add(unicorn.UC_HOOK_INSN,cpuid_normal,None,1,0,UC_X86_INS_CPUID)
+u.hook_add(unicorn.UC_HOOK_CODE,hook)
+def intr(u,n,data):
+ if not hv.handle_exception(u,n):raise RuntimeError(('intr',n,hex(u.reg_read(UC_X86_REG_RIP))))
+u.hook_add(unicorn.UC_HOOK_INTR,intr)
+def invalid(u,access,p,n,v,data):print('UNMAPPED',access,hex(p),n,hex(u.reg_read(UC_X86_REG_RIP)));return False
+u.hook_add(unicorn.UC_HOOK_MEM_INVALID,invalid)
+t=time.time()
+try:
+ if a.init:
+  put(sp-8,0x140698a19);u.reg_write(UC_X86_REG_RSP,sp-8)
+ if a.full:
+  u.reg_write(UC_X86_REG_RCX,0x20000000);u.reg_write(UC_X86_REG_RDX,len(a.flag));u.reg_write(UC_X86_REG_RAX,1)
+ u.emu_start(0x14166fe79 if a.full else (0x1406987c0 if a.init else 0x140698a19),0,count=10000000)
+except Exception as e:print('ERROR',e)
+print('TIME',time.time()-t,'RIP',hex(u.reg_read(UC_X86_REG_RIP)),'STATE',bytes(u.mem_read(sp+0x50,80)).hex());print('LAST',list(map(hex,last)));import json;Path('checker_traps.json').write_text(json.dumps(hv.traps));Path('checker_events.json').write_text(json.dumps(hv.events))
+
+````````````
+
+
+File: `reverse/CyberCup-2077/checker_events.json`
+
+````````````text
+[["cpuid", 5391858727, 1342177277, 181346423, [1342177277, 2728026376, 1094927921, 0]], ["cpuid", 5391858754, 1342177277, 181346424, [1342177277, 1971353930, 1094927921, 0]]]
+````````````

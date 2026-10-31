@@ -79,8 +79,8 @@ def sync_once():
         data=source.read_bytes()
         if not target.exists() or target.read_bytes()!=data:target.write_bytes(data)
     status='\n'.join(['# Iso synchronization status','', 'Updated: '+stamp(), '',
-       'Solving is stopped at the user’s request. No verified flag.',
-       'Only this Git synchronization and contribution-recording loop remains active.',
+       'Solving has resumed at the user’s request. No verified flag.',
+       'Ten-minute Git synchronization and contribution recording remain active.',
        'The detailed handoff is PROGRESS.md. No writeup.md was created.',
        'Large generated H6.json and local environments are omitted; regeneration code is included.',''])
     (DEST/'SYNC_STATUS.md').write_text(status)
@@ -101,7 +101,7 @@ if '--loop' not in sys.argv:
     sync_once()
 else:
     (ROOT/'analysis/git_sync.pid').write_text(str(os.getpid())+'\n')
-    log('Attached sync loop active, PID '+str(os.getpid())+'; interval 600 seconds. Solver work is stopped.')
+    log('Attached sync loop active, PID '+str(os.getpid())+'; interval 600 seconds. Solver work has resumed.')
     deadline=time.monotonic()+600
     while RUNNING:
         time.sleep(min(1,max(0,deadline-time.monotonic())))

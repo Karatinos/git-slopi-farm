@@ -1,6 +1,6 @@
 # Iso — detailed progress and resumption handoff
 
-**Status: UNSOLVED. No verified flag has been recovered. Solving was stopped at the user's request on 2026-10-31. Only the separately requested ten-minute GitHub synchronization should remain running.**
+**Status: UNSOLVED. No verified flag has been recovered. The user resumed solving on 2026-10-31 after the checkpoint below. Ten-minute GitHub synchronization remains enabled.**
 
 This is a progress report, not a successful writeup. `writeup.md` has deliberately not been created: the original request made it conditional on recovering a correct flag. Do not mistake dummy strings in self-tests for the challenge flag.
 
@@ -337,4 +337,8 @@ The initial remote inspection found `main` with a small README and `master` with
 4. Independently verify the recovered flag against a full valid 64-step construction and the exact published A and B.
 5. Only then return the flag and create `writeup.md` in this directory.
 
-**Again: there is currently no verified Iso flag. Solving is stopped; only Git synchronization is authorized to continue.**
+**Checkpoint conclusion: no verified Iso flag. The user subsequently resumed solving; see the continuation log below.**
+
+## Continuation after the stop checkpoint
+
+The user said “continue” on 2026-10-31 at approximately 11:20 UTC. Solver work is authorized again. The 616-digit two-step cofactor is unchanged. No target-sized factor or dictionary hit was saved during the pause.
