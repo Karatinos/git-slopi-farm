@@ -44,3 +44,68 @@ worker 1: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:156059
 worker 2: Step 2 took 18287ms
 worker 2: Run 3 out of 1000:
 worker 2: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:6858206176868583635
+worker 3: Step 1 took 89820ms
+worker 0: Step 1 took 89882ms
+worker 2: Step 1 took 89852ms
+worker 1: Step 1 took 89811ms
+worker 0: Step 2 took 18567ms
+worker 0: Run 4 out of 1000:
+worker 0: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:16667166464334744135
+worker 3: Step 2 took 18559ms
+worker 3: Run 4 out of 1000:
+worker 3: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:1346773830006968396
+worker 2: Step 2 took 18501ms
+worker 2: Run 4 out of 1000:
+worker 2: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:6946975583376839557
+worker 1: Step 2 took 18577ms
+worker 1: Run 4 out of 1000:
+worker 1: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:13852572402908446063
+worker 0: Step 1 took 90695ms
+worker 3: Step 1 took 90694ms
+worker 2: Step 1 took 90609ms
+worker 1: Step 1 took 90661ms
+worker 3: Step 2 took 18164ms
+worker 3: Run 5 out of 1000:
+worker 3: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:3897221105607420729
+worker 0: Step 2 took 18142ms
+worker 0: Run 5 out of 1000:
+worker 0: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:15584166315037519992
+worker 2: Step 2 took 18236ms
+worker 2: Run 5 out of 1000:
+worker 2: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:10190182723062160408
+worker 1: Step 2 took 18186ms
+worker 1: Run 5 out of 1000:
+worker 1: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:9966462627676468720
+[568.7s] 20 curves started in generation 1
+worker 2: Step 1 took 91441ms
+worker 3: Step 1 took 91451ms
+worker 0: Step 1 took 91500ms
+worker 1: Step 1 took 91523ms
+worker 2: Step 2 took 18518ms
+worker 2: Run 6 out of 1000:
+worker 2: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:17713356473047763856
+worker 0: Step 2 took 18533ms
+worker 0: Run 6 out of 1000:
+worker 0: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:12199342597828681021
+worker 3: Step 2 took 18491ms
+worker 3: Run 6 out of 1000:
+worker 3: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:9320530722522424942
+worker 1: Step 2 took 18542ms
+worker 1: Run 6 out of 1000:
+worker 1: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:6897129305410639767
+worker 3: Step 1 took 90817ms
+worker 2: Step 1 took 90779ms
+worker 1: Step 1 took 90745ms
+worker 0: Step 1 took 90929ms
+worker 3: Step 2 took 18755ms
+worker 3: Run 7 out of 1000:
+worker 3: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:16389971996021620873
+worker 2: Step 2 took 18771ms
+worker 2: Run 7 out of 1000:
+worker 2: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:16702698121945370023
+worker 0: Step 2 took 18752ms
+worker 0: Run 7 out of 1000:
+worker 0: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:1047933176913934759
+worker 1: Step 2 took 18747ms
+worker 1: Run 7 out of 1000:
+worker 1: Using B1=2000000, B2=2938615696, polynomial Dickson(6), sigma=2:3949221127986807268

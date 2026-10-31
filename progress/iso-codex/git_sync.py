@@ -67,6 +67,7 @@ def sync_once():
     read_contributions()
     DEST.mkdir(parents=True,exist_ok=True)
     selected=[ROOT/'PROGRESS.md',ROOT/'git_sync.py',JOURNAL]
+    selected.extend(ROOT/name for name in ['writeup.md','VERIFIED_FLAG.txt'] if (ROOT/name).exists())
     allowed={'.py','.sage','.json','.txt','.log','.residue'}
     for p in (ROOT/'analysis').iterdir():
         if not p.is_file() or p.suffix not in allowed:continue

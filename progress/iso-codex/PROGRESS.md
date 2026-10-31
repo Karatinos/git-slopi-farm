@@ -359,3 +359,13 @@ The user said “continue” on 2026-10-31 at approximately 11:20 UTC. Solver wo
 - The full two-step independent-character dictionary scan completed: 36,402,160 variants, no hit. A broader global-substitution scan for the four-step relation is now logged in `analysis/dictionary_four_all.log`.
 - Local ECM benchmarking showed parametrization 2 had a better estimated time to a factor than the previous default in the tested setup. Factoring now runs with four workers, parametrization 2 and B1=2,000,000 in `factor_native_optimized.py`; logs and residues have distinct filenames (`factor_optimized.log`, `residues_opt_*.txt`). Earlier completed work is retained.
 - The large p+1 base-3 run completed without a factor. Two further p+1 attempts at B1=10,000,000, bases 4 and 5, are logged separately.
+
+- Added the local `analysis/finish_when_ready.py` monitor. It waits for a target-sized factor from ECM or a dictionary hit, invokes the Sage recovery script, and requires explicit 64-step verification. If exactly one candidate remains in the usual CTF flag alphabet, it records `analysis/verified_result.json` and the flag; it creates `writeup.md` only on that verified-success path and refuses to overwrite an existing writeup. The recovery script passed a syntax check in the installed Sage environment.
+
+- The focused 29-phrase search completed 37,504 independent-character variants at each of depths 2, 4 and 6, without a hit.
+- All three p+1 bases (3, 4, 5) completed without a factor at their recorded bounds.
+- A separate four-step independent-character search over the earlier 2,117-phrase set has 1,807,048 variants; its log is `analysis/dictionary_four_position.log`.
+
+- The four-step global-substitution scan completed 2,351,704 variants without a hit. Independent-character substitutions for the smaller phrase set remain in progress.
+
+- The four-step independent-character scan completed all 1,807,048 variants without a hit. The same short-phrase set is now being checked at depth 6, using `dictionary_short_positions.py 6 position`, with progress in `analysis/dictionary_six_position.log`.
