@@ -1,0 +1,9 @@
+START [4, 6] common phrases 37510
+progress 31000 candidates 10 seconds 0.0
+progress 32000 candidates 8839 seconds 14.2
+progress 33000 candidates 16555 seconds 25.2
+progress 34000 candidates 24755 seconds 36.9
+progress 35000 candidates 32658 seconds 47.8
+progress 36000 candidates 40895 seconds 59.1
+progress 37000 candidates 48709 seconds 70.9
+DONE [4, 6] common 52335 77.2

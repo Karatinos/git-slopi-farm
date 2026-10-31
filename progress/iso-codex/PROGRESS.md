@@ -342,3 +342,12 @@ The initial remote inspection found `main` with a small README and `master` with
 ## Continuation after the stop checkpoint
 
 The user said “continue” on 2026-10-31 at approximately 11:20 UTC. Solver work is authorized again. The 616-digit two-step cofactor is unchanged. No target-sized factor or dictionary hit was saved during the pause.
+
+### Resumed checks, 2026-10-31
+
+- Native four-worker ECM restarted on the unchanged 616-digit cofactor.
+- Checked gcds of that cofactor with A, B, the discriminant, and the evaluated relations at depths 0, 1, 3, 4, 5 and 6: all were 1. The cofactor is not a perfect power.
+- Completed the interrupted common-variant dictionary scan at depths 4 and 6. The resumed portion checked 52,335 variants (starting again at phrase index 31,000), without a hit. The whole common-variant phrase set is now covered.
+- Started a native p+1 attempt with x0=3, B1=30,000,000 and requested B2=300,000,000,000; its result will be recorded in `analysis/pp1_native.log`.
+- Read the new `ctf/cybercup-2077-progress` remote contribution. It concerns a different reverse-engineering challenge and contains no Iso solution.
+- Searched the shared repository's existing task archives for the exact output, source filename and statement; no match was found.

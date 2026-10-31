@@ -1,6 +1,7 @@
 import sys,json
 from pathlib import Path
 exec(preparse(Path('analysis/lift_flag.sage').read_text().split("if __name__")[0]))
+exec(preparse(Path('analysis/verify_walk.sage').read_text().split("if __name__")[0]))
 A=6079433314242371108270239373533376748
 B=-1779744368654530162000920720207404089
 p=ZZ(sys.argv[1]) if len(sys.argv)>1 else ZZ(Path('analysis/candidate_p.txt').read_text())
@@ -20,7 +21,10 @@ for d in range(7):
             print('MATCH: depth',d,'j',j,flush=True)
             flags=lift_flag(ZZ(j),p)
             print('Printable candidates:',len(flags),flush=True)
-            for flag in flags:print(flag,flush=True)
+            for flag in flags:
+                check,roots=explicit_walk(flag,p,path)
+                assert check.a4().lift_centered()==A and check.a6().lift_centered()==B
+                print('Verified with explicit 64-step walk:',flag,flush=True)
             saves.append({'p':str(p),'d':d,'j':str(j),'path':[str(r) for r in path], 'flags':[f.decode() for f in flags]})
             Path('analysis/recovered.json').write_text(json.dumps(saves,indent=2))
     next_layer=[]
