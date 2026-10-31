@@ -40,7 +40,7 @@ def derive():
             offset=36+40*i
             s=t[offset+8][4]
             p['masks'].append(s^inputs[8*j+i])
-            p['p'].append((add(offset+12)-s)&255)
+            p['p'].append((add(offset+12)-inputs[8*j+i])&255)
             p['q'].append(t[offset+24][3])
         if j==8:
             keys=[]
@@ -56,14 +56,14 @@ def derive():
 
 def preprocess(p, data):
     ss=[c^m for c,m in zip(data,p['masks'])]
-    qq=[(s^((s+offset)&255)^q)&255 for s,offset,q in zip(ss,p['p'],p['q'])]
+    qq=[(s^((c+offset)&255)^q)&255 for c,s,offset,q in zip(data,ss,p['p'],p['q'])]
     rr=[(c+q)&255 for c,q in zip(data,qq)]
     return ss,qq,rr
 
 def transform(p, data):
     ss,qq,rr=preprocess(p,data)
     kind=p['kind']
-    keys=[(((s+p['p'][i])&255) if (kind==2 and i%2==1) or (kind==3 and i%2==0) else s)+257+65*i for i,s in enumerate(ss)]
+    keys=[(((data[i]+p['p'][i])&255) if (kind==2 and i%2==1) or (kind==3 and i%2==0) else s)+257+65*i for i,s in enumerate(ss)]
     keys+=p.get('padding_keys',[])
     a,b=p['a'],p['b']
     if kind in (0,1):

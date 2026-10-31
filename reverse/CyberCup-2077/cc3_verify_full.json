@@ -1,0 +1,32 @@
+[
+  {
+    "input": "ctfcup{d3v3l0pm3n7_0f_7h1S_t4sk_w4s_sp0ns0r3d_by_v01C3s_1n_my_h34d}",
+    "mode": "full-prologue",
+    "timing_probe_stubbed": true,
+    "eax": 1,
+    "comparison_stage_reached": true,
+    "seconds": 9.865423202514648,
+    "pc": "0x140698edb",
+    "registered_reads": 11
+  },
+  {
+    "input": "ctfcup{A3v3l0pm3n7_0f_7h1S_t4sk_w4s_sp0ns0r3d_by_v01C3s_1n_my_h34d}",
+    "mode": "full-prologue",
+    "timing_probe_stubbed": true,
+    "eax": 0,
+    "comparison_stage_reached": true,
+    "seconds": 11.280319929122925,
+    "pc": "0x140698edb",
+    "registered_reads": 11
+  },
+  {
+    "input": "ctfcup{d3v3l0pm3n7_0f_7h1s_t4sk_w4s_sp0ns0r3d_by_v01C3s_1n_my_h34d}",
+    "mode": "full-prologue",
+    "timing_probe_stubbed": true,
+    "eax": 0,
+    "comparison_stage_reached": true,
+    "seconds": 9.36567997932434,
+    "pc": "0x140698edb",
+    "registered_reads": 11
+  }
+]
