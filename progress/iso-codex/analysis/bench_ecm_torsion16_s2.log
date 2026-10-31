@@ -1,0 +1,30 @@
+GMP-ECM 7.0.7 [configured with GMP 6.3.0] [ECM]
+Tuned for default
+Running on karatinos.local
+Input number is 1457506062875932817869177975145756628778829486130694151675619410000045233025452318197087491186659039504564609855820125742244854384953937587718871938163914748886160827115674300836373948031539315693609126200833021512260426564405247620393241717756612569519174506217307654295046339196604177967426998112643020893194149880926399070708798100193542243954578877626636216188267061594182902222212311125262838762245222060004758747396821275609416435361794797593067428291811253805770902740232478897198198644156741483763383085132396412471374750529542481663134137726652394951656939253795325420794562139234602187068800874902822025171 (616 digits)
+Using MODMULN [mulredc:4, sqrredc:4]
+Using B1=100000, B2=35857930, polynomial x^2
+dF=1344, k=2, d=12180, d2=11, i0=-2
+Expected number of curves to find a factor of n digits (assuming one exists):
+35	40	45	50	55	60	65	70	75	80
+Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf
+Lchain_codes.dat file failed to open, using prac
+Step 1 took 4529ms
+Estimated memory usage: 17.08MB
+Initializing tables of differences for F took 11ms
+Computing roots of F took 68ms
+Building F from its roots took 143ms
+Computing 1/F took 78ms
+Initializing table of differences for G took 8ms
+Computing roots of G took 68ms
+Building G from its roots took 146ms
+Computing roots of G took 70ms
+Building G from its roots took 148ms
+Computing G * H took 51ms
+Reducing  G * H mod F took 90ms
+Computing polyeval(F,G) took 319ms
+Computing product of all F(g_i) took 5ms
+Step 2 took 1209ms
+Expected time to find a factor of n digits:
+35	40	45	50	55	60	65	70	75	80
+Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf	Inf

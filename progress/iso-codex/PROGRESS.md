@@ -351,3 +351,11 @@ The user said “continue” on 2026-10-31 at approximately 11:20 UTC. Solver wo
 - Started a native p+1 attempt with x0=3, B1=30,000,000 and requested B2=300,000,000,000; its result will be recorded in `analysis/pp1_native.log`.
 - Read the new `ctf/cybercup-2077-progress` remote contribution. It concerns a different reverse-engineering challenge and contains no Iso solution.
 - Searched the shared repository's existing task archives for the exact output, source filename and statement; no match was found.
+
+- Added `analysis/verify_walk.sage`. Its synthetic end-to-end test passed: rescaling the reversed dual path and adding the required backtracking pairs reproduces exactly 64 forward isogenies and the target curve. `recover_from_p.sage` now applies this verification to each recovered printable flag.
+- Expanded the two-step dictionary scan to independent substitutions at every character in the 37,510 generated phrases: 36,402,160 candidate variants in total. This run is logged in `analysis/dictionary_position.log`; completion must be checked there.
+- The user chose to continue computations on this Mac rather than provide another host.
+
+- The full two-step independent-character dictionary scan completed: 36,402,160 variants, no hit. A broader global-substitution scan for the four-step relation is now logged in `analysis/dictionary_four_all.log`.
+- Local ECM benchmarking showed parametrization 2 had a better estimated time to a factor than the previous default in the tested setup. Factoring now runs with four workers, parametrization 2 and B1=2,000,000 in `factor_native_optimized.py`; logs and residues have distinct filenames (`factor_optimized.log`, `residues_opt_*.txt`). Earlier completed work is retained.
+- The large p+1 base-3 run completed without a factor. Two further p+1 attempts at B1=10,000,000, bases 4 and 5, are logged separately.

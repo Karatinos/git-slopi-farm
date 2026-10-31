@@ -43,6 +43,7 @@ def read_contributions():
             for p in paths:
                 low=p.lower()
                 if p.startswith('progress/iso-codex/'):continue
+                if any(x in low for x in ['other_agent','contribution','sync']):continue
                 if not low.endswith(('.md','.txt','.sage','.py','.json')):continue
                 if any(x in low for x in ['.env','credential','secret','token','password']):continue
                 if any(x in low for x in ['progress','writeup','ctf','crypto/','reverse/','iso','cybercup']):relevant.append(p)
@@ -102,7 +103,12 @@ if '--loop' not in sys.argv:
 else:
     (ROOT/'analysis/git_sync.pid').write_text(str(os.getpid())+'\n')
     log('Attached sync loop active, PID '+str(os.getpid())+'; interval 600 seconds. Solver work has resumed.')
-    deadline=time.monotonic()+600
+    last=ROOT/'analysis/git_sync_last_success.txt'
+    elapsed=0
+    if last.exists():
+        try:elapsed=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(last.read_text().split()[0])).total_seconds()
+        except (ValueError,IndexError):pass
+    deadline=time.monotonic()+max(0,600-elapsed)
     while RUNNING:
         time.sleep(min(1,max(0,deadline-time.monotonic())))
         if time.monotonic()<deadline:continue
