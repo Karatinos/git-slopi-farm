@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>factordb · API</title>
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>try{var t=localStorage.getItem('fdb-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/app.css?v=1792070876">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap row">
+    <a class="brand" href="/" style="text-decoration:none;color:inherit">factordb<span class="dot"></span><span>rpc&nbsp;·&nbsp;fdb</span></a>
+    <nav class="nav">
+      <a href="/">Search</a>
+      <a href="/sequences.php">Sequences</a>
+      <a href="/listtype.php">Lists</a>
+      <a href="/tables.php">Tables</a>
+      <a href="/download.php">Download</a>
+      <a href="/api.php" aria-current="page">API</a>
+      <a href="/ecm.php">ECM</a>
+      <a href="/status.php">Status</a>
+      <a href="/report.php">Report</a>
+      <a href="/limits.php">Limits</a>
+            <a href="/?config">Settings</a>
+      <a href="/changes.php">Changes</a>
+    </nav>
+    <div class="spacer"></div>
+              <a class="acct" href="/login.php?next=%2Fapi">Sign in</a>
+        <button class="toggle" id="themeBtn" type="button" aria-label="Toggle color theme">
+      <span id="themeIcon">◐</span><span id="themeLabel">Theme</span>
+    </button>
+  </div>
+</div>
+<main class="wrap">
+
+<section style="margin-top:20px">
+  <div class="card record">
+    <div class="head">
+      <span class="badge b-P"><span class="tick t-P"></span>API</span>
+      <div class="metas"><span class="meta">JSON-RPC 2.0 over HTTP - programmatic access to factordb</span></div>
+    </div>
+    <div class="body">
+      <p class="hint" style="margin:0 0 10px">All calls are JSON-RPC 2.0 sent as an HTTP <code>POST</code> to <code>/rpc</code> - at <code>https://factordb.com/rpc</code> or <code>https://factordb.com:4059/rpc</code>, both the same service. The body is a request object (or an array of them for a batch); the response mirrors it.</p>
+      <pre style="overflow-x:auto;background:var(--st-u-bg,#f4f4f5);padding:10px 12px;border-radius:8px"><code>curl -s https://factordb.com:4059/rpc \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"get_number","params":{"target":{"expr":"2^131-1"},"detail":2}}'</code></pre>
+      <p class="hint" style="margin:10px 0 0">Response: <code>{"jsonrpc":"2.0","id":1,"result":{…}}</code>, or <code>{…,"error":{"code","message"}}</code> on failure.</p>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="fieldlabel">Command-line client</p>
+      <p class="hint" style="margin:0 0 6px"><code>fdb</code> wraps every method on this page as a subcommand - numbers and factors, proofs, certificates, sequences, statistics, downloads and your account - with human-readable output by default and the raw JSON result on request. It can also drive an aliquot sequence forward with local gmp-ecm, reporting the factors it finds (<code>fdb seq advance</code>).</p>
+      <pre style="overflow-x:auto;background:var(--st-u-bg,#f4f4f5);padding:8px 12px;border-radius:8px"><code>fdb number 2^127-1 --full
+fdb report 1427247692705959880439315947500961989719490561 2^61-1
+fdb download C 60 --count 100 --random</code></pre>
+      <p class="hint" style="margin:6px 0 0">Source: <a class="link" href="https://github.com/mtvb/factordb-cli" rel="noopener noreferrer">github.com/mtvb/factordb-cli</a> (Rust, GPL-2.0; <code>cargo install --path .</code> builds the <code>fdb</code> binary).</p>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="fieldlabel">Addressing (the <code>target</code> parameter)</p>
+      <p class="hint" style="margin:0">Many calls take a <code>target</code>, which is either an id or an expression:
+        <code>{"id": 42}</code> &nbsp;or&nbsp; <code>{"expr": "10^80+7"}</code>.
+        Expressions accept <code>+ - * / ^ %</code>, <code>!</code> (factorial), <code>#</code>/<code>##</code> (primorial),
+        <code>I(n)</code>/<code>lucas(n)</code>, the shortcuts <code>M</code>/<code>F</code> and <code>b,n+</code>/<code>b,n-</code>,
+        named functions such as <code>Q(n)</code> (Perrin), <code>@(n)</code> (the n-th prime) and others, a reference to a
+        stored id <code>#&lt;id&gt;</code>, and parentheses. See the full
+        <a class="link" href="/syntax.php">expression syntax &amp; functions</a> reference.</p>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="fieldlabel">Authentication</p>
+      <p class="hint" style="margin:0 0 6px">Anonymous access works for reads within the default limits. To act as your account - higher limits, certificate upload - send your API token:</p>
+      <pre style="overflow-x:auto;background:var(--st-u-bg,#f4f4f5);padding:8px 12px;border-radius:8px"><code>X-Fdb-User-Token: &lt;your token&gt;</code></pre>
+      <p class="hint" style="margin:6px 0 0">Get a token from <code>login</code> / <code>register</code> (or rotate it with <code>regenerate_token</code>).</p>
+      <p class="hint" style="margin:10px 0 6px">Example - your credited factors (<code>contributions</code> needs a signed-in account):</p>
+      <pre style="overflow-x:auto;background:var(--st-u-bg,#f4f4f5);padding:10px 12px;border-radius:8px"><code>curl -s https://factordb.com:4059/rpc \
+  -H 'Content-Type: application/json' \
+  -H 'X-Fdb-User-Token: &lt;your token&gt;' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"contributions","params":{"limit":10}}'</code></pre>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="fieldlabel">Batching</p>
+      <p class="hint" style="margin:0">POST an <em>array</em> of request objects to run several calls in one round-trip; the response is an array of results in the same order, each matched by <code>id</code>. Calls in a batch run sequentially.</p>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="fieldlabel">Limits &amp; accounting</p>
+      <p class="hint" style="margin:0">Every response carries a <code>X-Fdb-Resources: ids=…, time_ms=…, bytes=…, bg_ms=…</code> header summing what the request consumed. Requests are rate-limited and quota-bounded per client (ids created, wall time, bandwidth, background-check time); exceeding a budget returns HTTP <code>429</code>. See <a class="link" href="/limits.php">Limits</a> (including the rules for automated requests) and call <code>quota_status</code> for your current usage.</p>
+
+      <p class="fieldlabel" style="margin-top:14px">Classic addresses (tools written for the old site)</p>
+      <p class="hint" style="margin:0 0 6px">These keep working unchanged, over https and over plain http (many old scripts cannot speak https), with the old field names and the old one-line answers:</p>
+      <table style="border-collapse:collapse;margin:0 0 6px">
+        <tbody>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/api?query=N</code>, <code>/api?id=N</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint">the classic JSON answer <code>{id, status, factors:[[base, exp], …]}</code>, every digit of every factor</span></td></tr>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/reportfactor.php</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint"><code>id=</code> or <code>number=</code> plus <code>factor=</code> (GET or POST); answers "Factor submitted." etc.</span></td></tr>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/report.php</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint">POST <code>report=&lt;factor list&gt;</code> (elf / GMP-ECM output / <code>N = f1 * f2</code> lines); one line per number</span></td></tr>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/login.php</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint">POST <code>login=&amp;pass=</code> (and <code>register=1&amp;name=</code>); sets the session cookie</span></td></tr>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/uploadcert.php</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint">multipart POST, file field <code>cert</code> (a certificate or a zip of them)</span></td></tr>
+          <tr><td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>/cert/&lt;fid&gt;</code></td><td style="padding:1px 0;vertical-align:top"><span class="hint">the stored certificate as a text file (also <code>cert.php?id=</code>)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="body" style="border-top:1px solid var(--hair)">
+      <p class="hint" style="margin:0"><span class="badge b-CF"><span class="tick t-CF"></span>write</span> calls modify the database; <span class="badge b-U"><span class="tick t-U"></span>account</span> calls manage your session. Everything else is read-only.</p>
+    </div>
+  </div>
+</section>
+
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Numbers &amp; factors</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_id</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Resolve an expression to a factordb id (optionally storing it).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>expr</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">a number or expression, e.g. <code>2^131-1</code>, <code>10^80+7</code>, <code>150!</code>, <code>@(1000000)</code></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>create</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">if true, store it and its structure (a write); default false</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ id, status, digits, created }</code> (<code>id</code> = <code>{ kind, fid?, text }</code>: kind <code>stored</code> with its <code>fid</code>, <code>literal</code> for a value up to 10<sup>18</sup>, which is its own id, or <code>expr</code> for a number not stored)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_number</code></p>
+          <p class="hint" style="margin:0 0 6px">Full record for a number: identity, status, size, and (with detail) factors, primality and sequence membership. A factor that an import brought in carries <code>import_source</code>, the name of the source (e.g. <code>mersenne.ca</code>). <code>created</code> is the day the id was stored (<code>YYYY-MM-DD</code>, one record per day, so the day is exact to about a day), or <code>&lt;YYYY-MM-DD</code> for ids older than the first record (November 2018). With <code>snfs: true</code> and <code>detail: 2</code>, an open composite of 80-400 digits also carries <code>snfs</code>, the <code>snfs_poly</code> answer, so a page needs no second call.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">see “Addressing” above</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>decimal</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">include the full decimal value when small enough</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>detail</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">0 = basic; ≥1 folds in <code>factors</code>; ≥2 also folds in <code>algebraic</code>, <code>sequence_of</code> and <code>primality</code></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ id, status, digits, term, preview, decimal?, perfect_power, import_source?, factors?, primality?, algebraic?, sequence_of? }</code>; <code>status</code> FF = fully factored</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_factors</code></p>
+          <p class="hint" style="margin:0 0 6px">The known factorization of a number. A factor above 1000 digits comes as a preview: <code>base</code> holds its leading digits, <code>tail</code> its trailing ones and <code>digits</code> its length - the whole value is <code>get_number</code> with <code>{"id": fid}</code> and <code>decimal: true</code>. A factor with status <code>X</code> is a part the answer did not expand (a very large factor tree): <code>get_factors</code> on its <code>fid</code> continues there.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ id, status, factors: [ { base, exponent, status, digits, tail?, fid? } ] }</code> (<code>fid</code> for a stored factor; <code>status</code> FF = fully factored)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">factor_of</code></p>
+          <p class="hint" style="margin:0 0 6px">The numbers a given number is a direct factor of (its cofactor "parents", one level up) - for climbing the divisor chain, e.g. to a parent with a missing algebraic factorization. Bounded.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">max parents to return (default 20)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ parents: [ { fid, digits, preview, term } ], truncated }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">nearest_prime</code></p>
+          <p class="hint" style="margin:0 0 6px">The next prime above N, or - with <code>below</code> - the previous prime below it. Computed on request and returned <b>view-only</b> (resolved, not stored): it shows the existing record if already in the database, else an unstored view you can explicitly create. Capped at 1000 digits; the prime is a BPSW probable prime.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the number N</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>below</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">find the previous prime below N instead of the next above; default false</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>decimal</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">include the full decimal of the result</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ found, number?: { id, status, digits, term, preview, decimal? } }</code> (<code>found</code> is false only when there is no prime below N, i.e. N ≤ 2)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">primality</code></p>
+          <p class="hint" style="margin:0 0 6px">Primality state of a number and any certificate metadata.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ status, digits, kind, base?, variant?, cert_size?, cert_digits?, cert_type?, cert_uploader?, chain_fid?, chain_digits?, chain_step?, chain_index?, chain_steps? }</code> (kind = direct / n-1 / n+1 / combined / certificate / chain_step; <code>variant</code> = <code>kp</code> for an N-1 proof by the Konyagin-Pomerance test, absent for Pocklington; a chain step is an intermediate prime of another number’s certificate: <code>chain_fid</code> names that number, <code>chain_step</code> the step, <code>chain_index</code> its 0-based position among the <code>chain_steps</code> recorded steps)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">algebraic_factors</code></p>
+          <p class="hint" style="margin:0 0 6px">Algebraic factorization panel (e.g. difference/sum of powers, Aurifeuillian).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the algebraic decomposition of the expression, when one applies</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">snfs_poly</code></p>
+          <p class="hint" style="margin:0 0 6px">SNFS polynomials for a composite without known factor (80-400 digits) whose own term, or the term of a number it divides, has a special form: sums of powers of one base, binomials in two bases, cyclotomic and Aurifeuillian parts. Computed on request. As a file for GGNFS / yafu, msieve or CADO-NFS: <code>/snfs.php?id=…&amp;format=ggnfs|msieve|cado</code>.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ n?, polys: [ { c: [c0..cd], y1, y0, skew, difficulty, scaled, side, e, form } ] }</code> - best first; <code>f = Σ c[i]·x^i</code>, <code>g = y1·x + y0</code>, common root <code>-y0/y1 mod n</code>; <code>scaled</code> = difficulty plus the norm-imbalance penalty (selects sieving parameters), <code>side</code> = special-q side (a / r), <code>e</code> = Murphy E. Empty <code>polys</code> when there is nothing to offer</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_family</code></p>
+          <p class="hint" style="margin:0 0 6px">Neighbouring numbers of the same family (e.g. <code>x^n±1</code>) around an expression.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>expr</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the family expression</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int or string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">first index (may be negative); an integer of up to 100 digits, as a decimal string when beyond 64 bits</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">how many to list</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>factors</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">also return each member’s factorization</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ members: [ { x, member: { id, status, digits }, preview, tail?, term?, factors?: [ { base, exponent, status, fid? } ] } ], next? }</code>; <code>preview</code> / <code>tail</code> = the member’s leading digits and, above 100 digits, its last 100, as in get_number; <code>status</code> is the effective one (a fully factored composite is FF, as on its own page); <code>factors</code> as in get_factors. A page has a time limit as well as a size limit: when it runs out the page holds the members done so far and <code>next</code> is the index to continue from. <code>x</code> and <code>next</code> are JSON integers within 64 bits and decimal strings beyond</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">report_factors</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Submit one or more found factors of a number. Verified exactly (a wrong factor is rejected); promotes/creates rows as needed.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>factors</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string[]</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">decimal or expression factors, e.g. <code>["1009","2^32+1"]</code></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>credit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">credit the submitted factors to the signed-in account: a factor counts when both it and the cofactor it leaves are new to the database and have at least 30 digits (the number itself may be new); credited factors are shown with the display name of the account; ignored when anonymous</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ id, status, created_ids, credited? }</code></p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Primality proofs (special-form)</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">check_factors</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Run the next bounded P-1 / P+1 / ECM step on a stored composite of at most 500 digits (the "Check for factors" of the sequence and number pages): level 0 P-1 to B1=50k, 1 three P+1 curves to B1=150k, 2 ten ECM curves to B1=250k, 3 (below 65 digits) forty ECM curves to B1=1M. The level is kept per number, so every sequence the composite blocks shares it. A factor found is reported like <code>report_factors</code>. Runs up to 100 s; a run cut off by that limit without a factor is not counted (<code>timed_out</code>, the level stays). At most 8 at once server-wide.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">target</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the composite (C/U)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>dry_run</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only report the level and the next step</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ fid, digits, status, level, max_digits, step?, ran, factors?, timed_out? }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">prove</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Run a deterministic special-form proof (Pocklington N-1 / Morrison N+1 / combined BLS75 / Konyagin-Pomerance N-1). Small numbers inline; large ones queue for the background prover.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ proved, queued, method?, witness?, digits, promoted? }</code> (method 1 = N-1, 2 = N+1, 3 = combined, 4 = N-1 Konyagin-Pomerance)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">proof_progress</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Per-method completeness for a number and what each proof would cost/queue. May auto-create the N∓1 ids for a large PRP.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ per-type completeness, thresholds, queued/est_ms and remaining background budget</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">proof_state</code></p>
+          <p class="hint" style="margin:0 0 6px">Poll a number’s proof state (after a large proof was queued).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ status, digits, queued }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">proof_list</code></p>
+          <p class="hint" style="margin:0 0 6px">List numbers proven prime by a special-form test.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type_id</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">1 = N-1 (Pocklington), 2 = N+1, 3 = combined, 4 = N-1 (Konyagin-Pomerance); 0/other = all</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>min_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>descending</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">largest first</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>skip</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">max 1000</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ proofs: [ { fid, digits, type, base, term, preview, tail } ] }</code> (<code>term</code> is the formula when stored as one, else empty; <code>preview</code>/<code>tail</code> are the leading/trailing decimal digits for a "head…tail" display)</p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Probable-prime tests</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">prp_test</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Run a BPSW probable-prime test on an untested (U) number; settles it U→PRP or U→C. Large ones queue.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ queued|tested, ... }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">prp_test_info</code></p>
+          <p class="hint" style="margin:0 0 6px">Whether a number is PRP-testable and the cost a queued test would drain.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ testable, est_ms, will_queue, check_remaining_ms }</code></p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Certificates</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_certificate</code></p>
+          <p class="hint" style="margin:0 0 6px">The stored primality certificate of a number (Primo / CM / gmp-ECPP), if any, with its metadata; the text is inline up to 64 MB (<code>too_large: true</code> above that). For any size, <code>GET /cert/&lt;fid&gt;</code> serves the certificate as a plain text file, streamed - the address the site's download link uses.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the certificate text and its metadata</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">upload_certificate</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Upload a primality certificate for a number (PRP→P on verification).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>data</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the certificate text</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>session</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">ignored (kept for older clients) - the upload is credited to the account of the <code>X-Fdb-User-Token</code> header</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, ... }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">cert_list</code></p>
+          <p class="hint" style="margin:0 0 6px">List certificates (newest/largest first), optionally only those still pending verification.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>min_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>pending</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only pending</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>descending</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>skip</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>user</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only this uploader (uid; 0 = anonymous)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only this software version (its id, see cert_software_top)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ certs: [ ... ] }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">cert_chain</code></p>
+          <p class="hint" style="margin:0 0 6px">The certificate dependency chain for a number (a cert that references smaller certified primes). Large chains have thousands of steps: page them with skip/limit.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>skip</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">rows to skip (default 0)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">rows to return (default 0 = all, max 10000)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sizes</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only <code>step</code> and <code>digits</code> per step (for a graph; fast for any chain length)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ fid, total, skip, chain: [ { step, tofid, digits, type, term, preview, tail } ] }</code> (with <code>sizes</code>: <code>chain: [ { step, digits } ]</code>)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">cert_stats</code></p>
+          <p class="hint" style="margin:0 0 6px">Certificate totals, plus the verifications in flight with their progress (<code>done</code> of <code>total</code> steps, <code>digits</code> = the step size reached) and what names the number: its term when that is an expression, else its leading (preview) and trailing (tail) digits and its length (number_digits).</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ <code>{ total, verified, pending, processing, running: [ { fid, done, total, digits, started, term? | preview?, tail?, number_digits? } ] }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">cert_top</code></p>
+          <p class="hint" style="margin:0 0 6px">Certificate leaderboard by uploader: the top 100 accounts (uid 0 = anonymous), score = Σ (digits/1000)⁴ over verified certificates, plus totals over all uploaders.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sort</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">score (default) / n / size</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ users: [ { uid, fullname, certs, size, score } ], totals: { rows, certs, size, score } }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">cert_software_top</code></p>
+          <p class="hint" style="margin:0 0 6px">Certificate leaderboard by software: the programs (grouped, by score) and the top 100 software versions.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sort</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">score (default) / n / size, for the versions table</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ programs: [ { program, versions, certs, size, score } ], versions: [ { type, program, version, certs, size, score } ], totals }</code></p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Aliquot sequences</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">get_sequence</code></p>
+          <p class="hint" style="margin:0 0 6px">The terms of an aliquot sequence.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the starting number, e.g. <code>{"expr": "276"}</code></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>from</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">first iteration to return</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type: 1 = aliquot (default), the others as on the sequences page</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the sequence terms from <code>from</code> onward. Sequence ids (<code>base</code>, a merge end’s <code>base</code>, <code>start_id</code>) name a term’s base; a perfect power b<sup>k</sup> is never a stored number of its own, so such an id comes with its exponent (<code>base_exp</code> / <code>exp</code> / <code>start_exp</code>, present only when above 1): the number meant is base<sup>exp</sup></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">sequence_sizes</code></p>
+          <p class="hint" style="margin:0 0 6px">Digit size of each term, plus the aliquot driver it sits on (data for the colour-by-driver growth graph).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the starting number</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>from</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type (default 1 = aliquot)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ sizes: [int], drivers: [int] }</code> - per-term digit count and driver code (0 none, 1 downdriver, 2-5 named, 6 even-perfect), parallel arrays</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">sequence_status</code></p>
+          <p class="hint" style="margin:0 0 6px">Status of a sequence (open / merged / cycle / terminated).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the starting number</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type (default 1 = aliquot)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the sequence’s current status and frontier (<code>base</code> + <code>base_exp?</code>, merge ends with <code>base</code> + <code>exp?</code>, see get_sequence)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">sequence_view</code></p>
+          <p class="hint" style="margin:0 0 6px">A window/segment of a sequence for display. For an open frontier inside the window the answer also carries <code>check</code>: the <code>check_factors</code> dry-run plan of the remaining composite (<code>level</code>, <code>step</code>, <code>digits</code>, <code>fid</code>; or <code>{ error }</code>), so a page needs no second call.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the starting number</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type (default 1 = aliquot)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>part</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">all / last / range</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>fr</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">range start</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>to</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">range end (inclusive); absent = to the end</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ a bounded view of the sequence</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">extend_sequence</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Compute and store more terms of a sequence.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the starting number</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>steps</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">how many iterations</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type (default 1 = aliquot)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the newly computed terms</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">list_sequences</code></p>
+          <p class="hint" style="margin:0 0 6px">Browse known sequences with sorting/filtering, including by aliquot driver.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">rows per page: default 100, at most 500</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>offset</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">rows to skip, for paging</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">sequence type (default 1 = aliquot)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>category</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>end_kind</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">open / merge / cycle / terminus, or the merges split by what their trunk ends in: merge-open / merge-terminus / merge-cycle</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sort</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">length / start / driver</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>dir</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">asc/desc</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>driver</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">filter to one aliquot driver: 0 none, 1 downdriver, 2-5 named, 6 even-perfect</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>guide</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">filter to one exact frontier guide value (finer than <code>driver</code>)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>all</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">every start range at once, merged in the chosen order (<code>category</code> and <code>offset</code> are then not used); the next page is asked for with <code>after</code></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>after</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">with <code>all</code>: go on after this position - the <code>next</code> of the previous page</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>max_category</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int?</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">with <code>all</code>: only the start ranges 0 to this one (category 0 = starts up to 1,000, n = above 10^(n+2) up to 10^(n+3); 3 = up to 10^6, 15 = up to 10^18)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ sequences: [ { start_id, start_exp?, start, digits, length, end, last_id?, last_exp?, factors?, merge_base?, guide, class, driver, trunk_end? } ], next? }</code> (<code>next</code>, with <code>all</code>: the position for the following page, when there is one; <code>last_id</code> = an open sequence’s last term, with <code>last_exp</code> when it is a perfect power, as for <code>start_id</code>; <code>factors</code> = that term, factored as far as known, <code>[ { base, exponent, status, fid? } ]</code> as in get_factors - its value is their product and its unfactored composites are the C / U factors; <code>merge_base</code> = the start of the sequence a merging one joins; <code>guide</code> = factored guide of the frontier term, <code>class</code> = its stability, <code>driver</code> = the code above; <code>trunk_end</code>, for a merging sequence, is what the sequence it finally ends in ends in: open, cycle or terminus)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">sequence_of</code></p>
+          <p class="hint" style="margin:0 0 6px">Which sequence a number belongs to.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>target</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">id or expr</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ the containing sequence’s start (if any): <code>start_id</code> + <code>start_exp?</code> and the start’s decimal value; a perfect-power expression such as 11^48 is looked up as its base with the exponent. An entry with <code>open_composite: true</code> is an open sequence whose last term (<code>index</code>) is held up by this stored composite - the composite a factor of which advances it</p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Statistics &amp; listings</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">status</code></p>
+          <p class="hint" style="margin:0 0 6px">The whole status page in one call: table counts, smallest unresolved numbers, comb-scan progress, certificate / proof / ECM-factor stats, and <code>calls_per_sec</code> (RPC calls handled per second, mean over the last minute).</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ a merged object; sub-sections may be null when their tables are absent</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">stats</code></p>
+          <p class="hint" style="margin:0 0 6px">Global counts per table (P / PRP / C / U / CF) and disk usage.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ the count/size summary</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">smallest</code></p>
+          <p class="hint" style="margin:0 0 6px">The smallest unresolved number of each kind.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ <code>{ prp, c, u }</code>, each <code>{ fid, digits, preview, tail }</code> (<code>tail</code> = trailing digits, empty when short)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">comb_progress</code></p>
+          <p class="hint" style="margin:0 0 6px">Progress of the small-factor (comb) scanner.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ per-level scan progress</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">digit_distribution</code></p>
+          <p class="hint" style="margin:0 0 6px">Row counts per digit length across a range (data for the distribution chart).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>start</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">first digit length</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>count</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">how many lengths</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ per-digit-length counts by table</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">factor_tables</code></p>
+          <p class="hint" style="margin:0 0 6px">The factor tables (the Tables page): categories of number families, each with its formula, the defaults of its other variables and its OEIS sequences, and - once computed - its first member that is not fully factored.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ <code>{ categories: [ { id, name, entries: [ { name, formula, parm?, oeis?, frontier? } ] } ], frontier_checked? }</code> - <code>parm</code> in query-string form: <code>v</code> = the variable that varies, the defaults of the others, and E / EC / OD / EV = only prime / composite / odd / even values of the variable; <code>oeis</code> = A-numbers, comma-separated (the values, the indices of the primes, the primes); <code>frontier</code> = <code>{ n, open_digits, open_count, kind }</code>: the first member of the default values that is not fully factored (a PRP counts as factored) - its value of the varying variable, the digits of its largest open part, how many parts are open, and <code>kind</code> C (no factor known) / CF (a composite part left) / U (untested) / new (not stored yet); left out until computed. Refreshed every 3 minutes;<code>frontier_checked</code> = Unix time of the last refresh</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">list_by_type</code></p>
+          <p class="hint" style="margin:0 0 6px">List numbers of one table, smallest first.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>table</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">P / PRP / C / U / CF</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>min_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>max_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">upper bound (inclusive); 0 or absent = none</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>offset</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ rows: [ { fid, digits, term, preview, tail } ], has_more }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">prp_candidates</code></p>
+          <p class="hint" style="margin:0 0 6px">Probable primes ordered by how far N-1 / N+1 are factored into proven primes, most factored first - the candidates closest to an N-1 or Morrison (N+1) proof. A proof is possible (<code>prove</code>) from 3/10 of N-1 (Konyagin-Pomerance, Pocklington from one third) or one third of N+1; nothing is proven without a request.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sort</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">best (the better side, default) / nm1 / np1 / combined</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>min_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>max_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">0 = no bound</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>open</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">leave out the numbers a proof (N-1, N+1 or combined) is possible for already</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>max</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">only rows at or below this value of the sort column, in hundredths of a percent (default 10000 = all)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>offset</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ rows: [ { fid, digits, term, preview, tail, nm1, np1, comb, ready } ], has_more }</code> - <code>nm1</code> / <code>np1</code> / <code>comb</code> in hundredths of a percent (<code>comb</code> = the combined test, 3·max + min); <code>ready</code> bits: 1 = N-1 proof possible, 2 = N+1, 4 = combined</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">ecm_list</code></p>
+          <p class="hint" style="margin:0 0 6px">List factors found by ECM / P±1 (each validated by its curve group order).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>type_id</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">1 = ECM (Montgomery, param 0), 2 = P-1, 3 = P+1, 4 = ECM (Edwards), 5-7 = ECM (GMP-ECM param 1-3); 0 = all</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>min_digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>by_time</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">order by discovery time</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>descending</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>skip</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ factors: [ { fid, digits, b1, b2, sigma, type, ts, uid, submitter, term, preview, tail } ] }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">ecm_finds</code></p>
+          <p class="hint" style="margin:0 0 6px">The recorded ECM / P-1 / P+1 finds of the given prime factors (the number page's ECM box).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>ids</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int[]</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">factor ids, at most 200</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ finds: [ { fid, type, b1, b2, sigma, ts, uid, submitter, order: { fid, digits, preview, tail } } ] }</code> - <code>type</code> as in <code>ecm_list</code>; <code>order</code> is the group order (p-1 / p+1 for P-1 / P+1)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">report_ecm</code><span class="badge b-CF" style="margin-left:6px"><span class="tick t-CF"></span>write</span></p>
+          <p class="hint" style="margin:0 0 6px">Report how a stored prime factor of 25 to 100 digits was found. The group order of the curve (p-1 / p+1 for P-1 / P+1) is computed and must be smooth within the bounds: every prime factor at most B1, except one up to 20·B2 (B1² without a B2). Then the find is recorded, credited to the signed-in account.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>id</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the prime factor</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>method</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">ecm / edwards / pm1 / pp1</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>param</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">GMP-ECM param for <code>ecm</code>: 0 = Suyama, 1 = default of GMP-ECM 7, 2, 3</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sigma</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the curve sigma (ecm / edwards)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>b1</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">stage-1 bound</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>b2</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">stage-2 bound, optional</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, type, order_fid }</code>, or <code>{ ok: false, error }</code></p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Tools &amp; downloads</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">ecm_group_order</code></p>
+          <p class="hint" style="margin:0 0 6px">Compute the elliptic-curve group order #E(F_p) for a GMP-ECM (param, sigma) over a prime, and factor it - showing the B1 at which ECM finds p. All four parametrizations, and Edwards curves (<code>curve</code>).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>number</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">a prime, ≤ 100 digits (expressions allowed)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>param</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">0 = Suyama, 1 = default, 2/3 = batch/GPU</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>sigma</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the sigma value</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>curve</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"><code>edwards</code>: the Edwards curve for <code>sigma</code> (from σ·(12, 40) on y² = x³ - 8x - 32) instead of a GMP-ECM curve; <code>param</code> is then not used. Omit for GMP-ECM</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, order, factors, cofactor?, largest_prime?, montgomery_a, weierstrass_a4, curve? }</code> (for an Edwards curve <code>curve: "edwards"</code>, and <code>montgomery_a</code> / <code>weierstrass_a4</code> are empty)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">download</code></p>
+          <p class="hint" style="margin:0 0 6px">Pull a bounded batch of candidate numbers to work on (composites to factor, PRPs to certify, untested to test). Index-bounded and capped - light on the server.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>table</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">C / CF / PRP / U / P</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">digit size (minimum, or exact with <code>random</code>)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>count</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">max 50000</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>random</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">random sample at exactly <code>digits</code> digits, else smallest first</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>terms</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">bool</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">each number as its full stored term (a cofactor as <code>(parent)/factors</code>) instead of the export format</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ count, numbers: [ string ] }</code> (export format: a <code>+ - * ^</code> term or the decimal; with <code>terms</code> the full stored term)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">primo_batch</code></p>
+          <p class="hint" style="margin:0 0 6px">Primo input for the probable primes that have no certificate yet (none uploaded or pending): the smallest from <code>digits</code> digits up, each with its value in base 16 (the <code>N$=</code> line of a Primo input file). The download page zips them. Capped at 32000 numbers and ~10 MB of digits.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>digits</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">minimum digit size (default 300)</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>count</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">max 32000 (default 10)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ count, numbers: [ { fid, digits, hex, term? } ] }</code> (<code>term</code> only when it is a formula of fewer than 100 characters)</p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Account</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">login</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Authenticate; returns a session/API token to use in <code>X-Fdb-User-Token</code>. Failed attempts are throttled per account and per address: after a few, each further attempt must wait (the wait doubles; <code>retry_after</code> in seconds comes with the refusal, and a too-early retry is an error).</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>user</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>pass</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, token?, uid?, login?, fullname?, perm?, error?, retry_after? }</code> (<code>token</code> is the API token)</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">register</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Create an account. One account per client address per 30 minutes; a second attempt within that time is an error.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>user</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">login name</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>pass</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>name</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">display name</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, token?, uid?, login?, fullname?, perm?, error? }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">whoami</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Identity for a session/API token.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>session</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the API token</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ found, uid?, login?, fullname?, perm? }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">regenerate_token</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Issue a fresh API token (invalidates the old one). The account is the one of the token sent in the <code>X-Fdb-User-Token</code> header; there are no parameters.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ <code>{ ok, token?, uid?, login?, fullname?, perm? }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">change_password</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Change your password (send your API token). The current password must be given; wrong ones are throttled like failed sign-ins. Your API token stays the same.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>old</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the current password</td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>new</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">the new password (at least 6 characters)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok, error?, retry_after? }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">logout</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Invalidate a session/API token.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>session</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">string</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ ok }</code></p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">quota_status</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Your current resource usage against the limits (exempt from the quota block).</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ used vs cap for ids / wall-time / bandwidth / background-check-time</p>
+        </div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">contributions</code><span class="badge b-U" style="margin-left:6px"><span class="tick t-U"></span>account</span></p>
+          <p class="hint" style="margin:0 0 6px">Your credited factor contributions (earned with the <code>credit</code> flag of report_factors), newest first. Sign-in required; an account sees only its own rows.</p>
+                      <table style="border-collapse:collapse;margin:0 0 6px">
+              <tbody>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>skip</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top"></td>
+                  </tr>
+                                  <tr>
+                    <td class="num" style="padding:1px 12px 1px 0;vertical-align:top"><code>limit</code></td>
+                    <td style="padding:1px 12px 1px 0;vertical-align:top"><span class="meta">int</span></td>
+                    <td class="hint" style="padding:1px 0;vertical-align:top">max 1000 (default 100)</td>
+                  </tr>
+                              </tbody>
+            </table>
+                    <p class="hint" style="margin:0">→ <code>{ total, largest_digits, rows: [ { fid, digits, ts, term, preview, tail, parent, parent_digits, parent_term, parent_preview, parent_tail } ] }</code></p>
+        </div>
+          </div>
+  </section>
+  <section style="margin-top:16px">
+    <div class="card record">
+      <div class="head"><span class="badge b-P"><span class="tick t-P"></span>Utility</span></div>
+              <div class="body" style="border-top:1px solid var(--hair)">
+          <p style="margin:0 0 4px"><code style="font-size:1.05em;font-weight:600">health</code></p>
+          <p class="hint" style="margin:0 0 6px">Liveness check.</p>
+                      <p class="hint" style="margin:0 0 6px"><em>No parameters.</em></p>
+                    <p class="hint" style="margin:0">→ <code>{ status: "ok" }</code></p>
+        </div>
+          </div>
+  </section>
+
+</main>
+<footer class="wrap" style="margin-top:28px;border-top:1px solid var(--hair);padding-top:12px;padding-bottom:22px;color:var(--muted);font-size:12px;text-align:center">
+  This page made <b>0</b> RPC calls  (<b>0</b> queries included).
+    <div style="margin-top:12px">
+    &copy; 2026 Markus Tervooren
+    &middot; <a class="link" href="/impressum.php">Impressum</a>
+    &middot; <a class="link" href="/datenschutz.php">Datenschutz</a>
+    &middot; <a class="link" href="/credits.php">Credits</a>
+  </div>
+</footer>
+<script src="/assets/app.js?v=1793212974"></script>
+</body>
+</html>
