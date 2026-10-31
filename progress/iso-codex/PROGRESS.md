@@ -1,6 +1,6 @@
 # Iso — detailed progress and resumption handoff
 
-**Status: UNSOLVED. No verified flag has been recovered. The user resumed solving on 2026-10-31 after the checkpoint below. Ten-minute GitHub synchronization remains enabled.**
+**Status: PAUSED at the user’s request. No verified flag has been recovered. All Iso solver processes are stopped; only ten-minute GitHub synchronization remains enabled.**
 
 This is a progress report, not a successful writeup. `writeup.md` has deliberately not been created: the original request made it conditional on recovering a correct flag. Do not mistake dummy strings in self-tests for the challenge flag.
 
@@ -369,3 +369,11 @@ The user said “continue” on 2026-10-31 at approximately 11:20 UTC. Solver wo
 - The four-step global-substitution scan completed 2,351,704 variants without a hit. Independent-character substitutions for the smaller phrase set remain in progress.
 
 - The four-step independent-character scan completed all 1,807,048 variants without a hit. The same short-phrase set is now being checked at depth 6, using `dictionary_short_positions.py 6 position`, with progress in `analysis/dictionary_six_position.log`.
+
+## Stopped again at user request — 2026-10-31T12:06:14+00:00
+
+The user explicitly requested stopping all solving. Process inspection confirmed that the ECM controller and its four workers, six-step dictionary search, and recovery monitor are no longer running. The Sage container contains only its idle `sleep infinity` process. No flag was recovered.
+
+Final checkpoint: the optimized ECM log contains 40 completed stage-two runs without a target factor; the 616-digit cofactor remains unchanged. The six-step independent-character dictionary search is incomplete: its last printed checkpoint is phrase index 600, with 318,320 candidates checked and no hit. These are logged lower bounds, not a claim that the whole search completed. All logs, residues and scripts are retained.
+
+The Git sync process also ended during interruption, so it is being restarted solely to preserve the previously requested ten-minute push/read-contributions loop. It must not restart the solver.
