@@ -1,0 +1,15 @@
+connectome
+984 points / 4 solvers
+crypto, osint
+Перед тем как исчезнуть, один из инженеров NeuroMorph оставил письмо:
+
+«Ключ не в файлах. Ключ в разуме.»
+
+Схема шифрования неизвестна. Известно только, что инженер всё время твердил про corpora pedunculata.
+
+adjacency.csv.gz
+2.5 MiB
+message.bin
+1 KiB
+ctfcup{...}
+submit

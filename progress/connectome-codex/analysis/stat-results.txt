@@ -1,0 +1,3 @@
+MATCH induced/eq26/in rank 128 add 5 [1, 2, 5, 7, 16] b'ctL`f\x0ecp}PjQ\x1b}Qu}#[wo\x00\x07Wj&7}fYVWj`-\x11sL[w~Wwfw}Pu}w>w~Wj/&\x08}o~j&7}f\x14\x0e'
+induced done 920
+all done 1008
