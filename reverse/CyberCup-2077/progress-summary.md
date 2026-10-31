@@ -1,3 +1,5 @@
+> Update 2026-10-31: CyberCup-2077 is now solved and locally verified. See `writeup.md`, `cc3_progress.md`, and `cc3_verify_full.json`. The historical stopped-work snapshot below is preserved.
+
 # CyberCup-2077 — paused progress and handoff
 
 Recorded 2026-10-31 (Europe/Moscow). **The user requested that solving stop. It has stopped. No flag has been recovered or confirmed.** This is a progress record, not a successful writeup. Do not resume solving without a new instruction. The separately requested ten-minute Git synchronization/contribution review is allowed to continue.

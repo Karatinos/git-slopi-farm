@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Attached, ten-minute archival sync. Does not execute CTF analysis.
+"""Attached archival sync: read every two minutes, publish every five minutes.
 Fetches remote refs and reads changed contribution notes into a local journal.
 Publishes only the fixed CyberCup manifest on its dedicated branch.
 No deletion, merge, rebase, force push, or writes to the home Git repository.
@@ -121,7 +121,7 @@ def sync_once():
         raise RuntimeError('Remote head does not match published checkpoint')
     s.update(last_success=stamp(),last_commit=head)
     state_write(s)
-    log('Verified GitHub checkpoint '+head+'; solving is active')
+    log('Verified GitHub checkpoint '+head+'; '+('verified solution saved' if (SOURCE/'writeup.md').exists() else 'solving is active'))
 
 def stop(signum, frame):
     global RUNNING
@@ -140,7 +140,7 @@ def main():
         signal.signal(sig,stop)
     if args.loop:
         (SOURCE/'git-sync.pid').write_text(str(os.getpid())+'\n')
-        log('Attached 600-second sync started, PID '+str(os.getpid()))
+        log('Attached 120-second read / 300-second publish sync started, PID '+str(os.getpid()))
     try:
         sync_once()
     except Exception as exc:

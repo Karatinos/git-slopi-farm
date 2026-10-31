@@ -1,5 +1,5 @@
 {
-  "branch": "ctf/cybercup-2077-progress",
+  "branch": "ctf/cybercup-2077-independent",
   "files": [
     "CyberCup-2077.txt",
     "artifact-inventory.json",
@@ -153,7 +153,8 @@
     "unpack_targeted.py",
     "cybercup.zip",
     "unpack_initialized_state.pkl.gz",
-    "check_clean.bin.gz"
+    "check_clean.bin.gz",
+    "writeup.md"
   ],
   "generated_compressed": [
     "check_clean.bin.gz"
