@@ -87,6 +87,7 @@ def sync_once():
     manifest = json.loads((SOURCE/'git-checkpoint-files.json').read_text())
     names = manifest['files'] + ['git-checkpoint-files.json','checkpoint_restore.py',
         'other-agents-contributions.md','git_sync_cybercup.py','git-sync-status.md']
+    names += [p.name for p in SOURCE.glob('cc2_*') if p.is_file() and p.stat().st_size < 5000000]
     names = sorted(set(names))
     allowed = {str(REL/name) for name in names}
     staged = git('diff','--cached','--name-only').stdout.splitlines()
@@ -112,7 +113,7 @@ def sync_once():
     if any(p not in allowed for p in changed):
         raise RuntimeError('Unexpected staged paths after copying')
     if changed:
-        git('commit','-m','Checkpoint paused CyberCup progress and remote contribution notes')
+        git('commit','-m','Checkpoint active CyberCup progress and remote contribution notes')
     git('push','origin','HEAD:refs/heads/'+BRANCH)
     head = git('rev-parse','HEAD').stdout.strip()
     actual = git('ls-remote','origin','refs/heads/'+BRANCH).stdout.split()[0]
@@ -120,7 +121,7 @@ def sync_once():
         raise RuntimeError('Remote head does not match published checkpoint')
     s.update(last_success=stamp(),last_commit=head)
     state_write(s)
-    log('Verified GitHub checkpoint '+head+'; solving remains stopped')
+    log('Verified GitHub checkpoint '+head+'; solving is active')
 
 def stop(signum, frame):
     global RUNNING
@@ -148,20 +149,21 @@ def main():
             raise
     if not args.loop:
         return
-    deadline = time.monotonic()+600
-    log('Next sync due in 600 seconds; this process handles signals but cannot detect a Codex tab closing')
+    deadline = time.monotonic()+120
+    push_deadline = time.monotonic()+300
+    log('Read every 120 seconds; publish every 300 seconds')
     while RUNNING:
-        time.sleep(min(1,max(0,deadline-time.monotonic())))
-        if not RUNNING:
-            break
-        if time.monotonic()<deadline:
-            continue
-        log('AGENT_LOOP_TICK_CYBERCUP_GITHUB: archival sync and remote note capture')
-        try:
-            sync_once()
-        except Exception as exc:
-            log('Sync error; retry at next interval: '+str(exc))
-        deadline=time.monotonic()+600
+        time.sleep(1)
+        if time.monotonic() >= deadline:
+            try:
+                state=state_read();read_contributions(state);state_write(state)
+                log('120-second remote review complete')
+            except Exception as exc:log('Read error: '+str(exc))
+            deadline=time.monotonic()+120
+        if time.monotonic() >= push_deadline:
+            try:sync_once()
+            except Exception as exc:log('Sync error: '+str(exc))
+            push_deadline=time.monotonic()+300
     log('Attached sync stopped')
 
 if __name__ == '__main__':
