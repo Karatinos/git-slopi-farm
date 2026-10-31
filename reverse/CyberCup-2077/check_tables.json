@@ -1,0 +1,117 @@
+{
+  "5384648024": {
+    "pointer": 5384648032,
+    "matrix": 5384650080,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "xor"
+    ],
+    "n": 2480
+  },
+  "5385324024": {
+    "pointer": 5385324032,
+    "matrix": 5386372608,
+    "stride": 4,
+    "regular": true,
+    "kind": [
+      "add32"
+    ],
+    "n": 1840
+  },
+  "5384715624": {
+    "pointer": 5384715632,
+    "matrix": 5384717680,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "and"
+    ],
+    "n": 1152
+  },
+  "5385121224": {
+    "pointer": 5385121232,
+    "matrix": 5385123280,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl5"
+    ],
+    "n": 196
+  },
+  "5384850824": {
+    "pointer": 5384850832,
+    "matrix": 5384852880,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl1"
+    ],
+    "n": 144
+  },
+  "5385256424": {
+    "pointer": 5385256432,
+    "matrix": 5385258480,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl7"
+    ],
+    "n": 116
+  },
+  "5384986024": {
+    "pointer": 5384986032,
+    "matrix": 5384988080,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl3"
+    ],
+    "n": 116
+  },
+  "5385053624": {
+    "pointer": 5385053632,
+    "matrix": 5385055680,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl4"
+    ],
+    "n": 100
+  },
+  "5384783224": {
+    "pointer": 5384783232,
+    "matrix": 5384785280,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "or"
+    ],
+    "n": 87
+  },
+  "5385188824": {
+    "pointer": 5385188832,
+    "matrix": 5385190880,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl6"
+    ],
+    "n": 84
+  },
+  "5384918424": {
+    "pointer": 5384918432,
+    "matrix": 5384920480,
+    "stride": 256,
+    "regular": true,
+    "kind": [
+      "shl2"
+    ],
+    "n": 56
+  },
+  "5386896904": {
+    "pointer": 5386896912,
+    "kind": "eq0",
+    "n": 1
+  }
+}

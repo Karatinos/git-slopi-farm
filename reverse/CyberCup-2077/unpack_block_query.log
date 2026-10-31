@@ -1,0 +1,4 @@
+  File "/Users/karatinos/Downloads/Staff/fsp/reverse/CyberCup-2077/unpack_block_query.py", line 20
+    t=time.time();print('known',hex(query(int.from_bytes(b'ctfcup{A','little')))),flush=True)
+                                                                                            ^
+SyntaxError: unmatched ')'

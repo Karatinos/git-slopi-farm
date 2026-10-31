@@ -1,0 +1,28 @@
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x516b5c87'), ('RDX', '0x1412556ee'), ('RSI', '0x10fef510'), ('RDI', '0xa2d2'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412556ee'), ('R12', '0xedfa'), ('R13', '0xeb44a2d2'), ('R14', '0x5a5e'), ('R15', '0x7580794a')]
+PATCH 1 0x1412556ee 4 fe57f031 0x516b5c87
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x678338f9'), ('RDX', '0x14130afe3'), ('RSI', '0x10fef510'), ('RDI', '0xe611'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x14130afe3'), ('R12', '0xedfa'), ('R13', '0x9f56e611'), ('R14', '0x5a5f'), ('R15', '0x7580794a')]
+PATCH 2 0x14130afe3 4 da2c8846 0x678338f9
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x232c3160'), ('RDX', '0x141366cad'), ('RSI', '0x10fef510'), ('RDI', '0x5dca'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x141366cad'), ('R12', '0xedfa'), ('R13', '0x748e5dca'), ('R14', '0x5a60'), ('R15', '0x7580794a')]
+PATCH 3 0x141366cad 4 2a2c6e2d 0x232c3160
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0xc70371b'), ('RDX', '0x1413f508e'), ('RSI', '0x10fef510'), ('RDI', '0xcbe5'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1413f508e'), ('R12', '0xedfa'), ('R13', '0xd281cbe5'), ('R14', '0x5a61'), ('R15', '0x7580794a')]
+PATCH 4 0x1413f508e 4 9674f659 0xc70371b
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x16b17a5d'), ('RDX', '0x1413f5095'), ('RSI', '0x10fef510'), ('RDI', '0x9fde'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1413f5095'), ('R12', '0xedfa'), ('R13', '0xd0af9fde'), ('R14', '0x5a62'), ('R15', '0x7580794a')]
+PATCH 5 0x1413f5095 4 42664805 0x16b17a5d
+PATCH 6 0x1413f50a3 4 e530ac56 0x2485513b
+TIME 0.22450494766235352 RIP 0x142498256 BLOCKS []
+RAX 0xfffffffffff6944e
+RBX 0x14233badf
+RCX 0x2485513b
+RDX 0x1413f50a3
+RSI 0x10fef510
+RDI 0xeac4
+RBP 0x90
+RSP 0x10fef390
+R8 0xfdcb3dd6
+R9 0x142498230
+R10 0x10fef5a8
+R11 0x1413f50a3
+R12 0xedfa
+R13 0x432eac4
+R14 0x5a63
+R15 0x7580794a

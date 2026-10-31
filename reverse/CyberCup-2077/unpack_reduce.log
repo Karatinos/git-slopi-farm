@@ -1,0 +1,145 @@
+PROGRESS 0 repl 0
+4 lut_00004 => lut_00003
+8 lut_00008 => Concat(Extract(7, 5, lut_00007),
+       ~Extract(4, 4, lut_00007),
+       Extract(3, 2, lut_00007),
+       ~Extract(1, 0, lut_00007))
+12 lut_00012 => 0
+14 lut_00014 => Extract(7, 0, lut_00010)
+15 lut_00015 => ~Extract(15, 8, input_word_00)
+17 lut_00017 => lut_00016
+20 lut_00020 => 0
+PROGRESS 20 repl 8
+23 lut_00023 => lut_00016 ^ lut_00022
+24 lut_00024 => Concat(~Extract(7, 7, lut_00023),
+       Extract(6, 4, lut_00023),
+       ~Extract(3, 2, lut_00023),
+       Extract(1, 0, lut_00023))
+27 lut_00027 => lut_00026
+30 lut_00030 => ~Extract(23, 16, input_word_00)
+31 lut_00031 => 0
+32 lut_00032 => Concat(Extract(7, 5, lut_00030),
+       ~Extract(4, 2, lut_00030),
+       Extract(1, 1, lut_00030),
+       ~Extract(0, 0, lut_00030))
+PROGRESS 40 repl 16
+41 lut_00041 => lut_00032 ^ lut_00040
+43 lut_00043 => 0
+44 lut_00044 => 0
+45 lut_00045 => 0
+46 lut_00046 => lut_00042
+49 lut_00049 => 0
+51 lut_00051 => Extract(7, 0, lut_00047)
+53 lut_00053 => 0
+54 lut_00054 => 0
+PROGRESS 60 repl 28
+64 lut_00064 => Concat(~Extract(7, 7, lut_00063),
+       Extract(6, 2, lut_00063),
+       ~Extract(1, 0, lut_00063))
+67 lut_00067 => lut_00066
+70 lut_00070 => ~Extract(7, 0, input_word_01)
+71 lut_00071 => Concat(~Extract(7, 7, lut_00070),
+       Extract(6, 2, lut_00070),
+       ~Extract(1, 0, lut_00070))
+72 lut_00072 => lut_00071
+77 lut_00077 => lut_00071 ^ lut_00076
+79 lut_00079 => lut_00078
+PROGRESS 80 repl 33
+82 lut_00082 => 0
+87 lut_00087 => 0
+88 lut_00088 => 0
+92 lut_00092 => 0
+PROGRESS 100 repl 42
+102 lut_00102 => ~Extract(23, 16, input_word_01)
+104 lut_00104 => 0
+107 lut_00107 => lut_00106
+111 lut_00111 => 0
+112 lut_00112 => 0
+113 lut_00113 => Concat(Extract(7, 7, lut_00110),
+       ~Extract(6, 5, lut_00110),
+       Extract(4, 0, lut_00110))
+PROGRESS 120 repl 51
+121 lut_00121 => ~Extract(31, 24, input_word_01)
+123 lut_00123 => 0
+128 lut_00128 => Extract(7, 0, lut_00125)
+130 lut_00130 => Concat(~Extract(7, 7, lut_00129),
+       Extract(6, 2, lut_00129),
+       ~Extract(1, 0, lut_00129))
+131 lut_00131 => lut_00130
+136 lut_00136 => 257 + Concat(0, lut_00001)
+137 lut_00137 => lut_00136
+PROGRESS 140 repl 57
+144 lut_00144 => lut_00143
+152 lut_00152 => lut_00148 ^ Extract(15, 8, lut_00136)
+153 lut_00153 => lut_00149 ^ Extract(7, 0, lut_00138)
+154 lut_00154 => lut_00150 ^ Extract(15, 8, lut_00138)
+PROGRESS 160 repl 59
+163 lut_00163 => lut_00147 ^ lut_00159
+167 lut_00167 => 322 + Concat(0, lut_00016)
+175 lut_00175 => lut_00174
+PROGRESS 180 repl 61
+183 lut_00183 => lut_00179 ^ Extract(15, 8, lut_00167)
+184 lut_00184 => lut_00180 ^ Extract(7, 0, lut_00169)
+185 lut_00185 => lut_00181 ^ Extract(15, 8, lut_00169)
+187 lut_00187 => lut_00186
+198 lut_00198 => 387 + Concat(0, lut_00032)
+199 lut_00199 => lut_00198
+PROGRESS 200 repl 63
+203 lut_00203 => lut_00180 ^ Extract(7, 0, lut_00200)
+213 lut_00213 => lut_00209 ^ Extract(7, 0, lut_00198)
+218 lut_00218 => lut_00217
+PROGRESS 220 repl 65
+227 lut_00227 => lut_00211 ^ lut_00223
+229 lut_00229 => 452 + Concat(0, lut_00055)
+230 lut_00230 => lut_00229
+232 lut_00232 => lut_00209 ^ Extract(7, 0, lut_00229)
+237 lut_00237 => lut_00236
+PROGRESS 240 repl 67
+241 lut_00241 => Extract(7, 0, lut_00236) ^ Extract(15, 8, lut_00229)
+252 lut_00252 => lut_00248 ^ Extract(15, 8, lut_00239)
+253 lut_00253 => lut_00249 ^ Extract(7, 0, lut_00236)
+254 lut_00254 => lut_00250 ^ Extract(15, 8, lut_00236)
+255 lut_00255 => lut_00251 ^ Extract(7, 0, lut_00239)
+256 lut_00256 => 517 + Concat(0, lut_00071)
+260 lut_00260 => Extract(7, 0, lut_00236) ^ Extract(15, 8, lut_00256)
+PROGRESS 260 repl 69
+261 lut_00261 => Extract(7, 0, lut_00258) ^ Extract(15, 8, lut_00236)
+262 lut_00262 => Extract(7, 0, lut_00239) ^ Extract(15, 8, lut_00258)
+273 lut_00273 => lut_00269 ^ Extract(7, 0, lut_00258)
+PROGRESS 280 repl 71
+283 lut_00283 => lut_00267 ^ lut_00279
+284 lut_00284 => lut_00268 ^ lut_00280
+285 lut_00285 => lut_00269 ^ lut_00281
+287 lut_00287 => 582 + Concat(0, lut_00086)
+288 lut_00288 => lut_00287
+290 lut_00290 => lut_00267 ^ Extract(7, 0, lut_00287)
+292 lut_00292 => lut_00269 ^ Extract(7, 0, lut_00289)
+PROGRESS 300 repl 73
+302 lut_00302 => lut_00298 ^ Extract(7, 0, lut_00287)
+303 lut_00303 => lut_00299 ^ Extract(15, 8, lut_00287)
+305 lut_00305 => lut_00301 ^ Extract(15, 8, lut_00289)
+307 lut_00307 => lut_00306
+315 lut_00315 => lut_00299 ^ lut_00311
+317 lut_00317 => lut_00301 ^ lut_00313
+318 lut_00318 => 647 + Concat(0, lut_00103)
+319 lut_00319 => lut_00318
+PROGRESS 320 repl 75
+322 lut_00322 => lut_00299 ^ Extract(15, 8, lut_00318)
+324 lut_00324 => lut_00301 ^ Extract(15, 8, lut_00320)
+326 lut_00326 => lut_00325
+334 lut_00334 => lut_00330 ^ Extract(15, 8, lut_00318)
+335 lut_00335 => lut_00331 ^ Extract(7, 0, lut_00320)
+336 lut_00336 => lut_00332 ^ Extract(15, 8, lut_00320)
+338 lut_00338 => lut_00337
+PROGRESS 340 repl 77
+347 lut_00347 => lut_00331 ^ lut_00343
+348 lut_00348 => lut_00332 ^ lut_00344
+349 lut_00349 => 712 + Concat(0, lut_00122)
+350 lut_00350 => lut_00349
+353 lut_00353 => lut_00330 ^ Extract(15, 8, lut_00349)
+355 lut_00355 => lut_00332 ^ Extract(15, 8, lut_00351)
+PROGRESS 360 repl 79
+367 lut_00367 => lut_00363 ^ Extract(15, 8, lut_00351)
+377 lut_00377 => lut_00361 ^ lut_00373
+378 lut_00378 => lut_00362 ^ lut_00374
+PROGRESS 380 repl 80

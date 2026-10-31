@@ -1,0 +1,82 @@
+[
+  {
+    "global_address": "0x140f33558",
+    "rows": "0x140f33560",
+    "data": "0x140f33d60",
+    "operation": [
+      "xor"
+    ]
+  },
+  {
+    "global_address": "0x140f43d68",
+    "rows": "0x140f43d70",
+    "data": "0x140f44570",
+    "operation": [
+      "and"
+    ]
+  },
+  {
+    "global_address": "0x140f54578",
+    "rows": "0x140f54580",
+    "data": "0x140f54d80",
+    "operation": [
+      "or"
+    ]
+  },
+  {
+    "global_address": "0x140f64d88",
+    "rows": "0x140f64d90",
+    "data": "0x140f65590",
+    "operation": [
+      "funnel_left_1"
+    ]
+  },
+  {
+    "global_address": "0x140f75598",
+    "rows": "0x140f755a0",
+    "data": "0x140f75da0",
+    "operation": [
+      "funnel_left_2"
+    ]
+  },
+  {
+    "global_address": "0x140f85da8",
+    "rows": "0x140f85db0",
+    "data": "0x140f865b0",
+    "operation": [
+      "funnel_left_3"
+    ]
+  },
+  {
+    "global_address": "0x140f965b8",
+    "rows": "0x140f965c0",
+    "data": "0x140f96dc0",
+    "operation": [
+      "funnel_left_4"
+    ]
+  },
+  {
+    "global_address": "0x140fa6dc8",
+    "rows": "0x140fa6dd0",
+    "data": "0x140fa75d0",
+    "operation": [
+      "funnel_left_5"
+    ]
+  },
+  {
+    "global_address": "0x140fb75d8",
+    "rows": "0x140fb75e0",
+    "data": "0x140fb7de0",
+    "operation": [
+      "funnel_left_6"
+    ]
+  },
+  {
+    "global_address": "0x140fc7de8",
+    "rows": "0x140fc7df0",
+    "data": "0x140fc85f0",
+    "operation": [
+      "funnel_left_7"
+    ]
+  }
+]

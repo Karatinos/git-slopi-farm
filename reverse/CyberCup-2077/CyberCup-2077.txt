@@ -1,0 +1,10 @@
+CyberCup 2077
+1000 points / 1 solvers
+reverse, windows
+Wake up, Samurai. We've got a ctf to slop.
+Flag format: ctfcup{[a-zA-Z0-9_]+}
+
+cybercup.zip
+14.6 MiB
+ctfcup{...}
+submit

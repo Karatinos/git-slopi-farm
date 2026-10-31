@@ -1,0 +1,1287 @@
+[
+  {
+    "start": "0x14124cd65",
+    "end": "0x141289b0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412505c2",
+    "end": "0x141415841",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251615",
+    "end": "0x14140cfa8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141251aa9",
+    "end": "0x1413ece5a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254d11",
+    "end": "0x1412b8007",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255080",
+    "end": "0x141433f17",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141255bb1",
+    "end": "0x14149771d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412561fa",
+    "end": "0x14127a79d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141256937",
+    "end": "0x1413f3380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141259309",
+    "end": "0x141368760",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125e433",
+    "end": "0x141392382",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14125ec77",
+    "end": "0x141290212",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141260744",
+    "end": "0x1412f3f43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141263031",
+    "end": "0x14138a04b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126448d",
+    "end": "0x141305ca0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412646ed",
+    "end": "0x14128f6ad",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412691b9",
+    "end": "0x141342ccf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141269838",
+    "end": "0x1412822de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126bc42",
+    "end": "0x141402329",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126c2ae",
+    "end": "0x1412f4f25",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126eca8",
+    "end": "0x1412c943c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14126f44d",
+    "end": "0x1413683d9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127623b",
+    "end": "0x141357d8c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141276fd2",
+    "end": "0x141439319",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141277f8a",
+    "end": "0x14146e6ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14127eda0",
+    "end": "0x141285fe0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141282327",
+    "end": "0x14129a560",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141283e72",
+    "end": "0x141251a79",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412842e9",
+    "end": "0x14135e749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128a328",
+    "end": "0x14137beb3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128ab3d",
+    "end": "0x141250510",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128bae6",
+    "end": "0x14143c506",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14128f6ee",
+    "end": "0x1412b550c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412916b0",
+    "end": "0x1414a4585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141295d06",
+    "end": "0x14145b7c2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141296c7f",
+    "end": "0x14128f0ca",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412981b4",
+    "end": "0x141358df3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8345",
+    "end": "0x1413897d8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a87e3",
+    "end": "0x141283e3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8bdf",
+    "end": "0x141275b43",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412a8ec9",
+    "end": "0x141280cf2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ab4e7",
+    "end": "0x1413cea41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412acd6e",
+    "end": "0x1412f9cf0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ad04c",
+    "end": "0x1413ca664",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b476f",
+    "end": "0x1412e45d0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b4d6f",
+    "end": "0x141371aa9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b5593",
+    "end": "0x141309dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b70a2",
+    "end": "0x1412fc07e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412b8efc",
+    "end": "0x14142c346",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412be8be",
+    "end": "0x1412da3d1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c42c6",
+    "end": "0x1414431b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412c950a",
+    "end": "0x1414a9c3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ca3fe",
+    "end": "0x1413c8deb",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412cc8b7",
+    "end": "0x141296c34",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ce9f6",
+    "end": "0x1413bd18c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d17f6",
+    "end": "0x14137fd7a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d2373",
+    "end": "0x1413fac68",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d25d3",
+    "end": "0x14146cf13",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412d5aac",
+    "end": "0x141470520",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412dc3b3",
+    "end": "0x141294402",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0a84",
+    "end": "0x1413411b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e0f84",
+    "end": "0x14148025b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e1caa",
+    "end": "0x14129fe3e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e2831",
+    "end": "0x1412d17c4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e37c5",
+    "end": "0x141307e26",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412e3a07",
+    "end": "0x1413022f6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ea099",
+    "end": "0x1413c632d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412ee64b",
+    "end": "0x1412c4f21",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412efd24",
+    "end": "0x14140d2b1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f208a",
+    "end": "0x1412b59b8",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f4fbc",
+    "end": "0x14134becd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f6474",
+    "end": "0x1414765cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412f9dec",
+    "end": "0x141399175",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fcc09",
+    "end": "0x141406f80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1412fce16",
+    "end": "0x14146a98d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141300201",
+    "end": "0x1413bc680",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130062d",
+    "end": "0x1412561a2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413007dd",
+    "end": "0x1412fd5cf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413014bb",
+    "end": "0x1413d31bf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141301781",
+    "end": "0x14146f462",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141304651",
+    "end": "0x14133675a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141305d00",
+    "end": "0x1412fa1a3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141307eca",
+    "end": "0x1412b7015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130c2c7",
+    "end": "0x1413eb093",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14130ec54",
+    "end": "0x141276f7f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131be11",
+    "end": "0x141301758",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14131c459",
+    "end": "0x14126cad7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141321bd1",
+    "end": "0x1412cc871",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141323a86",
+    "end": "0x1413089e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141324c65",
+    "end": "0x1414888e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14132c2cf",
+    "end": "0x1412521a7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141330473",
+    "end": "0x1412e8e37",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141331245",
+    "end": "0x1412e80df",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413367e8",
+    "end": "0x14128198d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141350259",
+    "end": "0x1412842b3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135203a",
+    "end": "0x141452bc3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141358e74",
+    "end": "0x141455f88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14135e784",
+    "end": "0x1413fd6d7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413615a5",
+    "end": "0x14132e60e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141362ba1",
+    "end": "0x14131e427",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141365ba8",
+    "end": "0x1412de97a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413667d2",
+    "end": "0x1413cda28",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368402",
+    "end": "0x14140b985",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141368783",
+    "end": "0x1414a0ef9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136b81d",
+    "end": "0x141477d46",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136cfdd",
+    "end": "0x141304570",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14136fd70",
+    "end": "0x141457949",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413762af",
+    "end": "0x14128c69c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141376f77",
+    "end": "0x14131ad80",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413772fa",
+    "end": "0x14144a950",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137afe9",
+    "end": "0x1412ebf82",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14137e9e7",
+    "end": "0x141303f58",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141382231",
+    "end": "0x141467527",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141389815",
+    "end": "0x14146cab2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138abcb",
+    "end": "0x1412d207c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14138cee5",
+    "end": "0x141378769",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141399201",
+    "end": "0x141467857",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a1fb9",
+    "end": "0x1414a2e8a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a22bc",
+    "end": "0x1414449fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a5f9a",
+    "end": "0x1413034d6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413a729d",
+    "end": "0x141299443",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413b563f",
+    "end": "0x14136fbc1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bbe9f",
+    "end": "0x141294dde",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bc713",
+    "end": "0x14133044a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413bd217",
+    "end": "0x1412e0179",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c0499",
+    "end": "0x14145002b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c29f9",
+    "end": "0x141412dda",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c309e",
+    "end": "0x1413a9021",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413c8e1c",
+    "end": "0x1413ff44e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ca7c7",
+    "end": "0x1412606ce",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413cd3bb",
+    "end": "0x1413cd713",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d3226",
+    "end": "0x14143b4a0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413d4def",
+    "end": "0x141315c67",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413dac88",
+    "end": "0x141376f41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ec58f",
+    "end": "0x141307400",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f2120",
+    "end": "0x1412a8734",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413f33f7",
+    "end": "0x14132d6cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413fc40c",
+    "end": "0x14126d6d3",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1413ffcd8",
+    "end": "0x1413f0ce9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414023a4",
+    "end": "0x141297d0a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414085ce",
+    "end": "0x141432097",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140b9a9",
+    "end": "0x1413b19a6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14140d2f7",
+    "end": "0x141295ad1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141410fe9",
+    "end": "0x14136b7ed",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141412e01",
+    "end": "0x14138a14d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141413d91",
+    "end": "0x141293d32",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141521f",
+    "end": "0x141414dbd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14141a499",
+    "end": "0x14144203f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414223b7",
+    "end": "0x1413680b9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141425cc7",
+    "end": "0x1413a2a83",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141427899",
+    "end": "0x141255b88",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141428a4c",
+    "end": "0x14142e7b4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14142c3cf",
+    "end": "0x1412740cd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14143b4f2",
+    "end": "0x1414a0db6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414405c3",
+    "end": "0x1414a3f1f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141444a21",
+    "end": "0x141433a8d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14144c144",
+    "end": "0x14125a485",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145152f",
+    "end": "0x141324b9d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141455fbd",
+    "end": "0x1412ec35d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141456489",
+    "end": "0x141304baa",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14145aee9",
+    "end": "0x14127f06d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141462d1a",
+    "end": "0x14127ec87",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141464cca",
+    "end": "0x1413e731e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414675ad",
+    "end": "0x1413a1040",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146787c",
+    "end": "0x14149e0c7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14146a9c9",
+    "end": "0x1412663fc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141470168",
+    "end": "0x1412efcee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147559d",
+    "end": "0x14142785a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141476600",
+    "end": "0x1412f537b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414783c8",
+    "end": "0x1412d0cd6",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14147c09b",
+    "end": "0x14137d905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141487ba6",
+    "end": "0x141425c23",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148ad01",
+    "end": "0x14131b7e1",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14148c717",
+    "end": "0x141323a65",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499597",
+    "end": "0x14128ebfd",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141499c3f",
+    "end": "0x1412643f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149a6b5",
+    "end": "0x1412ce359",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14149eeb8",
+    "end": "0x141469599",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414a9c6c",
+    "end": "0x14141f3de",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1414abb70",
+    "end": "0x14132f467",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14160fa0a",
+    "end": "0x14160fc00",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141610e1f",
+    "end": "0x141611015",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416121fc",
+    "end": "0x1416123f2",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141612b79",
+    "end": "0x141612d6f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141613475",
+    "end": "0x14161366b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416136a1",
+    "end": "0x1416138fe",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161394a",
+    "end": "0x141613ba7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161418a",
+    "end": "0x141614380",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614447",
+    "end": "0x14161463d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416146a7",
+    "end": "0x14161489d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614920",
+    "end": "0x141614b16",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614b4b",
+    "end": "0x141614d41",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141614e30",
+    "end": "0x14161508d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615180",
+    "end": "0x1416153dc",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615612",
+    "end": "0x141615808",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615843",
+    "end": "0x141615aa0",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615ae0",
+    "end": "0x141615d3c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141615e7c",
+    "end": "0x141616072",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416160a7",
+    "end": "0x141616304",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616340",
+    "end": "0x14161659c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616640",
+    "end": "0x141616836",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616872",
+    "end": "0x141616acf",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616b14",
+    "end": "0x141616d70",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141616dc4",
+    "end": "0x141616fba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617006",
+    "end": "0x141617263",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416172ae",
+    "end": "0x1416174a4",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416174ec",
+    "end": "0x141617749",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141617792",
+    "end": "0x1416179ee",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618079",
+    "end": "0x14161826f",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141618386",
+    "end": "0x14161857c",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d3c4",
+    "end": "0x14161d5ba",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d65a",
+    "end": "0x14161d8b7",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14161d9aa",
+    "end": "0x14161dc06",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625b38",
+    "end": "0x141625d2e",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141625def",
+    "end": "0x141625fe5",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416260a5",
+    "end": "0x14162629b",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141626357",
+    "end": "0x14162654d",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141640ba2",
+    "end": "0x141640d98",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416436e4",
+    "end": "0x1416438da",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141657563",
+    "end": "0x141657759",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14165838f",
+    "end": "0x141658585",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x1416613f3",
+    "end": "0x1416615e9",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141668ea3",
+    "end": "0x141669099",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166970f",
+    "end": "0x141669905",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x14166fe94",
+    "end": "0x14167008a",
+    "description": "skip inert register-preserving CPUID/capability guard"
+  },
+  {
+    "start": "0x141254cbc",
+    "end": "0x141254d07",
+    "description": "logical immediate 2 dwordGPR11, 0xcfce63f7"
+  },
+  {
+    "start": "0x14126469b",
+    "end": "0x1412646e6",
+    "description": "logical immediate 2 dwordGPR11, 0x1a8aa199"
+  },
+  {
+    "start": "0x14126bbf4",
+    "end": "0x14126bc3f",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x14129165c",
+    "end": "0x1412916a7",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1412acd17",
+    "end": "0x1412acd62",
+    "description": "logical0xca000000 dwordGPR9, dwordGPR9"
+  },
+  {
+    "start": "0x1412b4715",
+    "end": "0x1412b4760",
+    "description": "logical immediate 2 dwordGPR11, 0xc15fda8e"
+  },
+  {
+    "start": "0x1412c94a0",
+    "end": "0x1412c94eb",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1412f9d8e",
+    "end": "0x1412f9dd9",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1413005d8",
+    "end": "0x141300623",
+    "description": "logical immediate 2 dwordGPR11, 0x0"
+  },
+  {
+    "start": "0x141307e26",
+    "end": "0x141307e71",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x14130c278",
+    "end": "0x14130c2c3",
+    "description": "mov dwordGPR9, 0x0"
+  },
+  {
+    "start": "0x1413411b1",
+    "end": "0x1413411fc",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x141349160",
+    "end": "0x1413491ab",
+    "description": "mov dwordGPR9, 0x0"
+  },
+  {
+    "start": "0x1413501fc",
+    "end": "0x141350247",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1413d91ec",
+    "end": "0x1413d9237",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x1413f20b4",
+    "end": "0x1413f20ff",
+    "description": "logical0xca000000 dwordGPR9, dwordGPR9"
+  },
+  {
+    "start": "0x141410f94",
+    "end": "0x141410fdf",
+    "description": "logical immediate 2 dwordGPR11, 0x0"
+  },
+  {
+    "start": "0x141470520",
+    "end": "0x14147056b",
+    "description": "logical0xca000000 dwordGPR9, dwordGPR9"
+  },
+  {
+    "start": "0x14149f154",
+    "end": "0x14149f19f",
+    "description": "logical0xca000000 dwordGPR11, dwordGPR9"
+  },
+  {
+    "start": "0x141614135",
+    "end": "0x141614180",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141614384",
+    "end": "0x1416143cf",
+    "description": "logical0x8a000000 dwordGPR3, dwordGPR7"
+  },
+  {
+    "start": "0x1416143f3",
+    "end": "0x14161443e",
+    "description": "logical0xca000000 dwordGPR3, dwordGPR5"
+  },
+  {
+    "start": "0x141614657",
+    "end": "0x1416146a2",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x1416148c6",
+    "end": "0x141614911",
+    "description": "mov dwordGPR0, dwordGPR7"
+  },
+  {
+    "start": "0x141625ae7",
+    "end": "0x141625b32",
+    "description": "mov dwordGPR0, 0x9a516e27"
+  },
+  {
+    "start": "0x141625d34",
+    "end": "0x141625d7f",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141625d94",
+    "end": "0x141625ddf",
+    "description": "mov dwordGPR0, 0x52dab981"
+  },
+  {
+    "start": "0x141625fe7",
+    "end": "0x141626032",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x14162604c",
+    "end": "0x141626097",
+    "description": "mov dwordGPR0, 0xc47139ab"
+  },
+  {
+    "start": "0x1416262a0",
+    "end": "0x1416262eb",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  },
+  {
+    "start": "0x141626304",
+    "end": "0x14162634f",
+    "description": "mov dwordGPR0, 0x713ec0d5"
+  },
+  {
+    "start": "0x141626552",
+    "end": "0x14162659d",
+    "description": "logical0xca000000 dwordGPR7, dwordGPR6"
+  }
+]

@@ -1,0 +1,253 @@
+{
+  "environment": {
+    "pid": 0,
+    "gs_base": "0x7ff00000",
+    "peb": "0x7ff01000",
+    "imagebase": "0x140000000",
+    "ldr": "0x7ff02000",
+    "heap": "0x30000000",
+    "shared_userdata_fields": 0
+  },
+  "thunks": [
+    {
+      "start": "0x141613c07",
+      "end": "0x141613dd5",
+      "writes": [
+        "qword ptr [rsp + 0x20], r11"
+      ],
+      "constant_outputs": {
+        "rdx": "0x4d5"
+      }
+    },
+    {
+      "start": "0x141613dde",
+      "end": "0x141613e69",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x4da"
+      }
+    },
+    {
+      "start": "0x141613ea2",
+      "end": "0x141613f31",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x8"
+      }
+    },
+    {
+      "start": "0x141613f4c",
+      "end": "0x141613fde",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x4"
+      }
+    },
+    {
+      "start": "0x141615423",
+      "end": "0x1416155ef",
+      "writes": [
+        "qword ptr [rsp + 0x20], r11"
+      ],
+      "constant_outputs": {
+        "rdx": "0x4f9"
+      }
+    },
+    {
+      "start": "0x14161e71b",
+      "end": "0x14161e7e4",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0x58c"
+      }
+    },
+    {
+      "start": "0x14161eef5",
+      "end": "0x14161efa7",
+      "writes": [
+        "qword ptr [rsp + 0x30], r11"
+      ],
+      "constant_outputs": {
+        "rbx": "0x7fffffff"
+      }
+    },
+    {
+      "start": "0x14161f754",
+      "end": "0x14161f81e",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x3b9aca00"
+      }
+    },
+    {
+      "start": "0x1416200a9",
+      "end": "0x141620158",
+      "writes": [
+        "qword ptr [rsp + 0x28], r11"
+      ],
+      "constant_outputs": {
+        "rcx": "0x1"
+      }
+    },
+    {
+      "start": "0x141620162",
+      "end": "0x141620224",
+      "writes": [
+        "qword ptr [rsp + 0x38], r11"
+      ],
+      "constant_outputs": {
+        "rax": "0x1"
+      }
+    },
+    {
+      "start": "0x1416202e4",
+      "end": "0x1416203b2",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0xbe"
+      }
+    },
+    {
+      "start": "0x141620941",
+      "end": "0x1416209e9",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0x41a"
+      }
+    },
+    {
+      "start": "0x141620a0f",
+      "end": "0x141620ac4",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0xa8"
+      }
+    },
+    {
+      "start": "0x141620ad0",
+      "end": "0x141620b82",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0xc8"
+      }
+    },
+    {
+      "start": "0x141620bb7",
+      "end": "0x141620c61",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0xc8"
+      }
+    },
+    {
+      "start": "0x141620cd6",
+      "end": "0x141620da4",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0xc8"
+      }
+    },
+    {
+      "start": "0x141640e4c",
+      "end": "0x141640f0f",
+      "writes": [
+        "qword ptr [rsp + 0x28], r11"
+      ],
+      "constant_outputs": {
+        "rcx": "0x4da"
+      }
+    },
+    {
+      "start": "0x1416410c6",
+      "end": "0x141641196",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x3b9aca00"
+      }
+    },
+    {
+      "start": "0x1416423bc",
+      "end": "0x14164246e",
+      "writes": [
+        "qword ptr [rsp + 0x38], r11"
+      ],
+      "constant_outputs": {
+        "rax": "0x0"
+      }
+    },
+    {
+      "start": "0x141642c6e",
+      "end": "0x141642d20",
+      "writes": [
+        "qword ptr [rsp + 0x28], r11"
+      ],
+      "constant_outputs": {
+        "rcx": "0x10"
+      }
+    },
+    {
+      "start": "0x141643a6c",
+      "end": "0x141643b1a",
+      "writes": [
+        "qword ptr [rsp + 0x10], r11"
+      ],
+      "constant_outputs": {
+        "r9": "0x3b9aced2"
+      }
+    },
+    {
+      "start": "0x141643d03",
+      "end": "0x141643dd3",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0x13c"
+      }
+    },
+    {
+      "start": "0x141643fc3",
+      "end": "0x141644096",
+      "writes": [
+        "qword ptr [rsp + 0x18], r11"
+      ],
+      "constant_outputs": {
+        "r8": "0x3b9aca00"
+      }
+    },
+    {
+      "start": "0x141658f5b",
+      "end": "0x141659003",
+      "writes": [
+        "qword ptr [rsp + 0x20], r11"
+      ],
+      "constant_outputs": {
+        "rdx": "0x4fc"
+      }
+    }
+  ]
+}

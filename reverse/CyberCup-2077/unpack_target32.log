@@ -1,0 +1,66 @@
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x6bd07c87'), ('RDX', '0x1414ac815'), ('RSI', '0x10fef510'), ('RDI', '0x6378'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1414ac815'), ('R12', '0xedfa'), ('R13', '0x40776378'), ('R14', '0x4f5c'), ('R15', '0x7580794a')]
+PATCH 1 0x1414ac815 4 2e4a114d 0x6bd07c87
+JUMP 20316 ->60627 ['0x10fef3e8', '0x10fef540']
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x7e692b91'), ('RDX', '0x14166fea2'), ('RSI', '0x10fef510'), ('RDI', '0x1f64'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x14166fea2'), ('R12', '0xedfa'), ('R13', '0xe5f21f64'), ('R14', '0xecd4'), ('R15', '0x7580794a')]
+PATCH 2 0x14166fea2 4 40652e4a 0x7e692b91
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x882db17b'), ('RDX', '0x14166feab'), ('RSI', '0x10fef510'), ('RDI', '0x107b'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x14166feab'), ('R12', '0xedfa'), ('R13', '0x7294107b'), ('R14', '0xecd5'), ('R15', '0x7580794a')]
+PATCH 3 0x14166feab 4 d014542a 0x882db17b
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0xcf314219'), ('RDX', '0x14166feb7'), ('RSI', '0x10fef510'), ('RDI', '0x8f41'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x14166feb7'), ('R12', '0xedfa'), ('R13', '0xcb868f41'), ('R14', '0xecd6'), ('R15', '0x7580794a')]
+PATCH 4 0x14166feb7 4 7a242275 0xcf314219
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0xb35b2604'), ('RDX', '0x14166fec2'), ('RSI', '0x10fef510'), ('RDI', '0xd201'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x14166fec2'), ('R12', '0xedfa'), ('R13', '0x84c2d201'), ('R14', '0xecd7'), ('R15', '0x7580794a')]
+PATCH 5 0x14166fec2 4 4c381738 0xb35b2604
+PATCH 6 0x14166fecc 4 cc629d12 0xe3b3255
+PATCH 7 0x14166fed4 4 ce28fd14 0x8b9f7f51
+PATCH 8 0x14166fee2 4 16250b14 0xbb2bcf52
+PATCH 9 0x14166feed 4 dd51017f 0xb267c69f
+PATCH 10 0x14166fefa 4 b66f6471 0x13021557
+PATCH 11 0x14166ff06 4 677ce948 0xd0aff1ef
+PATCH 12 0x14166ff12 4 ac01b807 0xbe640b63
+PATCH 13 0x14166ff1a 4 0603794d 0x586c775b
+PATCH 14 0x14166ff24 4 fc4a0c46 0x78aaa592
+PATCH 15 0x14166ff2c 4 811be622 0x7c04a86b
+PATCH 16 0x14166ff47 4 5422641c 0x1be4f862
+PATCH 17 0x14166ff4c 4 96598e22 0xc72d2fba
+PATCH 18 0x14166ff53 4 ef7d2161 0x86dd904d
+PATCH 19 0x14166ff5f 4 f74ee518 0x192cb229
+PATCH 20 0x14166ff75 4 b9338d20 0x10392cae
+PATCH 21 0x14166ff80 4 926cb331 0xb9783c60
+PATCH 22 0x14166ff8a 4 b404b50a 0x4eb774f9
+PATCH 23 0x14166ff92 4 15097d74 0xdf2b574b
+PATCH 24 0x14166ffaa 4 9a777773 0xf7707b10
+PATCH 25 0x14166ffaf 4 b2304065 0x6f85e029
+PATCH 26 0x14166ffb6 4 c446db18 0xf7693694
+PATCH 27 0x14166ffc2 4 2022661d 0x468ece1f
+PATCH 28 0x14166ffce 4 4a65a723 0xa74241cb
+PATCH 29 0x14166ffd6 4 e21cf270 0x5a5fa124
+PATCH 30 0x14166ffe0 4 6c5f2d16 0xdef34dd8
+PATCH 31 0x14166ffe8 4 cb64fe73 0xad55093e
+PATCH 32 0x141670016 4 311a681d 0xe2de9bcc
+PATCH 33 0x14167002a 4 c21e6774 0xf4cc05fa
+PATCH 34 0x14167003e 4 4d364778 0xb28dbdeb
+PATCH 35 0x141670052 4 c36ac73b 0x2d4ae7dc
+PATCH 36 0x141670061 4 481a4969 0xb0223ed6
+PATCH 37 0x14167006b 4 265fa32d 0xd3489690
+PATCH 38 0x141670073 4 dd674a66 0xbc4e13c7
+PATCH 39 0x141670097 4 2449e615 0x9f935ea6
+PATCH 40 0x14167009c 4 a1609d7a 0x3f118c19
+API GetCurrentProcess 0x0 0x0 0x10fef5a0 0x1bcaa764d
+API FlushInstructionCache 0xffffffffffffffff 0x0 0x0 0x1435f4c86
+UNKNOWN API FlushInstructionCache
+TIME 6.541909217834473 RIP 0x70000290 BLOCKS []
+RAX 0x70000290
+RBX 0x0
+RCX 0xffffffffffffffff
+RDX 0x0
+RSI 0x142525d33
+RDI 0xfffffffffff61605
+RBP 0x10fef588
+RSP 0x10fef348
+R8 0x0
+R9 0x1435f4c86
+R10 0x3
+R11 0x1423c2334
+R12 0xedfa
+R13 0xf254c26c
+R14 0xedf9
+R15 0x9910b675

@@ -1,0 +1,380 @@
+LZMA 0x14209ff97 -> 0x140001000 used 0x295610 out 0x6e2e00
+LZMA 0x141a02101 -> 0x1406e4000 used 0x684f21 out 0xb2ae00
+LZMA 0x141731391 -> 0x14120f000 used 0x198 out 0xc00
+LZMA 0x142432320 -> 0x141219000 used 0x30af5 out 0x31400
+LZMA 0x141734d0f -> 0x14124b000 used 0x2c7bf2 out 0x425200
+API LocalFree 0x30011000 0x8 0x1423dc46d 0x700001b0
+API GetModuleHandleA 0x10fef598 0x206fd100 0x10fef5a4 0x13135d4c4
+DLL KERNEL32.dll
+RESOLVE GetProcessHeap 0x1423f91c5 0x10fef501
+RESOLVE HeapFree 0x1423fa366 0x10fef501
+RESOLVE HeapReAlloc 0x1423ff442 0x10fef501
+RESOLVE GetLastError 0x142426c68 0x10fef501
+RESOLVE GlobalUnlock 0x14241d5c8 0x10fef501
+RESOLVE MultiByteToWideChar 0x142418214 0x10fef501
+RESOLVE GlobalAlloc 0x1423501a4 0x10fef501
+RESOLVE GlobalLock 0x14240c4c9 0x10fef501
+RESOLVE GlobalFree 0x1423dc389 0x10fef501
+RESOLVE GetCurrentThread 0x1423d135f 0x10fef501
+RESOLVE FreeLibrary 0x1423d960d 0x10fef501
+RESOLVE SetThreadErrorMode 0x14208ef04 0x10fef501
+RESOLVE LoadLibraryExW 0x14209528e 0x10fef501
+RESOLVE GetProcAddress 0x14208e708 0x10fef501
+RESOLVE GlobalSize 0x14172b2fb 0x10fef501
+RESOLVE WideCharToMultiByte 0x1423b0ed1 0x10fef501
+RESOLVE SwitchToThread 0x1423d863d 0x10fef501
+RESOLVE QueryPerformanceCounter 0x142351123 0x10fef501
+RESOLVE CloseHandle 0x1419fcf73 0x10fef501
+RESOLVE SetEvent 0x1423f5588 0x10fef501
+RESOLVE CreateEventW 0x14235ce39 0x10fef501
+RESOLVE CreateEventA 0x142350369 0x10fef501
+RESOLVE WaitForMultipleObjectsEx 0x1423429e4 0x10fef501
+RESOLVE GetModuleHandleW 0x14242effb 0x10fef501
+RESOLVE VirtualProtect 0x14235a5a1 0x10fef501
+RESOLVE GetCurrentProcess 0x142342447 0x10fef501
+RESOLVE CheckRemoteDebuggerPresent 0x1423cebbe 0x10fef501
+RESOLVE IsDebuggerPresent 0x1423c5e9f 0x10fef501
+RESOLVE VirtualQuery 0x1423c5adb 0x10fef501
+RESOLVE GetTickCount64 0x1424038c7 0x10fef501
+RESOLVE CreateToolhelp32Snapshot 0x142421509 0x10fef501
+RESOLVE Process32FirstW 0x1420877e4 0x10fef501
+RESOLVE Process32NextW 0x14242fe7a 0x10fef501
+RESOLVE GetCurrentProcessId 0x1423f5b28 0x10fef501
+RESOLVE GetCurrentThreadId 0x1423c6cdc 0x10fef501
+RESOLVE FormatMessageW 0x14172b2ec 0x10fef501
+RESOLVE Sleep 0x14172649a 0x10fef501
+RESOLVE GetModuleHandleA 0x142349cb8 0x10fef501
+RESOLVE QueryPerformanceFrequency 0x142088b92 0x10fef501
+RESOLVE CompareStringOrdinal 0x1423437e2 0x10fef501
+RESOLVE AddVectoredExceptionHandler 0x1423f9b66 0x10fef501
+RESOLVE SetThreadStackGuarantee 0x14241d5d6 0x10fef501
+RESOLVE CreateWaitableTimerExW 0x1423ff44e 0x10fef501
+RESOLVE SetWaitableTimer 0x14208cc4b 0x10fef501
+RESOLVE WaitForSingleObject 0x142410f76 0x10fef501
+RESOLVE RtlCaptureContext 0x142098a02 0x10fef501
+RESOLVE RtlLookupFunctionEntry 0x141726c7d 0x10fef501
+RESOLVE RtlVirtualUnwind 0x1423aee47 0x10fef501
+RESOLVE SetLastError 0x14172ffdc 0x10fef501
+RESOLVE GetCurrentDirectoryW 0x14172c69e 0x10fef501
+RESOLVE GetEnvironmentVariableW 0x1423c16f1 0x10fef501
+RESOLVE WriteFileEx 0x1423437d6 0x10fef501
+RESOLVE SleepEx 0x142403f24 0x10fef501
+RESOLVE ReadFileEx 0x1423f4cfd 0x10fef501
+RESOLVE GetEnvironmentStringsW 0x1423b3a1a 0x10fef501
+RESOLVE FreeEnvironmentStringsW 0x142463e99 0x10fef501
+RESOLVE lstrlenW 0x142420651 0x10fef501
+RESOLVE ExitProcess 0x1423411cd 0x10fef501
+RESOLVE CreateNamedPipeW 0x14241912d 0x10fef501
+RESOLVE CreateThread 0x1423c3b65 0x10fef501
+RESOLVE GetFullPathNameW 0x1423b14dc 0x10fef501
+RESOLVE HeapAlloc 0x1423b40d3 0x10fef501
+RESOLVE CreateFileW 0x1420985b8 0x10fef501
+RESOLVE SetFileInformationByHandle 0x142412605 0x10fef501
+RESOLVE GetFileInformationByHandle 0x14235c423 0x10fef501
+RESOLVE GetFileInformationByHandleEx 0x142087022 0x10fef501
+RESOLVE FindFirstFileExW 0x14235bfd6 0x10fef501
+RESOLVE FindClose 0x141726c60 0x10fef501
+RESOLVE GetSystemDirectoryW 0x142414283 0x10fef501
+RESOLVE GetModuleFileNameW 0x142424057 0x10fef501
+RESOLVE GetWindowsDirectoryW 0x1423afbf7 0x10fef501
+RESOLVE CreateProcessW 0x14208f258 0x10fef501
+RESOLVE GetFileAttributesW 0x142346a72 0x10fef501
+RESOLVE DuplicateHandle 0x1423f425a 0x10fef501
+RESOLVE GetStdHandle 0x14235d4ce 0x10fef501
+RESOLVE GetConsoleMode 0x1420902d4 0x10fef501
+RESOLVE GetConsoleOutputCP 0x141725118 0x10fef501
+RESOLVE WriteConsoleW 0x1423463eb 0x10fef501
+RESOLVE WaitForSingleObjectEx 0x1423f09a3 0x10fef501
+RESOLVE LoadLibraryA 0x1423f5b11 0x10fef501
+RESOLVE CreateMutexA 0x1423b0576 0x10fef501
+RESOLVE ReleaseMutex 0x1423c7808 0x10fef501
+RESOLVE RemoveVectoredExceptionHandler 0x14242fe9d 0x10fef501
+RESOLVE LoadLibraryExA 0x14234ca30 0x10fef501
+RESOLVE IsProcessorFeaturePresent 0x142343fea 0x10fef501
+RESOLVE SetUnhandledExceptionFilter 0x141726070 0x10fef501
+RESOLVE UnhandledExceptionFilter 0x14235a0d3 0x10fef501
+RESOLVE InitializeSListHead 0x1423e3089 0x10fef501
+RESOLVE GetSystemTimeAsFileTime 0x142407af0 0x10fef501
+RESOLVE TerminateProcess 0x1423e4b5c 0x10fef501
+API GetModuleHandleA 0x10fef598 0x440dfa00 0x10fef5a1 0x13135dd07
+DLL ntdll.dll
+RESOLVE NtWriteFile 0x14242a03a 0x10fef501
+RESOLVE NtQueryInformationProcess 0x1423abea4 0x10fef501
+RESOLVE RtlNtStatusToDosError 0x142429ba1 0x10fef501
+API GetModuleHandleA 0x10fef598 0x206fd100 0x10fef5a4 0x131474919
+DLL advapi32.dll
+RESOLVE ImpersonateAnonymousToken 0x14240f3b0 0x10fef501
+RESOLVE RevertToSelf 0x142408458 0x10fef501
+API GetModuleHandleA 0x10fef598 0x440dfa00 0x10fef5a1 0x1313d9323
+DLL ole32.dll
+RESOLVE OleInitialize 0x142419ad7 0x10fef501
+RESOLVE PropVariantClear 0x1423f130a 0x10fef501
+RESOLVE RegisterDragDrop 0x142358329 0x10fef501
+RESOLVE StringFromIID 0x1423d51a4 0x10fef501
+RESOLVE CoUninitialize 0x1423ae4ab 0x10fef501
+RESOLVE CoCreateInstance 0x142352300 0x10fef501
+RESOLVE CoInitializeEx 0x14240f3a1 0x10fef501
+RESOLVE RevokeDragDrop 0x14242fec6 0x10fef501
+API GetModuleHandleA 0x10fef598 0x17a20600 0x10fef5b8 0x13141deba
+DLL api-ms-win-core-synch-l1-2-0.dll
+RESOLVE WaitOnAddress 0x1423ac63e 0x10fef501
+RESOLVE WakeByAddressAll 0x1423429d3 0x10fef501
+RESOLVE WakeByAddressSingle 0x1423f048d 0x10fef501
+API GetModuleHandleA 0x10fef598 0x206fd100 0x10fef5a4 0x1313f3ad1
+DLL oleaut32.dll
+RESOLVE SysFreeString 0x1423d1351 0x10fef501
+RESOLVE SysStringLen 0x14240475c 0x10fef501
+RESOLVE GetErrorInfo 0x142415c18 0x10fef501
+API GetModuleHandleA 0x10fef598 0x206fd100 0x10fef5a4 0x1313f3ae4
+DLL mmdevapi.dll
+RESOLVE ActivateAudioInterfaceAsync 0x1423d0d20 0x10fef501
+API GetModuleHandleA 0x10fef598 0x1037e800 0x10fef5a3 0x130745329
+DLL combase.dll
+RESOLVE CoCreateFreeThreadedMarshaler 0x1423d6dd3 0x10fef501
+RESOLVE CoTaskMemFree 0x14209783d 0x10fef501
+API GetModuleHandleA 0x10fef598 0x1037e800 0x10fef5a3 0x1313d2171
+DLL shlwapi.dll
+RESOLVE AssocQueryStringW 0x1423d78e2 0x10fef501
+API GetModuleHandleA 0x10fef598 0x1037e800 0x10fef5a3 0x131425c82
+DLL shell32.dll
+RESOLVE DragQueryFileW 0x1423bb243 0x10fef501
+RESOLVE DragFinish 0x14240f396 0x10fef501
+API GetModuleHandleA 0x10fef598 0xe881bf00 0x10fef5be 0x13134600f
+DLL api-ms-win-core-winrt-error-l1-1-0.dll
+RESOLVE RoOriginateErrorW 0x1423bbceb 0x10fef501
+API GetModuleHandleA 0x10fef598 0x881bf400 0x10fef5a2 0x1313c5272
+DLL user32.dll
+RESOLVE MonitorFromPoint 0x14242cc9c 0x10fef501
+RESOLVE ChangeDisplaySettingsExW 0x14240ef99 0x10fef501
+RESOLVE MonitorFromWindow 0x1423510eb 0x10fef501
+RESOLVE ClientToScreen 0x1423bf9c8 0x10fef501
+RESOLVE RegisterClipboardFormatW 0x142346a85 0x10fef501
+RESOLVE GetDC 0x1419fd3b4 0x10fef501
+RESOLVE GetClipboardData 0x1423c8229 0x10fef501
+RESOLVE EnumDisplayMonitors 0x14233f2da 0x10fef501
+RESOLVE IsClipboardFormatAvailable 0x1423e309d 0x10fef501
+RESOLVE CloseClipboard 0x1424630d4 0x10fef501
+RESOLVE SetClipboardData 0x1423dc35c 0x10fef501
+RESOLVE ScreenToClient 0x142343bed 0x10fef501
+RESOLVE MonitorFromRect 0x1424064c0 0x10fef501
+RESOLVE ValidateRect 0x141730b13 0x10fef501
+RESOLVE OpenClipboard 0x14234c89e 0x10fef501
+RESOLVE RedrawWindow 0x14209b07b 0x10fef501
+RESOLVE InvalidateRgn 0x14172eed1 0x10fef501
+RESOLVE GetMonitorInfoW 0x1423ad931 0x10fef501
+RESOLVE EmptyClipboard 0x14235f091 0x10fef501
+API GetModuleHandleA 0x10fef598 0x440dfa00 0x10fef5a1 0x1313d6a43
+DLL gdi32.dll
+RESOLVE DeleteObject 0x1423d06ab 0x10fef501
+RESOLVE GetDeviceCaps 0x142343bdf 0x10fef501
+RESOLVE CreateRectRgn 0x1420889ed 0x10fef501
+API GetModuleHandleA 0x10fef598 0x6fd17a00 0x10fef5ac 0x13143d6ef
+DLL bcryptprimitives.dll
+RESOLVE ProcessPrng 0x14242b8ac 0x10fef501
+API GetModuleHandleA 0x10fef598 0x881bf400 0x10fef5a2 0x1313e90b4
+DLL USER32.dll
+RESOLVE AdjustWindowRectEx 0x1423f7455 0x10fef501
+RESOLVE ShowCursor 0x1423de1f2 0x10fef501
+RESOLVE ClipCursor 0x14172fa3e 0x10fef501
+RESOLVE GetClipCursor 0x1423c4090 0x10fef501
+RESOLVE SystemParametersInfoA 0x1423cd1c5 0x10fef501
+RESOLVE GetWindowLongW 0x1423e73f7 0x10fef501
+RESOLVE EnableMenuItem 0x142415d2b 0x10fef501
+RESOLVE GetSystemMenu 0x1423b2309 0x10fef501
+RESOLVE SetWindowLongW 0x1423f424b 0x10fef501
+RESOLVE ShowWindow 0x1423e5902 0x10fef501
+RESOLVE GetWindowTextW 0x1423a9272 0x10fef501
+RESOLVE GetWindowTextLengthW 0x1423b70cc 0x10fef501
+RESOLVE ToUnicodeEx 0x14240aef3 0x10fef501
+RESOLVE GetKeyboardLayout 0x141730d6b 0x10fef501
+RESOLVE MapVirtualKeyExW 0x142403a2a 0x10fef501
+RESOLVE GetRawInputData 0x1424130e4 0x10fef501
+RESOLVE GetCursorPos 0x1419fc901 0x10fef501
+RESOLVE CloseTouchInputHandle 0x14241dd43 0x10fef501
+RESOLVE GetTouchInputInfo 0x1423f35c6 0x10fef501
+RESOLVE TrackMouseEvent 0x1423e4378 0x10fef501
+RESOLVE SetCapture 0x1423f14d8 0x10fef501
+RESOLVE ReleaseCapture 0x14208814f 0x10fef501
+RESOLVE GetMenu 0x1423463f9 0x10fef501
+RESOLVE SetWindowDisplayAffinity 0x142428d30 0x10fef501
+RESOLVE IsProcessDPIAware 0x1423b8709 0x10fef501
+RESOLVE GetAsyncKeyState 0x14242c3c2 0x10fef501
+RESOLVE GetKeyboardState 0x1423c88c5 0x10fef501
+RESOLVE RegisterTouchWindow 0x14242ff00 0x10fef501
+RESOLVE DefWindowProcW 0x142423170 0x10fef501
+RESOLVE GetKeyState 0x14172d1e0 0x10fef501
+RESOLVE CreateWindowExW 0x1423b1abd 0x10fef501
+RESOLVE RegisterClassExW 0x14208ae11 0x10fef501
+RESOLVE RegisterWindowMessageA 0x142351d44 0x10fef501
+RESOLVE MsgWaitForMultipleObjectsEx 0x14208b271 0x10fef501
+RESOLVE CreateIcon 0x1423cd1a9 0x10fef501
+RESOLVE DestroyIcon 0x14208aa4e 0x10fef501
+RESOLVE DestroyCursor 0x1423f35b8 0x10fef501
+RESOLVE SetCursorPos 0x14241f854 0x10fef501
+RESOLVE SetWindowTextW 0x14208cc67 0x10fef501
+RESOLVE GetWindowRect 0x14240f7b1 0x10fef501
+RESOLVE SetForegroundWindow 0x1423d1ac3 0x10fef501
+RESOLVE SendInput 0x1423f0051 0x10fef501
+RESOLVE MapVirtualKeyW 0x141730b04 0x10fef501
+RESOLVE GetForegroundWindow 0x1423f1a07 0x10fef501
+RESOLVE SetWindowPlacement 0x142096b06 0x10fef501
+RESOLVE GetWindowPlacement 0x14208813c 0x10fef501
+RESOLVE FlashWindowEx 0x14235006e 0x10fef501
+RESOLVE SetCursor 0x14241df82 0x10fef501
+RESOLVE LoadCursorW 0x1423f5a00 0x10fef501
+RESOLVE SendMessageW 0x1424146d5 0x10fef501
+RESOLVE GetSystemMetrics 0x14209fe90 0x10fef501
+RESOLVE GetActiveWindow 0x14172b306 0x10fef501
+RESOLVE RegisterRawInputDevices 0x141733a19 0x10fef501
+RESOLVE SetWindowLongPtrW 0x14242051a 0x10fef501
+RESOLVE CreateIconFromResourceEx 0x14209b062 0x10fef501
+RESOLVE IsIconic 0x14234d910 0x10fef501
+RESOLVE GetClientRect 0x1423f314a 0x10fef501
+RESOLVE GetWindowLongPtrW 0x14235a09f 0x10fef501
+RESOLVE DestroyWindow 0x1423f14ca 0x10fef501
+RESOLVE PostMessageW 0x1423e50c3 0x10fef501
+RESOLVE PeekMessageW 0x142404f3b 0x10fef501
+RESOLVE TranslateMessage 0x1423d34cf 0x10fef501
+RESOLVE DispatchMessageW 0x1423cd1b4 0x10fef501
+RESOLVE SetWindowPos 0x1423b4ffc 0x10fef501
+API GetModuleHandleA 0x10fef598 0x440dfa00 0x10fef5a1 0x131440df7
+DLL imm32.dll
+RESOLVE ImmGetCompositionStringW 0x1420989e9 0x10fef501
+RESOLVE ImmReleaseContext 0x142343fd8 0x10fef501
+RESOLVE ImmGetContext 0x1424321f5 0x10fef501
+RESOLVE ImmSetCompositionWindow 0x1424239c9 0x10fef501
+RESOLVE ImmSetCandidateWindow 0x14241d2a9 0x10fef501
+RESOLVE ImmAssociateContextEx 0x14233b276 0x10fef501
+API GetModuleHandleA 0x10fef598 0x1bf45e00 0x10fef5aa 0x13074131e
+DLL d3dcompiler_47.dll
+RESOLVE D3DCompile 0x1423d8e2e 0x10fef501
+API GetModuleHandleA 0x10fef598 0x1037e800 0x10fef5a3 0x1313de0b1
+DLL uxtheme.dll
+RESOLVE SetWindowTheme 0x1424125f6 0x10fef501
+API GetModuleHandleA 0x10fef598 0x881bf400 0x10fef5a2 0x13142e2b3
+DLL dwmapi.dll
+RESOLVE DwmEnableBlurBehindWindow 0x1423fb8d8 0x10fef501
+RESOLVE DwmSetWindowAttribute 0x1423dc332 0x10fef501
+API GetModuleHandleA 0x10fef598 0x6fd1700 0x10fef5a8 0x1313be388
+DLL VCRUNTIME140.dll
+RESOLVE memcpy 0x142406023 0x10fef501
+RESOLVE __current_exception_context 0x1423dc36d 0x10fef501
+RESOLVE __current_exception 0x142097d45 0x10fef501
+RESOLVE __C_specific_handler 0x1423aee32 0x10fef501
+RESOLVE _CxxThrowException 0x141726c6a 0x10fef501
+RESOLVE memset 0x14234d168 0x10fef501
+RESOLVE memcmp 0x1423492fd 0x10fef501
+RESOLVE memmove 0x14208cc43 0x10fef501
+RESOLVE __CxxFrameHandler3 0x1423dd0ff 0x10fef501
+API GetModuleHandleA 0x10fef598 0x45e88100 0x10fef5b6 0x1313e5bd0
+DLL api-ms-win-crt-math-l1-1-0.dll
+RESOLVE _hypotf 0x142408a83 0x10fef501
+RESOLVE atan2f 0x142421544 0x10fef501
+RESOLVE expf 0x14234ca69 0x10fef501
+RESOLVE fmod 0x14234476a 0x10fef501
+RESOLVE ceilf 0x14240975d 0x10fef501
+RESOLVE round 0x1423ad8e4 0x10fef501
+RESOLVE acosf 0x1423e3076 0x10fef501
+RESOLVE cbrtf 0x14208ae22 0x10fef501
+RESOLVE cosf 0x142344c60 0x10fef501
+RESOLVE __setusermatherr 0x1423d4a3e 0x10fef501
+RESOLVE powf 0x14235eab0 0x10fef501
+RESOLVE exp2f 0x14242f562 0x10fef501
+RESOLVE exp2 0x1423fff88 0x10fef501
+RESOLVE sinf 0x14242dce9 0x10fef501
+RESOLVE fma 0x1423c3b61 0x10fef501
+RESOLVE fmaf 0x1423b5009 0x10fef501
+RESOLVE pow 0x14242fe6c 0x10fef501
+RESOLVE log2 0x14208d181 0x10fef501
+RESOLVE log2f 0x142358789 0x10fef501
+RESOLVE exp 0x1424198ee 0x10fef501
+RESOLVE truncf 0x142413f61 0x10fef501
+RESOLVE floor 0x1423d801f 0x10fef501
+RESOLVE ceil 0x14240171b 0x10fef501
+RESOLVE log 0x142430327 0x10fef501
+RESOLVE logf 0x142357ce1 0x10fef501
+RESOLVE log1p 0x1424230d4 0x10fef501
+RESOLVE _hypot 0x1420949d0 0x10fef501
+RESOLVE roundf 0x142421533 0x10fef501
+RESOLVE trunc 0x14242ff14 0x10fef501
+RESOLVE log1pf 0x142357ddc 0x10fef501
+RESOLVE atan 0x142430c48 0x10fef501
+RESOLVE floorf 0x1423f59de 0x10fef501
+RESOLVE rint 0x1423eba44 0x10fef501
+RESOLVE atanf 0x142407e34 0x10fef501
+RESOLVE asin 0x1423364dc 0x10fef501
+RESOLVE asinf 0x1423f5f19 0x10fef501
+RESOLVE acos 0x14208815e 0x10fef501
+RESOLVE tanh 0x1423ad952 0x10fef501
+RESOLVE tanhf 0x142407f57 0x10fef501
+RESOLVE tan 0x14242335a 0x10fef501
+RESOLVE tanf 0x1417324c8 0x10fef501
+RESOLVE sinh 0x14233ef3c 0x10fef501
+RESOLVE sinhf 0x14233d92d 0x10fef501
+RESOLVE sin 0x14209fa03 0x10fef501
+RESOLVE cosh 0x1423e2bd6 0x10fef501
+RESOLVE coshf 0x142099b92 0x10fef501
+RESOLVE cos 0x1423ec777 0x10fef501
+RESOLVE rintf 0x142347e36 0x10fef501
+RESOLVE fmodf 0x1423b0143 0x10fef501
+API GetModuleHandleA 0x10fef598 0x2f440d00 0x10fef5b9 0x1313c4b45
+DLL api-ms-win-crt-runtime-l1-1-0.dll
+RESOLVE _configure_narrow_argv 0x1423d8008 0x10fef501
+RESOLVE _initialize_narrow_environment 0x1424230a7 0x10fef501
+RESOLVE _get_initial_narrow_environment 0x14209d6c9 0x10fef501
+RESOLVE _initterm 0x141730d61 0x10fef501
+RESOLVE _initterm_e 0x14240c994 0x10fef501
+RESOLVE _set_app_type 0x14233d933 0x10fef501
+RESOLVE _exit 0x1423c88d6 0x10fef501
+RESOLVE strerror 0x1423f63a2 0x10fef501
+RESOLVE __p___argc 0x142407e29 0x10fef501
+RESOLVE __p___argv 0x14209322a 0x10fef501
+RESOLVE _cexit 0x14234c910 0x10fef501
+RESOLVE exit 0x141732939 0x10fef501
+RESOLVE _c_exit 0x14233ae3b 0x10fef501
+RESOLVE _register_thread_local_exe_atexit_callback 0x1423b35d8 0x10fef501
+RESOLVE _seh_filter_exe 0x1423437c6 0x10fef501
+RESOLVE _initialize_onexit_table 0x14233ef41 0x10fef501
+RESOLVE _register_onexit_function 0x14240259d 0x10fef501
+RESOLVE _crt_atexit 0x142430338 0x10fef501
+RESOLVE terminate 0x1423f7468 0x10fef501
+API GetModuleHandleA 0x10fef598 0x17a20600 0x10fef5b8 0x1313d8ca2
+DLL api-ms-win-crt-string-l1-1-0.dll
+RESOLVE strlen 0x14240c6d5 0x10fef501
+API GetModuleHandleA 0x10fef598 0x8bd10300 0x10fef5b7 0x131416a92
+DLL api-ms-win-crt-stdio-l1-1-0.dll
+RESOLVE _set_fmode 0x1423e8ce8 0x10fef501
+RESOLVE __p__commode 0x1423ad33a 0x10fef501
+API GetModuleHandleA 0x10fef598 0x17a20600 0x10fef5b8 0x130744ede
+DLL api-ms-win-crt-locale-l1-1-0.dll
+RESOLVE _configthreadlocale 0x14241e99f 0x10fef501
+API GetModuleHandleA 0x10fef598 0x45e88100 0x10fef5b6 0x1313d8288
+DLL api-ms-win-crt-heap-l1-1-0.dll
+RESOLVE free 0x1424038e6 0x10fef501
+RESOLVE _set_new_mode 0x14246363d 0x10fef501
+CPUID 0x4ffffffd 0xacf2077
+CPUID 0x4ffffffd 0xacf2078
+CPUID 0x4fffffff 0x4
+API GetModuleFileNameW 0x140000000 0x10feec78 0x104 0xffefee4d
+API GetModuleHandleA 0x10feead8 0x440dfa00 0x10feeae1 0x1313ceb35
+DLL ntdll.dll
+RESOLVE NtRaiseHardError 0x142421522 0x10feea01
+API NtRaiseHardError 0x50000018 0x4 0x3 0x10feec50
+UNKNOWN API NtRaiseHardError
+TIME 2.7200891971588135 RIP 0x700012e0 BLOCKS ['0x1424a5960', '0x14255fe6f', '0x142583d4b', '0x1425547bb', '0x142520156', '0x1425770f0', '0x1424a5960', '0x14255fe6f', '0x142583d4b', '0x1424bae90', '0x14258cb5e', '0x14249883f', '0x1424a5960', '0x14255fe6f', '0x142583d4b', '0x14257da15', '0x1425b706b', '0x1425b7084', '0x14257cfe6', '0x700012e0']
+RAX 0x10fef6b8
+RBX 0x10feec7e
+RCX 0x50000018
+RDX 0x4
+RSI 0x0
+RDI 0x1
+RBP 0x10feecf8
+RSP 0x10feebf0
+R8 0x3
+R9 0x10feec50
+R10 0x700012e0
+R11 0x17
+R12 0x0
+R13 0x0
+R14 0x0
+R15 0x5

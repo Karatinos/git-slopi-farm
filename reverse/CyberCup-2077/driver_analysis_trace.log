@@ -1,0 +1,5 @@
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x1a773633'), ('RDX', '0x141654e39'), ('RSI', '0x10fef510'), ('RDI', '0xcd7a'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x141654e39'), ('R12', '0xedfa'), ('R13', '0x5aafcd7a'), ('R14', '0x286f'), ('R15', '0x7580794a')]
+PATCH 1 0x141654e39 4 361a7162 0x1a773633
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x33bb52e5'), ('RDX', '0x141654e40'), ('RSI', '0x10fef510'), ('RDI', '0xc0ea'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x141654e40'), ('R12', '0xedfa'), ('R13', '0xa7b8c0ea'), ('R14', '0x2870'), ('R15', '0x7580794a')]
+PATCH 2 0x141654e40 4 7a3e600e 0x33bb52e5
+TRACE 100945 patches [('0x141654e39', 4, '0x1a773633'), ('0x141654e40', 4, '0x33bb52e5')]

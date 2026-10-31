@@ -1,0 +1,62 @@
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x2a947786'), ('RDX', '0x1412b4d67'), ('RSI', '0x10fef510'), ('RDI', '0x8442'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412b4d67'), ('R12', '0xedfa'), ('R13', '0xadf58442'), ('R14', '0x73e4'), ('R15', '0x7580794a')]
+PATCH 1 0x1412b4d67 4 1355ef3d 0x2a947786
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x4fffffff'), ('RDX', '0x1412b4d7d'), ('RSI', '0x10fef510'), ('RDI', '0xe3de'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412b4d7d'), ('R12', '0xedfa'), ('R13', '0x9a14e3de'), ('R14', '0x73e5'), ('R15', '0x7580794a')]
+PATCH 2 0x1412b4d7d 4 e3711864 0x4fffffff
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x4fffffff'), ('RDX', '0x1412b4d86'), ('RSI', '0x10fef510'), ('RDI', '0xc989'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412b4d86'), ('R12', '0xedfa'), ('R13', '0x546cc989'), ('R14', '0x73e6'), ('R15', '0x7580794a')]
+PATCH 3 0x1412b4d86 4 3b16c10c 0x4fffffff
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x706d6953'), ('RDX', '0x1412b4d92'), ('RSI', '0x10fef510'), ('RDI', '0x1235'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412b4d92'), ('R12', '0xedfa'), ('R13', '0xd6611235'), ('R14', '0x73e7'), ('R15', '0x7580794a')]
+PATCH 4 0x1412b4d92 4 d04c7102 0x706d6953
+PATCHREGS [('RAX', '0xfffffffffff6944e'), ('RBX', '0x14233badf'), ('RCX', '0x43434248'), ('RDX', '0x1412b4d9d'), ('RSI', '0x10fef510'), ('RDI', '0x55b1'), ('RBP', '0x90'), ('RSP', '0x10fef390'), ('R8', '0xfdcb3dd6'), ('R9', '0x142498230'), ('R10', '0x10fef5a8'), ('R11', '0x1412b4d9d'), ('R12', '0xedfa'), ('R13', '0xd4fc55b1'), ('R14', '0x73e8'), ('R15', '0x7580794a')]
+PATCH 5 0x1412b4d9d 4 121ed37b 0x43434248
+PATCH 6 0x1412b4da7 4 135e7d5c 0x564c4142
+PATCH 7 0x1412b4daf 4 b36ae678 0x30ff
+PATCH 8 0x1412b4dbd 4 3d64185f 0x10000
+PATCH 9 0x1412b4dc8 4 d57be171 0x4fffffff
+PATCH 10 0x1412b4dd5 4 660e8b52 0x414c4953
+PATCH 11 0x1412b4de1 4 f2376935 0x4241434b
+PATCH 12 0x1412b4ded 4 712abb5f 0x16053271
+PATCH 13 0x1412b4df5 4 a82cb341 0x43434248
+PATCH 14 0x1412b4dff 4 9208a175 0x564c4142
+PATCH 15 0x1412b4e07 4 5f2e9675 0x3000
+PATCH 16 0x1412b4e22 4 0e38fa22 0x4ffffffd
+PATCH 17 0x1412b4e27 4 2c1be557 0xacf2077
+PATCH 18 0x1412b4e2e 4 42014038 0x4ffffffd
+PATCH 19 0x1412b4e3a 4 f544fb68 0x41434631
+PATCH 20 0x1412b4e50 4 e740d845 0x8c522788
+PATCH 21 0x1412b4e5b 4 d6469732 0x43434248
+PATCH 22 0x1412b4e65 4 94088d4a 0x564c4142
+PATCH 23 0x1412b4e6d 4 c449eb09 0x3001
+PATCH 24 0x1412b4e85 4 84283d26 0x4ffffffd
+PATCH 25 0x1412b4e8a 4 707cef37 0xacf2078
+PATCH 26 0x1412b4e91 4 9a06d224 0x4ffffffd
+PATCH 27 0x1412b4e9d 4 6e42fb7b 0x41434631
+PATCH 28 0x1412b4ea9 4 a2667435 0x4a2e73da
+PATCH 29 0x1412b4eb1 4 975e951c 0x43434248
+PATCH 30 0x1412b4ebb 4 da07fe21 0x564c4142
+PATCH 31 0x1412b4ec3 4 ac1c887a 0x3030
+PATCH 32 0x1412b4ef1 4 b13bae5a 0x4fffffff
+PATCH 33 0x1413a1c84 4 3c3e365a 0x4fffffff
+PATCH 34 0x1413f4cef 4 ce59202a 0x4fffffff
+PATCH 35 0x141371a71 4 c72e2e57 0x4fffffff
+PATCH 36 0x141371a80 4 54357d65 0x43434248
+PATCH 37 0x141371a8a 4 23430136 0x564c4142
+PATCH 38 0x141371a92 4 6577f06c 0x3002
+PATCH 39 0x1413bbe85 4 1f085208 0x71471f9c
+PATCH 40 0x1413bbead 4 e5025910 0x4fffffff
+TIME 60.001477003097534 RIP 0x1424c4fe1 BLOCKS []
+RAX 0x2d
+RBX 0x1bcc24185
+RCX 0xfffffffffff78000
+RDX 0x14240fb53
+RSI 0x10fef5a0
+RDI 0x10fef5a8
+RBP 0xf91db
+RSP 0x10fef390
+R8 0x14240fccb
+R9 0x10fef5c8
+R10 0x1424c4fd0
+R11 0xfffffffffffe8dc9
+R12 0xedfa
+R13 0x1bdab9ea
+R14 0x7efe
+R15 0x7580794a
