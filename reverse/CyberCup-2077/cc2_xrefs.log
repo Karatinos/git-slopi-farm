@@ -1,0 +1,14 @@
+0x14060fd93 or r10, qword ptr [rip + 0xb48a7e] TARGET 0x141158818
+0x14061dca0 mov r10, qword ptr [rip + 0xb3ab79] TARGET 0x141158820
+0x14062a560 mov r10, qword ptr [rip + 0xb2e2c1] TARGET 0x141158828
+0x140637c80 mov r10, qword ptr [rip + 0xb20ba9] TARGET 0x141158830
+0x140646e40 mov r10, qword ptr [rip + 0xb119f1] TARGET 0x141158838
+0x140654d13 or r10, qword ptr [rip + 0xb03b26] TARGET 0x141158840
+0x140661856 xor r11, qword ptr [rip + 0xaf6feb] TARGET 0x141158848
+0x14066ef06 xor r11, qword ptr [rip + 0xae9943] TARGET 0x141158850
+0x14067dab6 xor r11, qword ptr [rip + 0xadad9b] TARGET 0x141158858
+0x140697463 xor r10, qword ptr [rip + 0xac13f6] TARGET 0x141158860
+0x140697d30 mov r10, qword ptr [rip + 0xac0b31] TARGET 0x141158868
+0x1406992fe lea rax, [rip + 0xabf573] TARGET 0x141158878
+0x1406994ff movdqa xmm0, xmmword ptr [rip + 0xabf379] TARGET 0x141158880
+0x140699b3d lea rcx, [rip + 0xabed4c] TARGET 0x141158890
